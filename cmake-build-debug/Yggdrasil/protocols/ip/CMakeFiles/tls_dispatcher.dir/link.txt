@@ -1,0 +1,2 @@
+/usr/bin/ar qc ../../../../lib/libtls_dispatcher.a  CMakeFiles/tls_dispatcher.dir/dispatcher/simple_tls_dispatcher.c.o
+/usr/bin/ranlib ../../../../lib/libtls_dispatcher.a

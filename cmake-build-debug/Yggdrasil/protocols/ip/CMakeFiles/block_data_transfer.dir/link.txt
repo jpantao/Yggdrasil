@@ -1,0 +1,2 @@
+/usr/bin/ar qc ../../../../lib/libblock_data_transfer.a  CMakeFiles/block_data_transfer.dir/data_transfer/block_data_transfer.c.o
+/usr/bin/ranlib ../../../../lib/libblock_data_transfer.a

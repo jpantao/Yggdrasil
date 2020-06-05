@@ -1,0 +1,2 @@
+/usr/bin/ar qc ../../../../lib/libplumtree_mem_opt_flow_control.a  CMakeFiles/plumtree_mem_opt_flow_control.dir/dissemination/plumtree_mem_optimized_flow_control.c.o
+/usr/bin/ranlib ../../../../lib/libplumtree_mem_opt_flow_control.a

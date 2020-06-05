@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6"/>
+	<Project>
+		<Option title="file transfer"/>
+		<Option makefile_is_custom="1"/>
+		<Option compiler="gcc"/>
+		<Option virtualFolders="CMake Files\;CMake Files\Yggdrasil\;CMake Files\Yggdrasil\applications\;CMake Files\Yggdrasil\applications\demos\;CMake Files\Yggdrasil\applications\tests\;CMake Files\Yggdrasil\applications\tests\ip\;CMake Files\Yggdrasil\applications\tests\wireless\;CMake Files\Yggdrasil\applications\tests\other\;CMake Files\Yggdrasil\applications\file transfer\;CMake Files\Yggdrasil\interfaces\;CMake Files\Yggdrasil\protocols\;CMake Files\Yggdrasil\protocols\wireless\;CMake Files\Yggdrasil\utils\;CMake Files\Yggdrasil\core\;CMake Files\Yggdrasil\remote_control\;CMake Files\Yggdrasil\remote_control\utils\;CMake Files\Yggdrasil\remote_control\protocols\;CMake Files\Yggdrasil\remote_control\applications\;CMake Files\Yggdrasil\remote_control_new\;CMake Files\Yggdrasil\remote_control_new\utils\;CMake Files\Yggdrasil\remote_control_new\protocols\;CMake Files\Yggdrasil\remote_control_new\applications\;CMake Files\Yggdrasil-LowLevelLib\;"/>
+		<Build>
+			<Target title="all">
+				<Option working_dir="/home/jpantao/Git/BScResearch/Yggdrasil/cmake-build-debug/Yggdrasil/applications/file transfer"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j8 -f &quot;/home/jpantao/Git/BScResearch/Yggdrasil/cmake-build-debug/Yggdrasil/applications/file\ transfer/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/gmake -j8 -f &quot;/home/jpantao/Git/BScResearch/Yggdrasil/cmake-build-debug/Yggdrasil/applications/file\ transfer/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j8 -f &quot;/home/jpantao/Git/BScResearch/Yggdrasil/cmake-build-debug/Yggdrasil/applications/file\ transfer/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j8 -f &quot;/home/jpantao/Git/BScResearch/Yggdrasil/cmake-build-debug/Yggdrasil/applications/file\ transfer/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="yggFileServer">
+				<Option output="/home/jpantao/Git/BScResearch/Yggdrasil/bin/yggFileServer" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/jpantao/Git/BScResearch/Yggdrasil/bin"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add option="-DIP_NETWORKS"/>
+					<Add directory="/home/jpantao/Git/BScResearch/Yggdrasil/Yggdrasil/applications/file transfer/../.."/>
+					<Add directory="/home/jpantao/Git/BScResearch/Yggdrasil/Yggdrasil/applications/file transfer/../../core"/>
+					<Add directory="/home/jpantao/Git/BScResearch/Yggdrasil/Yggdrasil/applications/file transfer/../../../Yggdrasil-LowLevelLib"/>
+					<Add directory="/home/jpantao/Git/BScResearch/Yggdrasil/Yggdrasil/core/."/>
+					<Add directory="/home/jpantao/Git/BScResearch/Yggdrasil/Yggdrasil/core/../../Yggdrasil-LowLevelLib"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/10/../../../../include/c++/10"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/10/../../../../include/c++/10/x86_64-redhat-linux"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/10/../../../../include/c++/10/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/10/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j8 -f &quot;/home/jpantao/Git/BScResearch/Yggdrasil/cmake-build-debug/Yggdrasil/applications/file\ transfer/Makefile&quot;  VERBOSE=1 yggFileServer"/>
+					<CompileFile command="/usr/bin/gmake -j8 -f &quot;/home/jpantao/Git/BScResearch/Yggdrasil/cmake-build-debug/Yggdrasil/applications/file\ transfer/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j8 -f &quot;/home/jpantao/Git/BScResearch/Yggdrasil/cmake-build-debug/Yggdrasil/applications/file\ transfer/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j8 -f &quot;/home/jpantao/Git/BScResearch/Yggdrasil/cmake-build-debug/Yggdrasil/applications/file\ transfer/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="yggFileServer/fast">
+				<Option output="/home/jpantao/Git/BScResearch/Yggdrasil/bin/yggFileServer" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/jpantao/Git/BScResearch/Yggdrasil/bin"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add option="-DIP_NETWORKS"/>
+					<Add directory="/home/jpantao/Git/BScResearch/Yggdrasil/Yggdrasil/applications/file transfer/../.."/>
+					<Add directory="/home/jpantao/Git/BScResearch/Yggdrasil/Yggdrasil/applications/file transfer/../../core"/>
+					<Add directory="/home/jpantao/Git/BScResearch/Yggdrasil/Yggdrasil/applications/file transfer/../../../Yggdrasil-LowLevelLib"/>
+					<Add directory="/home/jpantao/Git/BScResearch/Yggdrasil/Yggdrasil/core/."/>
+					<Add directory="/home/jpantao/Git/BScResearch/Yggdrasil/Yggdrasil/core/../../Yggdrasil-LowLevelLib"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/10/../../../../include/c++/10"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/10/../../../../include/c++/10/x86_64-redhat-linux"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/10/../../../../include/c++/10/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/10/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j8 -f &quot;/home/jpantao/Git/BScResearch/Yggdrasil/cmake-build-debug/Yggdrasil/applications/file\ transfer/Makefile&quot;  VERBOSE=1 yggFileServer/fast"/>
+					<CompileFile command="/usr/bin/gmake -j8 -f &quot;/home/jpantao/Git/BScResearch/Yggdrasil/cmake-build-debug/Yggdrasil/applications/file\ transfer/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j8 -f &quot;/home/jpantao/Git/BScResearch/Yggdrasil/cmake-build-debug/Yggdrasil/applications/file\ transfer/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j8 -f &quot;/home/jpantao/Git/BScResearch/Yggdrasil/cmake-build-debug/Yggdrasil/applications/file\ transfer/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="yggTransfer">
+				<Option output="/home/jpantao/Git/BScResearch/Yggdrasil/bin/yggTransfer" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/jpantao/Git/BScResearch/Yggdrasil/bin"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add option="-DIP_NETWORKS"/>
+					<Add directory="/home/jpantao/Git/BScResearch/Yggdrasil/Yggdrasil/applications/file transfer/../.."/>
+					<Add directory="/home/jpantao/Git/BScResearch/Yggdrasil/Yggdrasil/applications/file transfer/../../core"/>
+					<Add directory="/home/jpantao/Git/BScResearch/Yggdrasil/Yggdrasil/applications/file transfer/../../../Yggdrasil-LowLevelLib"/>
+					<Add directory="/home/jpantao/Git/BScResearch/Yggdrasil/Yggdrasil/core/."/>
+					<Add directory="/home/jpantao/Git/BScResearch/Yggdrasil/Yggdrasil/core/../../Yggdrasil-LowLevelLib"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/10/../../../../include/c++/10"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/10/../../../../include/c++/10/x86_64-redhat-linux"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/10/../../../../include/c++/10/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/10/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j8 -f &quot;/home/jpantao/Git/BScResearch/Yggdrasil/cmake-build-debug/Yggdrasil/applications/file\ transfer/Makefile&quot;  VERBOSE=1 yggTransfer"/>
+					<CompileFile command="/usr/bin/gmake -j8 -f &quot;/home/jpantao/Git/BScResearch/Yggdrasil/cmake-build-debug/Yggdrasil/applications/file\ transfer/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j8 -f &quot;/home/jpantao/Git/BScResearch/Yggdrasil/cmake-build-debug/Yggdrasil/applications/file\ transfer/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j8 -f &quot;/home/jpantao/Git/BScResearch/Yggdrasil/cmake-build-debug/Yggdrasil/applications/file\ transfer/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="yggTransfer/fast">
+				<Option output="/home/jpantao/Git/BScResearch/Yggdrasil/bin/yggTransfer" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/jpantao/Git/BScResearch/Yggdrasil/bin"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add option="-DIP_NETWORKS"/>
+					<Add directory="/home/jpantao/Git/BScResearch/Yggdrasil/Yggdrasil/applications/file transfer/../.."/>
+					<Add directory="/home/jpantao/Git/BScResearch/Yggdrasil/Yggdrasil/applications/file transfer/../../core"/>
+					<Add directory="/home/jpantao/Git/BScResearch/Yggdrasil/Yggdrasil/applications/file transfer/../../../Yggdrasil-LowLevelLib"/>
+					<Add directory="/home/jpantao/Git/BScResearch/Yggdrasil/Yggdrasil/core/."/>
+					<Add directory="/home/jpantao/Git/BScResearch/Yggdrasil/Yggdrasil/core/../../Yggdrasil-LowLevelLib"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/10/../../../../include/c++/10"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/10/../../../../include/c++/10/x86_64-redhat-linux"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/10/../../../../include/c++/10/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/10/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j8 -f &quot;/home/jpantao/Git/BScResearch/Yggdrasil/cmake-build-debug/Yggdrasil/applications/file\ transfer/Makefile&quot;  VERBOSE=1 yggTransfer/fast"/>
+					<CompileFile command="/usr/bin/gmake -j8 -f &quot;/home/jpantao/Git/BScResearch/Yggdrasil/cmake-build-debug/Yggdrasil/applications/file\ transfer/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j8 -f &quot;/home/jpantao/Git/BScResearch/Yggdrasil/cmake-build-debug/Yggdrasil/applications/file\ transfer/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j8 -f &quot;/home/jpantao/Git/BScResearch/Yggdrasil/cmake-build-debug/Yggdrasil/applications/file\ transfer/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="yggFileTransfer">
+				<Option working_dir="/home/jpantao/Git/BScResearch/Yggdrasil/cmake-build-debug/Yggdrasil/applications/file transfer"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j8 -f &quot;/home/jpantao/Git/BScResearch/Yggdrasil/cmake-build-debug/Yggdrasil/applications/file\ transfer/Makefile&quot;  VERBOSE=1 yggFileTransfer"/>
+					<CompileFile command="/usr/bin/gmake -j8 -f &quot;/home/jpantao/Git/BScResearch/Yggdrasil/cmake-build-debug/Yggdrasil/applications/file\ transfer/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j8 -f &quot;/home/jpantao/Git/BScResearch/Yggdrasil/cmake-build-debug/Yggdrasil/applications/file\ transfer/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j8 -f &quot;/home/jpantao/Git/BScResearch/Yggdrasil/cmake-build-debug/Yggdrasil/applications/file\ transfer/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+		</Build>
+		<Unit filename="/home/jpantao/Git/BScResearch/Yggdrasil/Yggdrasil/applications/file transfer/main.c">
+			<Option target="yggFileServer"/>
+		</Unit>
+		<Unit filename="/home/jpantao/Git/BScResearch/Yggdrasil/Yggdrasil/applications/file transfer/tools/transfer.c">
+			<Option target="yggTransfer"/>
+		</Unit>
+		<Unit filename="/home/jpantao/Git/BScResearch/Yggdrasil/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+		<Unit filename="/home/jpantao/Git/BScResearch/Yggdrasil/Yggdrasil/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\Yggdrasil\"/>
+		</Unit>
+		<Unit filename="/home/jpantao/Git/BScResearch/Yggdrasil/Yggdrasil/applications/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\Yggdrasil\applications\"/>
+		</Unit>
+		<Unit filename="/home/jpantao/Git/BScResearch/Yggdrasil/Yggdrasil/applications/demos/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\Yggdrasil\applications\demos\"/>
+		</Unit>
+		<Unit filename="/home/jpantao/Git/BScResearch/Yggdrasil/Yggdrasil/applications/tests/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\Yggdrasil\applications\tests\"/>
+		</Unit>
+		<Unit filename="/home/jpantao/Git/BScResearch/Yggdrasil/Yggdrasil/applications/tests/ip/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\Yggdrasil\applications\tests\ip\"/>
+		</Unit>
+		<Unit filename="/home/jpantao/Git/BScResearch/Yggdrasil/Yggdrasil/applications/tests/wireless/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\Yggdrasil\applications\tests\wireless\"/>
+		</Unit>
+		<Unit filename="/home/jpantao/Git/BScResearch/Yggdrasil/Yggdrasil/applications/tests/other/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\Yggdrasil\applications\tests\other\"/>
+		</Unit>
+		<Unit filename="/home/jpantao/Git/BScResearch/Yggdrasil/Yggdrasil/applications/file transfer/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\Yggdrasil\applications\file transfer\"/>
+		</Unit>
+		<Unit filename="/home/jpantao/Git/BScResearch/Yggdrasil/Yggdrasil/interfaces/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\Yggdrasil\interfaces\"/>
+		</Unit>
+		<Unit filename="/home/jpantao/Git/BScResearch/Yggdrasil/Yggdrasil/protocols/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\Yggdrasil\protocols\"/>
+		</Unit>
+		<Unit filename="/home/jpantao/Git/BScResearch/Yggdrasil/Yggdrasil/protocols/wireless/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\Yggdrasil\protocols\wireless\"/>
+		</Unit>
+		<Unit filename="/home/jpantao/Git/BScResearch/Yggdrasil/Yggdrasil/utils/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\Yggdrasil\utils\"/>
+		</Unit>
+		<Unit filename="/home/jpantao/Git/BScResearch/Yggdrasil/Yggdrasil/core/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\Yggdrasil\core\"/>
+		</Unit>
+		<Unit filename="/home/jpantao/Git/BScResearch/Yggdrasil/Yggdrasil/remote_control/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\Yggdrasil\remote_control\"/>
+		</Unit>
+		<Unit filename="/home/jpantao/Git/BScResearch/Yggdrasil/Yggdrasil/remote_control/utils/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\Yggdrasil\remote_control\utils\"/>
+		</Unit>
+		<Unit filename="/home/jpantao/Git/BScResearch/Yggdrasil/Yggdrasil/remote_control/protocols/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\Yggdrasil\remote_control\protocols\"/>
+		</Unit>
+		<Unit filename="/home/jpantao/Git/BScResearch/Yggdrasil/Yggdrasil/remote_control/applications/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\Yggdrasil\remote_control\applications\"/>
+		</Unit>
+		<Unit filename="/home/jpantao/Git/BScResearch/Yggdrasil/Yggdrasil/remote_control_new/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\Yggdrasil\remote_control_new\"/>
+		</Unit>
+		<Unit filename="/home/jpantao/Git/BScResearch/Yggdrasil/Yggdrasil/remote_control_new/utils/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\Yggdrasil\remote_control_new\utils\"/>
+		</Unit>
+		<Unit filename="/home/jpantao/Git/BScResearch/Yggdrasil/Yggdrasil/remote_control_new/protocols/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\Yggdrasil\remote_control_new\protocols\"/>
+		</Unit>
+		<Unit filename="/home/jpantao/Git/BScResearch/Yggdrasil/Yggdrasil/remote_control_new/applications/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\Yggdrasil\remote_control_new\applications\"/>
+		</Unit>
+		<Unit filename="/home/jpantao/Git/BScResearch/Yggdrasil/Yggdrasil-LowLevelLib/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\Yggdrasil-LowLevelLib\"/>
+		</Unit>
+	</Project>
+</CodeBlocks_project_file>

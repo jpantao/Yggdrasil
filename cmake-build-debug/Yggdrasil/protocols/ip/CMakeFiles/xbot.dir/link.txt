@@ -1,0 +1,2 @@
+/usr/bin/ar qc ../../../../lib/libxbot.a  CMakeFiles/xbot.dir/membership/xbot.c.o CMakeFiles/xbot.dir/utility/oracles/udp_oracle.c.o
+/usr/bin/ranlib ../../../../lib/libxbot.a

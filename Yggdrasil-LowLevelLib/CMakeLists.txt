@@ -30,8 +30,7 @@ add_library(ygglib_wireless_new ${SRC_WIRELESS_FILES_SRC})
 target_compile_definitions(ygglib_wireless_new PUBLIC NEW)
 target_link_libraries(ygglib_wireless_new PUBLIC ygglib_base nl-genl-3 nl-3)
 target_include_directories(ygglib_wireless_new PUBLIC /usr/include/libnl3)
-add_executable(filters test/dynamic_filter.c)
-target_link_libraries(filters ygglib_wireless_new pthread)
+
 
 
 # include headers

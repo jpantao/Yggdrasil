@@ -1,0 +1,2 @@
+/usr/bin/ar qc ../../../../lib/libplumtree_mem_opt.a  CMakeFiles/plumtree_mem_opt.dir/dissemination/plumtree_mem_optimized.c.o CMakeFiles/plumtree_mem_opt.dir/dissemination/common_dissemination_interface.c.o
+/usr/bin/ranlib ../../../../lib/libplumtree_mem_opt.a

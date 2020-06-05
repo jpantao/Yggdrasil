@@ -1,0 +1,2 @@
+/usr/bin/ar qc ../../../../lib/libcontrol_tree.a  CMakeFiles/control_tree.dir/control_command_tcp_tree.c.o CMakeFiles/control_tree.dir/__/utils/control_protocol_utils.c.o
+/usr/bin/ranlib ../../../../lib/libcontrol_tree.a

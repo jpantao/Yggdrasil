@@ -1,0 +1,2 @@
+/usr/bin/ar qc ../../../../lib/libsimple_data_transfer.a  CMakeFiles/simple_data_transfer.dir/data_transfer/simple_data_transfer.c.o
+/usr/bin/ranlib ../../../../lib/libsimple_data_transfer.a

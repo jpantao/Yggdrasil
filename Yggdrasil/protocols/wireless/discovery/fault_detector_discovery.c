@@ -230,7 +230,7 @@ static void process_announcement(YggTimer* timer, fdd_state* state) {
 
 			neighbour_item* toRemove = (neighbour_item*)list_remove_head(state->database);
 
-			send_event_neighbour_down(state->proto_id, toRemove->id);
+			send_event_neighbour_down(state->proto_id, toRemove->id, &toRemove->addr);
 
 			char uuid_str[37];
 			bzero(uuid_str,37);
@@ -256,7 +256,7 @@ static void process_announcement(YggTimer* timer, fdd_state* state) {
 
 					neighbour_item* toRemove = list_remove(state->database, it);
 
-					send_event_neighbour_down(state->proto_id, toRemove->id);
+					send_event_neighbour_down(state->proto_id, toRemove->id, &toRemove->addr);
 
 					uuid_unparse(toRemove->id, uuid_str);
 					ygg_log("FAULT DETECTOR DISCOVERY", "SUSPECT NODE", uuid_str);
