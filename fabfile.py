@@ -14,13 +14,13 @@ yggdrasil_remote= "~/Yggdrasil"
 # raspis = ['192.168.1.102','192.168.1.106','192.168.1.118']
 
 # ALL
-# raspis = [
-#     '192.168.1.101','192.168.1.102','192.168.1.103','192.168.1.104','192.168.1.105',
-#     '192.168.1.106','192.168.1.107','192.168.1.108','192.168.1.109','192.168.1.110',
-#     '192.168.1.111','192.168.1.112','192.168.1.113','192.168.1.114','192.168.1.115',
-#     '192.168.1.116','192.168.1.117','192.168.1.118','192.168.1.119','192.168.1.120',
-#     '192.168.1.121'
-#     ]
+raspis = [
+    '192.168.1.101','192.168.1.102','192.168.1.103','192.168.1.104','192.168.1.105',
+    '192.168.1.106','192.168.1.107','192.168.1.108','192.168.1.109','192.168.1.110',
+    '192.168.1.111','192.168.1.112','192.168.1.113','192.168.1.114','192.168.1.115',
+    '192.168.1.116','192.168.1.117','192.168.1.118','192.168.1.119','192.168.1.120',
+    '192.168.1.121'
+    ]
 
 raspis = [
     '192.168.1.101','192.168.1.102','192.168.1.105',
@@ -114,7 +114,7 @@ def sync():
     local('rsync -avz --delete --exclude "*CMakeFiles*" --exclude "*.o" --rsh="ssh -o StrictHostKeyChecking=no" -i ' + env.userKey + ' ' + yggdrasil_home + ' ' + env.user + '@%s:~/Production/' % (env.host))
     local('rsync -avz --rsh="ssh -o StrictHostKeyChecking=no" -i ' + env.userKey + ' CMakeLists.txt ' + env.user + '@%s:~/Production/' % (env.host))
     local('rsync -avz --rsh="ssh -o StrictHostKeyChecking=no" -i ' + env.userKey + ' fabfile.py ' + env.user + '@%s:~/' % (env.host))
-    local('rsync -avz --rsh="ssh -o StrictHostKeyChecking=no" -i ' + env.userKey + ' tools ' + env.user + '@%s:~/' % (env.host))
+
 
 
 @parallel
@@ -220,6 +220,18 @@ def shutdown():
 
 @parallel
 @hosts(raspis)
+def configureboot():
+    with cd("~/tools/"):
+        run("sudo mv yggdrasil_control.sh /etc/init.d/")
+        run("sudo chmod +x /etc/init.d/yggdrasil_control.sh")
+        run("sudo cp *.sh /home/yggdrasil/tools")
+        run("sudo chmod +x /home/yggdrasil/tools/*.sh")
+        run("sudo cp runonboot.txt /home/yggdrasil/tools")
+    with cd("/etc/init.d"):
+        run("sudo update-rc.d yggdrasil_control.sh defaults")
+
+@parallel
+@hosts(raspis)
 def run_target(target):
     with cd("~/Production"):
         run("bin/"+target +" 169.254.242.48 5000 2>&1 > "+ target+".out &")
@@ -228,15 +240,217 @@ def run_target(target):
 @hosts(raspis)
 def build(target):
     with cd("~/Production/build"):
-        run("cmake .. && make "+target)
+        run("cmake ..; make "+target)
 
 @parallel
 @hosts(raspis)
-def buildAll():
-    with cd("~/Production/build"):
-        run("cmake .. && make ")
+def rebuild():
+    run("make")
 
 @parallel
 @hosts(raspis)
-def exec(command):
-    run(command)
+def runtest(test):
+    with cd("~/Production"):
+        run("/usr/bin/nohup tools/run.sh " + test)
+
+@parallel
+@hosts(raspis)
+def runtestwitharg(test, arg):
+    with cd("~/tools/"):
+        run("/usr/bin/nohup ./runWithArg.sh " + test + " " + arg)
+
+@parallel
+@hosts(raspis)
+def checktestlive(test):
+    run("sudo ps ax | grep '"+test+"' | wc -l")
+
+@parallel
+@hosts(raspis)
+def stopcontrol():
+    run("sudo kill -3 `pidof YggdrasilControlProcess`")
+
+@parallel
+@hosts(raspis)
+def stoptest(test):
+    run("sudo killall -3 " + test)
+
+@parallel
+@hosts(raspis)
+def killtest(test):
+    run("sudo killall -9 " + test)
+
+@parallel
+@hosts(raspis)
+def armageddon():
+    run("sudo rm -rf ~/*")
+
+@parallel
+@hosts(raspis)
+def rmnohup():
+    run("sudo rm tools/nohup.out")
+
+@parallel
+@hosts(raspis)
+def instalBatman():
+    run("wget https://downloads.open-mesh.org/batman/stable/sources/batman/batman-0.3.tar.gz; tar xzvf batman-0.3.tar.gz; cd batman-0.3; make")
+
+@parallel
+@hosts(raspis)
+def setBatman():
+    with cd("~/batman-0.3"):
+        run("sudo cp batmand /usr/sbin/")
+
+@parallel
+@hosts(raspis)
+def runBatman():
+    run("sudo batmand -o 2000 wlan0")
+
+@parallel
+@hosts(raspis)
+def killBatman():
+    run("sudo killall -9 batmand")
+
+@parallel
+@hosts(raspis)
+def setAdhoc():
+    run("sudo iw dev wlan0 set type ibss")
+    run("sudo iw dev wlan0 ibss join ledge 2412")
+
+
+@parallel
+@hosts(raspis)
+def runExp(exp):
+    with cd("~/tools/"):
+        run("/usr/bin/nohup ./runExp.sh " + exp)
+
+@parallel
+@hosts(raspis)
+def stopExp(exp,out):
+    run("sudo killall -3 "+exp)
+    run("mv /home/yggdrasil/output_exp.out "+out)
+
+
+@parallel
+@hosts(raspis)
+def mkdir(dir):
+    run("mkdir "+dir)
+
+
+@hosts(raspis)
+def checkfiles():
+    run("sudo ls -raloh files/90*")
+
+@parallel
+@hosts(raspis)
+def rmfiles():
+    run("sudo rm -r files/90*")
+
+
+@parallel
+@hosts(raspis)
+def checkFAILED():
+    with cd("~/Production"):
+        run("grep FAILED BenchB.out")
+
+@hosts(raspis)
+def checkPUT():
+    with cd("~/Production"):
+        run("grep PUT BenchB.out | wc -l")
+
+@parallel()
+@hosts(raspis)
+def install(package):
+    run("sudo apt install " + package)
+
+
+@parallel()
+@hosts(raspis)
+def getResults():
+    get("Results/*")
+
+
+#---------------------------------------------------------------------------------------------------------------------
+#--------------------------------------------------- Cloudy-----------------------------------------------------------
+#---------------------------------------------------------------------------------------------------------------------
+
+cloudy = [
+    #VM
+    'ygg@10.1.24.136',
+    'ygg@10.139.40.117',
+    'ygg@10.139.40.76',
+    #RPI
+    'ygg@10.1.24.150',
+    #'ygg@10.139.40.221', host is down
+    'ygg@10.139.40.222',
+    'ygg@10.139.40.223',
+    'ygg@10.139.40.224',
+    'ygg@10.139.40.225',
+    'ygg@10.139.40.226',
+    #Picasso TestBed
+    'ygg@10.1.24.40',
+    #'ygg@10.1.10.26',
+    'ygg@10.228.206.40',
+    'ygg@10.1.15.70',
+    #'ygg@10.1.13.103', unreachable
+    #'ygg@10.1.9.47', no internet
+    'ygg@10.1.8.246',
+]
+
+@hosts(cloudy)
+def test_cloudy():
+    run("hostname")
+
+
+@parallel
+@hosts(cloudy)
+def mkdir_cloudy(dir):
+    run('mkdir '+dir)
+
+@parallel
+@hosts(cloudy)
+def sync_cloudy():
+    local('rsync -avz --delete --exclude "*CMakeFiles*" --exclude "*.o" --rsh="ssh -o StrictHostKeyChecking=no" -i ' + env.userKey + ' ' + yggdrasil_lowlevel + ' ' + env.user + '@%s:~/yggdrasil/' % (env.host))
+    local('rsync -avz --delete --exclude "*CMakeFiles*" --exclude "*.o" --rsh="ssh -o StrictHostKeyChecking=no" -i ' + env.userKey + ' ' + yggdrasil_home + ' ' + env.user + '@%s:~/yggdrasil/' % (env.host))
+    local('rsync -avz --rsh="ssh -o StrictHostKeyChecking=no" -i ' + env.userKey + ' CMakeLists.txt ' + env.user + '@%s:~/yggdrasil/' % (env.host))
+    #local('rsync -avz --rsh="ssh -o StrictHostKeyChecking=no" -i ' + env.userKey + ' tools ' + env.user + '@%s:~/' % (env.host))
+
+@parallel
+@hosts(cloudy)
+def build_cloudy(target):
+    with cd("~/yggdrasil/build"):
+        run("cmake ..; make "+target)
+
+@parallel
+@hosts(cloudy)
+def install_cloudy(package):
+    run('sudo apt-get install '+package)
+
+@parallel
+@hosts(cloudy)
+def rm_files_cloudy():
+    run("rm -r files/900*")
+
+@parallel
+@hosts(cloudy)
+def rm_file_cloudy(filename):
+    run("rm files/900*/"+filename)
+
+
+@parallel
+@hosts(cloudy)
+def get_outs_cloudy():
+    get("~/yggdrasil/*.out")
+
+
+@parallel
+@hosts(cloudy)
+def clean_cloudy():
+    run("rm ~/yggdrasil/*.out")
+
+
+@parallel
+@hosts(cloudy)
+def transfer(file):
+    local("scp "+ file + " " +  env.user + '@%s:~/yggdrasil/' % (env.host))
+
+

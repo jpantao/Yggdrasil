@@ -1,1 +1,0 @@
-/usr/bin/cc  -g -Wall -O0 -g -Wall -O0 -g  -rdynamic CMakeFiles/test_tls.dir/tls_test.c.o  -o ../../../../../bin/test_tls  ../../../../../lib/libyggcore_ip.a -ltls_dispatcher ../../../../../lib/libyggcore_ip.a ../../../../../lib/libygglib_ip.a ../../../../../lib/libygglib_base.a ../../../../../lib/libgen_data_structs.a -lm -lpthread -luuid -lrt -lssl -lcrypto 

@@ -1,2 +1,0 @@
-/usr/bin/ar qc ../../../../lib/libplumtree.a  CMakeFiles/plumtree.dir/dissemination/plumtree.c.o
-/usr/bin/ranlib ../../../../lib/libplumtree.a

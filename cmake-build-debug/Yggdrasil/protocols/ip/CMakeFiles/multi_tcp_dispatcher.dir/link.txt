@@ -1,2 +1,0 @@
-/usr/bin/ar qc ../../../../lib/libmulti_tcp_dispatcher.a  CMakeFiles/multi_tcp_dispatcher.dir/dispatcher/multi_tcp_socket_dispatcher.c.o
-/usr/bin/ranlib ../../../../lib/libmulti_tcp_dispatcher.a

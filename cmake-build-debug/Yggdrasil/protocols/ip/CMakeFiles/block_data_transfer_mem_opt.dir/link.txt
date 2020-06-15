@@ -1,2 +1,0 @@
-/usr/bin/ar qc ../../../../lib/libblock_data_transfer_mem_opt.a  CMakeFiles/block_data_transfer_mem_opt.dir/data_transfer/block_data_transfer_mem_opt.c.o CMakeFiles/block_data_transfer_mem_opt.dir/dissemination/common_dissemination_interface.c.o
-/usr/bin/ranlib ../../../../lib/libblock_data_transfer_mem_opt.a

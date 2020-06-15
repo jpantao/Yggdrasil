@@ -1,1 +1,0 @@
-/usr/bin/cc  -g -Wall -O0 -Wall -O3 -g  -rdynamic CMakeFiles/yggTransfer.dir/tools/transfer.c.o  -o ../../../../bin/yggTransfer  ../../../../lib/libyggcore_ip.a ../../../../lib/libygglib_ip.a ../../../../lib/libygglib_base.a ../../../../lib/libgen_data_structs.a -lm -lpthread -luuid -lrt 

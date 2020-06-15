@@ -1,4 +1,0 @@
-/home/jpantao/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/201.7846.88/bin/cmake/linux/bin/cmake -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - Unix Makefiles" /home/jpantao/Git/BScResearch/Yggdrasil
--- Configuring done
--- Generating done
--- Build files have been written to: /home/jpantao/Git/BScResearch/Yggdrasil/cmake-build-debug

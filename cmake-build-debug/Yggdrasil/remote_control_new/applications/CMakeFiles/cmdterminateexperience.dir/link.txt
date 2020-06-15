@@ -1,1 +1,0 @@
-/usr/bin/cc  -g -Wall -O0 -g  -rdynamic CMakeFiles/cmdterminateexperience.dir/tools/terminateexperience.c.o  -o ../../../../bin/cmdterminateexperience  ../../../../lib/libcmdio_new.a -luuid 

@@ -1,2 +1,0 @@
-/usr/bin/ar qc ../../../../lib/libfault_detection_discovery.a  CMakeFiles/fault_detection_discovery.dir/discovery/fault_detector_discovery.c.o
-/usr/bin/ranlib ../../../../lib/libfault_detection_discovery.a

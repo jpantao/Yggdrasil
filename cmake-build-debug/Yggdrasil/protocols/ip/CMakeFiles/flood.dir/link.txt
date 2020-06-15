@@ -1,2 +1,0 @@
-/usr/bin/ar qc ../../../../lib/libflood.a  CMakeFiles/flood.dir/dissemination/flood.c.o CMakeFiles/flood.dir/dissemination/common_dissemination_interface.c.o
-/usr/bin/ranlib ../../../../lib/libflood.a
