@@ -229,7 +229,6 @@ int yggdfs_open(const char *path, struct fuse_file_info *fi){
 }
 
 int yggdfs_read(const char *path, char *buf, size_t size, off_t offset, struct fuse_file_info *fi){
-    int retstat = 0;
     
     log_msg("\nyggdfs_read(path=\"%s\", buf=0x%08x, size=%d, offset=%lld, fi=0x%08x)\n",
 	    path, buf, size, offset, fi);
@@ -240,8 +239,7 @@ int yggdfs_read(const char *path, char *buf, size_t size, off_t offset, struct f
 }
 
 int yggdfs_write(const char *path, const char *buf, size_t size, off_t offset, struct fuse_file_info *fi){
-    int retstat = 0;
-    
+
     log_msg("\nyggdfs_write(path=\"%s\", buf=0x%08x, size=%d, offset=%lld, fi=0x%08x)\n",
 	    path, buf, size, offset, fi
 	    );
