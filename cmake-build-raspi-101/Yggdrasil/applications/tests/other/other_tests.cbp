@@ -8,25 +8,25 @@
 		<Option virtualFolders="CMake Files\;CMake Files\Yggdrasil\;CMake Files\Yggdrasil\applications\;CMake Files\Yggdrasil\applications\demos\;CMake Files\Yggdrasil\applications\tests\;CMake Files\Yggdrasil\applications\tests\wireless\;CMake Files\Yggdrasil\applications\tests\other\;CMake Files\Yggdrasil\interfaces\;CMake Files\Yggdrasil\protocols\;CMake Files\Yggdrasil\protocols\wireless\;CMake Files\Yggdrasil\utils\;CMake Files\Yggdrasil\YggDFS\;CMake Files\Yggdrasil\YggDFS\utils\;CMake Files\Yggdrasil\YggDFS\protocols\;CMake Files\Yggdrasil\YggDFS\applications\;CMake Files\Yggdrasil\YggDFS\applications\CMake\;CMake Files\Yggdrasil\core\;CMake Files\Yggdrasil\remote_control\;CMake Files\Yggdrasil\remote_control\utils\;CMake Files\Yggdrasil\remote_control\protocols\;CMake Files\Yggdrasil\remote_control\applications\;CMake Files\Yggdrasil\remote_control_new\;CMake Files\Yggdrasil\remote_control_new\utils\;CMake Files\Yggdrasil\remote_control_new\protocols\;CMake Files\Yggdrasil\remote_control_new\applications\;CMake Files\Yggdrasil-LowLevelLib\;"/>
 		<Build>
 			<Target title="all">
-				<Option working_dir="/tmp/tmp.uw2GsBf4tT/cmake-build-raspi-101/Yggdrasil/applications/tests/other"/>
+				<Option working_dir="/tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101/Yggdrasil/applications/tests/other"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j4 -f &quot;/tmp/tmp.uw2GsBf4tT/cmake-build-raspi-101/Yggdrasil/applications/tests/other/Makefile&quot;  VERBOSE=1 all"/>
-					<CompileFile command="/usr/bin/make -j4 -f &quot;/tmp/tmp.uw2GsBf4tT/cmake-build-raspi-101/Yggdrasil/applications/tests/other/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j4 -f &quot;/tmp/tmp.uw2GsBf4tT/cmake-build-raspi-101/Yggdrasil/applications/tests/other/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j4 -f &quot;/tmp/tmp.uw2GsBf4tT/cmake-build-raspi-101/Yggdrasil/applications/tests/other/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j4 -f &quot;/tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101/Yggdrasil/applications/tests/other/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101/Yggdrasil/applications/tests/other/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101/Yggdrasil/applications/tests/other/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101/Yggdrasil/applications/tests/other/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="file_server_client">
-				<Option output="/tmp/tmp.uw2GsBf4tT/bin/file_server_client" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="/tmp/tmp.uw2GsBf4tT/bin"/>
+				<Option output="/tmp/tmp.4yRsQEGfYg/bin/file_server_client" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/tmp/tmp.4yRsQEGfYg/bin"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
 				<Option compiler="gcc"/>
 				<Compiler>
-					<Add directory="/tmp/tmp.uw2GsBf4tT/Yggdrasil/applications/tests/other/../../.."/>
-					<Add directory="/tmp/tmp.uw2GsBf4tT/Yggdrasil/applications/tests/other/../../../core"/>
-					<Add directory="/tmp/tmp.uw2GsBf4tT/Yggdrasil/applications/tests/other/../../../../Yggdrasil-LowLevelLib"/>
+					<Add directory="/tmp/tmp.4yRsQEGfYg/Yggdrasil/applications/tests/other/../../.."/>
+					<Add directory="/tmp/tmp.4yRsQEGfYg/Yggdrasil/applications/tests/other/../../../core"/>
+					<Add directory="/tmp/tmp.4yRsQEGfYg/Yggdrasil/applications/tests/other/../../../../Yggdrasil-LowLevelLib"/>
 					<Add directory="/usr/include/c++/8"/>
 					<Add directory="/usr/include/arm-linux-gnueabihf/c++/8"/>
 					<Add directory="/usr/include/c++/8/backward"/>
@@ -37,22 +37,22 @@
 					<Add directory="/usr/include"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j4 -f &quot;/tmp/tmp.uw2GsBf4tT/cmake-build-raspi-101/Yggdrasil/applications/tests/other/Makefile&quot;  VERBOSE=1 file_server_client"/>
-					<CompileFile command="/usr/bin/make -j4 -f &quot;/tmp/tmp.uw2GsBf4tT/cmake-build-raspi-101/Yggdrasil/applications/tests/other/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j4 -f &quot;/tmp/tmp.uw2GsBf4tT/cmake-build-raspi-101/Yggdrasil/applications/tests/other/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j4 -f &quot;/tmp/tmp.uw2GsBf4tT/cmake-build-raspi-101/Yggdrasil/applications/tests/other/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j4 -f &quot;/tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101/Yggdrasil/applications/tests/other/Makefile&quot;  VERBOSE=1 file_server_client"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101/Yggdrasil/applications/tests/other/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101/Yggdrasil/applications/tests/other/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101/Yggdrasil/applications/tests/other/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="file_server_client/fast">
-				<Option output="/tmp/tmp.uw2GsBf4tT/bin/file_server_client" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="/tmp/tmp.uw2GsBf4tT/bin"/>
+				<Option output="/tmp/tmp.4yRsQEGfYg/bin/file_server_client" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/tmp/tmp.4yRsQEGfYg/bin"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
 				<Option compiler="gcc"/>
 				<Compiler>
-					<Add directory="/tmp/tmp.uw2GsBf4tT/Yggdrasil/applications/tests/other/../../.."/>
-					<Add directory="/tmp/tmp.uw2GsBf4tT/Yggdrasil/applications/tests/other/../../../core"/>
-					<Add directory="/tmp/tmp.uw2GsBf4tT/Yggdrasil/applications/tests/other/../../../../Yggdrasil-LowLevelLib"/>
+					<Add directory="/tmp/tmp.4yRsQEGfYg/Yggdrasil/applications/tests/other/../../.."/>
+					<Add directory="/tmp/tmp.4yRsQEGfYg/Yggdrasil/applications/tests/other/../../../core"/>
+					<Add directory="/tmp/tmp.4yRsQEGfYg/Yggdrasil/applications/tests/other/../../../../Yggdrasil-LowLevelLib"/>
 					<Add directory="/usr/include/c++/8"/>
 					<Add directory="/usr/include/arm-linux-gnueabihf/c++/8"/>
 					<Add directory="/usr/include/c++/8/backward"/>
@@ -63,92 +63,92 @@
 					<Add directory="/usr/include"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j4 -f &quot;/tmp/tmp.uw2GsBf4tT/cmake-build-raspi-101/Yggdrasil/applications/tests/other/Makefile&quot;  VERBOSE=1 file_server_client/fast"/>
-					<CompileFile command="/usr/bin/make -j4 -f &quot;/tmp/tmp.uw2GsBf4tT/cmake-build-raspi-101/Yggdrasil/applications/tests/other/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j4 -f &quot;/tmp/tmp.uw2GsBf4tT/cmake-build-raspi-101/Yggdrasil/applications/tests/other/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j4 -f &quot;/tmp/tmp.uw2GsBf4tT/cmake-build-raspi-101/Yggdrasil/applications/tests/other/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j4 -f &quot;/tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101/Yggdrasil/applications/tests/other/Makefile&quot;  VERBOSE=1 file_server_client/fast"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101/Yggdrasil/applications/tests/other/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101/Yggdrasil/applications/tests/other/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101/Yggdrasil/applications/tests/other/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 		</Build>
-		<Unit filename="/tmp/tmp.uw2GsBf4tT/Yggdrasil/applications/tests/other/plumtree_file_transfer_client.c">
+		<Unit filename="/tmp/tmp.4yRsQEGfYg/Yggdrasil/applications/tests/other/plumtree_file_transfer_client.c">
 			<Option target="file_server_client"/>
 		</Unit>
-		<Unit filename="/tmp/tmp.uw2GsBf4tT/CMakeLists.txt">
+		<Unit filename="/tmp/tmp.4yRsQEGfYg/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\"/>
 		</Unit>
-		<Unit filename="/tmp/tmp.uw2GsBf4tT/Yggdrasil/CMakeLists.txt">
+		<Unit filename="/tmp/tmp.4yRsQEGfYg/Yggdrasil/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\Yggdrasil\"/>
 		</Unit>
-		<Unit filename="/tmp/tmp.uw2GsBf4tT/Yggdrasil/applications/CMakeLists.txt">
+		<Unit filename="/tmp/tmp.4yRsQEGfYg/Yggdrasil/applications/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\Yggdrasil\applications\"/>
 		</Unit>
-		<Unit filename="/tmp/tmp.uw2GsBf4tT/Yggdrasil/applications/demos/CMakeLists.txt">
+		<Unit filename="/tmp/tmp.4yRsQEGfYg/Yggdrasil/applications/demos/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\Yggdrasil\applications\demos\"/>
 		</Unit>
-		<Unit filename="/tmp/tmp.uw2GsBf4tT/Yggdrasil/applications/tests/CMakeLists.txt">
+		<Unit filename="/tmp/tmp.4yRsQEGfYg/Yggdrasil/applications/tests/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\Yggdrasil\applications\tests\"/>
 		</Unit>
-		<Unit filename="/tmp/tmp.uw2GsBf4tT/Yggdrasil/applications/tests/wireless/CMakeLists.txt">
+		<Unit filename="/tmp/tmp.4yRsQEGfYg/Yggdrasil/applications/tests/wireless/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\Yggdrasil\applications\tests\wireless\"/>
 		</Unit>
-		<Unit filename="/tmp/tmp.uw2GsBf4tT/Yggdrasil/applications/tests/other/CMakeLists.txt">
+		<Unit filename="/tmp/tmp.4yRsQEGfYg/Yggdrasil/applications/tests/other/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\Yggdrasil\applications\tests\other\"/>
 		</Unit>
-		<Unit filename="/tmp/tmp.uw2GsBf4tT/Yggdrasil/interfaces/CMakeLists.txt">
+		<Unit filename="/tmp/tmp.4yRsQEGfYg/Yggdrasil/interfaces/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\Yggdrasil\interfaces\"/>
 		</Unit>
-		<Unit filename="/tmp/tmp.uw2GsBf4tT/Yggdrasil/protocols/CMakeLists.txt">
+		<Unit filename="/tmp/tmp.4yRsQEGfYg/Yggdrasil/protocols/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\Yggdrasil\protocols\"/>
 		</Unit>
-		<Unit filename="/tmp/tmp.uw2GsBf4tT/Yggdrasil/protocols/wireless/CMakeLists.txt">
+		<Unit filename="/tmp/tmp.4yRsQEGfYg/Yggdrasil/protocols/wireless/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\Yggdrasil\protocols\wireless\"/>
 		</Unit>
-		<Unit filename="/tmp/tmp.uw2GsBf4tT/Yggdrasil/utils/CMakeLists.txt">
+		<Unit filename="/tmp/tmp.4yRsQEGfYg/Yggdrasil/utils/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\Yggdrasil\utils\"/>
 		</Unit>
-		<Unit filename="/tmp/tmp.uw2GsBf4tT/Yggdrasil/YggDFS/CMakeLists.txt">
+		<Unit filename="/tmp/tmp.4yRsQEGfYg/Yggdrasil/YggDFS/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\Yggdrasil\YggDFS\"/>
 		</Unit>
-		<Unit filename="/tmp/tmp.uw2GsBf4tT/Yggdrasil/YggDFS/utils/CMakeLists.txt">
+		<Unit filename="/tmp/tmp.4yRsQEGfYg/Yggdrasil/YggDFS/utils/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\Yggdrasil\YggDFS\utils\"/>
 		</Unit>
-		<Unit filename="/tmp/tmp.uw2GsBf4tT/Yggdrasil/YggDFS/protocols/CMakeLists.txt">
+		<Unit filename="/tmp/tmp.4yRsQEGfYg/Yggdrasil/YggDFS/protocols/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\Yggdrasil\YggDFS\protocols\"/>
 		</Unit>
-		<Unit filename="/tmp/tmp.uw2GsBf4tT/Yggdrasil/YggDFS/applications/CMakeLists.txt">
+		<Unit filename="/tmp/tmp.4yRsQEGfYg/Yggdrasil/YggDFS/applications/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\Yggdrasil\YggDFS\applications\"/>
 		</Unit>
-		<Unit filename="/tmp/tmp.uw2GsBf4tT/Yggdrasil/YggDFS/applications/CMake/FindFUSE.cmake">
+		<Unit filename="/tmp/tmp.4yRsQEGfYg/Yggdrasil/YggDFS/applications/CMake/FindFUSE.cmake">
 			<Option virtualFolder="CMake Files\Yggdrasil\YggDFS\applications\CMake\"/>
 		</Unit>
-		<Unit filename="/tmp/tmp.uw2GsBf4tT/Yggdrasil/core/CMakeLists.txt">
+		<Unit filename="/tmp/tmp.4yRsQEGfYg/Yggdrasil/core/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\Yggdrasil\core\"/>
 		</Unit>
-		<Unit filename="/tmp/tmp.uw2GsBf4tT/Yggdrasil/remote_control/CMakeLists.txt">
+		<Unit filename="/tmp/tmp.4yRsQEGfYg/Yggdrasil/remote_control/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\Yggdrasil\remote_control\"/>
 		</Unit>
-		<Unit filename="/tmp/tmp.uw2GsBf4tT/Yggdrasil/remote_control/utils/CMakeLists.txt">
+		<Unit filename="/tmp/tmp.4yRsQEGfYg/Yggdrasil/remote_control/utils/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\Yggdrasil\remote_control\utils\"/>
 		</Unit>
-		<Unit filename="/tmp/tmp.uw2GsBf4tT/Yggdrasil/remote_control/protocols/CMakeLists.txt">
+		<Unit filename="/tmp/tmp.4yRsQEGfYg/Yggdrasil/remote_control/protocols/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\Yggdrasil\remote_control\protocols\"/>
 		</Unit>
-		<Unit filename="/tmp/tmp.uw2GsBf4tT/Yggdrasil/remote_control/applications/CMakeLists.txt">
+		<Unit filename="/tmp/tmp.4yRsQEGfYg/Yggdrasil/remote_control/applications/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\Yggdrasil\remote_control\applications\"/>
 		</Unit>
-		<Unit filename="/tmp/tmp.uw2GsBf4tT/Yggdrasil/remote_control_new/CMakeLists.txt">
+		<Unit filename="/tmp/tmp.4yRsQEGfYg/Yggdrasil/remote_control_new/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\Yggdrasil\remote_control_new\"/>
 		</Unit>
-		<Unit filename="/tmp/tmp.uw2GsBf4tT/Yggdrasil/remote_control_new/utils/CMakeLists.txt">
+		<Unit filename="/tmp/tmp.4yRsQEGfYg/Yggdrasil/remote_control_new/utils/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\Yggdrasil\remote_control_new\utils\"/>
 		</Unit>
-		<Unit filename="/tmp/tmp.uw2GsBf4tT/Yggdrasil/remote_control_new/protocols/CMakeLists.txt">
+		<Unit filename="/tmp/tmp.4yRsQEGfYg/Yggdrasil/remote_control_new/protocols/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\Yggdrasil\remote_control_new\protocols\"/>
 		</Unit>
-		<Unit filename="/tmp/tmp.uw2GsBf4tT/Yggdrasil/remote_control_new/applications/CMakeLists.txt">
+		<Unit filename="/tmp/tmp.4yRsQEGfYg/Yggdrasil/remote_control_new/applications/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\Yggdrasil\remote_control_new\applications\"/>
 		</Unit>
-		<Unit filename="/tmp/tmp.uw2GsBf4tT/Yggdrasil-LowLevelLib/CMakeLists.txt">
+		<Unit filename="/tmp/tmp.4yRsQEGfYg/Yggdrasil-LowLevelLib/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\Yggdrasil-LowLevelLib\"/>
 		</Unit>
 	</Project>

@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /tmp/tmp.uw2GsBf4tT
+CMAKE_SOURCE_DIR = /tmp/tmp.4yRsQEGfYg
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /tmp/tmp.uw2GsBf4tT/cmake-build-raspi-101
+CMAKE_BINARY_DIR = /tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101
 
 # Include any dependencies generated for this target.
 include Yggdrasil/remote_control_new/applications/CMakeFiles/cmdterminateexperience.dir/depend.make
@@ -59,16 +59,16 @@ include Yggdrasil/remote_control_new/applications/CMakeFiles/cmdterminateexperie
 
 Yggdrasil/remote_control_new/applications/CMakeFiles/cmdterminateexperience.dir/tools/terminateexperience.c.o: Yggdrasil/remote_control_new/applications/CMakeFiles/cmdterminateexperience.dir/flags.make
 Yggdrasil/remote_control_new/applications/CMakeFiles/cmdterminateexperience.dir/tools/terminateexperience.c.o: ../Yggdrasil/remote_control_new/applications/tools/terminateexperience.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/tmp/tmp.uw2GsBf4tT/cmake-build-raspi-101/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object Yggdrasil/remote_control_new/applications/CMakeFiles/cmdterminateexperience.dir/tools/terminateexperience.c.o"
-	cd /tmp/tmp.uw2GsBf4tT/cmake-build-raspi-101/Yggdrasil/remote_control_new/applications && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/cmdterminateexperience.dir/tools/terminateexperience.c.o   -c /tmp/tmp.uw2GsBf4tT/Yggdrasil/remote_control_new/applications/tools/terminateexperience.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object Yggdrasil/remote_control_new/applications/CMakeFiles/cmdterminateexperience.dir/tools/terminateexperience.c.o"
+	cd /tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101/Yggdrasil/remote_control_new/applications && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/cmdterminateexperience.dir/tools/terminateexperience.c.o   -c /tmp/tmp.4yRsQEGfYg/Yggdrasil/remote_control_new/applications/tools/terminateexperience.c
 
 Yggdrasil/remote_control_new/applications/CMakeFiles/cmdterminateexperience.dir/tools/terminateexperience.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/cmdterminateexperience.dir/tools/terminateexperience.c.i"
-	cd /tmp/tmp.uw2GsBf4tT/cmake-build-raspi-101/Yggdrasil/remote_control_new/applications && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /tmp/tmp.uw2GsBf4tT/Yggdrasil/remote_control_new/applications/tools/terminateexperience.c > CMakeFiles/cmdterminateexperience.dir/tools/terminateexperience.c.i
+	cd /tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101/Yggdrasil/remote_control_new/applications && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /tmp/tmp.4yRsQEGfYg/Yggdrasil/remote_control_new/applications/tools/terminateexperience.c > CMakeFiles/cmdterminateexperience.dir/tools/terminateexperience.c.i
 
 Yggdrasil/remote_control_new/applications/CMakeFiles/cmdterminateexperience.dir/tools/terminateexperience.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/cmdterminateexperience.dir/tools/terminateexperience.c.s"
-	cd /tmp/tmp.uw2GsBf4tT/cmake-build-raspi-101/Yggdrasil/remote_control_new/applications && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /tmp/tmp.uw2GsBf4tT/Yggdrasil/remote_control_new/applications/tools/terminateexperience.c -o CMakeFiles/cmdterminateexperience.dir/tools/terminateexperience.c.s
+	cd /tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101/Yggdrasil/remote_control_new/applications && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /tmp/tmp.4yRsQEGfYg/Yggdrasil/remote_control_new/applications/tools/terminateexperience.c -o CMakeFiles/cmdterminateexperience.dir/tools/terminateexperience.c.s
 
 # Object files for target cmdterminateexperience
 cmdterminateexperience_OBJECTS = \
@@ -81,8 +81,8 @@ cmdterminateexperience_EXTERNAL_OBJECTS =
 ../bin/cmdterminateexperience: Yggdrasil/remote_control_new/applications/CMakeFiles/cmdterminateexperience.dir/build.make
 ../bin/cmdterminateexperience: ../lib/libcmdio_new.a
 ../bin/cmdterminateexperience: Yggdrasil/remote_control_new/applications/CMakeFiles/cmdterminateexperience.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/tmp/tmp.uw2GsBf4tT/cmake-build-raspi-101/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking C executable ../../../../bin/cmdterminateexperience"
-	cd /tmp/tmp.uw2GsBf4tT/cmake-build-raspi-101/Yggdrasil/remote_control_new/applications && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/cmdterminateexperience.dir/link.txt --verbose=$(VERBOSE)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking C executable ../../../../bin/cmdterminateexperience"
+	cd /tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101/Yggdrasil/remote_control_new/applications && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/cmdterminateexperience.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
 Yggdrasil/remote_control_new/applications/CMakeFiles/cmdterminateexperience.dir/build: ../bin/cmdterminateexperience
@@ -90,10 +90,10 @@ Yggdrasil/remote_control_new/applications/CMakeFiles/cmdterminateexperience.dir/
 .PHONY : Yggdrasil/remote_control_new/applications/CMakeFiles/cmdterminateexperience.dir/build
 
 Yggdrasil/remote_control_new/applications/CMakeFiles/cmdterminateexperience.dir/clean:
-	cd /tmp/tmp.uw2GsBf4tT/cmake-build-raspi-101/Yggdrasil/remote_control_new/applications && $(CMAKE_COMMAND) -P CMakeFiles/cmdterminateexperience.dir/cmake_clean.cmake
+	cd /tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101/Yggdrasil/remote_control_new/applications && $(CMAKE_COMMAND) -P CMakeFiles/cmdterminateexperience.dir/cmake_clean.cmake
 .PHONY : Yggdrasil/remote_control_new/applications/CMakeFiles/cmdterminateexperience.dir/clean
 
 Yggdrasil/remote_control_new/applications/CMakeFiles/cmdterminateexperience.dir/depend:
-	cd /tmp/tmp.uw2GsBf4tT/cmake-build-raspi-101 && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /tmp/tmp.uw2GsBf4tT /tmp/tmp.uw2GsBf4tT/Yggdrasil/remote_control_new/applications /tmp/tmp.uw2GsBf4tT/cmake-build-raspi-101 /tmp/tmp.uw2GsBf4tT/cmake-build-raspi-101/Yggdrasil/remote_control_new/applications /tmp/tmp.uw2GsBf4tT/cmake-build-raspi-101/Yggdrasil/remote_control_new/applications/CMakeFiles/cmdterminateexperience.dir/DependInfo.cmake --color=$(COLOR)
+	cd /tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101 && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /tmp/tmp.4yRsQEGfYg /tmp/tmp.4yRsQEGfYg/Yggdrasil/remote_control_new/applications /tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101 /tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101/Yggdrasil/remote_control_new/applications /tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101/Yggdrasil/remote_control_new/applications/CMakeFiles/cmdterminateexperience.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : Yggdrasil/remote_control_new/applications/CMakeFiles/cmdterminateexperience.dir/depend
 

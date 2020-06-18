@@ -1,4 +1,4 @@
-# Install script for directory: /tmp/tmp.uw2GsBf4tT/Yggdrasil/protocols
+# Install script for directory: /tmp/tmp.4yRsQEGfYg/Yggdrasil/protocols
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -39,7 +39,7 @@ endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
-  include("/tmp/tmp.uw2GsBf4tT/cmake-build-raspi-101/Yggdrasil/protocols/wireless/cmake_install.cmake")
+  include("/tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101/Yggdrasil/protocols/wireless/cmake_install.cmake")
 
 endif()
 

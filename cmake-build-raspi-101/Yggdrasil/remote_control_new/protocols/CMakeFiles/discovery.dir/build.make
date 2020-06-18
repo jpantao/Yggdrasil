@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /tmp/tmp.uw2GsBf4tT
+CMAKE_SOURCE_DIR = /tmp/tmp.4yRsQEGfYg
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /tmp/tmp.uw2GsBf4tT/cmake-build-raspi-101
+CMAKE_BINARY_DIR = /tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101
 
 # Include any dependencies generated for this target.
 include Yggdrasil/remote_control_new/protocols/CMakeFiles/discovery.dir/depend.make
@@ -59,16 +59,16 @@ include Yggdrasil/remote_control_new/protocols/CMakeFiles/discovery.dir/flags.ma
 
 Yggdrasil/remote_control_new/protocols/CMakeFiles/discovery.dir/discovery.c.o: Yggdrasil/remote_control_new/protocols/CMakeFiles/discovery.dir/flags.make
 Yggdrasil/remote_control_new/protocols/CMakeFiles/discovery.dir/discovery.c.o: ../Yggdrasil/remote_control_new/protocols/discovery.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/tmp/tmp.uw2GsBf4tT/cmake-build-raspi-101/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object Yggdrasil/remote_control_new/protocols/CMakeFiles/discovery.dir/discovery.c.o"
-	cd /tmp/tmp.uw2GsBf4tT/cmake-build-raspi-101/Yggdrasil/remote_control_new/protocols && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/discovery.dir/discovery.c.o   -c /tmp/tmp.uw2GsBf4tT/Yggdrasil/remote_control_new/protocols/discovery.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object Yggdrasil/remote_control_new/protocols/CMakeFiles/discovery.dir/discovery.c.o"
+	cd /tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101/Yggdrasil/remote_control_new/protocols && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/discovery.dir/discovery.c.o   -c /tmp/tmp.4yRsQEGfYg/Yggdrasil/remote_control_new/protocols/discovery.c
 
 Yggdrasil/remote_control_new/protocols/CMakeFiles/discovery.dir/discovery.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/discovery.dir/discovery.c.i"
-	cd /tmp/tmp.uw2GsBf4tT/cmake-build-raspi-101/Yggdrasil/remote_control_new/protocols && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /tmp/tmp.uw2GsBf4tT/Yggdrasil/remote_control_new/protocols/discovery.c > CMakeFiles/discovery.dir/discovery.c.i
+	cd /tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101/Yggdrasil/remote_control_new/protocols && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /tmp/tmp.4yRsQEGfYg/Yggdrasil/remote_control_new/protocols/discovery.c > CMakeFiles/discovery.dir/discovery.c.i
 
 Yggdrasil/remote_control_new/protocols/CMakeFiles/discovery.dir/discovery.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/discovery.dir/discovery.c.s"
-	cd /tmp/tmp.uw2GsBf4tT/cmake-build-raspi-101/Yggdrasil/remote_control_new/protocols && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /tmp/tmp.uw2GsBf4tT/Yggdrasil/remote_control_new/protocols/discovery.c -o CMakeFiles/discovery.dir/discovery.c.s
+	cd /tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101/Yggdrasil/remote_control_new/protocols && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /tmp/tmp.4yRsQEGfYg/Yggdrasil/remote_control_new/protocols/discovery.c -o CMakeFiles/discovery.dir/discovery.c.s
 
 # Object files for target discovery
 discovery_OBJECTS = \
@@ -80,9 +80,9 @@ discovery_EXTERNAL_OBJECTS =
 ../lib/libdiscovery.a: Yggdrasil/remote_control_new/protocols/CMakeFiles/discovery.dir/discovery.c.o
 ../lib/libdiscovery.a: Yggdrasil/remote_control_new/protocols/CMakeFiles/discovery.dir/build.make
 ../lib/libdiscovery.a: Yggdrasil/remote_control_new/protocols/CMakeFiles/discovery.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/tmp/tmp.uw2GsBf4tT/cmake-build-raspi-101/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking C static library ../../../../lib/libdiscovery.a"
-	cd /tmp/tmp.uw2GsBf4tT/cmake-build-raspi-101/Yggdrasil/remote_control_new/protocols && $(CMAKE_COMMAND) -P CMakeFiles/discovery.dir/cmake_clean_target.cmake
-	cd /tmp/tmp.uw2GsBf4tT/cmake-build-raspi-101/Yggdrasil/remote_control_new/protocols && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/discovery.dir/link.txt --verbose=$(VERBOSE)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking C static library ../../../../lib/libdiscovery.a"
+	cd /tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101/Yggdrasil/remote_control_new/protocols && $(CMAKE_COMMAND) -P CMakeFiles/discovery.dir/cmake_clean_target.cmake
+	cd /tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101/Yggdrasil/remote_control_new/protocols && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/discovery.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
 Yggdrasil/remote_control_new/protocols/CMakeFiles/discovery.dir/build: ../lib/libdiscovery.a
@@ -90,10 +90,10 @@ Yggdrasil/remote_control_new/protocols/CMakeFiles/discovery.dir/build: ../lib/li
 .PHONY : Yggdrasil/remote_control_new/protocols/CMakeFiles/discovery.dir/build
 
 Yggdrasil/remote_control_new/protocols/CMakeFiles/discovery.dir/clean:
-	cd /tmp/tmp.uw2GsBf4tT/cmake-build-raspi-101/Yggdrasil/remote_control_new/protocols && $(CMAKE_COMMAND) -P CMakeFiles/discovery.dir/cmake_clean.cmake
+	cd /tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101/Yggdrasil/remote_control_new/protocols && $(CMAKE_COMMAND) -P CMakeFiles/discovery.dir/cmake_clean.cmake
 .PHONY : Yggdrasil/remote_control_new/protocols/CMakeFiles/discovery.dir/clean
 
 Yggdrasil/remote_control_new/protocols/CMakeFiles/discovery.dir/depend:
-	cd /tmp/tmp.uw2GsBf4tT/cmake-build-raspi-101 && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /tmp/tmp.uw2GsBf4tT /tmp/tmp.uw2GsBf4tT/Yggdrasil/remote_control_new/protocols /tmp/tmp.uw2GsBf4tT/cmake-build-raspi-101 /tmp/tmp.uw2GsBf4tT/cmake-build-raspi-101/Yggdrasil/remote_control_new/protocols /tmp/tmp.uw2GsBf4tT/cmake-build-raspi-101/Yggdrasil/remote_control_new/protocols/CMakeFiles/discovery.dir/DependInfo.cmake --color=$(COLOR)
+	cd /tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101 && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /tmp/tmp.4yRsQEGfYg /tmp/tmp.4yRsQEGfYg/Yggdrasil/remote_control_new/protocols /tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101 /tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101/Yggdrasil/remote_control_new/protocols /tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101/Yggdrasil/remote_control_new/protocols/CMakeFiles/discovery.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : Yggdrasil/remote_control_new/protocols/CMakeFiles/discovery.dir/depend
 

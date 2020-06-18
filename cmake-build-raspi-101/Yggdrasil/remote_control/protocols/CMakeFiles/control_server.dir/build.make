@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /tmp/tmp.uw2GsBf4tT
+CMAKE_SOURCE_DIR = /tmp/tmp.4yRsQEGfYg
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /tmp/tmp.uw2GsBf4tT/cmake-build-raspi-101
+CMAKE_BINARY_DIR = /tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101
 
 # Include any dependencies generated for this target.
 include Yggdrasil/remote_control/protocols/CMakeFiles/control_server.dir/depend.make
@@ -59,16 +59,16 @@ include Yggdrasil/remote_control/protocols/CMakeFiles/control_server.dir/flags.m
 
 Yggdrasil/remote_control/protocols/CMakeFiles/control_server.dir/control_protocol_server.c.o: Yggdrasil/remote_control/protocols/CMakeFiles/control_server.dir/flags.make
 Yggdrasil/remote_control/protocols/CMakeFiles/control_server.dir/control_protocol_server.c.o: ../Yggdrasil/remote_control/protocols/control_protocol_server.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/tmp/tmp.uw2GsBf4tT/cmake-build-raspi-101/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object Yggdrasil/remote_control/protocols/CMakeFiles/control_server.dir/control_protocol_server.c.o"
-	cd /tmp/tmp.uw2GsBf4tT/cmake-build-raspi-101/Yggdrasil/remote_control/protocols && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/control_server.dir/control_protocol_server.c.o   -c /tmp/tmp.uw2GsBf4tT/Yggdrasil/remote_control/protocols/control_protocol_server.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object Yggdrasil/remote_control/protocols/CMakeFiles/control_server.dir/control_protocol_server.c.o"
+	cd /tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101/Yggdrasil/remote_control/protocols && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/control_server.dir/control_protocol_server.c.o   -c /tmp/tmp.4yRsQEGfYg/Yggdrasil/remote_control/protocols/control_protocol_server.c
 
 Yggdrasil/remote_control/protocols/CMakeFiles/control_server.dir/control_protocol_server.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/control_server.dir/control_protocol_server.c.i"
-	cd /tmp/tmp.uw2GsBf4tT/cmake-build-raspi-101/Yggdrasil/remote_control/protocols && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /tmp/tmp.uw2GsBf4tT/Yggdrasil/remote_control/protocols/control_protocol_server.c > CMakeFiles/control_server.dir/control_protocol_server.c.i
+	cd /tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101/Yggdrasil/remote_control/protocols && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /tmp/tmp.4yRsQEGfYg/Yggdrasil/remote_control/protocols/control_protocol_server.c > CMakeFiles/control_server.dir/control_protocol_server.c.i
 
 Yggdrasil/remote_control/protocols/CMakeFiles/control_server.dir/control_protocol_server.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/control_server.dir/control_protocol_server.c.s"
-	cd /tmp/tmp.uw2GsBf4tT/cmake-build-raspi-101/Yggdrasil/remote_control/protocols && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /tmp/tmp.uw2GsBf4tT/Yggdrasil/remote_control/protocols/control_protocol_server.c -o CMakeFiles/control_server.dir/control_protocol_server.c.s
+	cd /tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101/Yggdrasil/remote_control/protocols && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /tmp/tmp.4yRsQEGfYg/Yggdrasil/remote_control/protocols/control_protocol_server.c -o CMakeFiles/control_server.dir/control_protocol_server.c.s
 
 # Object files for target control_server
 control_server_OBJECTS = \
@@ -80,9 +80,9 @@ control_server_EXTERNAL_OBJECTS =
 ../lib/libcontrol_server.a: Yggdrasil/remote_control/protocols/CMakeFiles/control_server.dir/control_protocol_server.c.o
 ../lib/libcontrol_server.a: Yggdrasil/remote_control/protocols/CMakeFiles/control_server.dir/build.make
 ../lib/libcontrol_server.a: Yggdrasil/remote_control/protocols/CMakeFiles/control_server.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/tmp/tmp.uw2GsBf4tT/cmake-build-raspi-101/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking C static library ../../../../lib/libcontrol_server.a"
-	cd /tmp/tmp.uw2GsBf4tT/cmake-build-raspi-101/Yggdrasil/remote_control/protocols && $(CMAKE_COMMAND) -P CMakeFiles/control_server.dir/cmake_clean_target.cmake
-	cd /tmp/tmp.uw2GsBf4tT/cmake-build-raspi-101/Yggdrasil/remote_control/protocols && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/control_server.dir/link.txt --verbose=$(VERBOSE)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking C static library ../../../../lib/libcontrol_server.a"
+	cd /tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101/Yggdrasil/remote_control/protocols && $(CMAKE_COMMAND) -P CMakeFiles/control_server.dir/cmake_clean_target.cmake
+	cd /tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101/Yggdrasil/remote_control/protocols && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/control_server.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
 Yggdrasil/remote_control/protocols/CMakeFiles/control_server.dir/build: ../lib/libcontrol_server.a
@@ -90,10 +90,10 @@ Yggdrasil/remote_control/protocols/CMakeFiles/control_server.dir/build: ../lib/l
 .PHONY : Yggdrasil/remote_control/protocols/CMakeFiles/control_server.dir/build
 
 Yggdrasil/remote_control/protocols/CMakeFiles/control_server.dir/clean:
-	cd /tmp/tmp.uw2GsBf4tT/cmake-build-raspi-101/Yggdrasil/remote_control/protocols && $(CMAKE_COMMAND) -P CMakeFiles/control_server.dir/cmake_clean.cmake
+	cd /tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101/Yggdrasil/remote_control/protocols && $(CMAKE_COMMAND) -P CMakeFiles/control_server.dir/cmake_clean.cmake
 .PHONY : Yggdrasil/remote_control/protocols/CMakeFiles/control_server.dir/clean
 
 Yggdrasil/remote_control/protocols/CMakeFiles/control_server.dir/depend:
-	cd /tmp/tmp.uw2GsBf4tT/cmake-build-raspi-101 && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /tmp/tmp.uw2GsBf4tT /tmp/tmp.uw2GsBf4tT/Yggdrasil/remote_control/protocols /tmp/tmp.uw2GsBf4tT/cmake-build-raspi-101 /tmp/tmp.uw2GsBf4tT/cmake-build-raspi-101/Yggdrasil/remote_control/protocols /tmp/tmp.uw2GsBf4tT/cmake-build-raspi-101/Yggdrasil/remote_control/protocols/CMakeFiles/control_server.dir/DependInfo.cmake --color=$(COLOR)
+	cd /tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101 && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /tmp/tmp.4yRsQEGfYg /tmp/tmp.4yRsQEGfYg/Yggdrasil/remote_control/protocols /tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101 /tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101/Yggdrasil/remote_control/protocols /tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101/Yggdrasil/remote_control/protocols/CMakeFiles/control_server.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : Yggdrasil/remote_control/protocols/CMakeFiles/control_server.dir/depend
 

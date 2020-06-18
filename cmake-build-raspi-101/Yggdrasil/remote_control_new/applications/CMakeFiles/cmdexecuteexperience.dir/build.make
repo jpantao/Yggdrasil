@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /tmp/tmp.uw2GsBf4tT
+CMAKE_SOURCE_DIR = /tmp/tmp.4yRsQEGfYg
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /tmp/tmp.uw2GsBf4tT/cmake-build-raspi-101
+CMAKE_BINARY_DIR = /tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101
 
 # Include any dependencies generated for this target.
 include Yggdrasil/remote_control_new/applications/CMakeFiles/cmdexecuteexperience.dir/depend.make
@@ -59,16 +59,16 @@ include Yggdrasil/remote_control_new/applications/CMakeFiles/cmdexecuteexperienc
 
 Yggdrasil/remote_control_new/applications/CMakeFiles/cmdexecuteexperience.dir/tools/beginexperience.c.o: Yggdrasil/remote_control_new/applications/CMakeFiles/cmdexecuteexperience.dir/flags.make
 Yggdrasil/remote_control_new/applications/CMakeFiles/cmdexecuteexperience.dir/tools/beginexperience.c.o: ../Yggdrasil/remote_control_new/applications/tools/beginexperience.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/tmp/tmp.uw2GsBf4tT/cmake-build-raspi-101/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object Yggdrasil/remote_control_new/applications/CMakeFiles/cmdexecuteexperience.dir/tools/beginexperience.c.o"
-	cd /tmp/tmp.uw2GsBf4tT/cmake-build-raspi-101/Yggdrasil/remote_control_new/applications && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/cmdexecuteexperience.dir/tools/beginexperience.c.o   -c /tmp/tmp.uw2GsBf4tT/Yggdrasil/remote_control_new/applications/tools/beginexperience.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object Yggdrasil/remote_control_new/applications/CMakeFiles/cmdexecuteexperience.dir/tools/beginexperience.c.o"
+	cd /tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101/Yggdrasil/remote_control_new/applications && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/cmdexecuteexperience.dir/tools/beginexperience.c.o   -c /tmp/tmp.4yRsQEGfYg/Yggdrasil/remote_control_new/applications/tools/beginexperience.c
 
 Yggdrasil/remote_control_new/applications/CMakeFiles/cmdexecuteexperience.dir/tools/beginexperience.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/cmdexecuteexperience.dir/tools/beginexperience.c.i"
-	cd /tmp/tmp.uw2GsBf4tT/cmake-build-raspi-101/Yggdrasil/remote_control_new/applications && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /tmp/tmp.uw2GsBf4tT/Yggdrasil/remote_control_new/applications/tools/beginexperience.c > CMakeFiles/cmdexecuteexperience.dir/tools/beginexperience.c.i
+	cd /tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101/Yggdrasil/remote_control_new/applications && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /tmp/tmp.4yRsQEGfYg/Yggdrasil/remote_control_new/applications/tools/beginexperience.c > CMakeFiles/cmdexecuteexperience.dir/tools/beginexperience.c.i
 
 Yggdrasil/remote_control_new/applications/CMakeFiles/cmdexecuteexperience.dir/tools/beginexperience.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/cmdexecuteexperience.dir/tools/beginexperience.c.s"
-	cd /tmp/tmp.uw2GsBf4tT/cmake-build-raspi-101/Yggdrasil/remote_control_new/applications && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /tmp/tmp.uw2GsBf4tT/Yggdrasil/remote_control_new/applications/tools/beginexperience.c -o CMakeFiles/cmdexecuteexperience.dir/tools/beginexperience.c.s
+	cd /tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101/Yggdrasil/remote_control_new/applications && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /tmp/tmp.4yRsQEGfYg/Yggdrasil/remote_control_new/applications/tools/beginexperience.c -o CMakeFiles/cmdexecuteexperience.dir/tools/beginexperience.c.s
 
 # Object files for target cmdexecuteexperience
 cmdexecuteexperience_OBJECTS = \
@@ -81,8 +81,8 @@ cmdexecuteexperience_EXTERNAL_OBJECTS =
 ../bin/cmdexecuteexperience: Yggdrasil/remote_control_new/applications/CMakeFiles/cmdexecuteexperience.dir/build.make
 ../bin/cmdexecuteexperience: ../lib/libcmdio_new.a
 ../bin/cmdexecuteexperience: Yggdrasil/remote_control_new/applications/CMakeFiles/cmdexecuteexperience.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/tmp/tmp.uw2GsBf4tT/cmake-build-raspi-101/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking C executable ../../../../bin/cmdexecuteexperience"
-	cd /tmp/tmp.uw2GsBf4tT/cmake-build-raspi-101/Yggdrasil/remote_control_new/applications && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/cmdexecuteexperience.dir/link.txt --verbose=$(VERBOSE)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking C executable ../../../../bin/cmdexecuteexperience"
+	cd /tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101/Yggdrasil/remote_control_new/applications && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/cmdexecuteexperience.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
 Yggdrasil/remote_control_new/applications/CMakeFiles/cmdexecuteexperience.dir/build: ../bin/cmdexecuteexperience
@@ -90,10 +90,10 @@ Yggdrasil/remote_control_new/applications/CMakeFiles/cmdexecuteexperience.dir/bu
 .PHONY : Yggdrasil/remote_control_new/applications/CMakeFiles/cmdexecuteexperience.dir/build
 
 Yggdrasil/remote_control_new/applications/CMakeFiles/cmdexecuteexperience.dir/clean:
-	cd /tmp/tmp.uw2GsBf4tT/cmake-build-raspi-101/Yggdrasil/remote_control_new/applications && $(CMAKE_COMMAND) -P CMakeFiles/cmdexecuteexperience.dir/cmake_clean.cmake
+	cd /tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101/Yggdrasil/remote_control_new/applications && $(CMAKE_COMMAND) -P CMakeFiles/cmdexecuteexperience.dir/cmake_clean.cmake
 .PHONY : Yggdrasil/remote_control_new/applications/CMakeFiles/cmdexecuteexperience.dir/clean
 
 Yggdrasil/remote_control_new/applications/CMakeFiles/cmdexecuteexperience.dir/depend:
-	cd /tmp/tmp.uw2GsBf4tT/cmake-build-raspi-101 && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /tmp/tmp.uw2GsBf4tT /tmp/tmp.uw2GsBf4tT/Yggdrasil/remote_control_new/applications /tmp/tmp.uw2GsBf4tT/cmake-build-raspi-101 /tmp/tmp.uw2GsBf4tT/cmake-build-raspi-101/Yggdrasil/remote_control_new/applications /tmp/tmp.uw2GsBf4tT/cmake-build-raspi-101/Yggdrasil/remote_control_new/applications/CMakeFiles/cmdexecuteexperience.dir/DependInfo.cmake --color=$(COLOR)
+	cd /tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101 && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /tmp/tmp.4yRsQEGfYg /tmp/tmp.4yRsQEGfYg/Yggdrasil/remote_control_new/applications /tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101 /tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101/Yggdrasil/remote_control_new/applications /tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101/Yggdrasil/remote_control_new/applications/CMakeFiles/cmdexecuteexperience.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : Yggdrasil/remote_control_new/applications/CMakeFiles/cmdexecuteexperience.dir/depend
 

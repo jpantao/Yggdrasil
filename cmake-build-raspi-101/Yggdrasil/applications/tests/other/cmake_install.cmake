@@ -1,4 +1,4 @@
-# Install script for directory: /tmp/tmp.uw2GsBf4tT/Yggdrasil/applications/tests/other
+# Install script for directory: /tmp/tmp.4yRsQEGfYg/Yggdrasil/applications/tests/other
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)

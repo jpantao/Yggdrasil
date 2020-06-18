@@ -8,24 +8,24 @@
 		<Option virtualFolders="CMake Files\;CMake Files\Yggdrasil\;CMake Files\Yggdrasil\applications\;CMake Files\Yggdrasil\applications\demos\;CMake Files\Yggdrasil\applications\tests\;CMake Files\Yggdrasil\applications\tests\wireless\;CMake Files\Yggdrasil\applications\tests\other\;CMake Files\Yggdrasil\interfaces\;CMake Files\Yggdrasil\protocols\;CMake Files\Yggdrasil\protocols\wireless\;CMake Files\Yggdrasil\utils\;CMake Files\Yggdrasil\YggDFS\;CMake Files\Yggdrasil\YggDFS\utils\;CMake Files\Yggdrasil\YggDFS\protocols\;CMake Files\Yggdrasil\YggDFS\applications\;CMake Files\Yggdrasil\YggDFS\applications\CMake\;CMake Files\Yggdrasil\core\;CMake Files\Yggdrasil\remote_control\;CMake Files\Yggdrasil\remote_control\utils\;CMake Files\Yggdrasil\remote_control\protocols\;CMake Files\Yggdrasil\remote_control\applications\;CMake Files\Yggdrasil\remote_control_new\;CMake Files\Yggdrasil\remote_control_new\utils\;CMake Files\Yggdrasil\remote_control_new\protocols\;CMake Files\Yggdrasil\remote_control_new\applications\;CMake Files\Yggdrasil-LowLevelLib\;"/>
 		<Build>
 			<Target title="all">
-				<Option working_dir="/tmp/tmp.uw2GsBf4tT/cmake-build-raspi-101/Yggdrasil/remote_control_new/applications"/>
+				<Option working_dir="/tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101/Yggdrasil/remote_control_new/applications"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j4 -f &quot;/tmp/tmp.uw2GsBf4tT/cmake-build-raspi-101/Yggdrasil/remote_control_new/applications/Makefile&quot;  VERBOSE=1 all"/>
-					<CompileFile command="/usr/bin/make -j4 -f &quot;/tmp/tmp.uw2GsBf4tT/cmake-build-raspi-101/Yggdrasil/remote_control_new/applications/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j4 -f &quot;/tmp/tmp.uw2GsBf4tT/cmake-build-raspi-101/Yggdrasil/remote_control_new/applications/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j4 -f &quot;/tmp/tmp.uw2GsBf4tT/cmake-build-raspi-101/Yggdrasil/remote_control_new/applications/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j4 -f &quot;/tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101/Yggdrasil/remote_control_new/applications/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101/Yggdrasil/remote_control_new/applications/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101/Yggdrasil/remote_control_new/applications/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101/Yggdrasil/remote_control_new/applications/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="cmdsetup">
-				<Option output="/tmp/tmp.uw2GsBf4tT/bin/cmdsetup" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="/tmp/tmp.uw2GsBf4tT/bin"/>
+				<Option output="/tmp/tmp.4yRsQEGfYg/bin/cmdsetup" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/tmp/tmp.4yRsQEGfYg/bin"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
 				<Option compiler="gcc"/>
 				<Compiler>
-					<Add directory="/tmp/tmp.uw2GsBf4tT/Yggdrasil/remote_control_new/applications/../.."/>
-					<Add directory="/tmp/tmp.uw2GsBf4tT/Yggdrasil/remote_control_new/applications/../../../Yggdrasil-LowLevelLib"/>
+					<Add directory="/tmp/tmp.4yRsQEGfYg/Yggdrasil/remote_control_new/applications/../.."/>
+					<Add directory="/tmp/tmp.4yRsQEGfYg/Yggdrasil/remote_control_new/applications/../../../Yggdrasil-LowLevelLib"/>
 					<Add directory="/usr/include/c++/8"/>
 					<Add directory="/usr/include/arm-linux-gnueabihf/c++/8"/>
 					<Add directory="/usr/include/c++/8/backward"/>
@@ -36,21 +36,21 @@
 					<Add directory="/usr/include"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j4 -f &quot;/tmp/tmp.uw2GsBf4tT/cmake-build-raspi-101/Yggdrasil/remote_control_new/applications/Makefile&quot;  VERBOSE=1 cmdsetup"/>
-					<CompileFile command="/usr/bin/make -j4 -f &quot;/tmp/tmp.uw2GsBf4tT/cmake-build-raspi-101/Yggdrasil/remote_control_new/applications/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j4 -f &quot;/tmp/tmp.uw2GsBf4tT/cmake-build-raspi-101/Yggdrasil/remote_control_new/applications/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j4 -f &quot;/tmp/tmp.uw2GsBf4tT/cmake-build-raspi-101/Yggdrasil/remote_control_new/applications/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j4 -f &quot;/tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101/Yggdrasil/remote_control_new/applications/Makefile&quot;  VERBOSE=1 cmdsetup"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101/Yggdrasil/remote_control_new/applications/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101/Yggdrasil/remote_control_new/applications/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101/Yggdrasil/remote_control_new/applications/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="cmdsetup/fast">
-				<Option output="/tmp/tmp.uw2GsBf4tT/bin/cmdsetup" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="/tmp/tmp.uw2GsBf4tT/bin"/>
+				<Option output="/tmp/tmp.4yRsQEGfYg/bin/cmdsetup" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/tmp/tmp.4yRsQEGfYg/bin"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
 				<Option compiler="gcc"/>
 				<Compiler>
-					<Add directory="/tmp/tmp.uw2GsBf4tT/Yggdrasil/remote_control_new/applications/../.."/>
-					<Add directory="/tmp/tmp.uw2GsBf4tT/Yggdrasil/remote_control_new/applications/../../../Yggdrasil-LowLevelLib"/>
+					<Add directory="/tmp/tmp.4yRsQEGfYg/Yggdrasil/remote_control_new/applications/../.."/>
+					<Add directory="/tmp/tmp.4yRsQEGfYg/Yggdrasil/remote_control_new/applications/../../../Yggdrasil-LowLevelLib"/>
 					<Add directory="/usr/include/c++/8"/>
 					<Add directory="/usr/include/arm-linux-gnueabihf/c++/8"/>
 					<Add directory="/usr/include/c++/8/backward"/>
@@ -61,25 +61,25 @@
 					<Add directory="/usr/include"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j4 -f &quot;/tmp/tmp.uw2GsBf4tT/cmake-build-raspi-101/Yggdrasil/remote_control_new/applications/Makefile&quot;  VERBOSE=1 cmdsetup/fast"/>
-					<CompileFile command="/usr/bin/make -j4 -f &quot;/tmp/tmp.uw2GsBf4tT/cmake-build-raspi-101/Yggdrasil/remote_control_new/applications/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j4 -f &quot;/tmp/tmp.uw2GsBf4tT/cmake-build-raspi-101/Yggdrasil/remote_control_new/applications/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j4 -f &quot;/tmp/tmp.uw2GsBf4tT/cmake-build-raspi-101/Yggdrasil/remote_control_new/applications/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j4 -f &quot;/tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101/Yggdrasil/remote_control_new/applications/Makefile&quot;  VERBOSE=1 cmdsetup/fast"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101/Yggdrasil/remote_control_new/applications/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101/Yggdrasil/remote_control_new/applications/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101/Yggdrasil/remote_control_new/applications/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="YggdrasilControlProcess">
-				<Option output="/tmp/tmp.uw2GsBf4tT/bin/YggdrasilControlProcess" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="/tmp/tmp.uw2GsBf4tT/bin"/>
+				<Option output="/tmp/tmp.4yRsQEGfYg/bin/YggdrasilControlProcess" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/tmp/tmp.4yRsQEGfYg/bin"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
 				<Option compiler="gcc"/>
 				<Compiler>
 					<Add option="-DWIRELESS_NETWORKS"/>
 					<Add option="-DNEW"/>
-					<Add directory="/tmp/tmp.uw2GsBf4tT/Yggdrasil/remote_control_new/applications/../.."/>
-					<Add directory="/tmp/tmp.uw2GsBf4tT/Yggdrasil/remote_control_new/applications/../../../Yggdrasil-LowLevelLib"/>
-					<Add directory="/tmp/tmp.uw2GsBf4tT/Yggdrasil/core/."/>
-					<Add directory="/tmp/tmp.uw2GsBf4tT/Yggdrasil/core/../../Yggdrasil-LowLevelLib"/>
+					<Add directory="/tmp/tmp.4yRsQEGfYg/Yggdrasil/remote_control_new/applications/../.."/>
+					<Add directory="/tmp/tmp.4yRsQEGfYg/Yggdrasil/remote_control_new/applications/../../../Yggdrasil-LowLevelLib"/>
+					<Add directory="/tmp/tmp.4yRsQEGfYg/Yggdrasil/core/."/>
+					<Add directory="/tmp/tmp.4yRsQEGfYg/Yggdrasil/core/../../Yggdrasil-LowLevelLib"/>
 					<Add directory="/usr/include/libnl3"/>
 					<Add directory="/usr/include/c++/8"/>
 					<Add directory="/usr/include/arm-linux-gnueabihf/c++/8"/>
@@ -91,25 +91,25 @@
 					<Add directory="/usr/include"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j4 -f &quot;/tmp/tmp.uw2GsBf4tT/cmake-build-raspi-101/Yggdrasil/remote_control_new/applications/Makefile&quot;  VERBOSE=1 YggdrasilControlProcess"/>
-					<CompileFile command="/usr/bin/make -j4 -f &quot;/tmp/tmp.uw2GsBf4tT/cmake-build-raspi-101/Yggdrasil/remote_control_new/applications/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j4 -f &quot;/tmp/tmp.uw2GsBf4tT/cmake-build-raspi-101/Yggdrasil/remote_control_new/applications/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j4 -f &quot;/tmp/tmp.uw2GsBf4tT/cmake-build-raspi-101/Yggdrasil/remote_control_new/applications/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j4 -f &quot;/tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101/Yggdrasil/remote_control_new/applications/Makefile&quot;  VERBOSE=1 YggdrasilControlProcess"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101/Yggdrasil/remote_control_new/applications/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101/Yggdrasil/remote_control_new/applications/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101/Yggdrasil/remote_control_new/applications/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="YggdrasilControlProcess/fast">
-				<Option output="/tmp/tmp.uw2GsBf4tT/bin/YggdrasilControlProcess" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="/tmp/tmp.uw2GsBf4tT/bin"/>
+				<Option output="/tmp/tmp.4yRsQEGfYg/bin/YggdrasilControlProcess" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/tmp/tmp.4yRsQEGfYg/bin"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
 				<Option compiler="gcc"/>
 				<Compiler>
 					<Add option="-DWIRELESS_NETWORKS"/>
 					<Add option="-DNEW"/>
-					<Add directory="/tmp/tmp.uw2GsBf4tT/Yggdrasil/remote_control_new/applications/../.."/>
-					<Add directory="/tmp/tmp.uw2GsBf4tT/Yggdrasil/remote_control_new/applications/../../../Yggdrasil-LowLevelLib"/>
-					<Add directory="/tmp/tmp.uw2GsBf4tT/Yggdrasil/core/."/>
-					<Add directory="/tmp/tmp.uw2GsBf4tT/Yggdrasil/core/../../Yggdrasil-LowLevelLib"/>
+					<Add directory="/tmp/tmp.4yRsQEGfYg/Yggdrasil/remote_control_new/applications/../.."/>
+					<Add directory="/tmp/tmp.4yRsQEGfYg/Yggdrasil/remote_control_new/applications/../../../Yggdrasil-LowLevelLib"/>
+					<Add directory="/tmp/tmp.4yRsQEGfYg/Yggdrasil/core/."/>
+					<Add directory="/tmp/tmp.4yRsQEGfYg/Yggdrasil/core/../../Yggdrasil-LowLevelLib"/>
 					<Add directory="/usr/include/libnl3"/>
 					<Add directory="/usr/include/c++/8"/>
 					<Add directory="/usr/include/arm-linux-gnueabihf/c++/8"/>
@@ -121,21 +121,21 @@
 					<Add directory="/usr/include"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j4 -f &quot;/tmp/tmp.uw2GsBf4tT/cmake-build-raspi-101/Yggdrasil/remote_control_new/applications/Makefile&quot;  VERBOSE=1 YggdrasilControlProcess/fast"/>
-					<CompileFile command="/usr/bin/make -j4 -f &quot;/tmp/tmp.uw2GsBf4tT/cmake-build-raspi-101/Yggdrasil/remote_control_new/applications/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j4 -f &quot;/tmp/tmp.uw2GsBf4tT/cmake-build-raspi-101/Yggdrasil/remote_control_new/applications/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j4 -f &quot;/tmp/tmp.uw2GsBf4tT/cmake-build-raspi-101/Yggdrasil/remote_control_new/applications/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j4 -f &quot;/tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101/Yggdrasil/remote_control_new/applications/Makefile&quot;  VERBOSE=1 YggdrasilControlProcess/fast"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101/Yggdrasil/remote_control_new/applications/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101/Yggdrasil/remote_control_new/applications/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101/Yggdrasil/remote_control_new/applications/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="cmdshutdown">
-				<Option output="/tmp/tmp.uw2GsBf4tT/bin/cmdshutdown" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="/tmp/tmp.uw2GsBf4tT/bin"/>
+				<Option output="/tmp/tmp.4yRsQEGfYg/bin/cmdshutdown" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/tmp/tmp.4yRsQEGfYg/bin"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
 				<Option compiler="gcc"/>
 				<Compiler>
-					<Add directory="/tmp/tmp.uw2GsBf4tT/Yggdrasil/remote_control_new/applications/../.."/>
-					<Add directory="/tmp/tmp.uw2GsBf4tT/Yggdrasil/remote_control_new/applications/../../../Yggdrasil-LowLevelLib"/>
+					<Add directory="/tmp/tmp.4yRsQEGfYg/Yggdrasil/remote_control_new/applications/../.."/>
+					<Add directory="/tmp/tmp.4yRsQEGfYg/Yggdrasil/remote_control_new/applications/../../../Yggdrasil-LowLevelLib"/>
 					<Add directory="/usr/include/c++/8"/>
 					<Add directory="/usr/include/arm-linux-gnueabihf/c++/8"/>
 					<Add directory="/usr/include/c++/8/backward"/>
@@ -146,21 +146,21 @@
 					<Add directory="/usr/include"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j4 -f &quot;/tmp/tmp.uw2GsBf4tT/cmake-build-raspi-101/Yggdrasil/remote_control_new/applications/Makefile&quot;  VERBOSE=1 cmdshutdown"/>
-					<CompileFile command="/usr/bin/make -j4 -f &quot;/tmp/tmp.uw2GsBf4tT/cmake-build-raspi-101/Yggdrasil/remote_control_new/applications/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j4 -f &quot;/tmp/tmp.uw2GsBf4tT/cmake-build-raspi-101/Yggdrasil/remote_control_new/applications/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j4 -f &quot;/tmp/tmp.uw2GsBf4tT/cmake-build-raspi-101/Yggdrasil/remote_control_new/applications/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j4 -f &quot;/tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101/Yggdrasil/remote_control_new/applications/Makefile&quot;  VERBOSE=1 cmdshutdown"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101/Yggdrasil/remote_control_new/applications/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101/Yggdrasil/remote_control_new/applications/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101/Yggdrasil/remote_control_new/applications/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="cmdshutdown/fast">
-				<Option output="/tmp/tmp.uw2GsBf4tT/bin/cmdshutdown" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="/tmp/tmp.uw2GsBf4tT/bin"/>
+				<Option output="/tmp/tmp.4yRsQEGfYg/bin/cmdshutdown" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/tmp/tmp.4yRsQEGfYg/bin"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
 				<Option compiler="gcc"/>
 				<Compiler>
-					<Add directory="/tmp/tmp.uw2GsBf4tT/Yggdrasil/remote_control_new/applications/../.."/>
-					<Add directory="/tmp/tmp.uw2GsBf4tT/Yggdrasil/remote_control_new/applications/../../../Yggdrasil-LowLevelLib"/>
+					<Add directory="/tmp/tmp.4yRsQEGfYg/Yggdrasil/remote_control_new/applications/../.."/>
+					<Add directory="/tmp/tmp.4yRsQEGfYg/Yggdrasil/remote_control_new/applications/../../../Yggdrasil-LowLevelLib"/>
 					<Add directory="/usr/include/c++/8"/>
 					<Add directory="/usr/include/arm-linux-gnueabihf/c++/8"/>
 					<Add directory="/usr/include/c++/8/backward"/>
@@ -171,31 +171,31 @@
 					<Add directory="/usr/include"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j4 -f &quot;/tmp/tmp.uw2GsBf4tT/cmake-build-raspi-101/Yggdrasil/remote_control_new/applications/Makefile&quot;  VERBOSE=1 cmdshutdown/fast"/>
-					<CompileFile command="/usr/bin/make -j4 -f &quot;/tmp/tmp.uw2GsBf4tT/cmake-build-raspi-101/Yggdrasil/remote_control_new/applications/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j4 -f &quot;/tmp/tmp.uw2GsBf4tT/cmake-build-raspi-101/Yggdrasil/remote_control_new/applications/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j4 -f &quot;/tmp/tmp.uw2GsBf4tT/cmake-build-raspi-101/Yggdrasil/remote_control_new/applications/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j4 -f &quot;/tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101/Yggdrasil/remote_control_new/applications/Makefile&quot;  VERBOSE=1 cmdshutdown/fast"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101/Yggdrasil/remote_control_new/applications/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101/Yggdrasil/remote_control_new/applications/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101/Yggdrasil/remote_control_new/applications/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="YggControlBundle">
-				<Option working_dir="/tmp/tmp.uw2GsBf4tT/cmake-build-raspi-101/Yggdrasil/remote_control_new/applications"/>
+				<Option working_dir="/tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101/Yggdrasil/remote_control_new/applications"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j4 -f &quot;/tmp/tmp.uw2GsBf4tT/cmake-build-raspi-101/Yggdrasil/remote_control_new/applications/Makefile&quot;  VERBOSE=1 YggControlBundle"/>
-					<CompileFile command="/usr/bin/make -j4 -f &quot;/tmp/tmp.uw2GsBf4tT/cmake-build-raspi-101/Yggdrasil/remote_control_new/applications/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j4 -f &quot;/tmp/tmp.uw2GsBf4tT/cmake-build-raspi-101/Yggdrasil/remote_control_new/applications/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j4 -f &quot;/tmp/tmp.uw2GsBf4tT/cmake-build-raspi-101/Yggdrasil/remote_control_new/applications/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j4 -f &quot;/tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101/Yggdrasil/remote_control_new/applications/Makefile&quot;  VERBOSE=1 YggControlBundle"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101/Yggdrasil/remote_control_new/applications/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101/Yggdrasil/remote_control_new/applications/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101/Yggdrasil/remote_control_new/applications/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="YggdrasilControlClient">
-				<Option output="/tmp/tmp.uw2GsBf4tT/bin/YggdrasilControlClient" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="/tmp/tmp.uw2GsBf4tT/bin"/>
+				<Option output="/tmp/tmp.4yRsQEGfYg/bin/YggdrasilControlClient" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/tmp/tmp.4yRsQEGfYg/bin"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
 				<Option compiler="gcc"/>
 				<Compiler>
-					<Add directory="/tmp/tmp.uw2GsBf4tT/Yggdrasil/remote_control_new/applications/../.."/>
-					<Add directory="/tmp/tmp.uw2GsBf4tT/Yggdrasil/remote_control_new/applications/../../../Yggdrasil-LowLevelLib"/>
+					<Add directory="/tmp/tmp.4yRsQEGfYg/Yggdrasil/remote_control_new/applications/../.."/>
+					<Add directory="/tmp/tmp.4yRsQEGfYg/Yggdrasil/remote_control_new/applications/../../../Yggdrasil-LowLevelLib"/>
 					<Add directory="/usr/include/c++/8"/>
 					<Add directory="/usr/include/arm-linux-gnueabihf/c++/8"/>
 					<Add directory="/usr/include/c++/8/backward"/>
@@ -206,21 +206,21 @@
 					<Add directory="/usr/include"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j4 -f &quot;/tmp/tmp.uw2GsBf4tT/cmake-build-raspi-101/Yggdrasil/remote_control_new/applications/Makefile&quot;  VERBOSE=1 YggdrasilControlClient"/>
-					<CompileFile command="/usr/bin/make -j4 -f &quot;/tmp/tmp.uw2GsBf4tT/cmake-build-raspi-101/Yggdrasil/remote_control_new/applications/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j4 -f &quot;/tmp/tmp.uw2GsBf4tT/cmake-build-raspi-101/Yggdrasil/remote_control_new/applications/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j4 -f &quot;/tmp/tmp.uw2GsBf4tT/cmake-build-raspi-101/Yggdrasil/remote_control_new/applications/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j4 -f &quot;/tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101/Yggdrasil/remote_control_new/applications/Makefile&quot;  VERBOSE=1 YggdrasilControlClient"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101/Yggdrasil/remote_control_new/applications/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101/Yggdrasil/remote_control_new/applications/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101/Yggdrasil/remote_control_new/applications/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="YggdrasilControlClient/fast">
-				<Option output="/tmp/tmp.uw2GsBf4tT/bin/YggdrasilControlClient" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="/tmp/tmp.uw2GsBf4tT/bin"/>
+				<Option output="/tmp/tmp.4yRsQEGfYg/bin/YggdrasilControlClient" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/tmp/tmp.4yRsQEGfYg/bin"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
 				<Option compiler="gcc"/>
 				<Compiler>
-					<Add directory="/tmp/tmp.uw2GsBf4tT/Yggdrasil/remote_control_new/applications/../.."/>
-					<Add directory="/tmp/tmp.uw2GsBf4tT/Yggdrasil/remote_control_new/applications/../../../Yggdrasil-LowLevelLib"/>
+					<Add directory="/tmp/tmp.4yRsQEGfYg/Yggdrasil/remote_control_new/applications/../.."/>
+					<Add directory="/tmp/tmp.4yRsQEGfYg/Yggdrasil/remote_control_new/applications/../../../Yggdrasil-LowLevelLib"/>
 					<Add directory="/usr/include/c++/8"/>
 					<Add directory="/usr/include/arm-linux-gnueabihf/c++/8"/>
 					<Add directory="/usr/include/c++/8/backward"/>
@@ -231,21 +231,21 @@
 					<Add directory="/usr/include"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j4 -f &quot;/tmp/tmp.uw2GsBf4tT/cmake-build-raspi-101/Yggdrasil/remote_control_new/applications/Makefile&quot;  VERBOSE=1 YggdrasilControlClient/fast"/>
-					<CompileFile command="/usr/bin/make -j4 -f &quot;/tmp/tmp.uw2GsBf4tT/cmake-build-raspi-101/Yggdrasil/remote_control_new/applications/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j4 -f &quot;/tmp/tmp.uw2GsBf4tT/cmake-build-raspi-101/Yggdrasil/remote_control_new/applications/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j4 -f &quot;/tmp/tmp.uw2GsBf4tT/cmake-build-raspi-101/Yggdrasil/remote_control_new/applications/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j4 -f &quot;/tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101/Yggdrasil/remote_control_new/applications/Makefile&quot;  VERBOSE=1 YggdrasilControlClient/fast"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101/Yggdrasil/remote_control_new/applications/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101/Yggdrasil/remote_control_new/applications/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101/Yggdrasil/remote_control_new/applications/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="cmdchangelink">
-				<Option output="/tmp/tmp.uw2GsBf4tT/bin/cmdchangelink" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="/tmp/tmp.uw2GsBf4tT/bin"/>
+				<Option output="/tmp/tmp.4yRsQEGfYg/bin/cmdchangelink" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/tmp/tmp.4yRsQEGfYg/bin"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
 				<Option compiler="gcc"/>
 				<Compiler>
-					<Add directory="/tmp/tmp.uw2GsBf4tT/Yggdrasil/remote_control_new/applications/../.."/>
-					<Add directory="/tmp/tmp.uw2GsBf4tT/Yggdrasil/remote_control_new/applications/../../../Yggdrasil-LowLevelLib"/>
+					<Add directory="/tmp/tmp.4yRsQEGfYg/Yggdrasil/remote_control_new/applications/../.."/>
+					<Add directory="/tmp/tmp.4yRsQEGfYg/Yggdrasil/remote_control_new/applications/../../../Yggdrasil-LowLevelLib"/>
 					<Add directory="/usr/include/c++/8"/>
 					<Add directory="/usr/include/arm-linux-gnueabihf/c++/8"/>
 					<Add directory="/usr/include/c++/8/backward"/>
@@ -256,21 +256,21 @@
 					<Add directory="/usr/include"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j4 -f &quot;/tmp/tmp.uw2GsBf4tT/cmake-build-raspi-101/Yggdrasil/remote_control_new/applications/Makefile&quot;  VERBOSE=1 cmdchangelink"/>
-					<CompileFile command="/usr/bin/make -j4 -f &quot;/tmp/tmp.uw2GsBf4tT/cmake-build-raspi-101/Yggdrasil/remote_control_new/applications/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j4 -f &quot;/tmp/tmp.uw2GsBf4tT/cmake-build-raspi-101/Yggdrasil/remote_control_new/applications/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j4 -f &quot;/tmp/tmp.uw2GsBf4tT/cmake-build-raspi-101/Yggdrasil/remote_control_new/applications/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j4 -f &quot;/tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101/Yggdrasil/remote_control_new/applications/Makefile&quot;  VERBOSE=1 cmdchangelink"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101/Yggdrasil/remote_control_new/applications/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101/Yggdrasil/remote_control_new/applications/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101/Yggdrasil/remote_control_new/applications/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="cmdchangelink/fast">
-				<Option output="/tmp/tmp.uw2GsBf4tT/bin/cmdchangelink" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="/tmp/tmp.uw2GsBf4tT/bin"/>
+				<Option output="/tmp/tmp.4yRsQEGfYg/bin/cmdchangelink" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/tmp/tmp.4yRsQEGfYg/bin"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
 				<Option compiler="gcc"/>
 				<Compiler>
-					<Add directory="/tmp/tmp.uw2GsBf4tT/Yggdrasil/remote_control_new/applications/../.."/>
-					<Add directory="/tmp/tmp.uw2GsBf4tT/Yggdrasil/remote_control_new/applications/../../../Yggdrasil-LowLevelLib"/>
+					<Add directory="/tmp/tmp.4yRsQEGfYg/Yggdrasil/remote_control_new/applications/../.."/>
+					<Add directory="/tmp/tmp.4yRsQEGfYg/Yggdrasil/remote_control_new/applications/../../../Yggdrasil-LowLevelLib"/>
 					<Add directory="/usr/include/c++/8"/>
 					<Add directory="/usr/include/arm-linux-gnueabihf/c++/8"/>
 					<Add directory="/usr/include/c++/8/backward"/>
@@ -281,21 +281,21 @@
 					<Add directory="/usr/include"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j4 -f &quot;/tmp/tmp.uw2GsBf4tT/cmake-build-raspi-101/Yggdrasil/remote_control_new/applications/Makefile&quot;  VERBOSE=1 cmdchangelink/fast"/>
-					<CompileFile command="/usr/bin/make -j4 -f &quot;/tmp/tmp.uw2GsBf4tT/cmake-build-raspi-101/Yggdrasil/remote_control_new/applications/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j4 -f &quot;/tmp/tmp.uw2GsBf4tT/cmake-build-raspi-101/Yggdrasil/remote_control_new/applications/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j4 -f &quot;/tmp/tmp.uw2GsBf4tT/cmake-build-raspi-101/Yggdrasil/remote_control_new/applications/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j4 -f &quot;/tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101/Yggdrasil/remote_control_new/applications/Makefile&quot;  VERBOSE=1 cmdchangelink/fast"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101/Yggdrasil/remote_control_new/applications/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101/Yggdrasil/remote_control_new/applications/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101/Yggdrasil/remote_control_new/applications/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="cmdterminateexperience">
-				<Option output="/tmp/tmp.uw2GsBf4tT/bin/cmdterminateexperience" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="/tmp/tmp.uw2GsBf4tT/bin"/>
+				<Option output="/tmp/tmp.4yRsQEGfYg/bin/cmdterminateexperience" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/tmp/tmp.4yRsQEGfYg/bin"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
 				<Option compiler="gcc"/>
 				<Compiler>
-					<Add directory="/tmp/tmp.uw2GsBf4tT/Yggdrasil/remote_control_new/applications/../.."/>
-					<Add directory="/tmp/tmp.uw2GsBf4tT/Yggdrasil/remote_control_new/applications/../../../Yggdrasil-LowLevelLib"/>
+					<Add directory="/tmp/tmp.4yRsQEGfYg/Yggdrasil/remote_control_new/applications/../.."/>
+					<Add directory="/tmp/tmp.4yRsQEGfYg/Yggdrasil/remote_control_new/applications/../../../Yggdrasil-LowLevelLib"/>
 					<Add directory="/usr/include/c++/8"/>
 					<Add directory="/usr/include/arm-linux-gnueabihf/c++/8"/>
 					<Add directory="/usr/include/c++/8/backward"/>
@@ -306,21 +306,21 @@
 					<Add directory="/usr/include"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j4 -f &quot;/tmp/tmp.uw2GsBf4tT/cmake-build-raspi-101/Yggdrasil/remote_control_new/applications/Makefile&quot;  VERBOSE=1 cmdterminateexperience"/>
-					<CompileFile command="/usr/bin/make -j4 -f &quot;/tmp/tmp.uw2GsBf4tT/cmake-build-raspi-101/Yggdrasil/remote_control_new/applications/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j4 -f &quot;/tmp/tmp.uw2GsBf4tT/cmake-build-raspi-101/Yggdrasil/remote_control_new/applications/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j4 -f &quot;/tmp/tmp.uw2GsBf4tT/cmake-build-raspi-101/Yggdrasil/remote_control_new/applications/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j4 -f &quot;/tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101/Yggdrasil/remote_control_new/applications/Makefile&quot;  VERBOSE=1 cmdterminateexperience"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101/Yggdrasil/remote_control_new/applications/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101/Yggdrasil/remote_control_new/applications/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101/Yggdrasil/remote_control_new/applications/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="cmdterminateexperience/fast">
-				<Option output="/tmp/tmp.uw2GsBf4tT/bin/cmdterminateexperience" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="/tmp/tmp.uw2GsBf4tT/bin"/>
+				<Option output="/tmp/tmp.4yRsQEGfYg/bin/cmdterminateexperience" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/tmp/tmp.4yRsQEGfYg/bin"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
 				<Option compiler="gcc"/>
 				<Compiler>
-					<Add directory="/tmp/tmp.uw2GsBf4tT/Yggdrasil/remote_control_new/applications/../.."/>
-					<Add directory="/tmp/tmp.uw2GsBf4tT/Yggdrasil/remote_control_new/applications/../../../Yggdrasil-LowLevelLib"/>
+					<Add directory="/tmp/tmp.4yRsQEGfYg/Yggdrasil/remote_control_new/applications/../.."/>
+					<Add directory="/tmp/tmp.4yRsQEGfYg/Yggdrasil/remote_control_new/applications/../../../Yggdrasil-LowLevelLib"/>
 					<Add directory="/usr/include/c++/8"/>
 					<Add directory="/usr/include/arm-linux-gnueabihf/c++/8"/>
 					<Add directory="/usr/include/c++/8/backward"/>
@@ -331,21 +331,21 @@
 					<Add directory="/usr/include"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j4 -f &quot;/tmp/tmp.uw2GsBf4tT/cmake-build-raspi-101/Yggdrasil/remote_control_new/applications/Makefile&quot;  VERBOSE=1 cmdterminateexperience/fast"/>
-					<CompileFile command="/usr/bin/make -j4 -f &quot;/tmp/tmp.uw2GsBf4tT/cmake-build-raspi-101/Yggdrasil/remote_control_new/applications/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j4 -f &quot;/tmp/tmp.uw2GsBf4tT/cmake-build-raspi-101/Yggdrasil/remote_control_new/applications/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j4 -f &quot;/tmp/tmp.uw2GsBf4tT/cmake-build-raspi-101/Yggdrasil/remote_control_new/applications/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j4 -f &quot;/tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101/Yggdrasil/remote_control_new/applications/Makefile&quot;  VERBOSE=1 cmdterminateexperience/fast"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101/Yggdrasil/remote_control_new/applications/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101/Yggdrasil/remote_control_new/applications/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101/Yggdrasil/remote_control_new/applications/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="cmdcheck">
-				<Option output="/tmp/tmp.uw2GsBf4tT/bin/cmdcheck" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="/tmp/tmp.uw2GsBf4tT/bin"/>
+				<Option output="/tmp/tmp.4yRsQEGfYg/bin/cmdcheck" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/tmp/tmp.4yRsQEGfYg/bin"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
 				<Option compiler="gcc"/>
 				<Compiler>
-					<Add directory="/tmp/tmp.uw2GsBf4tT/Yggdrasil/remote_control_new/applications/../.."/>
-					<Add directory="/tmp/tmp.uw2GsBf4tT/Yggdrasil/remote_control_new/applications/../../../Yggdrasil-LowLevelLib"/>
+					<Add directory="/tmp/tmp.4yRsQEGfYg/Yggdrasil/remote_control_new/applications/../.."/>
+					<Add directory="/tmp/tmp.4yRsQEGfYg/Yggdrasil/remote_control_new/applications/../../../Yggdrasil-LowLevelLib"/>
 					<Add directory="/usr/include/c++/8"/>
 					<Add directory="/usr/include/arm-linux-gnueabihf/c++/8"/>
 					<Add directory="/usr/include/c++/8/backward"/>
@@ -356,21 +356,21 @@
 					<Add directory="/usr/include"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j4 -f &quot;/tmp/tmp.uw2GsBf4tT/cmake-build-raspi-101/Yggdrasil/remote_control_new/applications/Makefile&quot;  VERBOSE=1 cmdcheck"/>
-					<CompileFile command="/usr/bin/make -j4 -f &quot;/tmp/tmp.uw2GsBf4tT/cmake-build-raspi-101/Yggdrasil/remote_control_new/applications/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j4 -f &quot;/tmp/tmp.uw2GsBf4tT/cmake-build-raspi-101/Yggdrasil/remote_control_new/applications/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j4 -f &quot;/tmp/tmp.uw2GsBf4tT/cmake-build-raspi-101/Yggdrasil/remote_control_new/applications/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j4 -f &quot;/tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101/Yggdrasil/remote_control_new/applications/Makefile&quot;  VERBOSE=1 cmdcheck"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101/Yggdrasil/remote_control_new/applications/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101/Yggdrasil/remote_control_new/applications/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101/Yggdrasil/remote_control_new/applications/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="cmdcheck/fast">
-				<Option output="/tmp/tmp.uw2GsBf4tT/bin/cmdcheck" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="/tmp/tmp.uw2GsBf4tT/bin"/>
+				<Option output="/tmp/tmp.4yRsQEGfYg/bin/cmdcheck" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/tmp/tmp.4yRsQEGfYg/bin"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
 				<Option compiler="gcc"/>
 				<Compiler>
-					<Add directory="/tmp/tmp.uw2GsBf4tT/Yggdrasil/remote_control_new/applications/../.."/>
-					<Add directory="/tmp/tmp.uw2GsBf4tT/Yggdrasil/remote_control_new/applications/../../../Yggdrasil-LowLevelLib"/>
+					<Add directory="/tmp/tmp.4yRsQEGfYg/Yggdrasil/remote_control_new/applications/../.."/>
+					<Add directory="/tmp/tmp.4yRsQEGfYg/Yggdrasil/remote_control_new/applications/../../../Yggdrasil-LowLevelLib"/>
 					<Add directory="/usr/include/c++/8"/>
 					<Add directory="/usr/include/arm-linux-gnueabihf/c++/8"/>
 					<Add directory="/usr/include/c++/8/backward"/>
@@ -381,21 +381,21 @@
 					<Add directory="/usr/include"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j4 -f &quot;/tmp/tmp.uw2GsBf4tT/cmake-build-raspi-101/Yggdrasil/remote_control_new/applications/Makefile&quot;  VERBOSE=1 cmdcheck/fast"/>
-					<CompileFile command="/usr/bin/make -j4 -f &quot;/tmp/tmp.uw2GsBf4tT/cmake-build-raspi-101/Yggdrasil/remote_control_new/applications/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j4 -f &quot;/tmp/tmp.uw2GsBf4tT/cmake-build-raspi-101/Yggdrasil/remote_control_new/applications/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j4 -f &quot;/tmp/tmp.uw2GsBf4tT/cmake-build-raspi-101/Yggdrasil/remote_control_new/applications/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j4 -f &quot;/tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101/Yggdrasil/remote_control_new/applications/Makefile&quot;  VERBOSE=1 cmdcheck/fast"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101/Yggdrasil/remote_control_new/applications/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101/Yggdrasil/remote_control_new/applications/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101/Yggdrasil/remote_control_new/applications/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="cmdchangevalue">
-				<Option output="/tmp/tmp.uw2GsBf4tT/bin/cmdchangevalue" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="/tmp/tmp.uw2GsBf4tT/bin"/>
+				<Option output="/tmp/tmp.4yRsQEGfYg/bin/cmdchangevalue" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/tmp/tmp.4yRsQEGfYg/bin"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
 				<Option compiler="gcc"/>
 				<Compiler>
-					<Add directory="/tmp/tmp.uw2GsBf4tT/Yggdrasil/remote_control_new/applications/../.."/>
-					<Add directory="/tmp/tmp.uw2GsBf4tT/Yggdrasil/remote_control_new/applications/../../../Yggdrasil-LowLevelLib"/>
+					<Add directory="/tmp/tmp.4yRsQEGfYg/Yggdrasil/remote_control_new/applications/../.."/>
+					<Add directory="/tmp/tmp.4yRsQEGfYg/Yggdrasil/remote_control_new/applications/../../../Yggdrasil-LowLevelLib"/>
 					<Add directory="/usr/include/c++/8"/>
 					<Add directory="/usr/include/arm-linux-gnueabihf/c++/8"/>
 					<Add directory="/usr/include/c++/8/backward"/>
@@ -406,21 +406,21 @@
 					<Add directory="/usr/include"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j4 -f &quot;/tmp/tmp.uw2GsBf4tT/cmake-build-raspi-101/Yggdrasil/remote_control_new/applications/Makefile&quot;  VERBOSE=1 cmdchangevalue"/>
-					<CompileFile command="/usr/bin/make -j4 -f &quot;/tmp/tmp.uw2GsBf4tT/cmake-build-raspi-101/Yggdrasil/remote_control_new/applications/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j4 -f &quot;/tmp/tmp.uw2GsBf4tT/cmake-build-raspi-101/Yggdrasil/remote_control_new/applications/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j4 -f &quot;/tmp/tmp.uw2GsBf4tT/cmake-build-raspi-101/Yggdrasil/remote_control_new/applications/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j4 -f &quot;/tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101/Yggdrasil/remote_control_new/applications/Makefile&quot;  VERBOSE=1 cmdchangevalue"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101/Yggdrasil/remote_control_new/applications/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101/Yggdrasil/remote_control_new/applications/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101/Yggdrasil/remote_control_new/applications/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="cmdchangevalue/fast">
-				<Option output="/tmp/tmp.uw2GsBf4tT/bin/cmdchangevalue" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="/tmp/tmp.uw2GsBf4tT/bin"/>
+				<Option output="/tmp/tmp.4yRsQEGfYg/bin/cmdchangevalue" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/tmp/tmp.4yRsQEGfYg/bin"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
 				<Option compiler="gcc"/>
 				<Compiler>
-					<Add directory="/tmp/tmp.uw2GsBf4tT/Yggdrasil/remote_control_new/applications/../.."/>
-					<Add directory="/tmp/tmp.uw2GsBf4tT/Yggdrasil/remote_control_new/applications/../../../Yggdrasil-LowLevelLib"/>
+					<Add directory="/tmp/tmp.4yRsQEGfYg/Yggdrasil/remote_control_new/applications/../.."/>
+					<Add directory="/tmp/tmp.4yRsQEGfYg/Yggdrasil/remote_control_new/applications/../../../Yggdrasil-LowLevelLib"/>
 					<Add directory="/usr/include/c++/8"/>
 					<Add directory="/usr/include/arm-linux-gnueabihf/c++/8"/>
 					<Add directory="/usr/include/c++/8/backward"/>
@@ -431,21 +431,21 @@
 					<Add directory="/usr/include"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j4 -f &quot;/tmp/tmp.uw2GsBf4tT/cmake-build-raspi-101/Yggdrasil/remote_control_new/applications/Makefile&quot;  VERBOSE=1 cmdchangevalue/fast"/>
-					<CompileFile command="/usr/bin/make -j4 -f &quot;/tmp/tmp.uw2GsBf4tT/cmake-build-raspi-101/Yggdrasil/remote_control_new/applications/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j4 -f &quot;/tmp/tmp.uw2GsBf4tT/cmake-build-raspi-101/Yggdrasil/remote_control_new/applications/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j4 -f &quot;/tmp/tmp.uw2GsBf4tT/cmake-build-raspi-101/Yggdrasil/remote_control_new/applications/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j4 -f &quot;/tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101/Yggdrasil/remote_control_new/applications/Makefile&quot;  VERBOSE=1 cmdchangevalue/fast"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101/Yggdrasil/remote_control_new/applications/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101/Yggdrasil/remote_control_new/applications/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101/Yggdrasil/remote_control_new/applications/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="cmdreboot">
-				<Option output="/tmp/tmp.uw2GsBf4tT/bin/cmdreboot" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="/tmp/tmp.uw2GsBf4tT/bin"/>
+				<Option output="/tmp/tmp.4yRsQEGfYg/bin/cmdreboot" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/tmp/tmp.4yRsQEGfYg/bin"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
 				<Option compiler="gcc"/>
 				<Compiler>
-					<Add directory="/tmp/tmp.uw2GsBf4tT/Yggdrasil/remote_control_new/applications/../.."/>
-					<Add directory="/tmp/tmp.uw2GsBf4tT/Yggdrasil/remote_control_new/applications/../../../Yggdrasil-LowLevelLib"/>
+					<Add directory="/tmp/tmp.4yRsQEGfYg/Yggdrasil/remote_control_new/applications/../.."/>
+					<Add directory="/tmp/tmp.4yRsQEGfYg/Yggdrasil/remote_control_new/applications/../../../Yggdrasil-LowLevelLib"/>
 					<Add directory="/usr/include/c++/8"/>
 					<Add directory="/usr/include/arm-linux-gnueabihf/c++/8"/>
 					<Add directory="/usr/include/c++/8/backward"/>
@@ -456,21 +456,21 @@
 					<Add directory="/usr/include"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j4 -f &quot;/tmp/tmp.uw2GsBf4tT/cmake-build-raspi-101/Yggdrasil/remote_control_new/applications/Makefile&quot;  VERBOSE=1 cmdreboot"/>
-					<CompileFile command="/usr/bin/make -j4 -f &quot;/tmp/tmp.uw2GsBf4tT/cmake-build-raspi-101/Yggdrasil/remote_control_new/applications/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j4 -f &quot;/tmp/tmp.uw2GsBf4tT/cmake-build-raspi-101/Yggdrasil/remote_control_new/applications/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j4 -f &quot;/tmp/tmp.uw2GsBf4tT/cmake-build-raspi-101/Yggdrasil/remote_control_new/applications/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j4 -f &quot;/tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101/Yggdrasil/remote_control_new/applications/Makefile&quot;  VERBOSE=1 cmdreboot"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101/Yggdrasil/remote_control_new/applications/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101/Yggdrasil/remote_control_new/applications/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101/Yggdrasil/remote_control_new/applications/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="cmdreboot/fast">
-				<Option output="/tmp/tmp.uw2GsBf4tT/bin/cmdreboot" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="/tmp/tmp.uw2GsBf4tT/bin"/>
+				<Option output="/tmp/tmp.4yRsQEGfYg/bin/cmdreboot" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/tmp/tmp.4yRsQEGfYg/bin"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
 				<Option compiler="gcc"/>
 				<Compiler>
-					<Add directory="/tmp/tmp.uw2GsBf4tT/Yggdrasil/remote_control_new/applications/../.."/>
-					<Add directory="/tmp/tmp.uw2GsBf4tT/Yggdrasil/remote_control_new/applications/../../../Yggdrasil-LowLevelLib"/>
+					<Add directory="/tmp/tmp.4yRsQEGfYg/Yggdrasil/remote_control_new/applications/../.."/>
+					<Add directory="/tmp/tmp.4yRsQEGfYg/Yggdrasil/remote_control_new/applications/../../../Yggdrasil-LowLevelLib"/>
 					<Add directory="/usr/include/c++/8"/>
 					<Add directory="/usr/include/arm-linux-gnueabihf/c++/8"/>
 					<Add directory="/usr/include/c++/8/backward"/>
@@ -481,21 +481,21 @@
 					<Add directory="/usr/include"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j4 -f &quot;/tmp/tmp.uw2GsBf4tT/cmake-build-raspi-101/Yggdrasil/remote_control_new/applications/Makefile&quot;  VERBOSE=1 cmdreboot/fast"/>
-					<CompileFile command="/usr/bin/make -j4 -f &quot;/tmp/tmp.uw2GsBf4tT/cmake-build-raspi-101/Yggdrasil/remote_control_new/applications/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j4 -f &quot;/tmp/tmp.uw2GsBf4tT/cmake-build-raspi-101/Yggdrasil/remote_control_new/applications/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j4 -f &quot;/tmp/tmp.uw2GsBf4tT/cmake-build-raspi-101/Yggdrasil/remote_control_new/applications/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j4 -f &quot;/tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101/Yggdrasil/remote_control_new/applications/Makefile&quot;  VERBOSE=1 cmdreboot/fast"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101/Yggdrasil/remote_control_new/applications/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101/Yggdrasil/remote_control_new/applications/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101/Yggdrasil/remote_control_new/applications/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="cmdexecuteexperience">
-				<Option output="/tmp/tmp.uw2GsBf4tT/bin/cmdexecuteexperience" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="/tmp/tmp.uw2GsBf4tT/bin"/>
+				<Option output="/tmp/tmp.4yRsQEGfYg/bin/cmdexecuteexperience" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/tmp/tmp.4yRsQEGfYg/bin"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
 				<Option compiler="gcc"/>
 				<Compiler>
-					<Add directory="/tmp/tmp.uw2GsBf4tT/Yggdrasil/remote_control_new/applications/../.."/>
-					<Add directory="/tmp/tmp.uw2GsBf4tT/Yggdrasil/remote_control_new/applications/../../../Yggdrasil-LowLevelLib"/>
+					<Add directory="/tmp/tmp.4yRsQEGfYg/Yggdrasil/remote_control_new/applications/../.."/>
+					<Add directory="/tmp/tmp.4yRsQEGfYg/Yggdrasil/remote_control_new/applications/../../../Yggdrasil-LowLevelLib"/>
 					<Add directory="/usr/include/c++/8"/>
 					<Add directory="/usr/include/arm-linux-gnueabihf/c++/8"/>
 					<Add directory="/usr/include/c++/8/backward"/>
@@ -506,21 +506,21 @@
 					<Add directory="/usr/include"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j4 -f &quot;/tmp/tmp.uw2GsBf4tT/cmake-build-raspi-101/Yggdrasil/remote_control_new/applications/Makefile&quot;  VERBOSE=1 cmdexecuteexperience"/>
-					<CompileFile command="/usr/bin/make -j4 -f &quot;/tmp/tmp.uw2GsBf4tT/cmake-build-raspi-101/Yggdrasil/remote_control_new/applications/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j4 -f &quot;/tmp/tmp.uw2GsBf4tT/cmake-build-raspi-101/Yggdrasil/remote_control_new/applications/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j4 -f &quot;/tmp/tmp.uw2GsBf4tT/cmake-build-raspi-101/Yggdrasil/remote_control_new/applications/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j4 -f &quot;/tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101/Yggdrasil/remote_control_new/applications/Makefile&quot;  VERBOSE=1 cmdexecuteexperience"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101/Yggdrasil/remote_control_new/applications/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101/Yggdrasil/remote_control_new/applications/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101/Yggdrasil/remote_control_new/applications/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="cmdexecuteexperience/fast">
-				<Option output="/tmp/tmp.uw2GsBf4tT/bin/cmdexecuteexperience" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="/tmp/tmp.uw2GsBf4tT/bin"/>
+				<Option output="/tmp/tmp.4yRsQEGfYg/bin/cmdexecuteexperience" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/tmp/tmp.4yRsQEGfYg/bin"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
 				<Option compiler="gcc"/>
 				<Compiler>
-					<Add directory="/tmp/tmp.uw2GsBf4tT/Yggdrasil/remote_control_new/applications/../.."/>
-					<Add directory="/tmp/tmp.uw2GsBf4tT/Yggdrasil/remote_control_new/applications/../../../Yggdrasil-LowLevelLib"/>
+					<Add directory="/tmp/tmp.4yRsQEGfYg/Yggdrasil/remote_control_new/applications/../.."/>
+					<Add directory="/tmp/tmp.4yRsQEGfYg/Yggdrasil/remote_control_new/applications/../../../Yggdrasil-LowLevelLib"/>
 					<Add directory="/usr/include/c++/8"/>
 					<Add directory="/usr/include/arm-linux-gnueabihf/c++/8"/>
 					<Add directory="/usr/include/c++/8/backward"/>
@@ -531,21 +531,21 @@
 					<Add directory="/usr/include"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j4 -f &quot;/tmp/tmp.uw2GsBf4tT/cmake-build-raspi-101/Yggdrasil/remote_control_new/applications/Makefile&quot;  VERBOSE=1 cmdexecuteexperience/fast"/>
-					<CompileFile command="/usr/bin/make -j4 -f &quot;/tmp/tmp.uw2GsBf4tT/cmake-build-raspi-101/Yggdrasil/remote_control_new/applications/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j4 -f &quot;/tmp/tmp.uw2GsBf4tT/cmake-build-raspi-101/Yggdrasil/remote_control_new/applications/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j4 -f &quot;/tmp/tmp.uw2GsBf4tT/cmake-build-raspi-101/Yggdrasil/remote_control_new/applications/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j4 -f &quot;/tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101/Yggdrasil/remote_control_new/applications/Makefile&quot;  VERBOSE=1 cmdexecuteexperience/fast"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101/Yggdrasil/remote_control_new/applications/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101/Yggdrasil/remote_control_new/applications/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101/Yggdrasil/remote_control_new/applications/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="cmdenablediscovery">
-				<Option output="/tmp/tmp.uw2GsBf4tT/bin/cmdenablediscovery" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="/tmp/tmp.uw2GsBf4tT/bin"/>
+				<Option output="/tmp/tmp.4yRsQEGfYg/bin/cmdenablediscovery" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/tmp/tmp.4yRsQEGfYg/bin"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
 				<Option compiler="gcc"/>
 				<Compiler>
-					<Add directory="/tmp/tmp.uw2GsBf4tT/Yggdrasil/remote_control_new/applications/../.."/>
-					<Add directory="/tmp/tmp.uw2GsBf4tT/Yggdrasil/remote_control_new/applications/../../../Yggdrasil-LowLevelLib"/>
+					<Add directory="/tmp/tmp.4yRsQEGfYg/Yggdrasil/remote_control_new/applications/../.."/>
+					<Add directory="/tmp/tmp.4yRsQEGfYg/Yggdrasil/remote_control_new/applications/../../../Yggdrasil-LowLevelLib"/>
 					<Add directory="/usr/include/c++/8"/>
 					<Add directory="/usr/include/arm-linux-gnueabihf/c++/8"/>
 					<Add directory="/usr/include/c++/8/backward"/>
@@ -556,21 +556,21 @@
 					<Add directory="/usr/include"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j4 -f &quot;/tmp/tmp.uw2GsBf4tT/cmake-build-raspi-101/Yggdrasil/remote_control_new/applications/Makefile&quot;  VERBOSE=1 cmdenablediscovery"/>
-					<CompileFile command="/usr/bin/make -j4 -f &quot;/tmp/tmp.uw2GsBf4tT/cmake-build-raspi-101/Yggdrasil/remote_control_new/applications/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j4 -f &quot;/tmp/tmp.uw2GsBf4tT/cmake-build-raspi-101/Yggdrasil/remote_control_new/applications/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j4 -f &quot;/tmp/tmp.uw2GsBf4tT/cmake-build-raspi-101/Yggdrasil/remote_control_new/applications/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j4 -f &quot;/tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101/Yggdrasil/remote_control_new/applications/Makefile&quot;  VERBOSE=1 cmdenablediscovery"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101/Yggdrasil/remote_control_new/applications/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101/Yggdrasil/remote_control_new/applications/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101/Yggdrasil/remote_control_new/applications/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="cmdenablediscovery/fast">
-				<Option output="/tmp/tmp.uw2GsBf4tT/bin/cmdenablediscovery" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="/tmp/tmp.uw2GsBf4tT/bin"/>
+				<Option output="/tmp/tmp.4yRsQEGfYg/bin/cmdenablediscovery" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/tmp/tmp.4yRsQEGfYg/bin"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
 				<Option compiler="gcc"/>
 				<Compiler>
-					<Add directory="/tmp/tmp.uw2GsBf4tT/Yggdrasil/remote_control_new/applications/../.."/>
-					<Add directory="/tmp/tmp.uw2GsBf4tT/Yggdrasil/remote_control_new/applications/../../../Yggdrasil-LowLevelLib"/>
+					<Add directory="/tmp/tmp.4yRsQEGfYg/Yggdrasil/remote_control_new/applications/../.."/>
+					<Add directory="/tmp/tmp.4yRsQEGfYg/Yggdrasil/remote_control_new/applications/../../../Yggdrasil-LowLevelLib"/>
 					<Add directory="/usr/include/c++/8"/>
 					<Add directory="/usr/include/arm-linux-gnueabihf/c++/8"/>
 					<Add directory="/usr/include/c++/8/backward"/>
@@ -581,25 +581,25 @@
 					<Add directory="/usr/include"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j4 -f &quot;/tmp/tmp.uw2GsBf4tT/cmake-build-raspi-101/Yggdrasil/remote_control_new/applications/Makefile&quot;  VERBOSE=1 cmdenablediscovery/fast"/>
-					<CompileFile command="/usr/bin/make -j4 -f &quot;/tmp/tmp.uw2GsBf4tT/cmake-build-raspi-101/Yggdrasil/remote_control_new/applications/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j4 -f &quot;/tmp/tmp.uw2GsBf4tT/cmake-build-raspi-101/Yggdrasil/remote_control_new/applications/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j4 -f &quot;/tmp/tmp.uw2GsBf4tT/cmake-build-raspi-101/Yggdrasil/remote_control_new/applications/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j4 -f &quot;/tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101/Yggdrasil/remote_control_new/applications/Makefile&quot;  VERBOSE=1 cmdenablediscovery/fast"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101/Yggdrasil/remote_control_new/applications/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101/Yggdrasil/remote_control_new/applications/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101/Yggdrasil/remote_control_new/applications/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="control_app_cmp">
-				<Option output="/tmp/tmp.uw2GsBf4tT/lib/libcontrol_app_cmp.a" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="/tmp/tmp.uw2GsBf4tT/cmake-build-raspi-101/Yggdrasil/remote_control_new/applications"/>
+				<Option output="/tmp/tmp.4yRsQEGfYg/lib/libcontrol_app_cmp.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101/Yggdrasil/remote_control_new/applications"/>
 				<Option object_output="./"/>
 				<Option type="2"/>
 				<Option compiler="gcc"/>
 				<Compiler>
 					<Add option="-DWIRELESS_NETWORKS"/>
 					<Add option="-DNEW"/>
-					<Add directory="/tmp/tmp.uw2GsBf4tT/Yggdrasil/remote_control_new/applications/../.."/>
-					<Add directory="/tmp/tmp.uw2GsBf4tT/Yggdrasil/remote_control_new/applications/../../../Yggdrasil-LowLevelLib"/>
-					<Add directory="/tmp/tmp.uw2GsBf4tT/Yggdrasil/core/."/>
-					<Add directory="/tmp/tmp.uw2GsBf4tT/Yggdrasil/core/../../Yggdrasil-LowLevelLib"/>
+					<Add directory="/tmp/tmp.4yRsQEGfYg/Yggdrasil/remote_control_new/applications/../.."/>
+					<Add directory="/tmp/tmp.4yRsQEGfYg/Yggdrasil/remote_control_new/applications/../../../Yggdrasil-LowLevelLib"/>
+					<Add directory="/tmp/tmp.4yRsQEGfYg/Yggdrasil/core/."/>
+					<Add directory="/tmp/tmp.4yRsQEGfYg/Yggdrasil/core/../../Yggdrasil-LowLevelLib"/>
 					<Add directory="/usr/include/libnl3"/>
 					<Add directory="/usr/include/c++/8"/>
 					<Add directory="/usr/include/arm-linux-gnueabihf/c++/8"/>
@@ -611,25 +611,25 @@
 					<Add directory="/usr/include"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j4 -f &quot;/tmp/tmp.uw2GsBf4tT/cmake-build-raspi-101/Yggdrasil/remote_control_new/applications/Makefile&quot;  VERBOSE=1 control_app_cmp"/>
-					<CompileFile command="/usr/bin/make -j4 -f &quot;/tmp/tmp.uw2GsBf4tT/cmake-build-raspi-101/Yggdrasil/remote_control_new/applications/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j4 -f &quot;/tmp/tmp.uw2GsBf4tT/cmake-build-raspi-101/Yggdrasil/remote_control_new/applications/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j4 -f &quot;/tmp/tmp.uw2GsBf4tT/cmake-build-raspi-101/Yggdrasil/remote_control_new/applications/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j4 -f &quot;/tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101/Yggdrasil/remote_control_new/applications/Makefile&quot;  VERBOSE=1 control_app_cmp"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101/Yggdrasil/remote_control_new/applications/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101/Yggdrasil/remote_control_new/applications/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101/Yggdrasil/remote_control_new/applications/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="control_app_cmp/fast">
-				<Option output="/tmp/tmp.uw2GsBf4tT/lib/libcontrol_app_cmp.a" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="/tmp/tmp.uw2GsBf4tT/cmake-build-raspi-101/Yggdrasil/remote_control_new/applications"/>
+				<Option output="/tmp/tmp.4yRsQEGfYg/lib/libcontrol_app_cmp.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101/Yggdrasil/remote_control_new/applications"/>
 				<Option object_output="./"/>
 				<Option type="2"/>
 				<Option compiler="gcc"/>
 				<Compiler>
 					<Add option="-DWIRELESS_NETWORKS"/>
 					<Add option="-DNEW"/>
-					<Add directory="/tmp/tmp.uw2GsBf4tT/Yggdrasil/remote_control_new/applications/../.."/>
-					<Add directory="/tmp/tmp.uw2GsBf4tT/Yggdrasil/remote_control_new/applications/../../../Yggdrasil-LowLevelLib"/>
-					<Add directory="/tmp/tmp.uw2GsBf4tT/Yggdrasil/core/."/>
-					<Add directory="/tmp/tmp.uw2GsBf4tT/Yggdrasil/core/../../Yggdrasil-LowLevelLib"/>
+					<Add directory="/tmp/tmp.4yRsQEGfYg/Yggdrasil/remote_control_new/applications/../.."/>
+					<Add directory="/tmp/tmp.4yRsQEGfYg/Yggdrasil/remote_control_new/applications/../../../Yggdrasil-LowLevelLib"/>
+					<Add directory="/tmp/tmp.4yRsQEGfYg/Yggdrasil/core/."/>
+					<Add directory="/tmp/tmp.4yRsQEGfYg/Yggdrasil/core/../../Yggdrasil-LowLevelLib"/>
 					<Add directory="/usr/include/libnl3"/>
 					<Add directory="/usr/include/c++/8"/>
 					<Add directory="/usr/include/arm-linux-gnueabihf/c++/8"/>
@@ -641,21 +641,21 @@
 					<Add directory="/usr/include"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j4 -f &quot;/tmp/tmp.uw2GsBf4tT/cmake-build-raspi-101/Yggdrasil/remote_control_new/applications/Makefile&quot;  VERBOSE=1 control_app_cmp/fast"/>
-					<CompileFile command="/usr/bin/make -j4 -f &quot;/tmp/tmp.uw2GsBf4tT/cmake-build-raspi-101/Yggdrasil/remote_control_new/applications/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j4 -f &quot;/tmp/tmp.uw2GsBf4tT/cmake-build-raspi-101/Yggdrasil/remote_control_new/applications/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j4 -f &quot;/tmp/tmp.uw2GsBf4tT/cmake-build-raspi-101/Yggdrasil/remote_control_new/applications/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j4 -f &quot;/tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101/Yggdrasil/remote_control_new/applications/Makefile&quot;  VERBOSE=1 control_app_cmp/fast"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101/Yggdrasil/remote_control_new/applications/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101/Yggdrasil/remote_control_new/applications/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101/Yggdrasil/remote_control_new/applications/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="cmddisablediscovery">
-				<Option output="/tmp/tmp.uw2GsBf4tT/bin/cmddisablediscovery" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="/tmp/tmp.uw2GsBf4tT/bin"/>
+				<Option output="/tmp/tmp.4yRsQEGfYg/bin/cmddisablediscovery" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/tmp/tmp.4yRsQEGfYg/bin"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
 				<Option compiler="gcc"/>
 				<Compiler>
-					<Add directory="/tmp/tmp.uw2GsBf4tT/Yggdrasil/remote_control_new/applications/../.."/>
-					<Add directory="/tmp/tmp.uw2GsBf4tT/Yggdrasil/remote_control_new/applications/../../../Yggdrasil-LowLevelLib"/>
+					<Add directory="/tmp/tmp.4yRsQEGfYg/Yggdrasil/remote_control_new/applications/../.."/>
+					<Add directory="/tmp/tmp.4yRsQEGfYg/Yggdrasil/remote_control_new/applications/../../../Yggdrasil-LowLevelLib"/>
 					<Add directory="/usr/include/c++/8"/>
 					<Add directory="/usr/include/arm-linux-gnueabihf/c++/8"/>
 					<Add directory="/usr/include/c++/8/backward"/>
@@ -666,21 +666,21 @@
 					<Add directory="/usr/include"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j4 -f &quot;/tmp/tmp.uw2GsBf4tT/cmake-build-raspi-101/Yggdrasil/remote_control_new/applications/Makefile&quot;  VERBOSE=1 cmddisablediscovery"/>
-					<CompileFile command="/usr/bin/make -j4 -f &quot;/tmp/tmp.uw2GsBf4tT/cmake-build-raspi-101/Yggdrasil/remote_control_new/applications/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j4 -f &quot;/tmp/tmp.uw2GsBf4tT/cmake-build-raspi-101/Yggdrasil/remote_control_new/applications/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j4 -f &quot;/tmp/tmp.uw2GsBf4tT/cmake-build-raspi-101/Yggdrasil/remote_control_new/applications/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j4 -f &quot;/tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101/Yggdrasil/remote_control_new/applications/Makefile&quot;  VERBOSE=1 cmddisablediscovery"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101/Yggdrasil/remote_control_new/applications/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101/Yggdrasil/remote_control_new/applications/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101/Yggdrasil/remote_control_new/applications/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="cmddisablediscovery/fast">
-				<Option output="/tmp/tmp.uw2GsBf4tT/bin/cmddisablediscovery" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="/tmp/tmp.uw2GsBf4tT/bin"/>
+				<Option output="/tmp/tmp.4yRsQEGfYg/bin/cmddisablediscovery" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/tmp/tmp.4yRsQEGfYg/bin"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
 				<Option compiler="gcc"/>
 				<Compiler>
-					<Add directory="/tmp/tmp.uw2GsBf4tT/Yggdrasil/remote_control_new/applications/../.."/>
-					<Add directory="/tmp/tmp.uw2GsBf4tT/Yggdrasil/remote_control_new/applications/../../../Yggdrasil-LowLevelLib"/>
+					<Add directory="/tmp/tmp.4yRsQEGfYg/Yggdrasil/remote_control_new/applications/../.."/>
+					<Add directory="/tmp/tmp.4yRsQEGfYg/Yggdrasil/remote_control_new/applications/../../../Yggdrasil-LowLevelLib"/>
 					<Add directory="/usr/include/c++/8"/>
 					<Add directory="/usr/include/arm-linux-gnueabihf/c++/8"/>
 					<Add directory="/usr/include/c++/8/backward"/>
@@ -691,21 +691,21 @@
 					<Add directory="/usr/include"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j4 -f &quot;/tmp/tmp.uw2GsBf4tT/cmake-build-raspi-101/Yggdrasil/remote_control_new/applications/Makefile&quot;  VERBOSE=1 cmddisablediscovery/fast"/>
-					<CompileFile command="/usr/bin/make -j4 -f &quot;/tmp/tmp.uw2GsBf4tT/cmake-build-raspi-101/Yggdrasil/remote_control_new/applications/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j4 -f &quot;/tmp/tmp.uw2GsBf4tT/cmake-build-raspi-101/Yggdrasil/remote_control_new/applications/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j4 -f &quot;/tmp/tmp.uw2GsBf4tT/cmake-build-raspi-101/Yggdrasil/remote_control_new/applications/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j4 -f &quot;/tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101/Yggdrasil/remote_control_new/applications/Makefile&quot;  VERBOSE=1 cmddisablediscovery/fast"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101/Yggdrasil/remote_control_new/applications/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101/Yggdrasil/remote_control_new/applications/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101/Yggdrasil/remote_control_new/applications/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="cmdgetneighbors">
-				<Option output="/tmp/tmp.uw2GsBf4tT/bin/cmdgetneighbors" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="/tmp/tmp.uw2GsBf4tT/bin"/>
+				<Option output="/tmp/tmp.4yRsQEGfYg/bin/cmdgetneighbors" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/tmp/tmp.4yRsQEGfYg/bin"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
 				<Option compiler="gcc"/>
 				<Compiler>
-					<Add directory="/tmp/tmp.uw2GsBf4tT/Yggdrasil/remote_control_new/applications/../.."/>
-					<Add directory="/tmp/tmp.uw2GsBf4tT/Yggdrasil/remote_control_new/applications/../../../Yggdrasil-LowLevelLib"/>
+					<Add directory="/tmp/tmp.4yRsQEGfYg/Yggdrasil/remote_control_new/applications/../.."/>
+					<Add directory="/tmp/tmp.4yRsQEGfYg/Yggdrasil/remote_control_new/applications/../../../Yggdrasil-LowLevelLib"/>
 					<Add directory="/usr/include/c++/8"/>
 					<Add directory="/usr/include/arm-linux-gnueabihf/c++/8"/>
 					<Add directory="/usr/include/c++/8/backward"/>
@@ -716,21 +716,21 @@
 					<Add directory="/usr/include"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j4 -f &quot;/tmp/tmp.uw2GsBf4tT/cmake-build-raspi-101/Yggdrasil/remote_control_new/applications/Makefile&quot;  VERBOSE=1 cmdgetneighbors"/>
-					<CompileFile command="/usr/bin/make -j4 -f &quot;/tmp/tmp.uw2GsBf4tT/cmake-build-raspi-101/Yggdrasil/remote_control_new/applications/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j4 -f &quot;/tmp/tmp.uw2GsBf4tT/cmake-build-raspi-101/Yggdrasil/remote_control_new/applications/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j4 -f &quot;/tmp/tmp.uw2GsBf4tT/cmake-build-raspi-101/Yggdrasil/remote_control_new/applications/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j4 -f &quot;/tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101/Yggdrasil/remote_control_new/applications/Makefile&quot;  VERBOSE=1 cmdgetneighbors"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101/Yggdrasil/remote_control_new/applications/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101/Yggdrasil/remote_control_new/applications/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101/Yggdrasil/remote_control_new/applications/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="cmdgetneighbors/fast">
-				<Option output="/tmp/tmp.uw2GsBf4tT/bin/cmdgetneighbors" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="/tmp/tmp.uw2GsBf4tT/bin"/>
+				<Option output="/tmp/tmp.4yRsQEGfYg/bin/cmdgetneighbors" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/tmp/tmp.4yRsQEGfYg/bin"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
 				<Option compiler="gcc"/>
 				<Compiler>
-					<Add directory="/tmp/tmp.uw2GsBf4tT/Yggdrasil/remote_control_new/applications/../.."/>
-					<Add directory="/tmp/tmp.uw2GsBf4tT/Yggdrasil/remote_control_new/applications/../../../Yggdrasil-LowLevelLib"/>
+					<Add directory="/tmp/tmp.4yRsQEGfYg/Yggdrasil/remote_control_new/applications/../.."/>
+					<Add directory="/tmp/tmp.4yRsQEGfYg/Yggdrasil/remote_control_new/applications/../../../Yggdrasil-LowLevelLib"/>
 					<Add directory="/usr/include/c++/8"/>
 					<Add directory="/usr/include/arm-linux-gnueabihf/c++/8"/>
 					<Add directory="/usr/include/c++/8/backward"/>
@@ -741,21 +741,21 @@
 					<Add directory="/usr/include"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j4 -f &quot;/tmp/tmp.uw2GsBf4tT/cmake-build-raspi-101/Yggdrasil/remote_control_new/applications/Makefile&quot;  VERBOSE=1 cmdgetneighbors/fast"/>
-					<CompileFile command="/usr/bin/make -j4 -f &quot;/tmp/tmp.uw2GsBf4tT/cmake-build-raspi-101/Yggdrasil/remote_control_new/applications/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j4 -f &quot;/tmp/tmp.uw2GsBf4tT/cmake-build-raspi-101/Yggdrasil/remote_control_new/applications/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j4 -f &quot;/tmp/tmp.uw2GsBf4tT/cmake-build-raspi-101/Yggdrasil/remote_control_new/applications/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j4 -f &quot;/tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101/Yggdrasil/remote_control_new/applications/Makefile&quot;  VERBOSE=1 cmdgetneighbors/fast"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101/Yggdrasil/remote_control_new/applications/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101/Yggdrasil/remote_control_new/applications/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101/Yggdrasil/remote_control_new/applications/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="cmddebug">
-				<Option output="/tmp/tmp.uw2GsBf4tT/bin/cmddebug" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="/tmp/tmp.uw2GsBf4tT/bin"/>
+				<Option output="/tmp/tmp.4yRsQEGfYg/bin/cmddebug" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/tmp/tmp.4yRsQEGfYg/bin"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
 				<Option compiler="gcc"/>
 				<Compiler>
-					<Add directory="/tmp/tmp.uw2GsBf4tT/Yggdrasil/remote_control_new/applications/../.."/>
-					<Add directory="/tmp/tmp.uw2GsBf4tT/Yggdrasil/remote_control_new/applications/../../../Yggdrasil-LowLevelLib"/>
+					<Add directory="/tmp/tmp.4yRsQEGfYg/Yggdrasil/remote_control_new/applications/../.."/>
+					<Add directory="/tmp/tmp.4yRsQEGfYg/Yggdrasil/remote_control_new/applications/../../../Yggdrasil-LowLevelLib"/>
 					<Add directory="/usr/include/c++/8"/>
 					<Add directory="/usr/include/arm-linux-gnueabihf/c++/8"/>
 					<Add directory="/usr/include/c++/8/backward"/>
@@ -766,21 +766,21 @@
 					<Add directory="/usr/include"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j4 -f &quot;/tmp/tmp.uw2GsBf4tT/cmake-build-raspi-101/Yggdrasil/remote_control_new/applications/Makefile&quot;  VERBOSE=1 cmddebug"/>
-					<CompileFile command="/usr/bin/make -j4 -f &quot;/tmp/tmp.uw2GsBf4tT/cmake-build-raspi-101/Yggdrasil/remote_control_new/applications/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j4 -f &quot;/tmp/tmp.uw2GsBf4tT/cmake-build-raspi-101/Yggdrasil/remote_control_new/applications/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j4 -f &quot;/tmp/tmp.uw2GsBf4tT/cmake-build-raspi-101/Yggdrasil/remote_control_new/applications/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j4 -f &quot;/tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101/Yggdrasil/remote_control_new/applications/Makefile&quot;  VERBOSE=1 cmddebug"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101/Yggdrasil/remote_control_new/applications/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101/Yggdrasil/remote_control_new/applications/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101/Yggdrasil/remote_control_new/applications/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="cmddebug/fast">
-				<Option output="/tmp/tmp.uw2GsBf4tT/bin/cmddebug" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="/tmp/tmp.uw2GsBf4tT/bin"/>
+				<Option output="/tmp/tmp.4yRsQEGfYg/bin/cmddebug" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/tmp/tmp.4yRsQEGfYg/bin"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
 				<Option compiler="gcc"/>
 				<Compiler>
-					<Add directory="/tmp/tmp.uw2GsBf4tT/Yggdrasil/remote_control_new/applications/../.."/>
-					<Add directory="/tmp/tmp.uw2GsBf4tT/Yggdrasil/remote_control_new/applications/../../../Yggdrasil-LowLevelLib"/>
+					<Add directory="/tmp/tmp.4yRsQEGfYg/Yggdrasil/remote_control_new/applications/../.."/>
+					<Add directory="/tmp/tmp.4yRsQEGfYg/Yggdrasil/remote_control_new/applications/../../../Yggdrasil-LowLevelLib"/>
 					<Add directory="/usr/include/c++/8"/>
 					<Add directory="/usr/include/arm-linux-gnueabihf/c++/8"/>
 					<Add directory="/usr/include/c++/8/backward"/>
@@ -791,143 +791,143 @@
 					<Add directory="/usr/include"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j4 -f &quot;/tmp/tmp.uw2GsBf4tT/cmake-build-raspi-101/Yggdrasil/remote_control_new/applications/Makefile&quot;  VERBOSE=1 cmddebug/fast"/>
-					<CompileFile command="/usr/bin/make -j4 -f &quot;/tmp/tmp.uw2GsBf4tT/cmake-build-raspi-101/Yggdrasil/remote_control_new/applications/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j4 -f &quot;/tmp/tmp.uw2GsBf4tT/cmake-build-raspi-101/Yggdrasil/remote_control_new/applications/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j4 -f &quot;/tmp/tmp.uw2GsBf4tT/cmake-build-raspi-101/Yggdrasil/remote_control_new/applications/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j4 -f &quot;/tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101/Yggdrasil/remote_control_new/applications/Makefile&quot;  VERBOSE=1 cmddebug/fast"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101/Yggdrasil/remote_control_new/applications/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101/Yggdrasil/remote_control_new/applications/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101/Yggdrasil/remote_control_new/applications/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 		</Build>
-		<Unit filename="/tmp/tmp.uw2GsBf4tT/Yggdrasil/remote_control_new/applications/ControlClient.c">
+		<Unit filename="/tmp/tmp.4yRsQEGfYg/Yggdrasil/remote_control_new/applications/ControlClient.c">
 			<Option target="YggdrasilControlClient"/>
 		</Unit>
-		<Unit filename="/tmp/tmp.uw2GsBf4tT/Yggdrasil/remote_control_new/applications/ControlStructure.c">
+		<Unit filename="/tmp/tmp.4yRsQEGfYg/Yggdrasil/remote_control_new/applications/ControlStructure.c">
 			<Option target="YggdrasilControlProcess"/>
 		</Unit>
-		<Unit filename="/tmp/tmp.uw2GsBf4tT/Yggdrasil/remote_control_new/applications/cmd_server.c">
+		<Unit filename="/tmp/tmp.4yRsQEGfYg/Yggdrasil/remote_control_new/applications/cmd_server.c">
 			<Option target="YggdrasilControlProcess"/>
 		</Unit>
-		<Unit filename="/tmp/tmp.uw2GsBf4tT/Yggdrasil/remote_control_new/applications/cmd_server.h">
+		<Unit filename="/tmp/tmp.4yRsQEGfYg/Yggdrasil/remote_control_new/applications/cmd_server.h">
 			<Option target="YggdrasilControlProcess"/>
 		</Unit>
-		<Unit filename="/tmp/tmp.uw2GsBf4tT/Yggdrasil/remote_control_new/applications/control_app_cmp.c">
+		<Unit filename="/tmp/tmp.4yRsQEGfYg/Yggdrasil/remote_control_new/applications/control_app_cmp.c">
 			<Option target="control_app_cmp"/>
 		</Unit>
-		<Unit filename="/tmp/tmp.uw2GsBf4tT/Yggdrasil/remote_control_new/applications/control_app_cmp.h">
+		<Unit filename="/tmp/tmp.4yRsQEGfYg/Yggdrasil/remote_control_new/applications/control_app_cmp.h">
 			<Option target="control_app_cmp"/>
 		</Unit>
-		<Unit filename="/tmp/tmp.uw2GsBf4tT/Yggdrasil/remote_control_new/applications/tools/beginexperience.c">
+		<Unit filename="/tmp/tmp.4yRsQEGfYg/Yggdrasil/remote_control_new/applications/tools/beginexperience.c">
 			<Option target="cmdexecuteexperience"/>
 		</Unit>
-		<Unit filename="/tmp/tmp.uw2GsBf4tT/Yggdrasil/remote_control_new/applications/tools/buildtree.c">
+		<Unit filename="/tmp/tmp.4yRsQEGfYg/Yggdrasil/remote_control_new/applications/tools/buildtree.c">
 			<Option target="cmdsetup"/>
 		</Unit>
-		<Unit filename="/tmp/tmp.uw2GsBf4tT/Yggdrasil/remote_control_new/applications/tools/changelink.c">
+		<Unit filename="/tmp/tmp.4yRsQEGfYg/Yggdrasil/remote_control_new/applications/tools/changelink.c">
 			<Option target="cmdchangelink"/>
 		</Unit>
-		<Unit filename="/tmp/tmp.uw2GsBf4tT/Yggdrasil/remote_control_new/applications/tools/changevalue.c">
+		<Unit filename="/tmp/tmp.4yRsQEGfYg/Yggdrasil/remote_control_new/applications/tools/changevalue.c">
 			<Option target="cmdchangevalue"/>
 		</Unit>
-		<Unit filename="/tmp/tmp.uw2GsBf4tT/Yggdrasil/remote_control_new/applications/tools/checktree.c">
+		<Unit filename="/tmp/tmp.4yRsQEGfYg/Yggdrasil/remote_control_new/applications/tools/checktree.c">
 			<Option target="cmdcheck"/>
 		</Unit>
-		<Unit filename="/tmp/tmp.uw2GsBf4tT/Yggdrasil/remote_control_new/applications/tools/debugneighbors.c">
+		<Unit filename="/tmp/tmp.4yRsQEGfYg/Yggdrasil/remote_control_new/applications/tools/debugneighbors.c">
 			<Option target="cmddebug"/>
 		</Unit>
-		<Unit filename="/tmp/tmp.uw2GsBf4tT/Yggdrasil/remote_control_new/applications/tools/disableannounces.c">
+		<Unit filename="/tmp/tmp.4yRsQEGfYg/Yggdrasil/remote_control_new/applications/tools/disableannounces.c">
 			<Option target="cmddisablediscovery"/>
 		</Unit>
-		<Unit filename="/tmp/tmp.uw2GsBf4tT/Yggdrasil/remote_control_new/applications/tools/enableannounces.c">
+		<Unit filename="/tmp/tmp.4yRsQEGfYg/Yggdrasil/remote_control_new/applications/tools/enableannounces.c">
 			<Option target="cmdenablediscovery"/>
 		</Unit>
-		<Unit filename="/tmp/tmp.uw2GsBf4tT/Yggdrasil/remote_control_new/applications/tools/getneighbors.c">
+		<Unit filename="/tmp/tmp.4yRsQEGfYg/Yggdrasil/remote_control_new/applications/tools/getneighbors.c">
 			<Option target="cmdgetneighbors"/>
 		</Unit>
-		<Unit filename="/tmp/tmp.uw2GsBf4tT/Yggdrasil/remote_control_new/applications/tools/reboot.c">
+		<Unit filename="/tmp/tmp.4yRsQEGfYg/Yggdrasil/remote_control_new/applications/tools/reboot.c">
 			<Option target="cmdreboot"/>
 		</Unit>
-		<Unit filename="/tmp/tmp.uw2GsBf4tT/Yggdrasil/remote_control_new/applications/tools/shutdown.c">
+		<Unit filename="/tmp/tmp.4yRsQEGfYg/Yggdrasil/remote_control_new/applications/tools/shutdown.c">
 			<Option target="cmdshutdown"/>
 		</Unit>
-		<Unit filename="/tmp/tmp.uw2GsBf4tT/Yggdrasil/remote_control_new/applications/tools/terminateexperience.c">
+		<Unit filename="/tmp/tmp.4yRsQEGfYg/Yggdrasil/remote_control_new/applications/tools/terminateexperience.c">
 			<Option target="cmdterminateexperience"/>
 		</Unit>
-		<Unit filename="/tmp/tmp.uw2GsBf4tT/CMakeLists.txt">
+		<Unit filename="/tmp/tmp.4yRsQEGfYg/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\"/>
 		</Unit>
-		<Unit filename="/tmp/tmp.uw2GsBf4tT/Yggdrasil/CMakeLists.txt">
+		<Unit filename="/tmp/tmp.4yRsQEGfYg/Yggdrasil/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\Yggdrasil\"/>
 		</Unit>
-		<Unit filename="/tmp/tmp.uw2GsBf4tT/Yggdrasil/applications/CMakeLists.txt">
+		<Unit filename="/tmp/tmp.4yRsQEGfYg/Yggdrasil/applications/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\Yggdrasil\applications\"/>
 		</Unit>
-		<Unit filename="/tmp/tmp.uw2GsBf4tT/Yggdrasil/applications/demos/CMakeLists.txt">
+		<Unit filename="/tmp/tmp.4yRsQEGfYg/Yggdrasil/applications/demos/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\Yggdrasil\applications\demos\"/>
 		</Unit>
-		<Unit filename="/tmp/tmp.uw2GsBf4tT/Yggdrasil/applications/tests/CMakeLists.txt">
+		<Unit filename="/tmp/tmp.4yRsQEGfYg/Yggdrasil/applications/tests/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\Yggdrasil\applications\tests\"/>
 		</Unit>
-		<Unit filename="/tmp/tmp.uw2GsBf4tT/Yggdrasil/applications/tests/wireless/CMakeLists.txt">
+		<Unit filename="/tmp/tmp.4yRsQEGfYg/Yggdrasil/applications/tests/wireless/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\Yggdrasil\applications\tests\wireless\"/>
 		</Unit>
-		<Unit filename="/tmp/tmp.uw2GsBf4tT/Yggdrasil/applications/tests/other/CMakeLists.txt">
+		<Unit filename="/tmp/tmp.4yRsQEGfYg/Yggdrasil/applications/tests/other/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\Yggdrasil\applications\tests\other\"/>
 		</Unit>
-		<Unit filename="/tmp/tmp.uw2GsBf4tT/Yggdrasil/interfaces/CMakeLists.txt">
+		<Unit filename="/tmp/tmp.4yRsQEGfYg/Yggdrasil/interfaces/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\Yggdrasil\interfaces\"/>
 		</Unit>
-		<Unit filename="/tmp/tmp.uw2GsBf4tT/Yggdrasil/protocols/CMakeLists.txt">
+		<Unit filename="/tmp/tmp.4yRsQEGfYg/Yggdrasil/protocols/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\Yggdrasil\protocols\"/>
 		</Unit>
-		<Unit filename="/tmp/tmp.uw2GsBf4tT/Yggdrasil/protocols/wireless/CMakeLists.txt">
+		<Unit filename="/tmp/tmp.4yRsQEGfYg/Yggdrasil/protocols/wireless/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\Yggdrasil\protocols\wireless\"/>
 		</Unit>
-		<Unit filename="/tmp/tmp.uw2GsBf4tT/Yggdrasil/utils/CMakeLists.txt">
+		<Unit filename="/tmp/tmp.4yRsQEGfYg/Yggdrasil/utils/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\Yggdrasil\utils\"/>
 		</Unit>
-		<Unit filename="/tmp/tmp.uw2GsBf4tT/Yggdrasil/YggDFS/CMakeLists.txt">
+		<Unit filename="/tmp/tmp.4yRsQEGfYg/Yggdrasil/YggDFS/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\Yggdrasil\YggDFS\"/>
 		</Unit>
-		<Unit filename="/tmp/tmp.uw2GsBf4tT/Yggdrasil/YggDFS/utils/CMakeLists.txt">
+		<Unit filename="/tmp/tmp.4yRsQEGfYg/Yggdrasil/YggDFS/utils/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\Yggdrasil\YggDFS\utils\"/>
 		</Unit>
-		<Unit filename="/tmp/tmp.uw2GsBf4tT/Yggdrasil/YggDFS/protocols/CMakeLists.txt">
+		<Unit filename="/tmp/tmp.4yRsQEGfYg/Yggdrasil/YggDFS/protocols/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\Yggdrasil\YggDFS\protocols\"/>
 		</Unit>
-		<Unit filename="/tmp/tmp.uw2GsBf4tT/Yggdrasil/YggDFS/applications/CMakeLists.txt">
+		<Unit filename="/tmp/tmp.4yRsQEGfYg/Yggdrasil/YggDFS/applications/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\Yggdrasil\YggDFS\applications\"/>
 		</Unit>
-		<Unit filename="/tmp/tmp.uw2GsBf4tT/Yggdrasil/YggDFS/applications/CMake/FindFUSE.cmake">
+		<Unit filename="/tmp/tmp.4yRsQEGfYg/Yggdrasil/YggDFS/applications/CMake/FindFUSE.cmake">
 			<Option virtualFolder="CMake Files\Yggdrasil\YggDFS\applications\CMake\"/>
 		</Unit>
-		<Unit filename="/tmp/tmp.uw2GsBf4tT/Yggdrasil/core/CMakeLists.txt">
+		<Unit filename="/tmp/tmp.4yRsQEGfYg/Yggdrasil/core/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\Yggdrasil\core\"/>
 		</Unit>
-		<Unit filename="/tmp/tmp.uw2GsBf4tT/Yggdrasil/remote_control/CMakeLists.txt">
+		<Unit filename="/tmp/tmp.4yRsQEGfYg/Yggdrasil/remote_control/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\Yggdrasil\remote_control\"/>
 		</Unit>
-		<Unit filename="/tmp/tmp.uw2GsBf4tT/Yggdrasil/remote_control/utils/CMakeLists.txt">
+		<Unit filename="/tmp/tmp.4yRsQEGfYg/Yggdrasil/remote_control/utils/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\Yggdrasil\remote_control\utils\"/>
 		</Unit>
-		<Unit filename="/tmp/tmp.uw2GsBf4tT/Yggdrasil/remote_control/protocols/CMakeLists.txt">
+		<Unit filename="/tmp/tmp.4yRsQEGfYg/Yggdrasil/remote_control/protocols/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\Yggdrasil\remote_control\protocols\"/>
 		</Unit>
-		<Unit filename="/tmp/tmp.uw2GsBf4tT/Yggdrasil/remote_control/applications/CMakeLists.txt">
+		<Unit filename="/tmp/tmp.4yRsQEGfYg/Yggdrasil/remote_control/applications/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\Yggdrasil\remote_control\applications\"/>
 		</Unit>
-		<Unit filename="/tmp/tmp.uw2GsBf4tT/Yggdrasil/remote_control_new/CMakeLists.txt">
+		<Unit filename="/tmp/tmp.4yRsQEGfYg/Yggdrasil/remote_control_new/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\Yggdrasil\remote_control_new\"/>
 		</Unit>
-		<Unit filename="/tmp/tmp.uw2GsBf4tT/Yggdrasil/remote_control_new/utils/CMakeLists.txt">
+		<Unit filename="/tmp/tmp.4yRsQEGfYg/Yggdrasil/remote_control_new/utils/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\Yggdrasil\remote_control_new\utils\"/>
 		</Unit>
-		<Unit filename="/tmp/tmp.uw2GsBf4tT/Yggdrasil/remote_control_new/protocols/CMakeLists.txt">
+		<Unit filename="/tmp/tmp.4yRsQEGfYg/Yggdrasil/remote_control_new/protocols/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\Yggdrasil\remote_control_new\protocols\"/>
 		</Unit>
-		<Unit filename="/tmp/tmp.uw2GsBf4tT/Yggdrasil/remote_control_new/applications/CMakeLists.txt">
+		<Unit filename="/tmp/tmp.4yRsQEGfYg/Yggdrasil/remote_control_new/applications/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\Yggdrasil\remote_control_new\applications\"/>
 		</Unit>
-		<Unit filename="/tmp/tmp.uw2GsBf4tT/Yggdrasil-LowLevelLib/CMakeLists.txt">
+		<Unit filename="/tmp/tmp.4yRsQEGfYg/Yggdrasil-LowLevelLib/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\Yggdrasil-LowLevelLib\"/>
 		</Unit>
 	</Project>

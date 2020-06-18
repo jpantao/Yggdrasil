@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /tmp/tmp.uw2GsBf4tT
+CMAKE_SOURCE_DIR = /tmp/tmp.4yRsQEGfYg
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /tmp/tmp.uw2GsBf4tT/cmake-build-raspi-101
+CMAKE_BINARY_DIR = /tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101
 
 # Include any dependencies generated for this target.
 include Yggdrasil/interfaces/CMakeFiles/discovery_interface.dir/depend.make
@@ -59,16 +59,16 @@ include Yggdrasil/interfaces/CMakeFiles/discovery_interface.dir/flags.make
 
 Yggdrasil/interfaces/CMakeFiles/discovery_interface.dir/discovery/discovery_events.c.o: Yggdrasil/interfaces/CMakeFiles/discovery_interface.dir/flags.make
 Yggdrasil/interfaces/CMakeFiles/discovery_interface.dir/discovery/discovery_events.c.o: ../Yggdrasil/interfaces/discovery/discovery_events.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/tmp/tmp.uw2GsBf4tT/cmake-build-raspi-101/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object Yggdrasil/interfaces/CMakeFiles/discovery_interface.dir/discovery/discovery_events.c.o"
-	cd /tmp/tmp.uw2GsBf4tT/cmake-build-raspi-101/Yggdrasil/interfaces && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/discovery_interface.dir/discovery/discovery_events.c.o   -c /tmp/tmp.uw2GsBf4tT/Yggdrasil/interfaces/discovery/discovery_events.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object Yggdrasil/interfaces/CMakeFiles/discovery_interface.dir/discovery/discovery_events.c.o"
+	cd /tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101/Yggdrasil/interfaces && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/discovery_interface.dir/discovery/discovery_events.c.o   -c /tmp/tmp.4yRsQEGfYg/Yggdrasil/interfaces/discovery/discovery_events.c
 
 Yggdrasil/interfaces/CMakeFiles/discovery_interface.dir/discovery/discovery_events.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/discovery_interface.dir/discovery/discovery_events.c.i"
-	cd /tmp/tmp.uw2GsBf4tT/cmake-build-raspi-101/Yggdrasil/interfaces && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /tmp/tmp.uw2GsBf4tT/Yggdrasil/interfaces/discovery/discovery_events.c > CMakeFiles/discovery_interface.dir/discovery/discovery_events.c.i
+	cd /tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101/Yggdrasil/interfaces && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /tmp/tmp.4yRsQEGfYg/Yggdrasil/interfaces/discovery/discovery_events.c > CMakeFiles/discovery_interface.dir/discovery/discovery_events.c.i
 
 Yggdrasil/interfaces/CMakeFiles/discovery_interface.dir/discovery/discovery_events.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/discovery_interface.dir/discovery/discovery_events.c.s"
-	cd /tmp/tmp.uw2GsBf4tT/cmake-build-raspi-101/Yggdrasil/interfaces && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /tmp/tmp.uw2GsBf4tT/Yggdrasil/interfaces/discovery/discovery_events.c -o CMakeFiles/discovery_interface.dir/discovery/discovery_events.c.s
+	cd /tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101/Yggdrasil/interfaces && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /tmp/tmp.4yRsQEGfYg/Yggdrasil/interfaces/discovery/discovery_events.c -o CMakeFiles/discovery_interface.dir/discovery/discovery_events.c.s
 
 # Object files for target discovery_interface
 discovery_interface_OBJECTS = \
@@ -80,9 +80,9 @@ discovery_interface_EXTERNAL_OBJECTS =
 ../lib/libdiscovery_interface.a: Yggdrasil/interfaces/CMakeFiles/discovery_interface.dir/discovery/discovery_events.c.o
 ../lib/libdiscovery_interface.a: Yggdrasil/interfaces/CMakeFiles/discovery_interface.dir/build.make
 ../lib/libdiscovery_interface.a: Yggdrasil/interfaces/CMakeFiles/discovery_interface.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/tmp/tmp.uw2GsBf4tT/cmake-build-raspi-101/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking C static library ../../../lib/libdiscovery_interface.a"
-	cd /tmp/tmp.uw2GsBf4tT/cmake-build-raspi-101/Yggdrasil/interfaces && $(CMAKE_COMMAND) -P CMakeFiles/discovery_interface.dir/cmake_clean_target.cmake
-	cd /tmp/tmp.uw2GsBf4tT/cmake-build-raspi-101/Yggdrasil/interfaces && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/discovery_interface.dir/link.txt --verbose=$(VERBOSE)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking C static library ../../../lib/libdiscovery_interface.a"
+	cd /tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101/Yggdrasil/interfaces && $(CMAKE_COMMAND) -P CMakeFiles/discovery_interface.dir/cmake_clean_target.cmake
+	cd /tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101/Yggdrasil/interfaces && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/discovery_interface.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
 Yggdrasil/interfaces/CMakeFiles/discovery_interface.dir/build: ../lib/libdiscovery_interface.a
@@ -90,10 +90,10 @@ Yggdrasil/interfaces/CMakeFiles/discovery_interface.dir/build: ../lib/libdiscove
 .PHONY : Yggdrasil/interfaces/CMakeFiles/discovery_interface.dir/build
 
 Yggdrasil/interfaces/CMakeFiles/discovery_interface.dir/clean:
-	cd /tmp/tmp.uw2GsBf4tT/cmake-build-raspi-101/Yggdrasil/interfaces && $(CMAKE_COMMAND) -P CMakeFiles/discovery_interface.dir/cmake_clean.cmake
+	cd /tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101/Yggdrasil/interfaces && $(CMAKE_COMMAND) -P CMakeFiles/discovery_interface.dir/cmake_clean.cmake
 .PHONY : Yggdrasil/interfaces/CMakeFiles/discovery_interface.dir/clean
 
 Yggdrasil/interfaces/CMakeFiles/discovery_interface.dir/depend:
-	cd /tmp/tmp.uw2GsBf4tT/cmake-build-raspi-101 && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /tmp/tmp.uw2GsBf4tT /tmp/tmp.uw2GsBf4tT/Yggdrasil/interfaces /tmp/tmp.uw2GsBf4tT/cmake-build-raspi-101 /tmp/tmp.uw2GsBf4tT/cmake-build-raspi-101/Yggdrasil/interfaces /tmp/tmp.uw2GsBf4tT/cmake-build-raspi-101/Yggdrasil/interfaces/CMakeFiles/discovery_interface.dir/DependInfo.cmake --color=$(COLOR)
+	cd /tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101 && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /tmp/tmp.4yRsQEGfYg /tmp/tmp.4yRsQEGfYg/Yggdrasil/interfaces /tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101 /tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101/Yggdrasil/interfaces /tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101/Yggdrasil/interfaces/CMakeFiles/discovery_interface.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : Yggdrasil/interfaces/CMakeFiles/discovery_interface.dir/depend
 

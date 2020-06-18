@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /tmp/tmp.uw2GsBf4tT
+CMAKE_SOURCE_DIR = /tmp/tmp.4yRsQEGfYg
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /tmp/tmp.uw2GsBf4tT/cmake-build-raspi-101
+CMAKE_BINARY_DIR = /tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101
 
 # Include any dependencies generated for this target.
 include Yggdrasil/protocols/wireless/CMakeFiles/simple_discovery.dir/depend.make
@@ -59,16 +59,16 @@ include Yggdrasil/protocols/wireless/CMakeFiles/simple_discovery.dir/flags.make
 
 Yggdrasil/protocols/wireless/CMakeFiles/simple_discovery.dir/discovery/simple_discovery.c.o: Yggdrasil/protocols/wireless/CMakeFiles/simple_discovery.dir/flags.make
 Yggdrasil/protocols/wireless/CMakeFiles/simple_discovery.dir/discovery/simple_discovery.c.o: ../Yggdrasil/protocols/wireless/discovery/simple_discovery.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/tmp/tmp.uw2GsBf4tT/cmake-build-raspi-101/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object Yggdrasil/protocols/wireless/CMakeFiles/simple_discovery.dir/discovery/simple_discovery.c.o"
-	cd /tmp/tmp.uw2GsBf4tT/cmake-build-raspi-101/Yggdrasil/protocols/wireless && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/simple_discovery.dir/discovery/simple_discovery.c.o   -c /tmp/tmp.uw2GsBf4tT/Yggdrasil/protocols/wireless/discovery/simple_discovery.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object Yggdrasil/protocols/wireless/CMakeFiles/simple_discovery.dir/discovery/simple_discovery.c.o"
+	cd /tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101/Yggdrasil/protocols/wireless && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/simple_discovery.dir/discovery/simple_discovery.c.o   -c /tmp/tmp.4yRsQEGfYg/Yggdrasil/protocols/wireless/discovery/simple_discovery.c
 
 Yggdrasil/protocols/wireless/CMakeFiles/simple_discovery.dir/discovery/simple_discovery.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/simple_discovery.dir/discovery/simple_discovery.c.i"
-	cd /tmp/tmp.uw2GsBf4tT/cmake-build-raspi-101/Yggdrasil/protocols/wireless && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /tmp/tmp.uw2GsBf4tT/Yggdrasil/protocols/wireless/discovery/simple_discovery.c > CMakeFiles/simple_discovery.dir/discovery/simple_discovery.c.i
+	cd /tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101/Yggdrasil/protocols/wireless && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /tmp/tmp.4yRsQEGfYg/Yggdrasil/protocols/wireless/discovery/simple_discovery.c > CMakeFiles/simple_discovery.dir/discovery/simple_discovery.c.i
 
 Yggdrasil/protocols/wireless/CMakeFiles/simple_discovery.dir/discovery/simple_discovery.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/simple_discovery.dir/discovery/simple_discovery.c.s"
-	cd /tmp/tmp.uw2GsBf4tT/cmake-build-raspi-101/Yggdrasil/protocols/wireless && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /tmp/tmp.uw2GsBf4tT/Yggdrasil/protocols/wireless/discovery/simple_discovery.c -o CMakeFiles/simple_discovery.dir/discovery/simple_discovery.c.s
+	cd /tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101/Yggdrasil/protocols/wireless && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /tmp/tmp.4yRsQEGfYg/Yggdrasil/protocols/wireless/discovery/simple_discovery.c -o CMakeFiles/simple_discovery.dir/discovery/simple_discovery.c.s
 
 # Object files for target simple_discovery
 simple_discovery_OBJECTS = \
@@ -80,9 +80,9 @@ simple_discovery_EXTERNAL_OBJECTS =
 ../lib/libsimple_discovery.a: Yggdrasil/protocols/wireless/CMakeFiles/simple_discovery.dir/discovery/simple_discovery.c.o
 ../lib/libsimple_discovery.a: Yggdrasil/protocols/wireless/CMakeFiles/simple_discovery.dir/build.make
 ../lib/libsimple_discovery.a: Yggdrasil/protocols/wireless/CMakeFiles/simple_discovery.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/tmp/tmp.uw2GsBf4tT/cmake-build-raspi-101/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking C static library ../../../../lib/libsimple_discovery.a"
-	cd /tmp/tmp.uw2GsBf4tT/cmake-build-raspi-101/Yggdrasil/protocols/wireless && $(CMAKE_COMMAND) -P CMakeFiles/simple_discovery.dir/cmake_clean_target.cmake
-	cd /tmp/tmp.uw2GsBf4tT/cmake-build-raspi-101/Yggdrasil/protocols/wireless && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/simple_discovery.dir/link.txt --verbose=$(VERBOSE)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking C static library ../../../../lib/libsimple_discovery.a"
+	cd /tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101/Yggdrasil/protocols/wireless && $(CMAKE_COMMAND) -P CMakeFiles/simple_discovery.dir/cmake_clean_target.cmake
+	cd /tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101/Yggdrasil/protocols/wireless && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/simple_discovery.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
 Yggdrasil/protocols/wireless/CMakeFiles/simple_discovery.dir/build: ../lib/libsimple_discovery.a
@@ -90,10 +90,10 @@ Yggdrasil/protocols/wireless/CMakeFiles/simple_discovery.dir/build: ../lib/libsi
 .PHONY : Yggdrasil/protocols/wireless/CMakeFiles/simple_discovery.dir/build
 
 Yggdrasil/protocols/wireless/CMakeFiles/simple_discovery.dir/clean:
-	cd /tmp/tmp.uw2GsBf4tT/cmake-build-raspi-101/Yggdrasil/protocols/wireless && $(CMAKE_COMMAND) -P CMakeFiles/simple_discovery.dir/cmake_clean.cmake
+	cd /tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101/Yggdrasil/protocols/wireless && $(CMAKE_COMMAND) -P CMakeFiles/simple_discovery.dir/cmake_clean.cmake
 .PHONY : Yggdrasil/protocols/wireless/CMakeFiles/simple_discovery.dir/clean
 
 Yggdrasil/protocols/wireless/CMakeFiles/simple_discovery.dir/depend:
-	cd /tmp/tmp.uw2GsBf4tT/cmake-build-raspi-101 && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /tmp/tmp.uw2GsBf4tT /tmp/tmp.uw2GsBf4tT/Yggdrasil/protocols/wireless /tmp/tmp.uw2GsBf4tT/cmake-build-raspi-101 /tmp/tmp.uw2GsBf4tT/cmake-build-raspi-101/Yggdrasil/protocols/wireless /tmp/tmp.uw2GsBf4tT/cmake-build-raspi-101/Yggdrasil/protocols/wireless/CMakeFiles/simple_discovery.dir/DependInfo.cmake --color=$(COLOR)
+	cd /tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101 && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /tmp/tmp.4yRsQEGfYg /tmp/tmp.4yRsQEGfYg/Yggdrasil/protocols/wireless /tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101 /tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101/Yggdrasil/protocols/wireless /tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101/Yggdrasil/protocols/wireless/CMakeFiles/simple_discovery.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : Yggdrasil/protocols/wireless/CMakeFiles/simple_discovery.dir/depend
 

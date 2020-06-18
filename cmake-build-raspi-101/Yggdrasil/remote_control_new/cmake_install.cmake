@@ -1,4 +1,4 @@
-# Install script for directory: /tmp/tmp.uw2GsBf4tT/Yggdrasil/remote_control_new
+# Install script for directory: /tmp/tmp.4yRsQEGfYg/Yggdrasil/remote_control_new
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -39,9 +39,9 @@ endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
-  include("/tmp/tmp.uw2GsBf4tT/cmake-build-raspi-101/Yggdrasil/remote_control_new/utils/cmake_install.cmake")
-  include("/tmp/tmp.uw2GsBf4tT/cmake-build-raspi-101/Yggdrasil/remote_control_new/protocols/cmake_install.cmake")
-  include("/tmp/tmp.uw2GsBf4tT/cmake-build-raspi-101/Yggdrasil/remote_control_new/applications/cmake_install.cmake")
+  include("/tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101/Yggdrasil/remote_control_new/utils/cmake_install.cmake")
+  include("/tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101/Yggdrasil/remote_control_new/protocols/cmake_install.cmake")
+  include("/tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101/Yggdrasil/remote_control_new/applications/cmake_install.cmake")
 
 endif()
 

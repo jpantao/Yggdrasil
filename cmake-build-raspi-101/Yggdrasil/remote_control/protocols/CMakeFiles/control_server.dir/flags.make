@@ -6,5 +6,5 @@ C_FLAGS =  -g -Wall -O0 -g   -std=gnu99
 
 C_DEFINES = -DMEM_DEBUG -DWIRELESS_NETWORKS
 
-C_INCLUDES = -I/tmp/tmp.uw2GsBf4tT/Yggdrasil/remote_control/protocols/../.. -I/tmp/tmp.uw2GsBf4tT/Yggdrasil/core/. -I/tmp/tmp.uw2GsBf4tT/Yggdrasil/core/../../Yggdrasil-LowLevelLib -I/usr/include/libnl3 
+C_INCLUDES = -I/tmp/tmp.4yRsQEGfYg/Yggdrasil/remote_control/protocols/../.. -I/tmp/tmp.4yRsQEGfYg/Yggdrasil/core/. -I/tmp/tmp.4yRsQEGfYg/Yggdrasil/core/../../Yggdrasil-LowLevelLib -I/usr/include/libnl3 
 

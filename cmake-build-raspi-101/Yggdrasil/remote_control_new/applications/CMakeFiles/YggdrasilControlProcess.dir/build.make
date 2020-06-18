@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /tmp/tmp.uw2GsBf4tT
+CMAKE_SOURCE_DIR = /tmp/tmp.4yRsQEGfYg
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /tmp/tmp.uw2GsBf4tT/cmake-build-raspi-101
+CMAKE_BINARY_DIR = /tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101
 
 # Include any dependencies generated for this target.
 include Yggdrasil/remote_control_new/applications/CMakeFiles/YggdrasilControlProcess.dir/depend.make
@@ -59,29 +59,29 @@ include Yggdrasil/remote_control_new/applications/CMakeFiles/YggdrasilControlPro
 
 Yggdrasil/remote_control_new/applications/CMakeFiles/YggdrasilControlProcess.dir/ControlStructure.c.o: Yggdrasil/remote_control_new/applications/CMakeFiles/YggdrasilControlProcess.dir/flags.make
 Yggdrasil/remote_control_new/applications/CMakeFiles/YggdrasilControlProcess.dir/ControlStructure.c.o: ../Yggdrasil/remote_control_new/applications/ControlStructure.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/tmp/tmp.uw2GsBf4tT/cmake-build-raspi-101/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object Yggdrasil/remote_control_new/applications/CMakeFiles/YggdrasilControlProcess.dir/ControlStructure.c.o"
-	cd /tmp/tmp.uw2GsBf4tT/cmake-build-raspi-101/Yggdrasil/remote_control_new/applications && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/YggdrasilControlProcess.dir/ControlStructure.c.o   -c /tmp/tmp.uw2GsBf4tT/Yggdrasil/remote_control_new/applications/ControlStructure.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object Yggdrasil/remote_control_new/applications/CMakeFiles/YggdrasilControlProcess.dir/ControlStructure.c.o"
+	cd /tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101/Yggdrasil/remote_control_new/applications && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/YggdrasilControlProcess.dir/ControlStructure.c.o   -c /tmp/tmp.4yRsQEGfYg/Yggdrasil/remote_control_new/applications/ControlStructure.c
 
 Yggdrasil/remote_control_new/applications/CMakeFiles/YggdrasilControlProcess.dir/ControlStructure.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/YggdrasilControlProcess.dir/ControlStructure.c.i"
-	cd /tmp/tmp.uw2GsBf4tT/cmake-build-raspi-101/Yggdrasil/remote_control_new/applications && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /tmp/tmp.uw2GsBf4tT/Yggdrasil/remote_control_new/applications/ControlStructure.c > CMakeFiles/YggdrasilControlProcess.dir/ControlStructure.c.i
+	cd /tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101/Yggdrasil/remote_control_new/applications && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /tmp/tmp.4yRsQEGfYg/Yggdrasil/remote_control_new/applications/ControlStructure.c > CMakeFiles/YggdrasilControlProcess.dir/ControlStructure.c.i
 
 Yggdrasil/remote_control_new/applications/CMakeFiles/YggdrasilControlProcess.dir/ControlStructure.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/YggdrasilControlProcess.dir/ControlStructure.c.s"
-	cd /tmp/tmp.uw2GsBf4tT/cmake-build-raspi-101/Yggdrasil/remote_control_new/applications && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /tmp/tmp.uw2GsBf4tT/Yggdrasil/remote_control_new/applications/ControlStructure.c -o CMakeFiles/YggdrasilControlProcess.dir/ControlStructure.c.s
+	cd /tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101/Yggdrasil/remote_control_new/applications && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /tmp/tmp.4yRsQEGfYg/Yggdrasil/remote_control_new/applications/ControlStructure.c -o CMakeFiles/YggdrasilControlProcess.dir/ControlStructure.c.s
 
 Yggdrasil/remote_control_new/applications/CMakeFiles/YggdrasilControlProcess.dir/cmd_server.c.o: Yggdrasil/remote_control_new/applications/CMakeFiles/YggdrasilControlProcess.dir/flags.make
 Yggdrasil/remote_control_new/applications/CMakeFiles/YggdrasilControlProcess.dir/cmd_server.c.o: ../Yggdrasil/remote_control_new/applications/cmd_server.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/tmp/tmp.uw2GsBf4tT/cmake-build-raspi-101/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building C object Yggdrasil/remote_control_new/applications/CMakeFiles/YggdrasilControlProcess.dir/cmd_server.c.o"
-	cd /tmp/tmp.uw2GsBf4tT/cmake-build-raspi-101/Yggdrasil/remote_control_new/applications && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/YggdrasilControlProcess.dir/cmd_server.c.o   -c /tmp/tmp.uw2GsBf4tT/Yggdrasil/remote_control_new/applications/cmd_server.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building C object Yggdrasil/remote_control_new/applications/CMakeFiles/YggdrasilControlProcess.dir/cmd_server.c.o"
+	cd /tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101/Yggdrasil/remote_control_new/applications && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/YggdrasilControlProcess.dir/cmd_server.c.o   -c /tmp/tmp.4yRsQEGfYg/Yggdrasil/remote_control_new/applications/cmd_server.c
 
 Yggdrasil/remote_control_new/applications/CMakeFiles/YggdrasilControlProcess.dir/cmd_server.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/YggdrasilControlProcess.dir/cmd_server.c.i"
-	cd /tmp/tmp.uw2GsBf4tT/cmake-build-raspi-101/Yggdrasil/remote_control_new/applications && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /tmp/tmp.uw2GsBf4tT/Yggdrasil/remote_control_new/applications/cmd_server.c > CMakeFiles/YggdrasilControlProcess.dir/cmd_server.c.i
+	cd /tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101/Yggdrasil/remote_control_new/applications && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /tmp/tmp.4yRsQEGfYg/Yggdrasil/remote_control_new/applications/cmd_server.c > CMakeFiles/YggdrasilControlProcess.dir/cmd_server.c.i
 
 Yggdrasil/remote_control_new/applications/CMakeFiles/YggdrasilControlProcess.dir/cmd_server.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/YggdrasilControlProcess.dir/cmd_server.c.s"
-	cd /tmp/tmp.uw2GsBf4tT/cmake-build-raspi-101/Yggdrasil/remote_control_new/applications && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /tmp/tmp.uw2GsBf4tT/Yggdrasil/remote_control_new/applications/cmd_server.c -o CMakeFiles/YggdrasilControlProcess.dir/cmd_server.c.s
+	cd /tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101/Yggdrasil/remote_control_new/applications && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /tmp/tmp.4yRsQEGfYg/Yggdrasil/remote_control_new/applications/cmd_server.c -o CMakeFiles/YggdrasilControlProcess.dir/cmd_server.c.s
 
 # Object files for target YggdrasilControlProcess
 YggdrasilControlProcess_OBJECTS = \
@@ -108,8 +108,8 @@ YggdrasilControlProcess_EXTERNAL_OBJECTS =
 ../bin/YggdrasilControlProcess: ../lib/libgen_data_structs.a
 ../bin/YggdrasilControlProcess: ../lib/libhashfunctions.a
 ../bin/YggdrasilControlProcess: Yggdrasil/remote_control_new/applications/CMakeFiles/YggdrasilControlProcess.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/tmp/tmp.uw2GsBf4tT/cmake-build-raspi-101/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking C executable ../../../../bin/YggdrasilControlProcess"
-	cd /tmp/tmp.uw2GsBf4tT/cmake-build-raspi-101/Yggdrasil/remote_control_new/applications && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/YggdrasilControlProcess.dir/link.txt --verbose=$(VERBOSE)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking C executable ../../../../bin/YggdrasilControlProcess"
+	cd /tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101/Yggdrasil/remote_control_new/applications && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/YggdrasilControlProcess.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
 Yggdrasil/remote_control_new/applications/CMakeFiles/YggdrasilControlProcess.dir/build: ../bin/YggdrasilControlProcess
@@ -117,10 +117,10 @@ Yggdrasil/remote_control_new/applications/CMakeFiles/YggdrasilControlProcess.dir
 .PHONY : Yggdrasil/remote_control_new/applications/CMakeFiles/YggdrasilControlProcess.dir/build
 
 Yggdrasil/remote_control_new/applications/CMakeFiles/YggdrasilControlProcess.dir/clean:
-	cd /tmp/tmp.uw2GsBf4tT/cmake-build-raspi-101/Yggdrasil/remote_control_new/applications && $(CMAKE_COMMAND) -P CMakeFiles/YggdrasilControlProcess.dir/cmake_clean.cmake
+	cd /tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101/Yggdrasil/remote_control_new/applications && $(CMAKE_COMMAND) -P CMakeFiles/YggdrasilControlProcess.dir/cmake_clean.cmake
 .PHONY : Yggdrasil/remote_control_new/applications/CMakeFiles/YggdrasilControlProcess.dir/clean
 
 Yggdrasil/remote_control_new/applications/CMakeFiles/YggdrasilControlProcess.dir/depend:
-	cd /tmp/tmp.uw2GsBf4tT/cmake-build-raspi-101 && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /tmp/tmp.uw2GsBf4tT /tmp/tmp.uw2GsBf4tT/Yggdrasil/remote_control_new/applications /tmp/tmp.uw2GsBf4tT/cmake-build-raspi-101 /tmp/tmp.uw2GsBf4tT/cmake-build-raspi-101/Yggdrasil/remote_control_new/applications /tmp/tmp.uw2GsBf4tT/cmake-build-raspi-101/Yggdrasil/remote_control_new/applications/CMakeFiles/YggdrasilControlProcess.dir/DependInfo.cmake --color=$(COLOR)
+	cd /tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101 && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /tmp/tmp.4yRsQEGfYg /tmp/tmp.4yRsQEGfYg/Yggdrasil/remote_control_new/applications /tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101 /tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101/Yggdrasil/remote_control_new/applications /tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101/Yggdrasil/remote_control_new/applications/CMakeFiles/YggdrasilControlProcess.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : Yggdrasil/remote_control_new/applications/CMakeFiles/YggdrasilControlProcess.dir/depend
 

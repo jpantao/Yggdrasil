@@ -1,4 +1,4 @@
-# Install script for directory: /tmp/tmp.uw2GsBf4tT/Yggdrasil/applications
+# Install script for directory: /tmp/tmp.4yRsQEGfYg/Yggdrasil/applications
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -39,8 +39,8 @@ endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
-  include("/tmp/tmp.uw2GsBf4tT/cmake-build-raspi-101/Yggdrasil/applications/demos/cmake_install.cmake")
-  include("/tmp/tmp.uw2GsBf4tT/cmake-build-raspi-101/Yggdrasil/applications/tests/cmake_install.cmake")
+  include("/tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101/Yggdrasil/applications/demos/cmake_install.cmake")
+  include("/tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101/Yggdrasil/applications/tests/cmake_install.cmake")
 
 endif()
 

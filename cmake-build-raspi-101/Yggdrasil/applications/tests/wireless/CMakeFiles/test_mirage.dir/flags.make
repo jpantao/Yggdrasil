@@ -6,5 +6,5 @@ C_FLAGS =  -g -Wall -O0 -g   -std=gnu99
 
 C_DEFINES = -DMEM_DEBUG -DNEW -DWIRELESS_NETWORKS
 
-C_INCLUDES = -I/tmp/tmp.uw2GsBf4tT/Yggdrasil/applications/tests/wireless/../../.. -I/tmp/tmp.uw2GsBf4tT/Yggdrasil/applications/tests/wireless/../../../core -I/tmp/tmp.uw2GsBf4tT/Yggdrasil/applications/tests/wireless/../../../../Yggdrasil-LowLevelLib -I/tmp/tmp.uw2GsBf4tT/Yggdrasil/core/. -I/tmp/tmp.uw2GsBf4tT/Yggdrasil/core/../../Yggdrasil-LowLevelLib -I/usr/include/libnl3 
+C_INCLUDES = -I/tmp/tmp.4yRsQEGfYg/Yggdrasil/applications/tests/wireless/../../.. -I/tmp/tmp.4yRsQEGfYg/Yggdrasil/applications/tests/wireless/../../../core -I/tmp/tmp.4yRsQEGfYg/Yggdrasil/applications/tests/wireless/../../../../Yggdrasil-LowLevelLib -I/tmp/tmp.4yRsQEGfYg/Yggdrasil/core/. -I/tmp/tmp.4yRsQEGfYg/Yggdrasil/core/../../Yggdrasil-LowLevelLib -I/usr/include/libnl3 
 

@@ -6,5 +6,5 @@ C_FLAGS =  -g -Wall -O0 -D_FILE_OFFSET_BITS=64 -g -Wall --pedantic -g   -pthread
 
 C_DEFINES = -DNEW -DWIRELESS_NETWORKS
 
-C_INCLUDES = -I/tmp/tmp.uw2GsBf4tT/Yggdrasil/YggDFS/applications/../.. -I/tmp/tmp.uw2GsBf4tT/Yggdrasil/YggDFS/applications/../../../Yggdrasil-LowLevelLib -I/tmp/tmp.uw2GsBf4tT/Yggdrasil/core/. -I/tmp/tmp.uw2GsBf4tT/Yggdrasil/core/../../Yggdrasil-LowLevelLib -I/usr/include/libnl3 
+C_INCLUDES = -I/tmp/tmp.4yRsQEGfYg/Yggdrasil/YggDFS/applications/../.. -I/tmp/tmp.4yRsQEGfYg/Yggdrasil/YggDFS/applications/../../../Yggdrasil-LowLevelLib -I/tmp/tmp.4yRsQEGfYg/Yggdrasil/core/. -I/tmp/tmp.4yRsQEGfYg/Yggdrasil/core/../../Yggdrasil-LowLevelLib -I/usr/include/libnl3 
 

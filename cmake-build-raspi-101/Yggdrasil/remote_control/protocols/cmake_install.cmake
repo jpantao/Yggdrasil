@@ -1,4 +1,4 @@
-# Install script for directory: /tmp/tmp.uw2GsBf4tT/Yggdrasil/remote_control/protocols
+# Install script for directory: /tmp/tmp.4yRsQEGfYg/Yggdrasil/remote_control/protocols
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
