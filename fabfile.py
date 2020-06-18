@@ -113,7 +113,7 @@ def sync():
     local('rsync -avz --delete --exclude "*CMakeFiles*" --exclude "*.o" --rsh="ssh -o StrictHostKeyChecking=no" -i ' + env.userKey + ' ' + yggdrasil_lowlevel + ' ' + env.user + '@%s:~/Production/' % (env.host))
     local('rsync -avz --delete --exclude "*CMakeFiles*" --exclude "*.o" --rsh="ssh -o StrictHostKeyChecking=no" -i ' + env.userKey + ' ' + yggdrasil_home + ' ' + env.user + '@%s:~/Production/' % (env.host))
     local('rsync -avz --rsh="ssh -o StrictHostKeyChecking=no" -i ' + env.userKey + ' CMakeLists.txt ' + env.user + '@%s:~/Production/' % (env.host))
-    local('rsync -avz --rsh="ssh -o StrictHostKeyChecking=no" -i ' + env.userKey + ' fabfile.py ' + env.user + '@%s:~/' % (env.host))
+    #local('rsync -avz --rsh="ssh -o StrictHostKeyChecking=no" -i ' + env.userKey + ' fabfile.py ' + env.user + '@%s:~/' % (env.host))
 
 
 

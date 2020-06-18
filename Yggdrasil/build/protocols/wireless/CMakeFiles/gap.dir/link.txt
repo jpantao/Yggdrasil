@@ -1,0 +1,2 @@
+/usr/bin/ar qc libgap.a  CMakeFiles/gap.dir/aggregation/gap.c.o
+/usr/bin/ranlib libgap.a

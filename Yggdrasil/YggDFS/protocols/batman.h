@@ -16,11 +16,9 @@
 
 #include "core/ygg_runtime.h"
 #include "interfaces/routing/routing_interface.h"
-
 #include "data_structures/specialized/neighbour_list.h"
 
 #define PROTO_ROUTING_BATMAN 161
-
 #define DEFAULT_BATMAN_WINDOW_SIZE 128
 
 typedef struct _batman_args{

@@ -1,0 +1,2 @@
+/usr/bin/ar qc libcommands_new.a  CMakeFiles/commands_new.dir/commands.c.o
+/usr/bin/ranlib libcommands_new.a

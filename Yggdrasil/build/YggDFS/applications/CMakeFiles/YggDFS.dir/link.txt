@@ -1,0 +1,1 @@
+/usr/bin/cc  -D_FILE_OFFSET_BITS=64  -rdynamic CMakeFiles/YggDFS.dir/yggdfs_control.c.o  -o ../../bin/YggDFS  -lfuse liblog.a libyggdfs_fuse.a 

@@ -1,0 +1,2 @@
+/usr/bin/ar qc libdiscovery_interface.a  CMakeFiles/discovery_interface.dir/discovery/discovery_events.c.o
+/usr/bin/ranlib libdiscovery_interface.a

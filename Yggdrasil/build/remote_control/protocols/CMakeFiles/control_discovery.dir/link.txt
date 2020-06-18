@@ -1,0 +1,2 @@
+/usr/bin/ar qc libcontrol_discovery.a  CMakeFiles/control_discovery.dir/control_discovery.c.o
+/usr/bin/ranlib libcontrol_discovery.a

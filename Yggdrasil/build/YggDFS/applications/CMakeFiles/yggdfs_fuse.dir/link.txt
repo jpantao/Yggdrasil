@@ -1,0 +1,2 @@
+/usr/bin/ar qc libyggdfs_fuse.a  CMakeFiles/yggdfs_fuse.dir/yggdfs_fuse.c.o
+/usr/bin/ranlib libyggdfs_fuse.a

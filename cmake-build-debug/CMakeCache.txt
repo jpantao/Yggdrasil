@@ -232,11 +232,11 @@ Demos_BINARY_DIR:STATIC=/home/jpantao/Git/BScResearch/Yggdrasil/cmake-build-debu
 //Value Computed by CMake
 Demos_SOURCE_DIR:STATIC=/home/jpantao/Git/BScResearch/Yggdrasil/Yggdrasil/applications/demos
 
-//Value Computed by CMake
-IP_Protocols_BINARY_DIR:STATIC=/home/jpantao/Git/BScResearch/Yggdrasil/cmake-build-debug/Yggdrasil/protocols/ip
+//Path to a file.
+FUSE_INCLUDE_DIR:PATH=/usr/include
 
-//Value Computed by CMake
-IP_Protocols_SOURCE_DIR:STATIC=/home/jpantao/Git/BScResearch/Yggdrasil/Yggdrasil/protocols/ip
+//Path to a library.
+FUSE_LIBRARIES:FILEPATH=/usr/lib64/libfuse.so
 
 //Value Computed by CMake
 Interfaces_BINARY_DIR:STATIC=/home/jpantao/Git/BScResearch/Yggdrasil/cmake-build-debug/Yggdrasil/interfaces
@@ -263,12 +263,6 @@ Test_BINARY_DIR:STATIC=/home/jpantao/Git/BScResearch/Yggdrasil/cmake-build-debug
 Test_SOURCE_DIR:STATIC=/home/jpantao/Git/BScResearch/Yggdrasil/Yggdrasil/applications/tests
 
 //Value Computed by CMake
-Tuple Space_BINARY_DIR:STATIC=/home/jpantao/Git/BScResearch/Yggdrasil/cmake-build-debug/Yggdrasil/applications/tupleSpace
-
-//Value Computed by CMake
-Tuple Space_SOURCE_DIR:STATIC=/home/jpantao/Git/BScResearch/Yggdrasil/Yggdrasil/applications/tupleSpace
-
-//Value Computed by CMake
 Utilities_BINARY_DIR:STATIC=/home/jpantao/Git/BScResearch/Yggdrasil/cmake-build-debug/Yggdrasil/utils
 
 //Value Computed by CMake
@@ -279,6 +273,30 @@ Wireless_Protocols_BINARY_DIR:STATIC=/home/jpantao/Git/BScResearch/Yggdrasil/cma
 
 //Value Computed by CMake
 Wireless_Protocols_SOURCE_DIR:STATIC=/home/jpantao/Git/BScResearch/Yggdrasil/Yggdrasil/protocols/wireless
+
+//Value Computed by CMake
+YggDFS_Applications_BINARY_DIR:STATIC=/home/jpantao/Git/BScResearch/Yggdrasil/cmake-build-debug/Yggdrasil/YggDFS/applications
+
+//Value Computed by CMake
+YggDFS_Applications_SOURCE_DIR:STATIC=/home/jpantao/Git/BScResearch/Yggdrasil/Yggdrasil/YggDFS/applications
+
+//Value Computed by CMake
+YggDFS_BINARY_DIR:STATIC=/home/jpantao/Git/BScResearch/Yggdrasil/cmake-build-debug/Yggdrasil/YggDFS
+
+//Value Computed by CMake
+YggDFS_Protocols_BINARY_DIR:STATIC=/home/jpantao/Git/BScResearch/Yggdrasil/cmake-build-debug/Yggdrasil/YggDFS/protocols
+
+//Value Computed by CMake
+YggDFS_Protocols_SOURCE_DIR:STATIC=/home/jpantao/Git/BScResearch/Yggdrasil/Yggdrasil/YggDFS/protocols
+
+//Value Computed by CMake
+YggDFS_SOURCE_DIR:STATIC=/home/jpantao/Git/BScResearch/Yggdrasil/Yggdrasil/YggDFS
+
+//Value Computed by CMake
+YggDFS_Utils_BINARY_DIR:STATIC=/home/jpantao/Git/BScResearch/Yggdrasil/cmake-build-debug/Yggdrasil/YggDFS/utils
+
+//Value Computed by CMake
+YggDFS_Utils_SOURCE_DIR:STATIC=/home/jpantao/Git/BScResearch/Yggdrasil/Yggdrasil/YggDFS/utils
 
 //Value Computed by CMake
 Yggdrasil_BINARY_DIR:STATIC=/home/jpantao/Git/BScResearch/Yggdrasil/cmake-build-debug/Yggdrasil
@@ -303,12 +321,6 @@ aggregation_interface_LIB_DEPENDS:STATIC=general;yggcore_wireless_new;
 
 //Dependencies for the target
 batman_LIB_DEPENDS:STATIC=general;yggcore_wireless_new;general;routing_interface;general;neighbour_list;
-
-//Dependencies for the target
-block_data_transfer_LIB_DEPENDS:STATIC=general;yggcore_ip;
-
-//Dependencies for the target
-block_data_transfer_mem_opt_LIB_DEPENDS:STATIC=general;yggcore_ip;general;block_data_transfer;general;hashfunctions;
 
 //Dependencies for the target
 cmdio_LIB_DEPENDS:STATIC=general;uuid;
@@ -349,18 +361,6 @@ dissemination_LIB_DEPENDS:STATIC=general;yggcore_wireless_new;general;hashfuncti
 //Dependencies for the target
 fault_detection_discovery_LIB_DEPENDS:STATIC=general;yggcore_wireless_new;general;discovery_interface;general;neighbour_list;
 
-//Value Computed by CMake
-file transfer_BINARY_DIR:STATIC=/home/jpantao/Git/BScResearch/Yggdrasil/cmake-build-debug/Yggdrasil/applications/file transfer
-
-//Value Computed by CMake
-file transfer_SOURCE_DIR:STATIC=/home/jpantao/Git/BScResearch/Yggdrasil/Yggdrasil/applications/file transfer
-
-//Dependencies for the target
-flood_LIB_DEPENDS:STATIC=general;yggcore_ip;general;hashfunctions;
-
-//Dependencies for the target
-flood_flow_control_LIB_DEPENDS:STATIC=general;yggcore_ip;general;flood;general;hashfunctions;
-
 //Dependencies for the target
 flow_updating_LIB_DEPENDS:STATIC=general;yggcore_wireless_new;general;aggregation_interface;
 
@@ -368,22 +368,10 @@ flow_updating_LIB_DEPENDS:STATIC=general;yggcore_wireless_new;general;aggregatio
 gap_LIB_DEPENDS:STATIC=general;yggcore_wireless_new;general;aggregation_interface;
 
 //Dependencies for the target
-hyparview_LIB_DEPENDS:STATIC=general;yggcore_ip;
-
-//Value Computed by CMake
-ip_tests_BINARY_DIR:STATIC=/home/jpantao/Git/BScResearch/Yggdrasil/cmake-build-debug/Yggdrasil/applications/tests/ip
-
-//Value Computed by CMake
-ip_tests_SOURCE_DIR:STATIC=/home/jpantao/Git/BScResearch/Yggdrasil/Yggdrasil/applications/tests/ip
-
-//Dependencies for the target
 limosense_LIB_DEPENDS:STATIC=general;yggcore_wireless_new;general;aggregation_interface;general;neighbour_list;
 
 //Dependencies for the target
 mirage_LIB_DEPENDS:STATIC=general;yggcore_wireless_new;general;aggregation_interface;
-
-//Dependencies for the target
-multi_tcp_dispatcher_LIB_DEPENDS:STATIC=general;yggcore_ip;
 
 //Dependencies for the target
 neighbour_list_LIB_DEPENDS:STATIC=general;gen_data_structs;
@@ -393,15 +381,6 @@ other_tests_BINARY_DIR:STATIC=/home/jpantao/Git/BScResearch/Yggdrasil/cmake-buil
 
 //Value Computed by CMake
 other_tests_SOURCE_DIR:STATIC=/home/jpantao/Git/BScResearch/Yggdrasil/Yggdrasil/applications/tests/other
-
-//Dependencies for the target
-plumtree_LIB_DEPENDS:STATIC=general;yggcore_ip;general;hashfunctions;
-
-//Dependencies for the target
-plumtree_mem_opt_LIB_DEPENDS:STATIC=general;yggcore_ip;general;plumtree;general;hashfunctions;
-
-//Dependencies for the target
-plumtree_mem_opt_flow_control_LIB_DEPENDS:STATIC=general;yggcore_ip;general;plumtree_mem_opt;general;multi_tcp_dispatcher;general;hashfunctions;
 
 //Dependencies for the target
 push_gossip_LIB_DEPENDS:STATIC=general;yggcore_wireless_new;
@@ -461,16 +440,13 @@ remote_control_utils_new_BINARY_DIR:STATIC=/home/jpantao/Git/BScResearch/Yggdras
 remote_control_utils_new_SOURCE_DIR:STATIC=/home/jpantao/Git/BScResearch/Yggdrasil/Yggdrasil/remote_control_new/utils
 
 //Dependencies for the target
+routing_LIB_DEPENDS:STATIC=general;yggcore_wireless_new;general;routing_interface;general;neighbour_list;
+
+//Dependencies for the target
 routing_interface_LIB_DEPENDS:STATIC=general;yggcore_wireless_new;
 
 //Dependencies for the target
-simple_data_transfer_LIB_DEPENDS:STATIC=general;yggcore_ip;
-
-//Dependencies for the target
 simple_discovery_LIB_DEPENDS:STATIC=general;yggcore_wireless_new;general;discovery_interface;general;neighbour_list;
-
-//Dependencies for the target
-tls_dispatcher_LIB_DEPENDS:STATIC=general;yggcore_ip;general;ssl;general;crypto;
 
 //Dependencies for the target
 topology_manager_LIB_DEPENDS:STATIC=general;yggcore_wireless_new;
@@ -480,9 +456,6 @@ wireless_test_BINARY_DIR:STATIC=/home/jpantao/Git/BScResearch/Yggdrasil/cmake-bu
 
 //Value Computed by CMake
 wireless_test_SOURCE_DIR:STATIC=/home/jpantao/Git/BScResearch/Yggdrasil/Yggdrasil/applications/tests/wireless
-
-//Dependencies for the target
-xbot_LIB_DEPENDS:STATIC=general;yggcore_ip;general;hyparview;general;hashfunctions;
 
 //Dependencies for the target
 yggcore_ip_LIB_DEPENDS:STATIC=general;ygglib_ip;general;gen_data_structs;general;m;general;pthread;general;uuid;general;rt;
@@ -593,6 +566,10 @@ CMAKE_GENERATOR_INSTANCE:INTERNAL=
 CMAKE_GENERATOR_PLATFORM:INTERNAL=
 //Name of generator toolset.
 CMAKE_GENERATOR_TOOLSET:INTERNAL=
+//Test CMAKE_HAVE_LIBC_PTHREAD
+CMAKE_HAVE_LIBC_PTHREAD:INTERNAL=
+//Have include pthread.h
+CMAKE_HAVE_PTHREAD_H:INTERNAL=1
 //Source directory with the top level CMakeLists.txt file for this
 // project
 CMAKE_HOME_DIRECTORY:INTERNAL=/home/jpantao/Git/BScResearch/Yggdrasil
@@ -615,7 +592,7 @@ CMAKE_MODULE_LINKER_FLAGS_RELWITHDEBINFO-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_NM
 CMAKE_NM-ADVANCED:INTERNAL=1
 //number of local generators
-CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=21
+CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=25
 //ADVANCED property for variable: CMAKE_OBJCOPY
 CMAKE_OBJCOPY-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_OBJDUMP
@@ -658,8 +635,18 @@ CMAKE_STRIP-ADVANCED:INTERNAL=1
 CMAKE_UNAME:INTERNAL=/usr/bin/uname
 //ADVANCED property for variable: CMAKE_VERBOSE_MAKEFILE
 CMAKE_VERBOSE_MAKEFILE-ADVANCED:INTERNAL=1
+//Details about finding FUSE
+FIND_PACKAGE_MESSAGE_DETAILS_FUSE:INTERNAL=[/usr/include][/usr/lib64/libfuse.so][v()]
+//Details about finding Threads
+FIND_PACKAGE_MESSAGE_DETAILS_Threads:INTERNAL=[TRUE][v()]
+//ADVANCED property for variable: FUSE_INCLUDE_DIR
+FUSE_INCLUDE_DIR-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: FUSE_LIBRARIES
+FUSE_LIBRARIES-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: ProcessorCount_cmd_nproc
 ProcessorCount_cmd_nproc-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: ProcessorCount_cmd_sysctl
 ProcessorCount_cmd_sysctl-ADVANCED:INTERNAL=1
+//Result of TRY_COMPILE
+THREADS_HAVE_PTHREAD_ARG:INTERNAL=TRUE
 

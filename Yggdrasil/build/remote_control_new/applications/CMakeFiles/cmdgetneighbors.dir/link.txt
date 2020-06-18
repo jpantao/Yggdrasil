@@ -1,0 +1,1 @@
+/usr/bin/cc   -rdynamic CMakeFiles/cmdgetneighbors.dir/tools/getneighbors.c.o  -o cmdgetneighbors  ../utils/libcmdio_new.a -luuid 

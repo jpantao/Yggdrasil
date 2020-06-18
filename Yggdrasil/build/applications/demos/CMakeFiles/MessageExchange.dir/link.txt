@@ -1,0 +1,1 @@
+/usr/bin/cc   -rdynamic CMakeFiles/MessageExchange.dir/MessageExchange.c.o  -o MessageExchange  ../../core/libyggcore_wireless.a -lygglib_wireless ../../core/libgen_data_structs.a -lm -lpthread -luuid -lrt 

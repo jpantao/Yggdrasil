@@ -1,0 +1,2 @@
+/usr/bin/ar qc ../../../../lib/libtopology_manager.a  CMakeFiles/topology_manager.dir/utility/topologyManager.c.o
+/usr/bin/ranlib ../../../../lib/libtopology_manager.a

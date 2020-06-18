@@ -1,0 +1,2 @@
+/usr/bin/ar qc libflow_updating.a  CMakeFiles/flow_updating.dir/aggregation/flow_updating.c.o
+/usr/bin/ranlib libflow_updating.a

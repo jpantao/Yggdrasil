@@ -1,0 +1,2 @@
+/usr/bin/ar qc ../../../../lib/libcontrol_app_cmp.a  CMakeFiles/control_app_cmp.dir/control_app_cmp.c.o
+/usr/bin/ranlib ../../../../lib/libcontrol_app_cmp.a

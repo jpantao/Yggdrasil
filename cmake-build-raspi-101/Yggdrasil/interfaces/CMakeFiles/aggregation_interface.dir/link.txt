@@ -1,0 +1,2 @@
+/usr/bin/ar qc ../../../lib/libaggregation_interface.a  CMakeFiles/aggregation_interface.dir/aggregation/aggregation_functions.c.o CMakeFiles/aggregation_interface.dir/aggregation/aggregation_operations.c.o
+/usr/bin/ranlib ../../../lib/libaggregation_interface.a

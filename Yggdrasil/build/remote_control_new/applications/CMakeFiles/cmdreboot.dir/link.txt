@@ -1,0 +1,1 @@
+/usr/bin/cc   -rdynamic CMakeFiles/cmdreboot.dir/tools/reboot.c.o  -o cmdreboot  ../utils/libcmdio_new.a -luuid 

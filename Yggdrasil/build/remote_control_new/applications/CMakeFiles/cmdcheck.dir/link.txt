@@ -1,0 +1,1 @@
+/usr/bin/cc   -rdynamic CMakeFiles/cmdcheck.dir/tools/checktree.c.o  -o cmdcheck  ../utils/libcmdio_new.a -luuid 

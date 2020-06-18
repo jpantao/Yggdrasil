@@ -1,0 +1,1 @@
+/usr/bin/cc  -g -Wall -O0 -g  -rdynamic CMakeFiles/cmdcheck.dir/tools/checktree.c.o  -o ../../../../bin/cmdcheck ../../../../lib/libcmdio_new.a -luuid 

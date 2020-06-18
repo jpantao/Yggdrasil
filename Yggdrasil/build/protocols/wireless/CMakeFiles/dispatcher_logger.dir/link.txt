@@ -1,0 +1,2 @@
+/usr/bin/ar qc libdispatcher_logger.a  CMakeFiles/dispatcher_logger.dir/dispatcher/dispatcher_logger.c.o
+/usr/bin/ranlib libdispatcher_logger.a

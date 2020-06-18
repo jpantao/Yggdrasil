@@ -19,10 +19,10 @@
 
 // YggDFS state
 #include <stdio.h>
-struct yggdfs_state {
+typedef struct yggdfs_state_ {
     FILE *logfile;
     char *rootdir;
-};
-#define YGGDFS_STATE ((struct yggdfs_state *) fuse_get_context()->private_data)
+} yggdfs_state;
+#define YGGDFS_STATE ((yggdfs_state *) fuse_get_context()->private_data)
 
 #endif //YGGDRASIL_PARAMS_H

@@ -1,0 +1,2 @@
+/usr/bin/ar qc ../../lib/libygglib_base.a  CMakeFiles/ygglib_base.dir/src/data_struct.c.o
+/usr/bin/ranlib ../../lib/libygglib_base.a

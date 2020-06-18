@@ -148,7 +148,6 @@ static char* compute_response(struct pending_request* req) {
     for(list_item* it = req->answers->head; it != NULL; it = it->next) {
         size = strlen((char*) it->data);
         memcpy(p, it->data, size);
-        p +=size; *p = '\n'; p++;
     }
     p --; *p='\0';
 
@@ -493,10 +492,7 @@ int main(int argc, char* argv[]) {
                 //nothing to do probably
                 break;
         }
-
-
 	}
 
 	return 0;
 }
-

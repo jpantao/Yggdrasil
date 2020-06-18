@@ -1,0 +1,2 @@
+/usr/bin/ar qc libmirage.a  CMakeFiles/mirage.dir/aggregation/MiRAge.c.o
+/usr/bin/ranlib libmirage.a

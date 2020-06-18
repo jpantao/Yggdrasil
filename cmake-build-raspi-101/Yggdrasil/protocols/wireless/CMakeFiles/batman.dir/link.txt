@@ -1,0 +1,2 @@
+/usr/bin/ar qc ../../../../lib/libbatman.a  CMakeFiles/batman.dir/communication/routing/batman.c.o
+/usr/bin/ranlib ../../../../lib/libbatman.a

@@ -1,0 +1,2 @@
+/usr/bin/ar qc ../../../../lib/libdissemination.a  CMakeFiles/dissemination.dir/dissemination.c.o
+/usr/bin/ranlib ../../../../lib/libdissemination.a

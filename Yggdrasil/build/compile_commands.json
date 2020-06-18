@@ -1,0 +1,17 @@
+[
+{
+  "directory": "/home/jpantao/Git/BScResearch/Yggdrasil/Yggdrasil/build/YggDFS/applications",
+  "command": "/usr/bin/cc  -I/home/jpantao/Git/BScResearch/Yggdrasil/Yggdrasil/YggDFS/applications/../.. -I/home/jpantao/Git/BScResearch/Yggdrasil/Yggdrasil/YggDFS/applications/../../../Yggdrasil-LowLevelLib   -D_FILE_OFFSET_BITS=64   -o CMakeFiles/YggDFS.dir/yggdfs_control.c.o   -c /home/jpantao/Git/BScResearch/Yggdrasil/Yggdrasil/YggDFS/applications/yggdfs_control.c",
+  "file": "/home/jpantao/Git/BScResearch/Yggdrasil/Yggdrasil/YggDFS/applications/yggdfs_control.c"
+},
+{
+  "directory": "/home/jpantao/Git/BScResearch/Yggdrasil/Yggdrasil/build/YggDFS/applications",
+  "command": "/usr/bin/cc  -I/home/jpantao/Git/BScResearch/Yggdrasil/Yggdrasil/YggDFS/applications/../.. -I/home/jpantao/Git/BScResearch/Yggdrasil/Yggdrasil/YggDFS/applications/../../../Yggdrasil-LowLevelLib   -D_FILE_OFFSET_BITS=64   -o CMakeFiles/yggdfs_fuse.dir/yggdfs_fuse.c.o   -c /home/jpantao/Git/BScResearch/Yggdrasil/Yggdrasil/YggDFS/applications/yggdfs_fuse.c",
+  "file": "/home/jpantao/Git/BScResearch/Yggdrasil/Yggdrasil/YggDFS/applications/yggdfs_fuse.c"
+},
+{
+  "directory": "/home/jpantao/Git/BScResearch/Yggdrasil/Yggdrasil/build/YggDFS/applications",
+  "command": "/usr/bin/cc  -I/home/jpantao/Git/BScResearch/Yggdrasil/Yggdrasil/YggDFS/applications/../.. -I/home/jpantao/Git/BScResearch/Yggdrasil/Yggdrasil/YggDFS/applications/../../../Yggdrasil-LowLevelLib   -D_FILE_OFFSET_BITS=64   -o CMakeFiles/log.dir/log.c.o   -c /home/jpantao/Git/BScResearch/Yggdrasil/Yggdrasil/YggDFS/applications/log.c",
+  "file": "/home/jpantao/Git/BScResearch/Yggdrasil/Yggdrasil/YggDFS/applications/log.c"
+}
+]

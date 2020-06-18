@@ -1,0 +1,1 @@
+/usr/bin/cc   -rdynamic CMakeFiles/YggdrasilControlClient.dir/ControlClient.c.o  -o YggdrasilControlClient  ../utils/libcmdio_new.a -luuid 

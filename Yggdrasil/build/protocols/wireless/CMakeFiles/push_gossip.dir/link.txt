@@ -1,0 +1,2 @@
+/usr/bin/ar qc libpush_gossip.a  CMakeFiles/push_gossip.dir/communication/broadcast/push_gossip.c.o
+/usr/bin/ranlib libpush_gossip.a

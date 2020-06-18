@@ -1,0 +1,2 @@
+/usr/bin/ar qc libhashfunctions.a  CMakeFiles/hashfunctions.dir/hashfunctions.c.o
+/usr/bin/ranlib libhashfunctions.a

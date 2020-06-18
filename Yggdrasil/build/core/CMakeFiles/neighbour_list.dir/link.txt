@@ -1,0 +1,2 @@
+/usr/bin/ar qc libneighbour_list.a  CMakeFiles/neighbour_list.dir/data_structures/specialized/neighbour_list.c.o
+/usr/bin/ranlib libneighbour_list.a

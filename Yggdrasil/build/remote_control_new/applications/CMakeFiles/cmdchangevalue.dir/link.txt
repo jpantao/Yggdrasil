@@ -1,0 +1,1 @@
+/usr/bin/cc   -rdynamic CMakeFiles/cmdchangevalue.dir/tools/changevalue.c.o  -o cmdchangevalue  ../utils/libcmdio_new.a -luuid 

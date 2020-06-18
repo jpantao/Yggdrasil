@@ -1,0 +1,2 @@
+/usr/bin/ar qc libreliable_dissemination.a  CMakeFiles/reliable_dissemination.dir/reliable_dissemination.c.o
+/usr/bin/ranlib libreliable_dissemination.a

@@ -1,0 +1,1 @@
+/usr/bin/cc   -rdynamic CMakeFiles/cmddisablediscovery.dir/tools/disableannounces.c.o  -o cmddisablediscovery  ../utils/libcmdio_new.a -luuid 
