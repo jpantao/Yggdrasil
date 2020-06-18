@@ -3,12 +3,18 @@
 #include "YggDFS/protocols/batman.h"
 
 #include <pthread.h>
+#include <sys/stat.h>
 
 #define DISCOV_ID 255
 #define CONTROL_ID 023
 #define VRSCONTROL_ID 777
 #define DISSEMINATION_ID 333
 #define TYPE "AdHoc"
+
+typedef struct file_ {
+    stat stat;
+    char* location
+} file;
 
 int main(int argc, char *argv[]) {
 
