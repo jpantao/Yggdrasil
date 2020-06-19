@@ -1,0 +1,22 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/jpantao/Git/BScResearch/Yggdrasil/Yggdrasil-LowLevelLib/src/data_struct.c
+data_struct.h
+/home/jpantao/Git/BScResearch/Yggdrasil/Yggdrasil-LowLevelLib/src/data_struct.h
+
+/home/jpantao/Git/BScResearch/Yggdrasil/Yggdrasil-LowLevelLib/src/data_struct.h
+arpa/inet.h
+-
+stdlib.h
+-
+string.h
+-
+stdio.h
+-
+

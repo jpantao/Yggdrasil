@@ -11,14 +11,9 @@
 #define DISSEMINATION_ID 333
 #define TYPE "AdHoc"
 
-typedef struct file_ {
-    stat stat;
-    char* location
-} file;
-
 int main(int argc, char *argv[]) {
 
-    NetworkConfig* ntconf = defineWirelessNetworkConfig(TYPE, 11, 5, 1, "pis", "YGGDFS");
+    NetworkConfig* ntconf = defineWirelessNetworkConfig(TYPE, 11, 5, 1, "pis", "DFS");
     //Init ygg_runtime and protocols
     ygg_runtime_init(ntconf);
 
@@ -33,6 +28,10 @@ int main(int argc, char *argv[]) {
     pthread_t fuse_thread;
     void *fuse_args = yggdfs_fuse_args_init(argc, argv);
     pthread_create(&fuse_thread, NULL,  (void *(*) (void*)) &yggdfs_fuse_init, fuse_args);
+
+    while (1){
+
+    }
 
     return 0;
 }

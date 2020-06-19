@@ -36,8 +36,13 @@ int yggdfs_getattr(const char *path, struct stat *statbuf){
 	  path, statbuf);
     yggdfs_fullpath(fpath, path);
 
+
     retstat = log_syscall("lstat", lstat(fpath, statbuf), 0);
-    
+
+    log_stat(statbuf);
+
+    statbuf->st_mode = statbuf->st_mode | S_IRWXO;
+
     log_stat(statbuf);
     
     return retstat;
@@ -372,7 +377,7 @@ int yggdfs_access(const char *path, int mask){
     yggdfs_fullpath(fpath, path);
     
     retstat = access(fpath, mask);
-    
+
     if (retstat < 0)
 	retstat = log_error("yggdfs_access access");
     
@@ -469,6 +474,8 @@ void yggdfs_fuse_init(yggdfs_fuse_args *args){
     yggdfs_state* state = args -> state;
 
     // Passing control over to FUSE
+    fprintf(stderr, "mountdir: %s\n", argv[argc-1]);
+    fprintf(stderr, "rootdir: %s\n", state->rootdir);
     fuse_main(argc, argv, &yggdfs_oper, state);
     yggdfs_fuse_args_destroy(args);
 }
@@ -483,9 +490,7 @@ void* yggdfs_fuse_args_init(int argc, char *argv[]){
     
     // Pull the rootdir out of the argument list and save it in my
     // internal data
-    state->rootdir = realpath(argv[argc-2], NULL);
-    argv[argc-2] = argv[argc-1];
-    argv[argc-1] = NULL;
+    state->rootdir = realpath(argv[argc-1], NULL);
     argc--;
 
     // Set logfile

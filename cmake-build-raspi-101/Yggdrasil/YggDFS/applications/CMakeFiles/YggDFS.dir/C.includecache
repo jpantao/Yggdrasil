@@ -358,31 +358,33 @@ protos/timer.h
 protos/executor.h
 ../Yggdrasil/core/./protos/executor.h
 
-/tmp/tmp.uw2GsBf4tT/Yggdrasil/YggDFS/applications/log.h
+/tmp/tmp.4yRsQEGfYg/Yggdrasil/YggDFS/applications/log.h
 stdio.h
 -
 fuse.h
 -
 
-/tmp/tmp.uw2GsBf4tT/Yggdrasil/YggDFS/applications/params.h
+/tmp/tmp.4yRsQEGfYg/Yggdrasil/YggDFS/applications/params.h
 stdio.h
 -
 
-/tmp/tmp.uw2GsBf4tT/Yggdrasil/YggDFS/applications/yggdfs_control.c
+/tmp/tmp.4yRsQEGfYg/Yggdrasil/YggDFS/applications/yggdfs_control.c
 yggdfs_fuse.h
-/tmp/tmp.uw2GsBf4tT/Yggdrasil/YggDFS/applications/yggdfs_fuse.h
+/tmp/tmp.4yRsQEGfYg/Yggdrasil/YggDFS/applications/yggdfs_fuse.h
 ygg_runtime.h
-/tmp/tmp.uw2GsBf4tT/Yggdrasil/YggDFS/applications/ygg_runtime.h
+/tmp/tmp.4yRsQEGfYg/Yggdrasil/YggDFS/applications/ygg_runtime.h
 YggDFS/protocols/batman.h
-/tmp/tmp.uw2GsBf4tT/Yggdrasil/YggDFS/applications/YggDFS/protocols/batman.h
+/tmp/tmp.4yRsQEGfYg/Yggdrasil/YggDFS/applications/YggDFS/protocols/batman.h
 pthread.h
 -
+sys/stat.h
+-
 
-/tmp/tmp.uw2GsBf4tT/Yggdrasil/YggDFS/applications/yggdfs_fuse.h
+/tmp/tmp.4yRsQEGfYg/Yggdrasil/YggDFS/applications/yggdfs_fuse.h
 params.h
-/tmp/tmp.uw2GsBf4tT/Yggdrasil/YggDFS/applications/params.h
+/tmp/tmp.4yRsQEGfYg/Yggdrasil/YggDFS/applications/params.h
 log.h
-/tmp/tmp.uw2GsBf4tT/Yggdrasil/YggDFS/applications/log.h
+/tmp/tmp.4yRsQEGfYg/Yggdrasil/YggDFS/applications/log.h
 ctype.h
 -
 dirent.h
