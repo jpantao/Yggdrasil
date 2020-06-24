@@ -1,8 +1,12 @@
 #ifndef YGGDFS_FUSE_H
 #define YGGDFS_FUSE_H
 
+#include "yggdfs.h"
+
 #include "params.h"
-#include "log.h" 
+#include "log.h"
+#include "yggdfs_utils.h"
+#include "yggdfs_control_info.h"
 
 #include <ctype.h>
 #include <dirent.h>
@@ -16,10 +20,12 @@
 #include <string.h>
 #include <unistd.h>
 #include <sys/types.h>
+#include <sys/socket.h>
+#include <arpa/inet.h>
 
-typedef struct yggdfs_fuse_args_ {
+typedef struct yggdfs_fuse_args_t {
+    yggdfs_state* state;
     int argc;
-    yggdfs_state *state;
     char **argv;
 } yggdfs_fuse_args;
 

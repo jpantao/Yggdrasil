@@ -9,14 +9,14 @@ include_directories(../../)
 
 link_libraries(yggcore_wireless_new)
 
-add_library(discovery discovery.c)
-add_library(dissemination dissemination.c)
-add_library(reliable_dissemination reliable_dissemination.c)
+#add_library(discovery discovery.c)
+#add_library(dissemination dissemination.c)
+#add_library(reliable_dissemination reliable_dissemination.c)
 
-target_link_libraries(reliable_dissemination PUBLIC discovery PRIVATE hashfunctions)
+#target_link_libraries(reliable_dissemination PUBLIC discovery PRIVATE hashfunctions)
 
-target_link_libraries(discovery PUBLIC discovery_interface)
-target_link_libraries(dissemination PRIVATE hashfunctions)
+#target_link_libraries(discovery PUBLIC discovery_interface)
+#target_link_libraries(dissemination PRIVATE hashfunctions)
 
 
 

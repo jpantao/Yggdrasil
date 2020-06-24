@@ -172,6 +172,10 @@ interfaces/routing/routing_interface.h
 data_structures/specialized/neighbour_list.h
 ../Yggdrasil/YggDFS/protocols/data_structures/specialized/neighbour_list.h
 
+../Yggdrasil/YggDFS/utils/yggdfs_utils.h
+unistd.h
+-
+
 ../Yggdrasil/core/data_structures/generic/list.h
 ../../utils/utils.h
 ../Yggdrasil/core/utils/utils.h
@@ -339,6 +343,10 @@ stdio.h
 /home/jpantao/Git/BScResearch/Yggdrasil/Yggdrasil/YggDFS/applications/yggdfs_control.c
 yggdfs_fuse.h
 /home/jpantao/Git/BScResearch/Yggdrasil/Yggdrasil/YggDFS/applications/yggdfs_fuse.h
+yggdfs_utils.h
+/home/jpantao/Git/BScResearch/Yggdrasil/Yggdrasil/YggDFS/applications/yggdfs_utils.h
+yggdfs_control_info.h
+/home/jpantao/Git/BScResearch/Yggdrasil/Yggdrasil/YggDFS/applications/yggdfs_control_info.h
 ygg_runtime.h
 /home/jpantao/Git/BScResearch/Yggdrasil/Yggdrasil/YggDFS/applications/ygg_runtime.h
 YggDFS/protocols/batman.h
@@ -348,11 +356,17 @@ pthread.h
 sys/stat.h
 -
 
+/home/jpantao/Git/BScResearch/Yggdrasil/Yggdrasil/YggDFS/applications/yggdfs_control_info.h
+
 /home/jpantao/Git/BScResearch/Yggdrasil/Yggdrasil/YggDFS/applications/yggdfs_fuse.h
 params.h
 /home/jpantao/Git/BScResearch/Yggdrasil/Yggdrasil/YggDFS/applications/params.h
 log.h
 /home/jpantao/Git/BScResearch/Yggdrasil/Yggdrasil/YggDFS/applications/log.h
+yggdfs_utils.h
+/home/jpantao/Git/BScResearch/Yggdrasil/Yggdrasil/YggDFS/applications/yggdfs_utils.h
+yggdfs_control_info.h
+/home/jpantao/Git/BScResearch/Yggdrasil/Yggdrasil/YggDFS/applications/yggdfs_control_info.h
 ctype.h
 -
 dirent.h
@@ -376,6 +390,10 @@ string.h
 unistd.h
 -
 sys/types.h
+-
+sys/socket.h
+-
+arpa/inet.h
 -
 
 /usr/include/libnl3/netlink/addr.h

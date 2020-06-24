@@ -423,19 +423,6 @@ Json/fast:
 .PHONY : Json/fast
 
 #=============================================================================
-# Target rules for targets named list
-
-# Build rule for target.
-list: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 list
-.PHONY : list
-
-# fast build rule for target.
-list/fast:
-	$(MAKE) -f Yggdrasil/utils/CMakeFiles/list.dir/build.make Yggdrasil/utils/CMakeFiles/list.dir/build
-.PHONY : list/fast
-
-#=============================================================================
 # Target rules for targets named bloomfilters
 
 # Build rule for target.
@@ -449,17 +436,17 @@ bloomfilters/fast:
 .PHONY : bloomfilters/fast
 
 #=============================================================================
-# Target rules for targets named hashfunctions
+# Target rules for targets named list
 
 # Build rule for target.
-hashfunctions: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 hashfunctions
-.PHONY : hashfunctions
+list: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 list
+.PHONY : list
 
 # fast build rule for target.
-hashfunctions/fast:
-	$(MAKE) -f Yggdrasil/utils/CMakeFiles/hashfunctions.dir/build.make Yggdrasil/utils/CMakeFiles/hashfunctions.dir/build
-.PHONY : hashfunctions/fast
+list/fast:
+	$(MAKE) -f Yggdrasil/utils/CMakeFiles/list.dir/build.make Yggdrasil/utils/CMakeFiles/list.dir/build
+.PHONY : list/fast
 
 #=============================================================================
 # Target rules for targets named OneHopBcastWithTimer
@@ -774,45 +761,6 @@ cmdio_new/fast:
 .PHONY : cmdio_new/fast
 
 #=============================================================================
-# Target rules for targets named reliable_dissemination
-
-# Build rule for target.
-reliable_dissemination: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 reliable_dissemination
-.PHONY : reliable_dissemination
-
-# fast build rule for target.
-reliable_dissemination/fast:
-	$(MAKE) -f Yggdrasil/remote_control_new/protocols/CMakeFiles/reliable_dissemination.dir/build.make Yggdrasil/remote_control_new/protocols/CMakeFiles/reliable_dissemination.dir/build
-.PHONY : reliable_dissemination/fast
-
-#=============================================================================
-# Target rules for targets named discovery
-
-# Build rule for target.
-discovery: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 discovery
-.PHONY : discovery
-
-# fast build rule for target.
-discovery/fast:
-	$(MAKE) -f Yggdrasil/remote_control_new/protocols/CMakeFiles/discovery.dir/build.make Yggdrasil/remote_control_new/protocols/CMakeFiles/discovery.dir/build
-.PHONY : discovery/fast
-
-#=============================================================================
-# Target rules for targets named dissemination
-
-# Build rule for target.
-dissemination: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 dissemination
-.PHONY : dissemination
-
-# fast build rule for target.
-dissemination/fast:
-	$(MAKE) -f Yggdrasil/remote_control_new/protocols/CMakeFiles/dissemination.dir/build.make Yggdrasil/remote_control_new/protocols/CMakeFiles/dissemination.dir/build
-.PHONY : dissemination/fast
-
-#=============================================================================
 # Target rules for targets named cmdsetup
 
 # Build rule for target.
@@ -1021,6 +969,58 @@ cmddebug/fast:
 .PHONY : cmddebug/fast
 
 #=============================================================================
+# Target rules for targets named yggdfs_utils
+
+# Build rule for target.
+yggdfs_utils: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 yggdfs_utils
+.PHONY : yggdfs_utils
+
+# fast build rule for target.
+yggdfs_utils/fast:
+	$(MAKE) -f Yggdrasil/YggDFS/utils/CMakeFiles/yggdfs_utils.dir/build.make Yggdrasil/YggDFS/utils/CMakeFiles/yggdfs_utils.dir/build
+.PHONY : yggdfs_utils/fast
+
+#=============================================================================
+# Target rules for targets named hashtable
+
+# Build rule for target.
+hashtable: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 hashtable
+.PHONY : hashtable
+
+# fast build rule for target.
+hashtable/fast:
+	$(MAKE) -f Yggdrasil/YggDFS/utils/CMakeFiles/hashtable.dir/build.make Yggdrasil/YggDFS/utils/CMakeFiles/hashtable.dir/build
+.PHONY : hashtable/fast
+
+#=============================================================================
+# Target rules for targets named hashfunctions
+
+# Build rule for target.
+hashfunctions: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 hashfunctions
+.PHONY : hashfunctions
+
+# fast build rule for target.
+hashfunctions/fast:
+	$(MAKE) -f Yggdrasil/YggDFS/utils/CMakeFiles/hashfunctions.dir/build.make Yggdrasil/YggDFS/utils/CMakeFiles/hashfunctions.dir/build
+.PHONY : hashfunctions/fast
+
+#=============================================================================
+# Target rules for targets named reliable_dissemination
+
+# Build rule for target.
+reliable_dissemination: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 reliable_dissemination
+.PHONY : reliable_dissemination
+
+# fast build rule for target.
+reliable_dissemination/fast:
+	$(MAKE) -f Yggdrasil/YggDFS/protocols/CMakeFiles/reliable_dissemination.dir/build.make Yggdrasil/YggDFS/protocols/CMakeFiles/reliable_dissemination.dir/build
+.PHONY : reliable_dissemination/fast
+
+#=============================================================================
 # Target rules for targets named routing
 
 # Build rule for target.
@@ -1032,6 +1032,19 @@ routing: cmake_check_build_system
 routing/fast:
 	$(MAKE) -f Yggdrasil/YggDFS/protocols/CMakeFiles/routing.dir/build.make Yggdrasil/YggDFS/protocols/CMakeFiles/routing.dir/build
 .PHONY : routing/fast
+
+#=============================================================================
+# Target rules for targets named discovery
+
+# Build rule for target.
+discovery: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 discovery
+.PHONY : discovery
+
+# fast build rule for target.
+discovery/fast:
+	$(MAKE) -f Yggdrasil/YggDFS/protocols/CMakeFiles/discovery.dir/build.make Yggdrasil/YggDFS/protocols/CMakeFiles/discovery.dir/build
+.PHONY : discovery/fast
 
 #=============================================================================
 # Target rules for targets named YggDFS
@@ -1104,9 +1117,8 @@ help:
 	@echo "... aggregation_interface"
 	@echo "... discovery_interface"
 	@echo "... Json"
-	@echo "... list"
 	@echo "... bloomfilters"
-	@echo "... hashfunctions"
+	@echo "... list"
 	@echo "... OneHopBcastWithTimer"
 	@echo "... MessageExchange"
 	@echo "... OneHopBcast"
@@ -1131,9 +1143,6 @@ help:
 	@echo "... YggdrasilControlProcess_old"
 	@echo "... commands_new"
 	@echo "... cmdio_new"
-	@echo "... reliable_dissemination"
-	@echo "... discovery"
-	@echo "... dissemination"
 	@echo "... cmdsetup"
 	@echo "... YggdrasilControlProcess"
 	@echo "... cmdshutdown"
@@ -1150,7 +1159,12 @@ help:
 	@echo "... cmddisablediscovery"
 	@echo "... cmdgetneighbors"
 	@echo "... cmddebug"
+	@echo "... yggdfs_utils"
+	@echo "... hashtable"
+	@echo "... hashfunctions"
+	@echo "... reliable_dissemination"
 	@echo "... routing"
+	@echo "... discovery"
 	@echo "... YggDFS"
 	@echo "... log"
 	@echo "... yggdfs_fuse"

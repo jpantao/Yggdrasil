@@ -125,6 +125,36 @@ routing/fast:
 	cd /home/jpantao/Git/BScResearch/Yggdrasil/cmake-build-debug && $(MAKE) -f Yggdrasil/YggDFS/protocols/CMakeFiles/routing.dir/build.make Yggdrasil/YggDFS/protocols/CMakeFiles/routing.dir/build
 .PHONY : routing/fast
 
+# Convenience name for target.
+Yggdrasil/YggDFS/protocols/CMakeFiles/discovery.dir/rule:
+	cd /home/jpantao/Git/BScResearch/Yggdrasil/cmake-build-debug && $(MAKE) -f CMakeFiles/Makefile2 Yggdrasil/YggDFS/protocols/CMakeFiles/discovery.dir/rule
+.PHONY : Yggdrasil/YggDFS/protocols/CMakeFiles/discovery.dir/rule
+
+# Convenience name for target.
+discovery: Yggdrasil/YggDFS/protocols/CMakeFiles/discovery.dir/rule
+
+.PHONY : discovery
+
+# fast build rule for target.
+discovery/fast:
+	cd /home/jpantao/Git/BScResearch/Yggdrasil/cmake-build-debug && $(MAKE) -f Yggdrasil/YggDFS/protocols/CMakeFiles/discovery.dir/build.make Yggdrasil/YggDFS/protocols/CMakeFiles/discovery.dir/build
+.PHONY : discovery/fast
+
+# Convenience name for target.
+Yggdrasil/YggDFS/protocols/CMakeFiles/reliable_dissemination.dir/rule:
+	cd /home/jpantao/Git/BScResearch/Yggdrasil/cmake-build-debug && $(MAKE) -f CMakeFiles/Makefile2 Yggdrasil/YggDFS/protocols/CMakeFiles/reliable_dissemination.dir/rule
+.PHONY : Yggdrasil/YggDFS/protocols/CMakeFiles/reliable_dissemination.dir/rule
+
+# Convenience name for target.
+reliable_dissemination: Yggdrasil/YggDFS/protocols/CMakeFiles/reliable_dissemination.dir/rule
+
+.PHONY : reliable_dissemination
+
+# fast build rule for target.
+reliable_dissemination/fast:
+	cd /home/jpantao/Git/BScResearch/Yggdrasil/cmake-build-debug && $(MAKE) -f Yggdrasil/YggDFS/protocols/CMakeFiles/reliable_dissemination.dir/build.make Yggdrasil/YggDFS/protocols/CMakeFiles/reliable_dissemination.dir/build
+.PHONY : reliable_dissemination/fast
+
 batman.o: batman.c.o
 
 .PHONY : batman.o
@@ -152,6 +182,60 @@ batman.c.s:
 	cd /home/jpantao/Git/BScResearch/Yggdrasil/cmake-build-debug && $(MAKE) -f Yggdrasil/YggDFS/protocols/CMakeFiles/routing.dir/build.make Yggdrasil/YggDFS/protocols/CMakeFiles/routing.dir/batman.c.s
 .PHONY : batman.c.s
 
+discovery.o: discovery.c.o
+
+.PHONY : discovery.o
+
+# target to build an object file
+discovery.c.o:
+	cd /home/jpantao/Git/BScResearch/Yggdrasil/cmake-build-debug && $(MAKE) -f Yggdrasil/YggDFS/protocols/CMakeFiles/discovery.dir/build.make Yggdrasil/YggDFS/protocols/CMakeFiles/discovery.dir/discovery.c.o
+.PHONY : discovery.c.o
+
+discovery.i: discovery.c.i
+
+.PHONY : discovery.i
+
+# target to preprocess a source file
+discovery.c.i:
+	cd /home/jpantao/Git/BScResearch/Yggdrasil/cmake-build-debug && $(MAKE) -f Yggdrasil/YggDFS/protocols/CMakeFiles/discovery.dir/build.make Yggdrasil/YggDFS/protocols/CMakeFiles/discovery.dir/discovery.c.i
+.PHONY : discovery.c.i
+
+discovery.s: discovery.c.s
+
+.PHONY : discovery.s
+
+# target to generate assembly for a file
+discovery.c.s:
+	cd /home/jpantao/Git/BScResearch/Yggdrasil/cmake-build-debug && $(MAKE) -f Yggdrasil/YggDFS/protocols/CMakeFiles/discovery.dir/build.make Yggdrasil/YggDFS/protocols/CMakeFiles/discovery.dir/discovery.c.s
+.PHONY : discovery.c.s
+
+reliable_dissemination.o: reliable_dissemination.c.o
+
+.PHONY : reliable_dissemination.o
+
+# target to build an object file
+reliable_dissemination.c.o:
+	cd /home/jpantao/Git/BScResearch/Yggdrasil/cmake-build-debug && $(MAKE) -f Yggdrasil/YggDFS/protocols/CMakeFiles/reliable_dissemination.dir/build.make Yggdrasil/YggDFS/protocols/CMakeFiles/reliable_dissemination.dir/reliable_dissemination.c.o
+.PHONY : reliable_dissemination.c.o
+
+reliable_dissemination.i: reliable_dissemination.c.i
+
+.PHONY : reliable_dissemination.i
+
+# target to preprocess a source file
+reliable_dissemination.c.i:
+	cd /home/jpantao/Git/BScResearch/Yggdrasil/cmake-build-debug && $(MAKE) -f Yggdrasil/YggDFS/protocols/CMakeFiles/reliable_dissemination.dir/build.make Yggdrasil/YggDFS/protocols/CMakeFiles/reliable_dissemination.dir/reliable_dissemination.c.i
+.PHONY : reliable_dissemination.c.i
+
+reliable_dissemination.s: reliable_dissemination.c.s
+
+.PHONY : reliable_dissemination.s
+
+# target to generate assembly for a file
+reliable_dissemination.c.s:
+	cd /home/jpantao/Git/BScResearch/Yggdrasil/cmake-build-debug && $(MAKE) -f Yggdrasil/YggDFS/protocols/CMakeFiles/reliable_dissemination.dir/build.make Yggdrasil/YggDFS/protocols/CMakeFiles/reliable_dissemination.dir/reliable_dissemination.c.s
+.PHONY : reliable_dissemination.c.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -159,11 +243,19 @@ help:
 	@echo "... clean"
 	@echo "... depend"
 	@echo "... rebuild_cache"
-	@echo "... edit_cache"
 	@echo "... routing"
+	@echo "... edit_cache"
+	@echo "... discovery"
+	@echo "... reliable_dissemination"
 	@echo "... batman.o"
 	@echo "... batman.i"
 	@echo "... batman.s"
+	@echo "... discovery.o"
+	@echo "... discovery.i"
+	@echo "... discovery.s"
+	@echo "... reliable_dissemination.o"
+	@echo "... reliable_dissemination.i"
+	@echo "... reliable_dissemination.s"
 .PHONY : help
 
 

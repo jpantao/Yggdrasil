@@ -1,0 +1,16 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/tmp/tmp.4yRsQEGfYg/Yggdrasil/YggDFS/utils/yggdfs_utils.c
+yggdfs_utils.h
+/tmp/tmp.4yRsQEGfYg/Yggdrasil/YggDFS/utils/yggdfs_utils.h
+
+/tmp/tmp.4yRsQEGfYg/Yggdrasil/YggDFS/utils/yggdfs_utils.h
+unistd.h
+-
+

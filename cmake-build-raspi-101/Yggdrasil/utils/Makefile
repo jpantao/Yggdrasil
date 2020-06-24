@@ -56,17 +56,6 @@ CMAKE_BINARY_DIR = /tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101
 #=============================================================================
 # Targets provided globally by CMake.
 
-# Special rule for the target edit_cache
-edit_cache:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
-	/usr/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
-.PHONY : edit_cache
-
-# Special rule for the target edit_cache
-edit_cache/fast: edit_cache
-
-.PHONY : edit_cache/fast
-
 # Special rule for the target rebuild_cache
 rebuild_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
@@ -77,6 +66,17 @@ rebuild_cache:
 rebuild_cache/fast: rebuild_cache
 
 .PHONY : rebuild_cache/fast
+
+# Special rule for the target edit_cache
+edit_cache:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
+	/usr/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
+.PHONY : edit_cache
+
+# Special rule for the target edit_cache
+edit_cache/fast: edit_cache
+
+.PHONY : edit_cache/fast
 
 # The main all target
 all: cmake_check_build_system
@@ -126,21 +126,6 @@ Json/fast:
 .PHONY : Json/fast
 
 # Convenience name for target.
-Yggdrasil/utils/CMakeFiles/list.dir/rule:
-	cd /tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101 && $(MAKE) -f CMakeFiles/Makefile2 Yggdrasil/utils/CMakeFiles/list.dir/rule
-.PHONY : Yggdrasil/utils/CMakeFiles/list.dir/rule
-
-# Convenience name for target.
-list: Yggdrasil/utils/CMakeFiles/list.dir/rule
-
-.PHONY : list
-
-# fast build rule for target.
-list/fast:
-	cd /tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101 && $(MAKE) -f Yggdrasil/utils/CMakeFiles/list.dir/build.make Yggdrasil/utils/CMakeFiles/list.dir/build
-.PHONY : list/fast
-
-# Convenience name for target.
 Yggdrasil/utils/CMakeFiles/bloomfilters.dir/rule:
 	cd /tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101 && $(MAKE) -f CMakeFiles/Makefile2 Yggdrasil/utils/CMakeFiles/bloomfilters.dir/rule
 .PHONY : Yggdrasil/utils/CMakeFiles/bloomfilters.dir/rule
@@ -156,19 +141,19 @@ bloomfilters/fast:
 .PHONY : bloomfilters/fast
 
 # Convenience name for target.
-Yggdrasil/utils/CMakeFiles/hashfunctions.dir/rule:
-	cd /tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101 && $(MAKE) -f CMakeFiles/Makefile2 Yggdrasil/utils/CMakeFiles/hashfunctions.dir/rule
-.PHONY : Yggdrasil/utils/CMakeFiles/hashfunctions.dir/rule
+Yggdrasil/utils/CMakeFiles/list.dir/rule:
+	cd /tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101 && $(MAKE) -f CMakeFiles/Makefile2 Yggdrasil/utils/CMakeFiles/list.dir/rule
+.PHONY : Yggdrasil/utils/CMakeFiles/list.dir/rule
 
 # Convenience name for target.
-hashfunctions: Yggdrasil/utils/CMakeFiles/hashfunctions.dir/rule
+list: Yggdrasil/utils/CMakeFiles/list.dir/rule
 
-.PHONY : hashfunctions
+.PHONY : list
 
 # fast build rule for target.
-hashfunctions/fast:
-	cd /tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101 && $(MAKE) -f Yggdrasil/utils/CMakeFiles/hashfunctions.dir/build.make Yggdrasil/utils/CMakeFiles/hashfunctions.dir/build
-.PHONY : hashfunctions/fast
+list/fast:
+	cd /tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101 && $(MAKE) -f Yggdrasil/utils/CMakeFiles/list.dir/build.make Yggdrasil/utils/CMakeFiles/list.dir/build
+.PHONY : list/fast
 
 bloomfilter/bloom.o: bloomfilter/bloom.c.o
 
@@ -224,33 +209,6 @@ cJSON.c.s:
 	cd /tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101 && $(MAKE) -f Yggdrasil/utils/CMakeFiles/Json.dir/build.make Yggdrasil/utils/CMakeFiles/Json.dir/cJSON.c.s
 .PHONY : cJSON.c.s
 
-hashfunctions.o: hashfunctions.c.o
-
-.PHONY : hashfunctions.o
-
-# target to build an object file
-hashfunctions.c.o:
-	cd /tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101 && $(MAKE) -f Yggdrasil/utils/CMakeFiles/hashfunctions.dir/build.make Yggdrasil/utils/CMakeFiles/hashfunctions.dir/hashfunctions.c.o
-.PHONY : hashfunctions.c.o
-
-hashfunctions.i: hashfunctions.c.i
-
-.PHONY : hashfunctions.i
-
-# target to preprocess a source file
-hashfunctions.c.i:
-	cd /tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101 && $(MAKE) -f Yggdrasil/utils/CMakeFiles/hashfunctions.dir/build.make Yggdrasil/utils/CMakeFiles/hashfunctions.dir/hashfunctions.c.i
-.PHONY : hashfunctions.c.i
-
-hashfunctions.s: hashfunctions.c.s
-
-.PHONY : hashfunctions.s
-
-# target to generate assembly for a file
-hashfunctions.c.s:
-	cd /tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101 && $(MAKE) -f Yggdrasil/utils/CMakeFiles/hashfunctions.dir/build.make Yggdrasil/utils/CMakeFiles/hashfunctions.dir/hashfunctions.c.s
-.PHONY : hashfunctions.c.s
-
 list.o: list.c.o
 
 .PHONY : list.o
@@ -284,21 +242,17 @@ help:
 	@echo "... all (the default if no target is provided)"
 	@echo "... clean"
 	@echo "... depend"
+	@echo "... rebuild_cache"
 	@echo "... edit_cache"
 	@echo "... Json"
-	@echo "... list"
 	@echo "... bloomfilters"
-	@echo "... rebuild_cache"
-	@echo "... hashfunctions"
+	@echo "... list"
 	@echo "... bloomfilter/bloom.o"
 	@echo "... bloomfilter/bloom.i"
 	@echo "... bloomfilter/bloom.s"
 	@echo "... cJSON.o"
 	@echo "... cJSON.i"
 	@echo "... cJSON.s"
-	@echo "... hashfunctions.o"
-	@echo "... hashfunctions.i"
-	@echo "... hashfunctions.s"
 	@echo "... list.o"
 	@echo "... list.i"
 	@echo "... list.s"

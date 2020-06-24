@@ -29,15 +29,15 @@ set(CMAKE_TARGET_LINKED_INFO_FILES
   "/tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101/Yggdrasil/core/CMakeFiles/yggcore_wireless_new.dir/DependInfo.cmake"
   "/tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101/Yggdrasil/remote_control_new/utils/CMakeFiles/cmdio_new.dir/DependInfo.cmake"
   "/tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101/Yggdrasil/remote_control_new/utils/CMakeFiles/commands_new.dir/DependInfo.cmake"
-  "/tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101/Yggdrasil/remote_control_new/protocols/CMakeFiles/reliable_dissemination.dir/DependInfo.cmake"
+  "/tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101/Yggdrasil/YggDFS/protocols/CMakeFiles/reliable_dissemination.dir/DependInfo.cmake"
   "/tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101/Yggdrasil/protocols/wireless/CMakeFiles/topology_manager.dir/DependInfo.cmake"
   "/tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101/Yggdrasil/interfaces/CMakeFiles/aggregation_interface.dir/DependInfo.cmake"
-  "/tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101/Yggdrasil/remote_control_new/protocols/CMakeFiles/discovery.dir/DependInfo.cmake"
+  "/tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101/Yggdrasil/YggDFS/protocols/CMakeFiles/discovery.dir/DependInfo.cmake"
   "/tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101/Yggdrasil/interfaces/CMakeFiles/discovery_interface.dir/DependInfo.cmake"
   "/tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101/Yggdrasil-LowLevelLib/CMakeFiles/ygglib_wireless_new.dir/DependInfo.cmake"
   "/tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101/Yggdrasil-LowLevelLib/CMakeFiles/ygglib_base.dir/DependInfo.cmake"
   "/tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101/Yggdrasil/core/CMakeFiles/gen_data_structs.dir/DependInfo.cmake"
-  "/tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101/Yggdrasil/utils/CMakeFiles/hashfunctions.dir/DependInfo.cmake"
+  "/tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101/Yggdrasil/YggDFS/utils/CMakeFiles/hashfunctions.dir/DependInfo.cmake"
   )
 
 # Fortran module output directory.

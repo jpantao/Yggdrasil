@@ -79,17 +79,26 @@ YggDFS_EXTERNAL_OBJECTS =
 
 bin/YggDFS: Yggdrasil/YggDFS/applications/CMakeFiles/YggDFS.dir/yggdfs_control.c.o
 bin/YggDFS: Yggdrasil/YggDFS/applications/CMakeFiles/YggDFS.dir/build.make
-bin/YggDFS: ../lib/libyggdfs_fuse.a
-bin/YggDFS: ../lib/liblog.a
 bin/YggDFS: /usr/lib64/libfuse.so
 bin/YggDFS: ../lib/libyggcore_wireless_new.a
+bin/YggDFS: ../lib/libyggdfs_utils.a
+bin/YggDFS: ../lib/libdiscovery.a
+bin/YggDFS: ../lib/libreliable_dissemination.a
 bin/YggDFS: ../lib/librouting.a
+bin/YggDFS: ../lib/liblog.a
+bin/YggDFS: ../lib/libyggdfs_fuse.a
+bin/YggDFS: ../lib/libhashtable.a
+bin/YggDFS: ../lib/libdiscovery.a
+bin/YggDFS: ../lib/libdiscovery_interface.a
 bin/YggDFS: ../lib/librouting_interface.a
 bin/YggDFS: ../lib/libyggcore_wireless_new.a
 bin/YggDFS: ../lib/libygglib_wireless_new.a
 bin/YggDFS: ../lib/libygglib_base.a
 bin/YggDFS: ../lib/libneighbour_list.a
 bin/YggDFS: ../lib/libgen_data_structs.a
+bin/YggDFS: ../lib/libyggdfs_utils.a
+bin/YggDFS: ../lib/liblog.a
+bin/YggDFS: ../lib/libhashfunctions.a
 bin/YggDFS: Yggdrasil/YggDFS/applications/CMakeFiles/YggDFS.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/jpantao/Git/BScResearch/Yggdrasil/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking C executable ../../../bin/YggDFS"
 	cd /home/jpantao/Git/BScResearch/Yggdrasil/cmake-build-debug/Yggdrasil/YggDFS/applications && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/YggDFS.dir/link.txt --verbose=$(VERBOSE)

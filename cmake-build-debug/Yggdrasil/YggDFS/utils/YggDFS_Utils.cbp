@@ -17,7 +17,157 @@
 					<DistClean command="/usr/bin/gmake -j8 -f &quot;/home/jpantao/Git/BScResearch/Yggdrasil/cmake-build-debug/Yggdrasil/YggDFS/utils/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
+			<Target title="yggdfs_utils">
+				<Option output="/home/jpantao/Git/BScResearch/Yggdrasil/lib/libyggdfs_utils.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/jpantao/Git/BScResearch/Yggdrasil/cmake-build-debug/Yggdrasil/YggDFS/utils"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/home/jpantao/Git/BScResearch/Yggdrasil/Yggdrasil/YggDFS/utils/../.."/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/10/../../../../include/c++/10"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/10/../../../../include/c++/10/x86_64-redhat-linux"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/10/../../../../include/c++/10/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/10/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j8 -f &quot;/home/jpantao/Git/BScResearch/Yggdrasil/cmake-build-debug/Yggdrasil/YggDFS/utils/Makefile&quot;  VERBOSE=1 yggdfs_utils"/>
+					<CompileFile command="/usr/bin/gmake -j8 -f &quot;/home/jpantao/Git/BScResearch/Yggdrasil/cmake-build-debug/Yggdrasil/YggDFS/utils/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j8 -f &quot;/home/jpantao/Git/BScResearch/Yggdrasil/cmake-build-debug/Yggdrasil/YggDFS/utils/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j8 -f &quot;/home/jpantao/Git/BScResearch/Yggdrasil/cmake-build-debug/Yggdrasil/YggDFS/utils/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="yggdfs_utils/fast">
+				<Option output="/home/jpantao/Git/BScResearch/Yggdrasil/lib/libyggdfs_utils.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/jpantao/Git/BScResearch/Yggdrasil/cmake-build-debug/Yggdrasil/YggDFS/utils"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/home/jpantao/Git/BScResearch/Yggdrasil/Yggdrasil/YggDFS/utils/../.."/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/10/../../../../include/c++/10"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/10/../../../../include/c++/10/x86_64-redhat-linux"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/10/../../../../include/c++/10/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/10/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j8 -f &quot;/home/jpantao/Git/BScResearch/Yggdrasil/cmake-build-debug/Yggdrasil/YggDFS/utils/Makefile&quot;  VERBOSE=1 yggdfs_utils/fast"/>
+					<CompileFile command="/usr/bin/gmake -j8 -f &quot;/home/jpantao/Git/BScResearch/Yggdrasil/cmake-build-debug/Yggdrasil/YggDFS/utils/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j8 -f &quot;/home/jpantao/Git/BScResearch/Yggdrasil/cmake-build-debug/Yggdrasil/YggDFS/utils/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j8 -f &quot;/home/jpantao/Git/BScResearch/Yggdrasil/cmake-build-debug/Yggdrasil/YggDFS/utils/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="hashfunctions">
+				<Option output="/home/jpantao/Git/BScResearch/Yggdrasil/lib/libhashfunctions.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/jpantao/Git/BScResearch/Yggdrasil/cmake-build-debug/Yggdrasil/YggDFS/utils"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/home/jpantao/Git/BScResearch/Yggdrasil/Yggdrasil/YggDFS/utils/../.."/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/10/../../../../include/c++/10"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/10/../../../../include/c++/10/x86_64-redhat-linux"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/10/../../../../include/c++/10/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/10/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j8 -f &quot;/home/jpantao/Git/BScResearch/Yggdrasil/cmake-build-debug/Yggdrasil/YggDFS/utils/Makefile&quot;  VERBOSE=1 hashfunctions"/>
+					<CompileFile command="/usr/bin/gmake -j8 -f &quot;/home/jpantao/Git/BScResearch/Yggdrasil/cmake-build-debug/Yggdrasil/YggDFS/utils/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j8 -f &quot;/home/jpantao/Git/BScResearch/Yggdrasil/cmake-build-debug/Yggdrasil/YggDFS/utils/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j8 -f &quot;/home/jpantao/Git/BScResearch/Yggdrasil/cmake-build-debug/Yggdrasil/YggDFS/utils/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="hashfunctions/fast">
+				<Option output="/home/jpantao/Git/BScResearch/Yggdrasil/lib/libhashfunctions.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/jpantao/Git/BScResearch/Yggdrasil/cmake-build-debug/Yggdrasil/YggDFS/utils"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/home/jpantao/Git/BScResearch/Yggdrasil/Yggdrasil/YggDFS/utils/../.."/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/10/../../../../include/c++/10"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/10/../../../../include/c++/10/x86_64-redhat-linux"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/10/../../../../include/c++/10/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/10/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j8 -f &quot;/home/jpantao/Git/BScResearch/Yggdrasil/cmake-build-debug/Yggdrasil/YggDFS/utils/Makefile&quot;  VERBOSE=1 hashfunctions/fast"/>
+					<CompileFile command="/usr/bin/gmake -j8 -f &quot;/home/jpantao/Git/BScResearch/Yggdrasil/cmake-build-debug/Yggdrasil/YggDFS/utils/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j8 -f &quot;/home/jpantao/Git/BScResearch/Yggdrasil/cmake-build-debug/Yggdrasil/YggDFS/utils/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j8 -f &quot;/home/jpantao/Git/BScResearch/Yggdrasil/cmake-build-debug/Yggdrasil/YggDFS/utils/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="hashtable">
+				<Option output="/home/jpantao/Git/BScResearch/Yggdrasil/lib/libhashtable.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/jpantao/Git/BScResearch/Yggdrasil/cmake-build-debug/Yggdrasil/YggDFS/utils"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/home/jpantao/Git/BScResearch/Yggdrasil/Yggdrasil/YggDFS/utils/../.."/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/10/../../../../include/c++/10"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/10/../../../../include/c++/10/x86_64-redhat-linux"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/10/../../../../include/c++/10/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/10/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j8 -f &quot;/home/jpantao/Git/BScResearch/Yggdrasil/cmake-build-debug/Yggdrasil/YggDFS/utils/Makefile&quot;  VERBOSE=1 hashtable"/>
+					<CompileFile command="/usr/bin/gmake -j8 -f &quot;/home/jpantao/Git/BScResearch/Yggdrasil/cmake-build-debug/Yggdrasil/YggDFS/utils/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j8 -f &quot;/home/jpantao/Git/BScResearch/Yggdrasil/cmake-build-debug/Yggdrasil/YggDFS/utils/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j8 -f &quot;/home/jpantao/Git/BScResearch/Yggdrasil/cmake-build-debug/Yggdrasil/YggDFS/utils/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="hashtable/fast">
+				<Option output="/home/jpantao/Git/BScResearch/Yggdrasil/lib/libhashtable.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/jpantao/Git/BScResearch/Yggdrasil/cmake-build-debug/Yggdrasil/YggDFS/utils"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/home/jpantao/Git/BScResearch/Yggdrasil/Yggdrasil/YggDFS/utils/../.."/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/10/../../../../include/c++/10"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/10/../../../../include/c++/10/x86_64-redhat-linux"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/10/../../../../include/c++/10/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/10/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j8 -f &quot;/home/jpantao/Git/BScResearch/Yggdrasil/cmake-build-debug/Yggdrasil/YggDFS/utils/Makefile&quot;  VERBOSE=1 hashtable/fast"/>
+					<CompileFile command="/usr/bin/gmake -j8 -f &quot;/home/jpantao/Git/BScResearch/Yggdrasil/cmake-build-debug/Yggdrasil/YggDFS/utils/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j8 -f &quot;/home/jpantao/Git/BScResearch/Yggdrasil/cmake-build-debug/Yggdrasil/YggDFS/utils/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j8 -f &quot;/home/jpantao/Git/BScResearch/Yggdrasil/cmake-build-debug/Yggdrasil/YggDFS/utils/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
 		</Build>
+		<Unit filename="/home/jpantao/Git/BScResearch/Yggdrasil/Yggdrasil/YggDFS/utils/hashfunctions.c">
+			<Option target="hashfunctions"/>
+		</Unit>
+		<Unit filename="/home/jpantao/Git/BScResearch/Yggdrasil/Yggdrasil/YggDFS/utils/hashfunctions.h">
+			<Option target="hashfunctions"/>
+		</Unit>
+		<Unit filename="/home/jpantao/Git/BScResearch/Yggdrasil/Yggdrasil/YggDFS/utils/hashtable.c">
+			<Option target="hashtable"/>
+		</Unit>
+		<Unit filename="/home/jpantao/Git/BScResearch/Yggdrasil/Yggdrasil/YggDFS/utils/hashtable.h">
+			<Option target="hashtable"/>
+		</Unit>
+		<Unit filename="/home/jpantao/Git/BScResearch/Yggdrasil/Yggdrasil/YggDFS/utils/yggdfs_utils.c">
+			<Option target="yggdfs_utils"/>
+		</Unit>
+		<Unit filename="/home/jpantao/Git/BScResearch/Yggdrasil/Yggdrasil/YggDFS/utils/yggdfs_utils.h">
+			<Option target="yggdfs_utils"/>
+		</Unit>
 		<Unit filename="/home/jpantao/Git/BScResearch/Yggdrasil/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\"/>
 		</Unit>

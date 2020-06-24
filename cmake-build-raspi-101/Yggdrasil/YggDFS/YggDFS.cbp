@@ -17,6 +17,208 @@
 					<DistClean command="/usr/bin/make -j4 -f &quot;/tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101/Yggdrasil/YggDFS/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
+			<Target title="yggdfs_utils">
+				<Option output="/tmp/tmp.4yRsQEGfYg/lib/libyggdfs_utils.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101/Yggdrasil/YggDFS/utils"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/tmp/tmp.4yRsQEGfYg/Yggdrasil/YggDFS/utils/../.."/>
+					<Add directory="/usr/include/c++/8"/>
+					<Add directory="/usr/include/arm-linux-gnueabihf/c++/8"/>
+					<Add directory="/usr/include/c++/8/backward"/>
+					<Add directory="/usr/lib/gcc/arm-linux-gnueabihf/8/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/arm-linux-gnueabihf/8/include-fixed"/>
+					<Add directory="/usr/include/arm-linux-gnueabihf"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101/Yggdrasil/YggDFS/utils/Makefile&quot;  VERBOSE=1 yggdfs_utils"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101/Yggdrasil/YggDFS/utils/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101/Yggdrasil/YggDFS/utils/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101/Yggdrasil/YggDFS/utils/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="yggdfs_utils/fast">
+				<Option output="/tmp/tmp.4yRsQEGfYg/lib/libyggdfs_utils.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101/Yggdrasil/YggDFS/utils"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/tmp/tmp.4yRsQEGfYg/Yggdrasil/YggDFS/utils/../.."/>
+					<Add directory="/usr/include/c++/8"/>
+					<Add directory="/usr/include/arm-linux-gnueabihf/c++/8"/>
+					<Add directory="/usr/include/c++/8/backward"/>
+					<Add directory="/usr/lib/gcc/arm-linux-gnueabihf/8/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/arm-linux-gnueabihf/8/include-fixed"/>
+					<Add directory="/usr/include/arm-linux-gnueabihf"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101/Yggdrasil/YggDFS/utils/Makefile&quot;  VERBOSE=1 yggdfs_utils/fast"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101/Yggdrasil/YggDFS/utils/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101/Yggdrasil/YggDFS/utils/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101/Yggdrasil/YggDFS/utils/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="hashtable">
+				<Option output="/tmp/tmp.4yRsQEGfYg/lib/libhashtable.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101/Yggdrasil/YggDFS/utils"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/tmp/tmp.4yRsQEGfYg/Yggdrasil/YggDFS/utils/../.."/>
+					<Add directory="/usr/include/c++/8"/>
+					<Add directory="/usr/include/arm-linux-gnueabihf/c++/8"/>
+					<Add directory="/usr/include/c++/8/backward"/>
+					<Add directory="/usr/lib/gcc/arm-linux-gnueabihf/8/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/arm-linux-gnueabihf/8/include-fixed"/>
+					<Add directory="/usr/include/arm-linux-gnueabihf"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101/Yggdrasil/YggDFS/utils/Makefile&quot;  VERBOSE=1 hashtable"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101/Yggdrasil/YggDFS/utils/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101/Yggdrasil/YggDFS/utils/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101/Yggdrasil/YggDFS/utils/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="hashtable/fast">
+				<Option output="/tmp/tmp.4yRsQEGfYg/lib/libhashtable.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101/Yggdrasil/YggDFS/utils"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/tmp/tmp.4yRsQEGfYg/Yggdrasil/YggDFS/utils/../.."/>
+					<Add directory="/usr/include/c++/8"/>
+					<Add directory="/usr/include/arm-linux-gnueabihf/c++/8"/>
+					<Add directory="/usr/include/c++/8/backward"/>
+					<Add directory="/usr/lib/gcc/arm-linux-gnueabihf/8/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/arm-linux-gnueabihf/8/include-fixed"/>
+					<Add directory="/usr/include/arm-linux-gnueabihf"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101/Yggdrasil/YggDFS/utils/Makefile&quot;  VERBOSE=1 hashtable/fast"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101/Yggdrasil/YggDFS/utils/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101/Yggdrasil/YggDFS/utils/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101/Yggdrasil/YggDFS/utils/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="hashfunctions">
+				<Option output="/tmp/tmp.4yRsQEGfYg/lib/libhashfunctions.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101/Yggdrasil/YggDFS/utils"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/tmp/tmp.4yRsQEGfYg/Yggdrasil/YggDFS/utils/../.."/>
+					<Add directory="/usr/include/c++/8"/>
+					<Add directory="/usr/include/arm-linux-gnueabihf/c++/8"/>
+					<Add directory="/usr/include/c++/8/backward"/>
+					<Add directory="/usr/lib/gcc/arm-linux-gnueabihf/8/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/arm-linux-gnueabihf/8/include-fixed"/>
+					<Add directory="/usr/include/arm-linux-gnueabihf"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101/Yggdrasil/YggDFS/utils/Makefile&quot;  VERBOSE=1 hashfunctions"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101/Yggdrasil/YggDFS/utils/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101/Yggdrasil/YggDFS/utils/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101/Yggdrasil/YggDFS/utils/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="hashfunctions/fast">
+				<Option output="/tmp/tmp.4yRsQEGfYg/lib/libhashfunctions.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101/Yggdrasil/YggDFS/utils"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/tmp/tmp.4yRsQEGfYg/Yggdrasil/YggDFS/utils/../.."/>
+					<Add directory="/usr/include/c++/8"/>
+					<Add directory="/usr/include/arm-linux-gnueabihf/c++/8"/>
+					<Add directory="/usr/include/c++/8/backward"/>
+					<Add directory="/usr/lib/gcc/arm-linux-gnueabihf/8/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/arm-linux-gnueabihf/8/include-fixed"/>
+					<Add directory="/usr/include/arm-linux-gnueabihf"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101/Yggdrasil/YggDFS/utils/Makefile&quot;  VERBOSE=1 hashfunctions/fast"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101/Yggdrasil/YggDFS/utils/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101/Yggdrasil/YggDFS/utils/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101/Yggdrasil/YggDFS/utils/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="reliable_dissemination">
+				<Option output="/tmp/tmp.4yRsQEGfYg/lib/libreliable_dissemination.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101/Yggdrasil/YggDFS/protocols"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add option="-DWIRELESS_NETWORKS"/>
+					<Add option="-DNEW"/>
+					<Add directory="/tmp/tmp.4yRsQEGfYg/Yggdrasil/YggDFS/protocols/../.."/>
+					<Add directory="/tmp/tmp.4yRsQEGfYg/Yggdrasil/core/."/>
+					<Add directory="/tmp/tmp.4yRsQEGfYg/Yggdrasil/core/../../Yggdrasil-LowLevelLib"/>
+					<Add directory="/usr/include/libnl3"/>
+					<Add directory="/usr/include/c++/8"/>
+					<Add directory="/usr/include/arm-linux-gnueabihf/c++/8"/>
+					<Add directory="/usr/include/c++/8/backward"/>
+					<Add directory="/usr/lib/gcc/arm-linux-gnueabihf/8/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/arm-linux-gnueabihf/8/include-fixed"/>
+					<Add directory="/usr/include/arm-linux-gnueabihf"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101/Yggdrasil/YggDFS/protocols/Makefile&quot;  VERBOSE=1 reliable_dissemination"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101/Yggdrasil/YggDFS/protocols/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101/Yggdrasil/YggDFS/protocols/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101/Yggdrasil/YggDFS/protocols/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="reliable_dissemination/fast">
+				<Option output="/tmp/tmp.4yRsQEGfYg/lib/libreliable_dissemination.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101/Yggdrasil/YggDFS/protocols"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add option="-DWIRELESS_NETWORKS"/>
+					<Add option="-DNEW"/>
+					<Add directory="/tmp/tmp.4yRsQEGfYg/Yggdrasil/YggDFS/protocols/../.."/>
+					<Add directory="/tmp/tmp.4yRsQEGfYg/Yggdrasil/core/."/>
+					<Add directory="/tmp/tmp.4yRsQEGfYg/Yggdrasil/core/../../Yggdrasil-LowLevelLib"/>
+					<Add directory="/usr/include/libnl3"/>
+					<Add directory="/usr/include/c++/8"/>
+					<Add directory="/usr/include/arm-linux-gnueabihf/c++/8"/>
+					<Add directory="/usr/include/c++/8/backward"/>
+					<Add directory="/usr/lib/gcc/arm-linux-gnueabihf/8/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/arm-linux-gnueabihf/8/include-fixed"/>
+					<Add directory="/usr/include/arm-linux-gnueabihf"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101/Yggdrasil/YggDFS/protocols/Makefile&quot;  VERBOSE=1 reliable_dissemination/fast"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101/Yggdrasil/YggDFS/protocols/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101/Yggdrasil/YggDFS/protocols/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101/Yggdrasil/YggDFS/protocols/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
 			<Target title="routing">
 				<Option output="/tmp/tmp.4yRsQEGfYg/lib/librouting.a" prefix_auto="0" extension_auto="0"/>
 				<Option working_dir="/tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101/Yggdrasil/YggDFS/protocols"/>
@@ -75,6 +277,64 @@
 					<DistClean command="/usr/bin/make -j4 -f &quot;/tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101/Yggdrasil/YggDFS/protocols/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
+			<Target title="discovery">
+				<Option output="/tmp/tmp.4yRsQEGfYg/lib/libdiscovery.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101/Yggdrasil/YggDFS/protocols"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add option="-DWIRELESS_NETWORKS"/>
+					<Add option="-DNEW"/>
+					<Add directory="/tmp/tmp.4yRsQEGfYg/Yggdrasil/YggDFS/protocols/../.."/>
+					<Add directory="/tmp/tmp.4yRsQEGfYg/Yggdrasil/core/."/>
+					<Add directory="/tmp/tmp.4yRsQEGfYg/Yggdrasil/core/../../Yggdrasil-LowLevelLib"/>
+					<Add directory="/usr/include/libnl3"/>
+					<Add directory="/usr/include/c++/8"/>
+					<Add directory="/usr/include/arm-linux-gnueabihf/c++/8"/>
+					<Add directory="/usr/include/c++/8/backward"/>
+					<Add directory="/usr/lib/gcc/arm-linux-gnueabihf/8/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/arm-linux-gnueabihf/8/include-fixed"/>
+					<Add directory="/usr/include/arm-linux-gnueabihf"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101/Yggdrasil/YggDFS/protocols/Makefile&quot;  VERBOSE=1 discovery"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101/Yggdrasil/YggDFS/protocols/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101/Yggdrasil/YggDFS/protocols/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101/Yggdrasil/YggDFS/protocols/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="discovery/fast">
+				<Option output="/tmp/tmp.4yRsQEGfYg/lib/libdiscovery.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101/Yggdrasil/YggDFS/protocols"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add option="-DWIRELESS_NETWORKS"/>
+					<Add option="-DNEW"/>
+					<Add directory="/tmp/tmp.4yRsQEGfYg/Yggdrasil/YggDFS/protocols/../.."/>
+					<Add directory="/tmp/tmp.4yRsQEGfYg/Yggdrasil/core/."/>
+					<Add directory="/tmp/tmp.4yRsQEGfYg/Yggdrasil/core/../../Yggdrasil-LowLevelLib"/>
+					<Add directory="/usr/include/libnl3"/>
+					<Add directory="/usr/include/c++/8"/>
+					<Add directory="/usr/include/arm-linux-gnueabihf/c++/8"/>
+					<Add directory="/usr/include/c++/8/backward"/>
+					<Add directory="/usr/lib/gcc/arm-linux-gnueabihf/8/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/arm-linux-gnueabihf/8/include-fixed"/>
+					<Add directory="/usr/include/arm-linux-gnueabihf"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101/Yggdrasil/YggDFS/protocols/Makefile&quot;  VERBOSE=1 discovery/fast"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101/Yggdrasil/YggDFS/protocols/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101/Yggdrasil/YggDFS/protocols/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101/Yggdrasil/YggDFS/protocols/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
 			<Target title="YggDFS">
 				<Option output="/tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101/bin/YggDFS" prefix_auto="0" extension_auto="0"/>
 				<Option working_dir="/tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101/bin"/>
@@ -84,6 +344,7 @@
 				<Compiler>
 					<Add option="-DWIRELESS_NETWORKS"/>
 					<Add option="-DNEW"/>
+					<Add directory="/tmp/tmp.4yRsQEGfYg/Yggdrasil/YggDFS/applications/../utils"/>
 					<Add directory="/tmp/tmp.4yRsQEGfYg/Yggdrasil/YggDFS/applications/../.."/>
 					<Add directory="/tmp/tmp.4yRsQEGfYg/Yggdrasil/YggDFS/applications/../../../Yggdrasil-LowLevelLib"/>
 					<Add directory="/tmp/tmp.4yRsQEGfYg/Yggdrasil/core/."/>
@@ -114,6 +375,7 @@
 				<Compiler>
 					<Add option="-DWIRELESS_NETWORKS"/>
 					<Add option="-DNEW"/>
+					<Add directory="/tmp/tmp.4yRsQEGfYg/Yggdrasil/YggDFS/applications/../utils"/>
 					<Add directory="/tmp/tmp.4yRsQEGfYg/Yggdrasil/YggDFS/applications/../.."/>
 					<Add directory="/tmp/tmp.4yRsQEGfYg/Yggdrasil/YggDFS/applications/../../../Yggdrasil-LowLevelLib"/>
 					<Add directory="/tmp/tmp.4yRsQEGfYg/Yggdrasil/core/."/>
@@ -142,6 +404,7 @@
 				<Option type="2"/>
 				<Option compiler="gcc"/>
 				<Compiler>
+					<Add directory="/tmp/tmp.4yRsQEGfYg/Yggdrasil/YggDFS/applications/../utils"/>
 					<Add directory="/tmp/tmp.4yRsQEGfYg/Yggdrasil/YggDFS/applications/../.."/>
 					<Add directory="/tmp/tmp.4yRsQEGfYg/Yggdrasil/YggDFS/applications/../../../Yggdrasil-LowLevelLib"/>
 					<Add directory="/usr/include/c++/8"/>
@@ -167,6 +430,7 @@
 				<Option type="2"/>
 				<Option compiler="gcc"/>
 				<Compiler>
+					<Add directory="/tmp/tmp.4yRsQEGfYg/Yggdrasil/YggDFS/applications/../utils"/>
 					<Add directory="/tmp/tmp.4yRsQEGfYg/Yggdrasil/YggDFS/applications/../.."/>
 					<Add directory="/tmp/tmp.4yRsQEGfYg/Yggdrasil/YggDFS/applications/../../../Yggdrasil-LowLevelLib"/>
 					<Add directory="/usr/include/c++/8"/>
@@ -192,6 +456,7 @@
 				<Option type="2"/>
 				<Option compiler="gcc"/>
 				<Compiler>
+					<Add directory="/tmp/tmp.4yRsQEGfYg/Yggdrasil/YggDFS/applications/../utils"/>
 					<Add directory="/tmp/tmp.4yRsQEGfYg/Yggdrasil/YggDFS/applications/../.."/>
 					<Add directory="/tmp/tmp.4yRsQEGfYg/Yggdrasil/YggDFS/applications/../../../Yggdrasil-LowLevelLib"/>
 					<Add directory="/usr/include/c++/8"/>
@@ -217,6 +482,7 @@
 				<Option type="2"/>
 				<Option compiler="gcc"/>
 				<Compiler>
+					<Add directory="/tmp/tmp.4yRsQEGfYg/Yggdrasil/YggDFS/applications/../utils"/>
 					<Add directory="/tmp/tmp.4yRsQEGfYg/Yggdrasil/YggDFS/applications/../.."/>
 					<Add directory="/tmp/tmp.4yRsQEGfYg/Yggdrasil/YggDFS/applications/../../../Yggdrasil-LowLevelLib"/>
 					<Add directory="/usr/include/c++/8"/>
@@ -256,6 +522,36 @@
 		</Unit>
 		<Unit filename="/tmp/tmp.4yRsQEGfYg/Yggdrasil/YggDFS/protocols/batman.h">
 			<Option target="routing"/>
+		</Unit>
+		<Unit filename="/tmp/tmp.4yRsQEGfYg/Yggdrasil/YggDFS/protocols/discovery.c">
+			<Option target="discovery"/>
+		</Unit>
+		<Unit filename="/tmp/tmp.4yRsQEGfYg/Yggdrasil/YggDFS/protocols/discovery.h">
+			<Option target="discovery"/>
+		</Unit>
+		<Unit filename="/tmp/tmp.4yRsQEGfYg/Yggdrasil/YggDFS/protocols/reliable_dissemination.c">
+			<Option target="reliable_dissemination"/>
+		</Unit>
+		<Unit filename="/tmp/tmp.4yRsQEGfYg/Yggdrasil/YggDFS/protocols/reliable_dissemination.h">
+			<Option target="reliable_dissemination"/>
+		</Unit>
+		<Unit filename="/tmp/tmp.4yRsQEGfYg/Yggdrasil/YggDFS/utils/hashfunctions.c">
+			<Option target="hashfunctions"/>
+		</Unit>
+		<Unit filename="/tmp/tmp.4yRsQEGfYg/Yggdrasil/YggDFS/utils/hashfunctions.h">
+			<Option target="hashfunctions"/>
+		</Unit>
+		<Unit filename="/tmp/tmp.4yRsQEGfYg/Yggdrasil/YggDFS/utils/hashtable.c">
+			<Option target="hashtable"/>
+		</Unit>
+		<Unit filename="/tmp/tmp.4yRsQEGfYg/Yggdrasil/YggDFS/utils/hashtable.h">
+			<Option target="hashtable"/>
+		</Unit>
+		<Unit filename="/tmp/tmp.4yRsQEGfYg/Yggdrasil/YggDFS/utils/yggdfs_utils.c">
+			<Option target="yggdfs_utils"/>
+		</Unit>
+		<Unit filename="/tmp/tmp.4yRsQEGfYg/Yggdrasil/YggDFS/utils/yggdfs_utils.h">
+			<Option target="yggdfs_utils"/>
 		</Unit>
 		<Unit filename="/tmp/tmp.4yRsQEGfYg/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\"/>

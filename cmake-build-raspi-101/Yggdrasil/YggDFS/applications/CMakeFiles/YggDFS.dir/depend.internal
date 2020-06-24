@@ -13,8 +13,15 @@ Yggdrasil/YggDFS/applications/CMakeFiles/YggDFS.dir/yggdfs_control.c.o
  ../Yggdrasil/YggDFS/applications/../../../Yggdrasil-LowLevelLib/src_wireless/network.h
  ../Yggdrasil/YggDFS/applications/../../../Yggdrasil-LowLevelLib/src_wireless/utils.h
  ../Yggdrasil/YggDFS/applications/../../YggDFS/protocols/batman.h
+ ../Yggdrasil/YggDFS/applications/../../YggDFS/protocols/discovery.h
+ ../Yggdrasil/YggDFS/applications/../../YggDFS/protocols/reliable_dissemination.h
+ ../Yggdrasil/YggDFS/applications/../../core/data_structures/generic/list.h
+ ../Yggdrasil/YggDFS/applications/../../core/utils/utils.h
  ../Yggdrasil/YggDFS/applications/../../core/ygg_runtime.h
+ ../Yggdrasil/YggDFS/applications/../../interfaces/discovery/discovery_events.h
  ../Yggdrasil/YggDFS/applications/../../interfaces/routing/routing_interface.h
+ ../Yggdrasil/YggDFS/applications/../../utils/hashfunctions.h
+ ../Yggdrasil/YggDFS/applications/../utils/yggdfs_utils.h
  ../Yggdrasil/core/./data_structures/generic/list.h
  ../Yggdrasil/core/./data_structures/specialized/neighbour_list.h
  ../Yggdrasil/core/./proto_data_struct.h
@@ -28,7 +35,9 @@ Yggdrasil/YggDFS/applications/CMakeFiles/YggDFS.dir/yggdfs_control.c.o
  ../Yggdrasil/core/./ygg_runtime.h
  /tmp/tmp.4yRsQEGfYg/Yggdrasil/YggDFS/applications/log.h
  /tmp/tmp.4yRsQEGfYg/Yggdrasil/YggDFS/applications/params.h
+ /tmp/tmp.4yRsQEGfYg/Yggdrasil/YggDFS/applications/yggdfs.h
  /tmp/tmp.4yRsQEGfYg/Yggdrasil/YggDFS/applications/yggdfs_control.c
+ /tmp/tmp.4yRsQEGfYg/Yggdrasil/YggDFS/applications/yggdfs_control_info.h
  /tmp/tmp.4yRsQEGfYg/Yggdrasil/YggDFS/applications/yggdfs_fuse.h
  /usr/include/libnl3/netlink/addr.h
  /usr/include/libnl3/netlink/attr.h

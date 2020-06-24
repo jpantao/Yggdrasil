@@ -1,0 +1,22 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/tmp/tmp.4yRsQEGfYg/Yggdrasil/YggDFS/applications/yggdfs_control_server.c
+yggdfs_control_server.h
+/tmp/tmp.4yRsQEGfYg/Yggdrasil/YggDFS/applications/yggdfs_control_server.h
+
+/tmp/tmp.4yRsQEGfYg/Yggdrasil/YggDFS/applications/yggdfs_control_server.h
+stdio.h
+-
+string.h
+-
+arpa/inet.h
+-
+sys/socket.h
+-
+

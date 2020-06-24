@@ -4,46 +4,61 @@
 
 #include "yggdfs_fuse.h"
 
-/////////////////////////////////////////////////////////////
-////                                                     ////
-/////////////////////////////////////////////////////////////
-
-
-static void yggdfs_fullpath(char fpath[PATH_MAX], const char *path){
+static void fullpath(char *fpath, const char *path){
     bzero(fpath, PATH_MAX);
     strcpy(fpath, YGGDFS_STATE->rootdir);
     strncat(fpath, path, PATH_MAX); // ridiculously long paths will
 				    // break here
 
-    log_msg("    yggdfs_fullpath:  rootdir = \"%s\", path = \"%s\", fpath = \"%s\"\n",
+    log_msg("    fullpath:  rootdir = \"%s\", path = \"%s\", fpath = \"%s\"\n",
 	    YGGDFS_STATE->rootdir, path, fpath);
 }
 
-static void yggdfs_usage(){
-    fprintf(stderr, "usage:  YggDFS [FUSE and mount options] rootdir mountpoint\n\n");
+static void usage(){
+    fprintf(stderr, "usage:  YggDFS [FUSE and mount options] cachedir rootdir mountpoint\n\n");
     abort();
 }
 
-/////////////////////////////////////////////////////////////
-////                                                     ////
-/////////////////////////////////////////////////////////////
+static void ifn_init_socket(int* sock, struct sockaddr_in* addr){
+    if(*sock != 0)
+        return;
+
+    int newSock =  socket(AF_UNIX, SOCK_STREAM, 0);
+    memcpy(sock, &newSock, sizeof(newSock));
+
+    bzero(addr, sizeof(struct sockaddr_in));
+    addr->sin_family = AF_UNIX;
+    inet_aton(LOCAL_ADDR, &addr->sin_addr);
+    addr->sin_port = htons(CONTROL_PORT);
+
+    int success = connect(sock, (const struct sockaddr*) &addr, sizeof(addr));
+    if (success == 0)
+        log_msg("FUSE connected to Yggdrasil");
+    else
+        log_msg("FUSE failed to connect to Yggdrasil");
+}
+
+
 
 int yggdfs_getattr(const char *path, struct stat *statbuf){
+    static int sock = 0;
+    static struct sockaddr_in addr;
+    ifn_init_socket(&sock, &addr);
+
     int retstat;
     char fpath[PATH_MAX];
     
-    log_msg("\nyggdfs_getattr(path=\"%s\", statbuf=0x%08x)\n",
-	  path, statbuf);
-    yggdfs_fullpath(fpath, path);
+    log_msg("\nyggdfs_getattr(path=\"%s\", statbuf=0x%08x)\n", path, statbuf);
+    fullpath(fpath, path);
+
+    retstat = lstat(fpath, statbuf);
 
 
-    retstat = log_syscall("lstat", lstat(fpath, statbuf), 0);
 
+    retstat = log_syscall("lstat", retstat, 0);
     log_stat(statbuf);
 
-    statbuf->st_mode = statbuf->st_mode | S_IRWXO;
 
-    log_stat(statbuf);
     
     return retstat;
 }
@@ -54,7 +69,7 @@ int yggdfs_readlink(const char *path, char *link, size_t size){
     
     log_msg("\nyggdfs_readlink(path=\"%s\", link=\"%s\", size=%d)\n",
 	  path, link, size);
-    yggdfs_fullpath(fpath, path);
+    fullpath(fpath, path);
 
     retstat = log_syscall("readlink", readlink(fpath, link, size - 1), 0);
     if (retstat >= 0) {
@@ -71,7 +86,7 @@ int yggdfs_mknod(const char *path, mode_t mode, dev_t dev){
     
     log_msg("\nyggdfs_mknod(path=\"%s\", mode=0%3o, dev=%lld)\n",
 	  path, mode, dev);
-    yggdfs_fullpath(fpath, path);
+    fullpath(fpath, path);
     
     // On Linux this could just be 'mknod(path, mode, dev)' but this
     // tries to be be more portable by honoring the quote in the Linux
@@ -96,7 +111,7 @@ int yggdfs_mkdir(const char *path, mode_t mode){
     
     log_msg("\nyggdfs_mkdir(path=\"%s\", mode=0%3o)\n",
 	    path, mode);
-    yggdfs_fullpath(fpath, path);
+    fullpath(fpath, path);
 
     return log_syscall("mkdir", mkdir(fpath, mode), 0);
 }
@@ -106,7 +121,7 @@ int yggdfs_unlink(const char *path){
     
     log_msg("yggdfs_unlink(path=\"%s\")\n",
 	    path);
-    yggdfs_fullpath(fpath, path);
+    fullpath(fpath, path);
 
     return log_syscall("unlink", unlink(fpath), 0);
 }
@@ -116,7 +131,7 @@ int yggdfs_rmdir(const char* path){
     
     log_msg("yggdfs_rmdir(path=\"%s\")\n",
 	    path);
-    yggdfs_fullpath(fpath, path);
+    fullpath(fpath, path);
 
     return log_syscall("rmdir", rmdir(fpath), 0);
 }
@@ -126,7 +141,7 @@ int yggdfs_symlink(const char *path, const char *link){
     
     log_msg("\nyggdfs_symlink(path=\"%s\", link=\"%s\")\n",
 	    path, link);
-    yggdfs_fullpath(flink, link);
+    fullpath(flink, link);
 
     return log_syscall("symlink", symlink(path, flink), 0);
 }
@@ -137,8 +152,8 @@ int yggdfs_rename(const char *path, const char *newpath){
     
     log_msg("\nyggdfs_rename(fpath=\"%s\", newpath=\"%s\")\n",
 	    path, newpath);
-    yggdfs_fullpath(fpath, path);
-    yggdfs_fullpath(fnewpath, newpath);
+    fullpath(fpath, path);
+    fullpath(fnewpath, newpath);
 
     return log_syscall("rename", rename(fpath, fnewpath), 0);
 }
@@ -149,8 +164,8 @@ int yggdfs_link(const char *path, const char *newpath)
     
     log_msg("\nyggdfs_link(path=\"%s\", newpath=\"%s\")\n",
 	    path, newpath);
-    yggdfs_fullpath(fpath, path);
-    yggdfs_fullpath(fnewpath, newpath);
+    fullpath(fpath, path);
+    fullpath(fnewpath, newpath);
 
     return log_syscall("link", link(fpath, fnewpath), 0);
 }
@@ -160,7 +175,7 @@ int yggdfs_chmod(const char *path, mode_t mode){
     
     log_msg("\nyggdfs_chmod(fpath=\"%s\", mode=0%03o)\n",
 	    path, mode);
-    yggdfs_fullpath(fpath, path);
+    fullpath(fpath, path);
 
     return log_syscall("chmod", chmod(fpath, mode), 0);
 }
@@ -170,7 +185,7 @@ int yggdfs_chown(const char *path, uid_t uid, gid_t gid){
     
     log_msg("\nyggdfs_chown(path=\"%s\", uid=%d, gid=%d)\n",
 	    path, uid, gid);
-    yggdfs_fullpath(fpath, path);
+    fullpath(fpath, path);
 
     return log_syscall("chown", chown(fpath, uid, gid), 0);
 }
@@ -180,7 +195,7 @@ int yggdfs_truncate(const char *path, off_t newsize){
     
     log_msg("\nyggdfs_truncate(path=\"%s\", newsize=%lld)\n",
 	    path, newsize);
-    yggdfs_fullpath(fpath, path);
+    fullpath(fpath, path);
 
     return log_syscall("truncate", truncate(fpath, newsize), 0);
 }
@@ -190,7 +205,7 @@ int yggdfs_utime(const char *path, struct utimbuf *ubuf){
     
     log_msg("\nyggdfs_utime(path=\"%s\", ubuf=0x%08x)\n",
 	    path, ubuf);
-    yggdfs_fullpath(fpath, path);
+    fullpath(fpath, path);
 
     return log_syscall("utime", utime(fpath, ubuf), 0);
 }
@@ -199,11 +214,25 @@ int yggdfs_open(const char *path, struct fuse_file_info *fi){
     int retstat = 0;
     int fd;
     char fpath[PATH_MAX];
-    
+
+
+
     log_msg("\nyggdfs_open(path\"%s\", fi=0x%08x)\n",
-	    path, fi);
-    yggdfs_fullpath(fpath, path);
-    
+            path, fi);
+    fullpath(fpath, path);
+
+    static int sock = 0;
+    static struct sockaddr_in addr;
+    ifn_init_socket(&sock, &addr);
+
+    short data = OPEN_REQ;
+    writefully(sock, &data, sizeof(short));
+
+    data = (short) (strlen(fpath) + 1);
+    writefully(sock, &data, sizeof(short));
+    writefully(sock, fpath, data);
+
+
     // if the open call succeeds, my retstat is the file descriptor,
     // else it's -errno.  I'm making sure that in that case the saved
     // file descriptor is exactly -1.
@@ -236,6 +265,9 @@ int yggdfs_write(const char *path, const char *buf, size_t size, off_t offset, s
     // no need to get fpath on this one, since I work from fi->fh not the path
     log_fi(fi);
 
+//    YggRequest req;
+//    YggRequest_init(&req, )
+
     return log_syscall("pwrite", pwrite(fi->fh, buf, size, offset), 0);
 }
 
@@ -245,7 +277,7 @@ int yggdfs_statfs(const char *path, struct statvfs *statv){
     
     log_msg("\nyggdfs_statfs(path=\"%s\", statv=0x%08x)\n",
 	    path, statv);
-    yggdfs_fullpath(fpath, path);
+    fullpath(fpath, path);
     
     // get stats for underlying filesystem
     retstat = log_syscall("statvfs", statvfs(fpath, statv), 0);
@@ -287,7 +319,7 @@ int yggdfs_opendir(const char *path, struct fuse_file_info *fi){
     
     log_msg("\nyggdfs_opendir(path=\"%s\", fi=0x%08x)\n",
 	  path, fi);
-    yggdfs_fullpath(fpath, path);
+    fullpath(fpath, path);
 
     // since opendir returns a pointer, takes some custom handling of
     // return status.
@@ -374,7 +406,7 @@ int yggdfs_access(const char *path, int mask){
    
     log_msg("\nyggdfs_access(path=\"%s\", mask=0%o)\n",
 	    path, mask);
-    yggdfs_fullpath(fpath, path);
+    fullpath(fpath, path);
     
     retstat = access(fpath, mask);
 
@@ -469,9 +501,9 @@ void yggdfs_fuse_init(yggdfs_fuse_args *args){
     fprintf(stderr, "Fuse library version %d.%d\n", FUSE_MAJOR_VERSION, FUSE_MINOR_VERSION);
     
     // Parse arguments
-    int   argc = args -> argc;
-    char **argv = args -> argv;
-    yggdfs_state* state = args -> state;
+    yggdfs_state* state = args->state;
+    int   argc = args->argc;
+    char **argv = args->argv;
 
     // Passing control over to FUSE
     fprintf(stderr, "mountdir: %s\n", argv[argc-1]);
@@ -482,7 +514,7 @@ void yggdfs_fuse_init(yggdfs_fuse_args *args){
 
 void* yggdfs_fuse_args_init(int argc, char *argv[]){
     if ((argc < 3) || (argv[argc-2][0] == '-') || (argv[argc-1][0] == '-'))
-	    yggdfs_usage();
+        usage();
 
     yggdfs_state *state = malloc(sizeof(yggdfs_state));
     if(state == NULL)
@@ -493,13 +525,16 @@ void* yggdfs_fuse_args_init(int argc, char *argv[]){
     state->rootdir = realpath(argv[argc-1], NULL);
     argc--;
 
+    state->cachedir = realpath(argv[argc - 2], NULL);
+    argc--;
+
     // Set logfile
     state->logfile = log_open();
 
     yggdfs_fuse_args *args = malloc(sizeof(yggdfs_fuse_args));
-    args->argc = argc;
     args->state = state;
-    args->argv = (char **) argv;
+    args->argc  = argc;
+    args->argv  = (char **) argv;
 
     return args;
 }

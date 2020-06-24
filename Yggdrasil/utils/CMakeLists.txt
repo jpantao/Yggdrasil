@@ -6,7 +6,7 @@ project(Utilities)
 
 add_library(bloomfilters bloomfilter/bloom.c)
 
-add_library(hashfunctions hashfunctions.c)
+#add_library(hashfunctions hashfunctions.c)
 add_library(list list.c)
 
 add_library(Json cJSON.c)

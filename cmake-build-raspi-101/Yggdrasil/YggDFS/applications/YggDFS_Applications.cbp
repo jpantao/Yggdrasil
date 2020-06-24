@@ -26,6 +26,7 @@
 				<Compiler>
 					<Add option="-DWIRELESS_NETWORKS"/>
 					<Add option="-DNEW"/>
+					<Add directory="/tmp/tmp.4yRsQEGfYg/Yggdrasil/YggDFS/applications/../utils"/>
 					<Add directory="/tmp/tmp.4yRsQEGfYg/Yggdrasil/YggDFS/applications/../.."/>
 					<Add directory="/tmp/tmp.4yRsQEGfYg/Yggdrasil/YggDFS/applications/../../../Yggdrasil-LowLevelLib"/>
 					<Add directory="/tmp/tmp.4yRsQEGfYg/Yggdrasil/core/."/>
@@ -56,6 +57,7 @@
 				<Compiler>
 					<Add option="-DWIRELESS_NETWORKS"/>
 					<Add option="-DNEW"/>
+					<Add directory="/tmp/tmp.4yRsQEGfYg/Yggdrasil/YggDFS/applications/../utils"/>
 					<Add directory="/tmp/tmp.4yRsQEGfYg/Yggdrasil/YggDFS/applications/../.."/>
 					<Add directory="/tmp/tmp.4yRsQEGfYg/Yggdrasil/YggDFS/applications/../../../Yggdrasil-LowLevelLib"/>
 					<Add directory="/tmp/tmp.4yRsQEGfYg/Yggdrasil/core/."/>
@@ -84,6 +86,7 @@
 				<Option type="2"/>
 				<Option compiler="gcc"/>
 				<Compiler>
+					<Add directory="/tmp/tmp.4yRsQEGfYg/Yggdrasil/YggDFS/applications/../utils"/>
 					<Add directory="/tmp/tmp.4yRsQEGfYg/Yggdrasil/YggDFS/applications/../.."/>
 					<Add directory="/tmp/tmp.4yRsQEGfYg/Yggdrasil/YggDFS/applications/../../../Yggdrasil-LowLevelLib"/>
 					<Add directory="/usr/include/c++/8"/>
@@ -109,6 +112,7 @@
 				<Option type="2"/>
 				<Option compiler="gcc"/>
 				<Compiler>
+					<Add directory="/tmp/tmp.4yRsQEGfYg/Yggdrasil/YggDFS/applications/../utils"/>
 					<Add directory="/tmp/tmp.4yRsQEGfYg/Yggdrasil/YggDFS/applications/../.."/>
 					<Add directory="/tmp/tmp.4yRsQEGfYg/Yggdrasil/YggDFS/applications/../../../Yggdrasil-LowLevelLib"/>
 					<Add directory="/usr/include/c++/8"/>
@@ -134,6 +138,7 @@
 				<Option type="2"/>
 				<Option compiler="gcc"/>
 				<Compiler>
+					<Add directory="/tmp/tmp.4yRsQEGfYg/Yggdrasil/YggDFS/applications/../utils"/>
 					<Add directory="/tmp/tmp.4yRsQEGfYg/Yggdrasil/YggDFS/applications/../.."/>
 					<Add directory="/tmp/tmp.4yRsQEGfYg/Yggdrasil/YggDFS/applications/../../../Yggdrasil-LowLevelLib"/>
 					<Add directory="/usr/include/c++/8"/>
@@ -159,6 +164,7 @@
 				<Option type="2"/>
 				<Option compiler="gcc"/>
 				<Compiler>
+					<Add directory="/tmp/tmp.4yRsQEGfYg/Yggdrasil/YggDFS/applications/../utils"/>
 					<Add directory="/tmp/tmp.4yRsQEGfYg/Yggdrasil/YggDFS/applications/../.."/>
 					<Add directory="/tmp/tmp.4yRsQEGfYg/Yggdrasil/YggDFS/applications/../../../Yggdrasil-LowLevelLib"/>
 					<Add directory="/usr/include/c++/8"/>

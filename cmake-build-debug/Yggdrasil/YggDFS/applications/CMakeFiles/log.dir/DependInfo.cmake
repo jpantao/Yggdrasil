@@ -10,6 +10,7 @@ set(CMAKE_C_COMPILER_ID "GNU")
 
 # The include file search paths:
 set(CMAKE_C_TARGET_INCLUDE_PATH
+  "../Yggdrasil/YggDFS/applications/../utils"
   "../Yggdrasil/YggDFS/applications/../.."
   "../Yggdrasil/YggDFS/applications/../../../Yggdrasil-LowLevelLib"
   )

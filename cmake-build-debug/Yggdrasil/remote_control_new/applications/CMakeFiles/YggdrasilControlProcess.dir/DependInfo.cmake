@@ -29,15 +29,15 @@ set(CMAKE_TARGET_LINKED_INFO_FILES
   "/home/jpantao/Git/BScResearch/Yggdrasil/cmake-build-debug/Yggdrasil/core/CMakeFiles/yggcore_wireless_new.dir/DependInfo.cmake"
   "/home/jpantao/Git/BScResearch/Yggdrasil/cmake-build-debug/Yggdrasil/remote_control_new/utils/CMakeFiles/cmdio_new.dir/DependInfo.cmake"
   "/home/jpantao/Git/BScResearch/Yggdrasil/cmake-build-debug/Yggdrasil/remote_control_new/utils/CMakeFiles/commands_new.dir/DependInfo.cmake"
-  "/home/jpantao/Git/BScResearch/Yggdrasil/cmake-build-debug/Yggdrasil/remote_control_new/protocols/CMakeFiles/reliable_dissemination.dir/DependInfo.cmake"
+  "/home/jpantao/Git/BScResearch/Yggdrasil/cmake-build-debug/Yggdrasil/YggDFS/protocols/CMakeFiles/reliable_dissemination.dir/DependInfo.cmake"
   "/home/jpantao/Git/BScResearch/Yggdrasil/cmake-build-debug/Yggdrasil/protocols/wireless/CMakeFiles/topology_manager.dir/DependInfo.cmake"
   "/home/jpantao/Git/BScResearch/Yggdrasil/cmake-build-debug/Yggdrasil/interfaces/CMakeFiles/aggregation_interface.dir/DependInfo.cmake"
-  "/home/jpantao/Git/BScResearch/Yggdrasil/cmake-build-debug/Yggdrasil/remote_control_new/protocols/CMakeFiles/discovery.dir/DependInfo.cmake"
+  "/home/jpantao/Git/BScResearch/Yggdrasil/cmake-build-debug/Yggdrasil/YggDFS/protocols/CMakeFiles/discovery.dir/DependInfo.cmake"
   "/home/jpantao/Git/BScResearch/Yggdrasil/cmake-build-debug/Yggdrasil/interfaces/CMakeFiles/discovery_interface.dir/DependInfo.cmake"
   "/home/jpantao/Git/BScResearch/Yggdrasil/cmake-build-debug/Yggdrasil-LowLevelLib/CMakeFiles/ygglib_wireless_new.dir/DependInfo.cmake"
   "/home/jpantao/Git/BScResearch/Yggdrasil/cmake-build-debug/Yggdrasil-LowLevelLib/CMakeFiles/ygglib_base.dir/DependInfo.cmake"
   "/home/jpantao/Git/BScResearch/Yggdrasil/cmake-build-debug/Yggdrasil/core/CMakeFiles/gen_data_structs.dir/DependInfo.cmake"
-  "/home/jpantao/Git/BScResearch/Yggdrasil/cmake-build-debug/Yggdrasil/utils/CMakeFiles/hashfunctions.dir/DependInfo.cmake"
+  "/home/jpantao/Git/BScResearch/Yggdrasil/cmake-build-debug/Yggdrasil/YggDFS/utils/CMakeFiles/hashfunctions.dir/DependInfo.cmake"
   )
 
 # Fortran module output directory.

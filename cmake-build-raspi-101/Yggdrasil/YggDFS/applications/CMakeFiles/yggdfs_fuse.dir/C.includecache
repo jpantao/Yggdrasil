@@ -6,6 +6,10 @@
 
 #IncludeRegexTransform: 
 
+../Yggdrasil/YggDFS/applications/../utils/yggdfs_utils.h
+unistd.h
+-
+
 /tmp/tmp.4yRsQEGfYg/Yggdrasil/YggDFS/applications/log.h
 stdio.h
 -
@@ -16,15 +20,25 @@ fuse.h
 stdio.h
 -
 
+/tmp/tmp.4yRsQEGfYg/Yggdrasil/YggDFS/applications/yggdfs.h
+
+/tmp/tmp.4yRsQEGfYg/Yggdrasil/YggDFS/applications/yggdfs_control_info.h
+
 /tmp/tmp.4yRsQEGfYg/Yggdrasil/YggDFS/applications/yggdfs_fuse.c
 yggdfs_fuse.h
 /tmp/tmp.4yRsQEGfYg/Yggdrasil/YggDFS/applications/yggdfs_fuse.h
 
 /tmp/tmp.4yRsQEGfYg/Yggdrasil/YggDFS/applications/yggdfs_fuse.h
+yggdfs.h
+/tmp/tmp.4yRsQEGfYg/Yggdrasil/YggDFS/applications/yggdfs.h
 params.h
 /tmp/tmp.4yRsQEGfYg/Yggdrasil/YggDFS/applications/params.h
 log.h
 /tmp/tmp.4yRsQEGfYg/Yggdrasil/YggDFS/applications/log.h
+yggdfs_utils.h
+/tmp/tmp.4yRsQEGfYg/Yggdrasil/YggDFS/applications/yggdfs_utils.h
+yggdfs_control_info.h
+/tmp/tmp.4yRsQEGfYg/Yggdrasil/YggDFS/applications/yggdfs_control_info.h
 ctype.h
 -
 dirent.h
@@ -48,5 +62,9 @@ string.h
 unistd.h
 -
 sys/types.h
+-
+sys/socket.h
+-
+arpa/inet.h
 -
 

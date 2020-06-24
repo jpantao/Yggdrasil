@@ -22,6 +22,7 @@
 typedef struct yggdfs_state_ {
     FILE *logfile;
     char *rootdir;
+    char *cachedir;
 } yggdfs_state;
 #define YGGDFS_STATE ((yggdfs_state *) fuse_get_context()->private_data)
 

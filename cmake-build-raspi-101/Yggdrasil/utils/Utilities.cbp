@@ -63,52 +63,6 @@
 					<DistClean command="/usr/bin/make -j4 -f &quot;/tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101/Yggdrasil/utils/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
-			<Target title="list">
-				<Option output="/tmp/tmp.4yRsQEGfYg/lib/liblist.a" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="/tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101/Yggdrasil/utils"/>
-				<Option object_output="./"/>
-				<Option type="2"/>
-				<Option compiler="gcc"/>
-				<Compiler>
-					<Add directory="/usr/include/c++/8"/>
-					<Add directory="/usr/include/arm-linux-gnueabihf/c++/8"/>
-					<Add directory="/usr/include/c++/8/backward"/>
-					<Add directory="/usr/lib/gcc/arm-linux-gnueabihf/8/include"/>
-					<Add directory="/usr/local/include"/>
-					<Add directory="/usr/lib/gcc/arm-linux-gnueabihf/8/include-fixed"/>
-					<Add directory="/usr/include/arm-linux-gnueabihf"/>
-					<Add directory="/usr/include"/>
-				</Compiler>
-				<MakeCommands>
-					<Build command="/usr/bin/make -j4 -f &quot;/tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101/Yggdrasil/utils/Makefile&quot;  VERBOSE=1 list"/>
-					<CompileFile command="/usr/bin/make -j4 -f &quot;/tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101/Yggdrasil/utils/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j4 -f &quot;/tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101/Yggdrasil/utils/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j4 -f &quot;/tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101/Yggdrasil/utils/Makefile&quot;  VERBOSE=1 clean"/>
-				</MakeCommands>
-			</Target>
-			<Target title="list/fast">
-				<Option output="/tmp/tmp.4yRsQEGfYg/lib/liblist.a" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="/tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101/Yggdrasil/utils"/>
-				<Option object_output="./"/>
-				<Option type="2"/>
-				<Option compiler="gcc"/>
-				<Compiler>
-					<Add directory="/usr/include/c++/8"/>
-					<Add directory="/usr/include/arm-linux-gnueabihf/c++/8"/>
-					<Add directory="/usr/include/c++/8/backward"/>
-					<Add directory="/usr/lib/gcc/arm-linux-gnueabihf/8/include"/>
-					<Add directory="/usr/local/include"/>
-					<Add directory="/usr/lib/gcc/arm-linux-gnueabihf/8/include-fixed"/>
-					<Add directory="/usr/include/arm-linux-gnueabihf"/>
-					<Add directory="/usr/include"/>
-				</Compiler>
-				<MakeCommands>
-					<Build command="/usr/bin/make -j4 -f &quot;/tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101/Yggdrasil/utils/Makefile&quot;  VERBOSE=1 list/fast"/>
-					<CompileFile command="/usr/bin/make -j4 -f &quot;/tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101/Yggdrasil/utils/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j4 -f &quot;/tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101/Yggdrasil/utils/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j4 -f &quot;/tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101/Yggdrasil/utils/Makefile&quot;  VERBOSE=1 clean"/>
-				</MakeCommands>
-			</Target>
 			<Target title="bloomfilters">
 				<Option output="/tmp/tmp.4yRsQEGfYg/lib/libbloomfilters.a" prefix_auto="0" extension_auto="0"/>
 				<Option working_dir="/tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101/Yggdrasil/utils"/>
@@ -155,8 +109,8 @@
 					<DistClean command="/usr/bin/make -j4 -f &quot;/tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101/Yggdrasil/utils/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
-			<Target title="hashfunctions">
-				<Option output="/tmp/tmp.4yRsQEGfYg/lib/libhashfunctions.a" prefix_auto="0" extension_auto="0"/>
+			<Target title="list">
+				<Option output="/tmp/tmp.4yRsQEGfYg/lib/liblist.a" prefix_auto="0" extension_auto="0"/>
 				<Option working_dir="/tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101/Yggdrasil/utils"/>
 				<Option object_output="./"/>
 				<Option type="2"/>
@@ -172,14 +126,14 @@
 					<Add directory="/usr/include"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j4 -f &quot;/tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101/Yggdrasil/utils/Makefile&quot;  VERBOSE=1 hashfunctions"/>
+					<Build command="/usr/bin/make -j4 -f &quot;/tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101/Yggdrasil/utils/Makefile&quot;  VERBOSE=1 list"/>
 					<CompileFile command="/usr/bin/make -j4 -f &quot;/tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101/Yggdrasil/utils/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
 					<Clean command="/usr/bin/make -j4 -f &quot;/tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101/Yggdrasil/utils/Makefile&quot;  VERBOSE=1 clean"/>
 					<DistClean command="/usr/bin/make -j4 -f &quot;/tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101/Yggdrasil/utils/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
-			<Target title="hashfunctions/fast">
-				<Option output="/tmp/tmp.4yRsQEGfYg/lib/libhashfunctions.a" prefix_auto="0" extension_auto="0"/>
+			<Target title="list/fast">
+				<Option output="/tmp/tmp.4yRsQEGfYg/lib/liblist.a" prefix_auto="0" extension_auto="0"/>
 				<Option working_dir="/tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101/Yggdrasil/utils"/>
 				<Option object_output="./"/>
 				<Option type="2"/>
@@ -195,7 +149,7 @@
 					<Add directory="/usr/include"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j4 -f &quot;/tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101/Yggdrasil/utils/Makefile&quot;  VERBOSE=1 hashfunctions/fast"/>
+					<Build command="/usr/bin/make -j4 -f &quot;/tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101/Yggdrasil/utils/Makefile&quot;  VERBOSE=1 list/fast"/>
 					<CompileFile command="/usr/bin/make -j4 -f &quot;/tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101/Yggdrasil/utils/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
 					<Clean command="/usr/bin/make -j4 -f &quot;/tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101/Yggdrasil/utils/Makefile&quot;  VERBOSE=1 clean"/>
 					<DistClean command="/usr/bin/make -j4 -f &quot;/tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101/Yggdrasil/utils/Makefile&quot;  VERBOSE=1 clean"/>
@@ -213,12 +167,6 @@
 		</Unit>
 		<Unit filename="/tmp/tmp.4yRsQEGfYg/Yggdrasil/utils/cJSON.h">
 			<Option target="Json"/>
-		</Unit>
-		<Unit filename="/tmp/tmp.4yRsQEGfYg/Yggdrasil/utils/hashfunctions.c">
-			<Option target="hashfunctions"/>
-		</Unit>
-		<Unit filename="/tmp/tmp.4yRsQEGfYg/Yggdrasil/utils/hashfunctions.h">
-			<Option target="hashfunctions"/>
 		</Unit>
 		<Unit filename="/tmp/tmp.4yRsQEGfYg/Yggdrasil/utils/list.c">
 			<Option target="list"/>

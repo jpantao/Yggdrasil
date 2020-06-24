@@ -10,12 +10,15 @@ set(CMAKE_C_COMPILER_ID "GNU")
 
 # The include file search paths:
 set(CMAKE_C_TARGET_INCLUDE_PATH
+  "../Yggdrasil/YggDFS/applications/../utils"
   "../Yggdrasil/YggDFS/applications/../.."
   "../Yggdrasil/YggDFS/applications/../../../Yggdrasil-LowLevelLib"
   )
 
 # Targets to which this target links.
 set(CMAKE_TARGET_LINKED_INFO_FILES
+  "/tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101/Yggdrasil/YggDFS/utils/CMakeFiles/yggdfs_utils.dir/DependInfo.cmake"
+  "/tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101/Yggdrasil/YggDFS/applications/CMakeFiles/log.dir/DependInfo.cmake"
   )
 
 # Fortran module output directory.

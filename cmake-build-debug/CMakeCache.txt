@@ -356,9 +356,6 @@ discovery_interface_LIB_DEPENDS:STATIC=general;yggcore_wireless_new;
 dispatcher_logger_LIB_DEPENDS:STATIC=general;yggcore_wireless_new;
 
 //Dependencies for the target
-dissemination_LIB_DEPENDS:STATIC=general;yggcore_wireless_new;general;hashfunctions;
-
-//Dependencies for the target
 fault_detection_discovery_LIB_DEPENDS:STATIC=general;yggcore_wireless_new;general;discovery_interface;general;neighbour_list;
 
 //Dependencies for the target
@@ -366,6 +363,12 @@ flow_updating_LIB_DEPENDS:STATIC=general;yggcore_wireless_new;general;aggregatio
 
 //Dependencies for the target
 gap_LIB_DEPENDS:STATIC=general;yggcore_wireless_new;general;aggregation_interface;
+
+//Dependencies for the target
+hashmap_LIB_DEPENDS:STATIC=general;hashfunctions;
+
+//Dependencies for the target
+hashtable_LIB_DEPENDS:STATIC=general;hashfunctions;
 
 //Dependencies for the target
 limosense_LIB_DEPENDS:STATIC=general;yggcore_wireless_new;general;aggregation_interface;general;neighbour_list;
@@ -465,6 +468,9 @@ yggcore_wireless_LIB_DEPENDS:STATIC=general;ygglib_wireless;general;gen_data_str
 
 //Dependencies for the target
 yggcore_wireless_new_LIB_DEPENDS:STATIC=general;ygglib_wireless_new;general;gen_data_structs;general;m;general;pthread;general;uuid;general;rt;
+
+//Dependencies for the target
+yggdfs_fuse_LIB_DEPENDS:STATIC=general;yggdfs_utils;general;log;
 
 //Dependencies for the target
 ygglib_ip_LIB_DEPENDS:STATIC=general;ygglib_base;

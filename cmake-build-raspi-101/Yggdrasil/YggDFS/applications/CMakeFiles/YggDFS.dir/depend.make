@@ -12,8 +12,15 @@ Yggdrasil/YggDFS/applications/CMakeFiles/YggDFS.dir/yggdfs_control.c.o: ../Yggdr
 Yggdrasil/YggDFS/applications/CMakeFiles/YggDFS.dir/yggdfs_control.c.o: ../Yggdrasil/YggDFS/applications/../../../Yggdrasil-LowLevelLib/src_wireless/network.h
 Yggdrasil/YggDFS/applications/CMakeFiles/YggDFS.dir/yggdfs_control.c.o: ../Yggdrasil/YggDFS/applications/../../../Yggdrasil-LowLevelLib/src_wireless/utils.h
 Yggdrasil/YggDFS/applications/CMakeFiles/YggDFS.dir/yggdfs_control.c.o: ../Yggdrasil/YggDFS/applications/../../YggDFS/protocols/batman.h
+Yggdrasil/YggDFS/applications/CMakeFiles/YggDFS.dir/yggdfs_control.c.o: ../Yggdrasil/YggDFS/applications/../../YggDFS/protocols/discovery.h
+Yggdrasil/YggDFS/applications/CMakeFiles/YggDFS.dir/yggdfs_control.c.o: ../Yggdrasil/YggDFS/applications/../../YggDFS/protocols/reliable_dissemination.h
+Yggdrasil/YggDFS/applications/CMakeFiles/YggDFS.dir/yggdfs_control.c.o: ../Yggdrasil/YggDFS/applications/../../core/data_structures/generic/list.h
+Yggdrasil/YggDFS/applications/CMakeFiles/YggDFS.dir/yggdfs_control.c.o: ../Yggdrasil/YggDFS/applications/../../core/utils/utils.h
 Yggdrasil/YggDFS/applications/CMakeFiles/YggDFS.dir/yggdfs_control.c.o: ../Yggdrasil/YggDFS/applications/../../core/ygg_runtime.h
+Yggdrasil/YggDFS/applications/CMakeFiles/YggDFS.dir/yggdfs_control.c.o: ../Yggdrasil/YggDFS/applications/../../interfaces/discovery/discovery_events.h
 Yggdrasil/YggDFS/applications/CMakeFiles/YggDFS.dir/yggdfs_control.c.o: ../Yggdrasil/YggDFS/applications/../../interfaces/routing/routing_interface.h
+Yggdrasil/YggDFS/applications/CMakeFiles/YggDFS.dir/yggdfs_control.c.o: ../Yggdrasil/YggDFS/applications/../../utils/hashfunctions.h
+Yggdrasil/YggDFS/applications/CMakeFiles/YggDFS.dir/yggdfs_control.c.o: ../Yggdrasil/YggDFS/applications/../utils/yggdfs_utils.h
 Yggdrasil/YggDFS/applications/CMakeFiles/YggDFS.dir/yggdfs_control.c.o: ../Yggdrasil/core/./data_structures/generic/list.h
 Yggdrasil/YggDFS/applications/CMakeFiles/YggDFS.dir/yggdfs_control.c.o: ../Yggdrasil/core/./data_structures/specialized/neighbour_list.h
 Yggdrasil/YggDFS/applications/CMakeFiles/YggDFS.dir/yggdfs_control.c.o: ../Yggdrasil/core/./proto_data_struct.h
@@ -27,7 +34,9 @@ Yggdrasil/YggDFS/applications/CMakeFiles/YggDFS.dir/yggdfs_control.c.o: ../Yggdr
 Yggdrasil/YggDFS/applications/CMakeFiles/YggDFS.dir/yggdfs_control.c.o: ../Yggdrasil/core/./ygg_runtime.h
 Yggdrasil/YggDFS/applications/CMakeFiles/YggDFS.dir/yggdfs_control.c.o: ../Yggdrasil/YggDFS/applications/log.h
 Yggdrasil/YggDFS/applications/CMakeFiles/YggDFS.dir/yggdfs_control.c.o: ../Yggdrasil/YggDFS/applications/params.h
+Yggdrasil/YggDFS/applications/CMakeFiles/YggDFS.dir/yggdfs_control.c.o: ../Yggdrasil/YggDFS/applications/yggdfs.h
 Yggdrasil/YggDFS/applications/CMakeFiles/YggDFS.dir/yggdfs_control.c.o: ../Yggdrasil/YggDFS/applications/yggdfs_control.c
+Yggdrasil/YggDFS/applications/CMakeFiles/YggDFS.dir/yggdfs_control.c.o: ../Yggdrasil/YggDFS/applications/yggdfs_control_info.h
 Yggdrasil/YggDFS/applications/CMakeFiles/YggDFS.dir/yggdfs_control.c.o: ../Yggdrasil/YggDFS/applications/yggdfs_fuse.h
 Yggdrasil/YggDFS/applications/CMakeFiles/YggDFS.dir/yggdfs_control.c.o: /usr/include/libnl3/netlink/addr.h
 Yggdrasil/YggDFS/applications/CMakeFiles/YggDFS.dir/yggdfs_control.c.o: /usr/include/libnl3/netlink/attr.h

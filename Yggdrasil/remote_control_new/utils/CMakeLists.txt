@@ -10,6 +10,5 @@ include_directories(../../)
 add_library(commands_new commands.c)
 target_link_libraries(commands_new topology_manager aggregation_interface)
 
-
 add_library(cmdio_new cmdio.c control_protocol_utils.c)
 target_link_libraries(cmdio_new uuid)

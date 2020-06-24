@@ -4,7 +4,7 @@
 
 #include "cmd_server.h"
 
-static int executeGenericOperation(int clientSocket, int OPERATION_CODE, char* payload, int payloadsize, queue_t* inBox) {
+static int  executeGenericOperation(int clientSocket, int OPERATION_CODE, char* payload, int payloadsize, queue_t* inBox) {
     YggRequest req;
     YggRequest_init(&req, 401, 400, REQUEST, OPERATION_CODE);
     if(payload != NULL && payloadsize > 0)
@@ -31,8 +31,8 @@ static int executeGenericOperation(int clientSocket, int OPERATION_CODE, char* p
         }
 
     }
-    int replyLenght = strlen(reply) + 1;
-    int ret = (writefully(clientSocket, &replyLenght, sizeof(int)) > 0 && writefully(clientSocket, reply, replyLenght) > 0 ? 0 : -1);
+    int replyLength = strlen(reply) + 1;
+    int ret = (writefully(clientSocket, &replyLength, sizeof(int)) > 0 && writefully(clientSocket, reply, replyLenght) > 0 ? 0 : -1);
     free(reply);
     return ret;
 }

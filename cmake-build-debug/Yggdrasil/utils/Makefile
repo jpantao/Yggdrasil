@@ -111,21 +111,6 @@ depend:
 .PHONY : depend
 
 # Convenience name for target.
-Yggdrasil/utils/CMakeFiles/bloomfilters.dir/rule:
-	cd /home/jpantao/Git/BScResearch/Yggdrasil/cmake-build-debug && $(MAKE) -f CMakeFiles/Makefile2 Yggdrasil/utils/CMakeFiles/bloomfilters.dir/rule
-.PHONY : Yggdrasil/utils/CMakeFiles/bloomfilters.dir/rule
-
-# Convenience name for target.
-bloomfilters: Yggdrasil/utils/CMakeFiles/bloomfilters.dir/rule
-
-.PHONY : bloomfilters
-
-# fast build rule for target.
-bloomfilters/fast:
-	cd /home/jpantao/Git/BScResearch/Yggdrasil/cmake-build-debug && $(MAKE) -f Yggdrasil/utils/CMakeFiles/bloomfilters.dir/build.make Yggdrasil/utils/CMakeFiles/bloomfilters.dir/build
-.PHONY : bloomfilters/fast
-
-# Convenience name for target.
 Yggdrasil/utils/CMakeFiles/list.dir/rule:
 	cd /home/jpantao/Git/BScResearch/Yggdrasil/cmake-build-debug && $(MAKE) -f CMakeFiles/Makefile2 Yggdrasil/utils/CMakeFiles/list.dir/rule
 .PHONY : Yggdrasil/utils/CMakeFiles/list.dir/rule
@@ -141,21 +126,6 @@ list/fast:
 .PHONY : list/fast
 
 # Convenience name for target.
-Yggdrasil/utils/CMakeFiles/hashfunctions.dir/rule:
-	cd /home/jpantao/Git/BScResearch/Yggdrasil/cmake-build-debug && $(MAKE) -f CMakeFiles/Makefile2 Yggdrasil/utils/CMakeFiles/hashfunctions.dir/rule
-.PHONY : Yggdrasil/utils/CMakeFiles/hashfunctions.dir/rule
-
-# Convenience name for target.
-hashfunctions: Yggdrasil/utils/CMakeFiles/hashfunctions.dir/rule
-
-.PHONY : hashfunctions
-
-# fast build rule for target.
-hashfunctions/fast:
-	cd /home/jpantao/Git/BScResearch/Yggdrasil/cmake-build-debug && $(MAKE) -f Yggdrasil/utils/CMakeFiles/hashfunctions.dir/build.make Yggdrasil/utils/CMakeFiles/hashfunctions.dir/build
-.PHONY : hashfunctions/fast
-
-# Convenience name for target.
 Yggdrasil/utils/CMakeFiles/Json.dir/rule:
 	cd /home/jpantao/Git/BScResearch/Yggdrasil/cmake-build-debug && $(MAKE) -f CMakeFiles/Makefile2 Yggdrasil/utils/CMakeFiles/Json.dir/rule
 .PHONY : Yggdrasil/utils/CMakeFiles/Json.dir/rule
@@ -169,6 +139,21 @@ Json: Yggdrasil/utils/CMakeFiles/Json.dir/rule
 Json/fast:
 	cd /home/jpantao/Git/BScResearch/Yggdrasil/cmake-build-debug && $(MAKE) -f Yggdrasil/utils/CMakeFiles/Json.dir/build.make Yggdrasil/utils/CMakeFiles/Json.dir/build
 .PHONY : Json/fast
+
+# Convenience name for target.
+Yggdrasil/utils/CMakeFiles/bloomfilters.dir/rule:
+	cd /home/jpantao/Git/BScResearch/Yggdrasil/cmake-build-debug && $(MAKE) -f CMakeFiles/Makefile2 Yggdrasil/utils/CMakeFiles/bloomfilters.dir/rule
+.PHONY : Yggdrasil/utils/CMakeFiles/bloomfilters.dir/rule
+
+# Convenience name for target.
+bloomfilters: Yggdrasil/utils/CMakeFiles/bloomfilters.dir/rule
+
+.PHONY : bloomfilters
+
+# fast build rule for target.
+bloomfilters/fast:
+	cd /home/jpantao/Git/BScResearch/Yggdrasil/cmake-build-debug && $(MAKE) -f Yggdrasil/utils/CMakeFiles/bloomfilters.dir/build.make Yggdrasil/utils/CMakeFiles/bloomfilters.dir/build
+.PHONY : bloomfilters/fast
 
 bloomfilter/bloom.o: bloomfilter/bloom.c.o
 
@@ -224,33 +209,6 @@ cJSON.c.s:
 	cd /home/jpantao/Git/BScResearch/Yggdrasil/cmake-build-debug && $(MAKE) -f Yggdrasil/utils/CMakeFiles/Json.dir/build.make Yggdrasil/utils/CMakeFiles/Json.dir/cJSON.c.s
 .PHONY : cJSON.c.s
 
-hashfunctions.o: hashfunctions.c.o
-
-.PHONY : hashfunctions.o
-
-# target to build an object file
-hashfunctions.c.o:
-	cd /home/jpantao/Git/BScResearch/Yggdrasil/cmake-build-debug && $(MAKE) -f Yggdrasil/utils/CMakeFiles/hashfunctions.dir/build.make Yggdrasil/utils/CMakeFiles/hashfunctions.dir/hashfunctions.c.o
-.PHONY : hashfunctions.c.o
-
-hashfunctions.i: hashfunctions.c.i
-
-.PHONY : hashfunctions.i
-
-# target to preprocess a source file
-hashfunctions.c.i:
-	cd /home/jpantao/Git/BScResearch/Yggdrasil/cmake-build-debug && $(MAKE) -f Yggdrasil/utils/CMakeFiles/hashfunctions.dir/build.make Yggdrasil/utils/CMakeFiles/hashfunctions.dir/hashfunctions.c.i
-.PHONY : hashfunctions.c.i
-
-hashfunctions.s: hashfunctions.c.s
-
-.PHONY : hashfunctions.s
-
-# target to generate assembly for a file
-hashfunctions.c.s:
-	cd /home/jpantao/Git/BScResearch/Yggdrasil/cmake-build-debug && $(MAKE) -f Yggdrasil/utils/CMakeFiles/hashfunctions.dir/build.make Yggdrasil/utils/CMakeFiles/hashfunctions.dir/hashfunctions.c.s
-.PHONY : hashfunctions.c.s
-
 list.o: list.c.o
 
 .PHONY : list.o
@@ -285,20 +243,16 @@ help:
 	@echo "... clean"
 	@echo "... depend"
 	@echo "... rebuild_cache"
-	@echo "... edit_cache"
-	@echo "... bloomfilters"
 	@echo "... list"
-	@echo "... hashfunctions"
 	@echo "... Json"
+	@echo "... bloomfilters"
+	@echo "... edit_cache"
 	@echo "... bloomfilter/bloom.o"
 	@echo "... bloomfilter/bloom.i"
 	@echo "... bloomfilter/bloom.s"
 	@echo "... cJSON.o"
 	@echo "... cJSON.i"
 	@echo "... cJSON.s"
-	@echo "... hashfunctions.o"
-	@echo "... hashfunctions.i"
-	@echo "... hashfunctions.s"
 	@echo "... list.o"
 	@echo "... list.i"
 	@echo "... list.s"

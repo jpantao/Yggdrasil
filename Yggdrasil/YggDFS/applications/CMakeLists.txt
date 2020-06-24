@@ -7,11 +7,14 @@ project(YggDFS_Applications)
 
 # Yggdrasil dependencies
 
+include_directories(../utils)
 include_directories(../../)
 include_directories(../../../Yggdrasil-LowLevelLib)
 
 add_library(log log.c)
+
 add_library(yggdfs_fuse yggdfs_fuse.c)
+target_link_libraries(yggdfs_fuse PUBLIC yggdfs_utils log)
 
 # Required to use threads
 set(THREADS_PREFER_PTHREAD_FLAG ON)
@@ -31,9 +34,12 @@ find_package(FUSE REQUIRED)
 include_directories(${FUSE_INCLUDE_DIR})
 # Executables
 add_executable(YggDFS yggdfs_control.c)
-target_link_libraries(YggDFS Threads::Threads)
-target_link_libraries(YggDFS yggdfs_fuse)
-target_link_libraries(YggDFS log)
 target_link_libraries(YggDFS ${FUSE_LIBRARIES})
 target_link_libraries(YggDFS yggcore_wireless_new)
+target_link_libraries(YggDFS yggdfs_utils)
+target_link_libraries(YggDFS discovery)
+target_link_libraries(YggDFS reliable_dissemination)
 target_link_libraries(YggDFS routing)
+target_link_libraries(YggDFS log)
+target_link_libraries(YggDFS yggdfs_fuse)
+target_link_libraries(YggDFS hashtable)
