@@ -17,7 +17,13 @@
 
 
 // Operations
-#define GET_ATTR 0
+#define N_OPER 28
+
+#define OPEN_REQ 101
+#define OPEN_PEP 201
+
+#define GETATTR_REQ 102
+#define GETATTR_REP 202
 
 
 #endif //YGGDRASIL_YGGDFS_CONTROL_INFO_H

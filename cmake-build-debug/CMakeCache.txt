@@ -365,9 +365,6 @@ flow_updating_LIB_DEPENDS:STATIC=general;yggcore_wireless_new;general;aggregatio
 gap_LIB_DEPENDS:STATIC=general;yggcore_wireless_new;general;aggregation_interface;
 
 //Dependencies for the target
-hashmap_LIB_DEPENDS:STATIC=general;hashfunctions;
-
-//Dependencies for the target
 hashtable_LIB_DEPENDS:STATIC=general;hashfunctions;
 
 //Dependencies for the target

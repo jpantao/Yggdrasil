@@ -10,14 +10,12 @@ struct table{
     struct node **list;
 };
 
-struct table *createTable(int size);
+struct table *table_create(int size);
 
-int hashCode(struct table *t,char* key_t);
+void table_insert(struct table *t, const char* key,void* val);
 
-void insert_int_table(struct table *t,char* key,int val);
+void* table_lookup(struct table *t, const char* key);
 
-int lookup_in_table(struct table *t,char* key);
-
-int remove_from_table(struct table *t, char* key);
+void* table_remove(struct table *t, const char* key);
 
 #endif //YGGDRASIL_HASHTABLE_H

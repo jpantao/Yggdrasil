@@ -20,47 +20,58 @@ static void usage(){
 }
 
 static void ifn_init_socket(int* sock, struct sockaddr_in* addr){
+    log_msg("ifn_init_socket\n");
     if(*sock != 0)
         return;
 
-    int newSock =  socket(AF_UNIX, SOCK_STREAM, 0);
-    memcpy(sock, &newSock, sizeof(newSock));
+    log_msg("Initializing client sock\n");
+    *sock =  socket(AF_INET, SOCK_STREAM, 0);
 
     bzero(addr, sizeof(struct sockaddr_in));
-    addr->sin_family = AF_UNIX;
+    addr->sin_family = AF_INET;
     inet_aton(LOCAL_ADDR, &addr->sin_addr);
     addr->sin_port = htons(CONTROL_PORT);
 
-    int success = connect(sock, (const struct sockaddr*) &addr, sizeof(addr));
+    int success = connect(*sock, (const struct sockaddr*) addr, sizeof(struct sockaddr_in));
     if (success == 0)
-        log_msg("FUSE connected to Yggdrasil");
+        log_msg("FUSE connected to Yggdrasil\n");
     else
-        log_msg("FUSE failed to connect to Yggdrasil");
+        log_msg("FUSE failed to connect to Yggdrasil\n");
 }
 
-
-
 int yggdfs_getattr(const char *path, struct stat *statbuf){
+    log_msg("executing getattr %s\n", path);
+
     static int sock = 0;
     static struct sockaddr_in addr;
     ifn_init_socket(&sock, &addr);
 
+    // Sending operation code
+    short data = GETATTR_REQ;
+    if(writefully(sock, &data, sizeof(short)) == 0)
+        return -1;
+
+    // Sending path length
+    data = (short) (strlen(path) + 1);
+    if(writefully(sock, &data, sizeof(short)) == 0)
+        return -1;
+
+    // Sending path
+    if(writefully(sock, (char*)path, data) == 0)
+        return -1;
+
+    // Receiving operation return status
     int retstat;
-    char fpath[PATH_MAX];
-    
+    if(readfully(sock, &retstat, sizeof(int)) == 0)
+        return -1;
+
+    // If OK receive stat
+    if (retstat != 0 || readfully(sock, statbuf, sizeof(struct stat)) == 0)
+        return -1;
+
     log_msg("\nyggdfs_getattr(path=\"%s\", statbuf=0x%08x)\n", path, statbuf);
-    fullpath(fpath, path);
-
-    retstat = lstat(fpath, statbuf);
-
-
-
-    retstat = log_syscall("lstat", retstat, 0);
     log_stat(statbuf);
-
-
-    
-    return retstat;
+    return  log_syscall("lstat", retstat, 0);;
 }
 
 int yggdfs_readlink(const char *path, char *link, size_t size){
@@ -80,6 +91,7 @@ int yggdfs_readlink(const char *path, char *link, size_t size){
     
     return retstat;
 }
+
 int yggdfs_mknod(const char *path, mode_t mode, dev_t dev){
     int retstat;
     char fpath[PATH_MAX];
@@ -107,7 +119,7 @@ int yggdfs_mknod(const char *path, mode_t mode, dev_t dev){
 }
 
 int yggdfs_mkdir(const char *path, mode_t mode){
-   char fpath[PATH_MAX];
+    char fpath[PATH_MAX];
     
     log_msg("\nyggdfs_mkdir(path=\"%s\", mode=0%3o)\n",
 	    path, mode);
@@ -117,6 +129,7 @@ int yggdfs_mkdir(const char *path, mode_t mode){
 }
 
 int yggdfs_unlink(const char *path){
+    log_msg("executing unlink %s\n", path);
     char fpath[PATH_MAX];
     
     log_msg("yggdfs_unlink(path=\"%s\")\n",
@@ -158,8 +171,7 @@ int yggdfs_rename(const char *path, const char *newpath){
     return log_syscall("rename", rename(fpath, fnewpath), 0);
 }
 
-int yggdfs_link(const char *path, const char *newpath)
-{
+int yggdfs_link(const char *path, const char *newpath){
     char fpath[PATH_MAX], fnewpath[PATH_MAX];
     
     log_msg("\nyggdfs_link(path=\"%s\", newpath=\"%s\")\n",
@@ -238,7 +250,7 @@ int yggdfs_open(const char *path, struct fuse_file_info *fi){
     // file descriptor is exactly -1.
     fd = log_syscall("open", open(fpath, fi->flags), 0);
     if (fd < 0)
-	retstat = log_error("open");
+	retstat = log_error("open\n");
 	
     fi->fh = fd;
 
@@ -248,7 +260,6 @@ int yggdfs_open(const char *path, struct fuse_file_info *fi){
 }
 
 int yggdfs_read(const char *path, char *buf, size_t size, off_t offset, struct fuse_file_info *fi){
-    
     log_msg("\nyggdfs_read(path=\"%s\", buf=0x%08x, size=%d, offset=%lld, fi=0x%08x)\n",
 	    path, buf, size, offset, fi);
     // no need to get fpath on this one, since I work from fi->fh not the path
@@ -258,7 +269,6 @@ int yggdfs_read(const char *path, char *buf, size_t size, off_t offset, struct f
 }
 
 int yggdfs_write(const char *path, const char *buf, size_t size, off_t offset, struct fuse_file_info *fi){
-
     log_msg("\nyggdfs_write(path=\"%s\", buf=0x%08x, size=%d, offset=%lld, fi=0x%08x)\n",
 	    path, buf, size, offset, fi
 	    );
@@ -326,7 +336,7 @@ int yggdfs_opendir(const char *path, struct fuse_file_info *fi){
     dp = opendir(fpath);
     log_msg("    opendir returned 0x%p\n", dp);
     if (dp == NULL)
-	retstat = log_error("yggdfs_opendir opendir");
+	retstat = log_error("yggdfs_opendir opendir\n");
     
     fi->fh = (intptr_t) dp;
     
@@ -352,7 +362,7 @@ int yggdfs_readdir(const char *path, void *buf, fuse_fill_dir_t filler, off_t of
     de = readdir(dp);
     log_msg("    readdir returned 0x%p\n", de);
     if (de == 0) {
-	    retstat = log_error("yggdfs_readdir readdir");
+	    retstat = log_error("yggdfs_readdir readdir\n");
 	    return retstat;
     }
 
@@ -363,7 +373,7 @@ int yggdfs_readdir(const char *path, void *buf, fuse_fill_dir_t filler, off_t of
     do {
 	    log_msg("calling filler with name %s\n", de->d_name);
 	    if (filler(buf, de->d_name, NULL, 0) != 0) {
-	        log_msg("    ERROR yggdfs_readdir filler:  buffer full");
+	        log_msg("    ERROR yggdfs_readdir filler:  buffer full\n");
 	        return -ENOMEM;
 	    }
     } while ((de = readdir(dp)) != NULL);
@@ -411,12 +421,13 @@ int yggdfs_access(const char *path, int mask){
     retstat = access(fpath, mask);
 
     if (retstat < 0)
-	retstat = log_error("yggdfs_access access");
+	retstat = log_error("yggdfs_access access\n");
     
     return retstat;
 }
 
 int yggdfs_ftruncate(const char *path, off_t offset, struct fuse_file_info *fi){
+
     int retstat = 0;
     
     log_msg("\nyggdfs_ftruncate(path=\"%s\", offset=%lld, fi=0x%08x)\n",
@@ -425,7 +436,7 @@ int yggdfs_ftruncate(const char *path, off_t offset, struct fuse_file_info *fi){
     
     retstat = ftruncate(fi->fh, offset);
     if (retstat < 0)
-	retstat = log_error("yggdfs_ftruncate ftruncate");
+	retstat = log_error("yggdfs_ftruncate ftruncate\n");
     
     return retstat;
 }
@@ -446,17 +457,16 @@ int yggdfs_fgetattr(const char *path, struct stat *statbuf, struct fuse_file_inf
     
     retstat = fstat(fi->fh, statbuf);
     if (retstat < 0)
-	retstat = log_error("yggdfs_fgetattr fstat");
+	retstat = log_error("yggdfs_fgetattr fstat\n");
     
     log_stat(statbuf);
     
     return retstat;
 }
 
-void *yggdfs_init(struct fuse_conn_info *conn)
-{
+void *yggdfs_init(struct fuse_conn_info *conn){
     log_msg("\nyggdfs_init()\n");
-    
+
     log_conn(conn);
     log_fuse_context(fuse_get_context());
     
@@ -507,26 +517,30 @@ void yggdfs_fuse_init(yggdfs_fuse_args *args){
 
     // Passing control over to FUSE
     fprintf(stderr, "mountdir: %s\n", argv[argc-1]);
-    fprintf(stderr, "rootdir: %s\n", state->rootdir);
+    fprintf(stderr, "rootdir:  %s\n", state->rootdir);
+    fprintf(stderr, "cachedir: %s\n", state->cachedir);
+
     fuse_main(argc, argv, &yggdfs_oper, state);
+    while (1);
     yggdfs_fuse_args_destroy(args);
 }
 
 void* yggdfs_fuse_args_init(int argc, char *argv[]){
-    if ((argc < 3) || (argv[argc-2][0] == '-') || (argv[argc-1][0] == '-'))
+    printf("arg count: %d\n",argc);
+    if ((argc < 6))
         usage();
 
     yggdfs_state *state = malloc(sizeof(yggdfs_state));
     if(state == NULL)
-        perror("failled malloc");
+        perror("failled malloc\n");
     
     // Pull the rootdir out of the argument list and save it in my
     // internal data
-    state->rootdir = realpath(argv[argc-1], NULL);
-    argc--;
+    state->rootdir = realpath(argv[--argc], NULL);
 
-    state->cachedir = realpath(argv[argc - 2], NULL);
-    argc--;
+    state->cachedir = realpath(argv[--argc], NULL);
+
+    argv[argc] = NULL;
 
     // Set logfile
     state->logfile = log_open();
@@ -534,7 +548,7 @@ void* yggdfs_fuse_args_init(int argc, char *argv[]){
     yggdfs_fuse_args *args = malloc(sizeof(yggdfs_fuse_args));
     args->state = state;
     args->argc  = argc;
-    args->argv  = (char **) argv;
+    args->argv  = argv;
 
     return args;
 }

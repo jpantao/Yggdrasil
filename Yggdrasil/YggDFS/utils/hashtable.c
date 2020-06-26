@@ -2,18 +2,16 @@
 #include <stdlib.h>
 #include <string.h>
 
+#include "hashtable.h"
 #include "hashfunctions.h"
 
 struct node{
     char* key;
-    int val;
+    void* val;
     struct node *next;
 };
-struct table{
-    int size;
-    struct node **list;
-};
-struct table *createTable(int size){
+
+struct table *table_create(int size){
     struct table *t = (struct table*)malloc(sizeof(struct table));
     t->size = size;
     t->list = (struct node**)malloc(sizeof(struct node*)*size);
@@ -22,13 +20,13 @@ struct table *createTable(int size){
         t->list[i] = NULL;
     return t;
 }
-int hashCode(struct table *t,char* key_t){
+int hashCode(struct table *t, const char* key_t){
     int key = (int) djb2(key_t);
     if(key<0)
         return -(key%t->size);
     return key%t->size;
 }
-void insert_in_table(struct table *t,char* key,int val){
+void table_insert(struct table *t, const char* key,void* val){
     int pos = hashCode(t,key);
     struct node *list = t->list[pos];
     struct node *newNode = (struct node*)malloc(sizeof(struct node));
@@ -40,12 +38,13 @@ void insert_in_table(struct table *t,char* key,int val){
         }
         temp = temp->next;
     }
-    newNode->key = key;
+
+    newNode->key = (char*) key;
     newNode->val = val;
     newNode->next = list;
     t->list[pos] = newNode;
 }
-int lookup_in_table(struct table *t,char* key){
+void* table_lookup(struct table *t, const char* key){
     int pos = hashCode(t,key);
     struct node *list = t->list[pos];
     struct node *temp = list;
@@ -55,21 +54,33 @@ int lookup_in_table(struct table *t,char* key){
         }
         temp = temp->next;
     }
-    return -1;
+    return NULL;
 }
 
-int remove_from_table(struct table *t, char* key){
+void* table_remove(struct table *t, const char* key){
     int pos = hashCode(t,key);
     struct node *list = t->list[pos];
     struct node *temp = list;
     struct node *prev;
+
+    void* tmp = NULL;
+
+    if(strcmp(temp->key,key) == 0){
+        list = temp->next;
+        tmp = temp->val;
+        free(temp);
+        return tmp;
+    }
+
     while(temp){
         if(strcmp(temp->key,key) == 0){
             prev->next = temp->next;
-            return temp->val;
+            tmp = temp->val;
+            free(temp);
+            return tmp;
         }
         prev = temp;
         temp = temp->next;
     }
-    return -1;
+    return tmp;
 }
