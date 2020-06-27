@@ -20,11 +20,13 @@ static void usage(){
 }
 
 static void ifn_init_socket(int* sock, struct sockaddr_in* addr){
-    log_msg("ifn_init_socket\n");
-    if(*sock != 0)
+    log_msg("\nFUSE connecting to Yggdrasil\n");
+    if(*sock != 0){
+        log_msg("FUSE already connected\n");
         return;
+    }
 
-    log_msg("Initializing client sock\n");
+    log_msg("FUSE initializing client sock\n");
     *sock =  socket(AF_INET, SOCK_STREAM, 0);
 
     bzero(addr, sizeof(struct sockaddr_in));
@@ -40,33 +42,38 @@ static void ifn_init_socket(int* sock, struct sockaddr_in* addr){
 }
 
 int yggdfs_getattr(const char *path, struct stat *statbuf){
-    log_msg("executing getattr %s\n", path);
+    log_msg("\nexecuting getattr %s\n", path);
 
     static int sock = 0;
     static struct sockaddr_in addr;
     ifn_init_socket(&sock, &addr);
 
+    log_msg("\nsending req code\n");
     // Sending operation code
     short data = GETATTR_REQ;
-    if(writefully(sock, &data, sizeof(short)) == 0)
+    if(writefully(sock, &data, sizeof(short)) > 0)
         return -1;
 
+    log_msg("sending path length\n");
     // Sending path length
     data = (short) (strlen(path) + 1);
-    if(writefully(sock, &data, sizeof(short)) == 0)
+    if(writefully(sock, &data, sizeof(short)) > 0)
         return -1;
 
     // Sending path
-    if(writefully(sock, (char*)path, data) == 0)
+    log_msg("sending path\n");
+    if(writefully(sock, (char*)path, data) > 0)
         return -1;
 
+    log_msg("receiving  retstat\n");
     // Receiving operation return status
     int retstat;
-    if(readfully(sock, &retstat, sizeof(int)) == 0)
+    if(readfully(sock, &retstat, sizeof(int)) > 0)
         return -1;
 
+    log_msg("retstat: %s\n", retstat);
     // If OK receive stat
-    if (retstat != 0 || readfully(sock, statbuf, sizeof(struct stat)) == 0)
+    if (retstat != 0 || readfully(sock, statbuf, sizeof(struct stat)) > 0)
         return -1;
 
     log_msg("\nyggdfs_getattr(path=\"%s\", statbuf=0x%08x)\n", path, statbuf);

@@ -81,7 +81,6 @@ static int yggdfs2full_path(char *fpath, const char *path){
     if(file == NULL)
         return -1;
 
-
     if(file->local)
         strcpy(fpath, YGGDFS_STATE->rootdir);
     else
@@ -91,8 +90,6 @@ static int yggdfs2full_path(char *fpath, const char *path){
 
     return 0;
 }
-
-
 
 int exec_getattr(int socket, const char* path, int len) {
     printf("--------- exec_getattr");
@@ -109,7 +106,7 @@ int exec_getattr(int socket, const char* path, int len) {
     if(lstat(fpath, info) < 0)
         return 0;
 
-    if(writefully(socket, info, sizeof(struct stat)) == 0)
+    if(writefully(socket, info, sizeof(struct stat)) > 0)
         return -1;
 
     return 0;
@@ -138,7 +135,6 @@ int exec_open(int socket, char* path, int len){
 //        }
 //        elem->open_count++;
 //    }
-
 }
 
 static void process_message(YggMessage *msg){
@@ -176,13 +172,13 @@ static void process_timer(YggTimer *timer) {
 static int exec_operation(int socket) {
     short op;
 
-    if(readfully(socket, &op, sizeof(short)) == 0)
+    if(readfully(socket, &op, sizeof(short)) > 0)
         return -1;
 
     int len;
-    if(readfully(socket, &len, sizeof(int)) == 0) return -1;
+    if(readfully(socket, &len, sizeof(int)) > 0) return -1;
     char path[len];
-    if(readfully(socket, &path, len) == 0) return -1;
+    if(readfully(socket, &path, len) > 0) return -1;
 
     switch (op) {
         case OPEN_REQ:
@@ -288,6 +284,11 @@ void register_localdir_rec(char* rootdir){
     struct dirent* dirent;
     struct stat inf;
 
+    if((dir = opendir(rootdir)) == NULL){
+        perror("opendir");
+        exit(0);
+    }
+
     while ((dirent = readdir(dir)) != NULL){
         char* fullname = malloc(PATH_MAX * sizeof(char));
         strcat(strcat(strcpy(fullname, rootdir), "/" ), dirent->d_name);
@@ -298,7 +299,9 @@ void register_localdir_rec(char* rootdir){
             file->local = true;
             file->size = inf.st_size;
             file->timestamp = inf.st_atim;
+
             full2yggdfs_path(file->path, fullname, YGGDFS_STATE->rootdir);
+            printf("Registering %s\n", file->path);
             lstat(fullname, &file->info);
             getmyId(file->id);
             pthread_mutex_lock(&global_mutex);
@@ -344,7 +347,6 @@ int main(int argc, char *argv[]) {
     registerProtocol(reliableDisseminationArgs.proto_id,
                      (Proto_init) reliable_dissemination_init, &reliableDisseminationArgs);
 
-
     app_def *app = create_application_definition(CONTROL_ID, "Yggdrasil Distributed File System");
     queue_t *inBox = registerApp(app);
 
@@ -366,15 +368,16 @@ int main(int argc, char *argv[]) {
         exit(0);
     }
 
-
     if(pid == 0){
         void *fuse_args = yggdfs_fuse_args_init(argc, argv);
         yggdfs_fuse_init(fuse_args);
         perror("Failed FUSE init\n");
         exit(0);
     } else {
-        printf("spawned: %d\n", pid);
+        printf("Spawned: %d\n", pid);
     }
+
+    register_localdir_rec(argv[argc-1]);
 
     //Start ygg_runtime
     ygg_runtime_start();

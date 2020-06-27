@@ -105,66 +105,30 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5137e88b-5ea9-4695-9928-8c95821ccf84" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Yggdrasil/YggDFS/kill.sh" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/libhashfunctions.a" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/libreliable_dissemination.a" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/libyggdfs_utils.a" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Yggdrasil/YggDFS/applications/yggdfs.h" beforeDir="false" afterPath="$PROJECT_DIR$/Yggdrasil/YggDFS/applications/yggdfs.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Yggdrasil/YggDFS/applications/yggdfs_control.c" beforeDir="false" afterPath="$PROJECT_DIR$/Yggdrasil/YggDFS/applications/yggdfs_control.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Yggdrasil/YggDFS/applications/yggdfs_control_info.h" beforeDir="false" afterPath="$PROJECT_DIR$/Yggdrasil/YggDFS/applications/yggdfs_control_info.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Yggdrasil/YggDFS/applications/yggdfs_fuse.c" beforeDir="false" afterPath="$PROJECT_DIR$/Yggdrasil/YggDFS/applications/yggdfs_fuse.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Yggdrasil/YggDFS/lauch.sh" beforeDir="false" afterPath="$PROJECT_DIR$/Yggdrasil/YggDFS/launch.sh" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Yggdrasil/YggDFS/utils/hashtable.c" beforeDir="false" afterPath="$PROJECT_DIR$/Yggdrasil/YggDFS/utils/hashtable.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Yggdrasil/YggDFS/utils/hashtable.h" beforeDir="false" afterPath="$PROJECT_DIR$/Yggdrasil/YggDFS/utils/hashtable.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeCache.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeCache.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Yggdrasil/YggDFS/launch.sh" beforeDir="false" afterPath="$PROJECT_DIR$/Yggdrasil/YggDFS/launch.sh" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/CMakeError.log" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/CMakeError.log" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/CMakeOutput.log" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/CMakeOutput.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile.cmake" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/clion-log.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/clion-log.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/Yggdrasil/YggDFS/applications/CMakeFiles/log.dir/C.includecache" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Yggdrasil/YggDFS/applications/CMakeFiles/log.dir/C.includecache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/Yggdrasil/YggDFS/applications/CMakeFiles/log.dir/log.c.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Yggdrasil/YggDFS/applications/CMakeFiles/log.dir/log.c.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/Yggdrasil/YggDFS/protocols/CMakeFiles/reliable_dissemination.dir/depend.make" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Yggdrasil/YggDFS/protocols/CMakeFiles/reliable_dissemination.dir/depend.make" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/Yggdrasil/YggDFS/utils/CMakeFiles/hashfunctions.dir/depend.make" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Yggdrasil/YggDFS/utils/CMakeFiles/hashfunctions.dir/depend.make" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/Yggdrasil/YggDFS/utils/CMakeFiles/hashtable.dir/depend.make" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Yggdrasil/YggDFS/utils/CMakeFiles/hashtable.dir/depend.make" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/Yggdrasil/YggDFS/utils/CMakeFiles/yggdfs_utils.dir/depend.make" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Yggdrasil/YggDFS/utils/CMakeFiles/yggdfs_utils.dir/depend.make" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-raspi-101/CMakeCache.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-raspi-101/CMakeCache.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-raspi-101/CMakeFiles/CMakeError.log" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-raspi-101/CMakeFiles/CMakeError.log" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-raspi-101/CMakeFiles/CMakeOutput.log" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-raspi-101/CMakeFiles/CMakeOutput.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-raspi-101/CMakeFiles/Makefile.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-raspi-101/CMakeFiles/Makefile.cmake" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-raspi-101/CMakeFiles/Progress/100" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-raspi-101/CMakeFiles/Progress/37" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-raspi-101/CMakeFiles/Progress/38" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-raspi-101/CMakeFiles/Progress/44" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-raspi-101/CMakeFiles/Progress/45" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-raspi-101/CMakeFiles/Progress/46" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-raspi-101/CMakeFiles/Progress/49" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-raspi-101/CMakeFiles/Progress/5" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-raspi-101/CMakeFiles/Progress/53" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-raspi-101/CMakeFiles/Progress/54" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-raspi-101/CMakeFiles/Progress/56" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-raspi-101/CMakeFiles/Progress/83" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-raspi-101/CMakeFiles/Progress/84" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-raspi-101/CMakeFiles/Progress/85" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-raspi-101/CMakeFiles/Progress/86" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-raspi-101/CMakeFiles/Progress/87" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-raspi-101/CMakeFiles/Progress/88" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-raspi-101/CMakeFiles/Progress/89" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-raspi-101/CMakeFiles/Progress/90" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-raspi-101/CMakeFiles/Progress/96" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-raspi-101/CMakeFiles/Progress/97" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-raspi-101/CMakeFiles/Progress/98" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-raspi-101/CMakeFiles/Progress/99" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-raspi-101/CMakeFiles/Progress/count.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-raspi-101/CMakeFiles/clion-log.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-raspi-101/CMakeFiles/clion-log.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-raspi-101/Yggdrasil/YggDFS/applications/CMakeFiles/YggDFS.dir/C.includecache" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-raspi-101/Yggdrasil/YggDFS/applications/CMakeFiles/YggDFS.dir/C.includecache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-raspi-101/Yggdrasil/YggDFS/applications/CMakeFiles/YggDFS.dir/depend.internal" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-raspi-101/Yggdrasil/YggDFS/applications/CMakeFiles/YggDFS.dir/depend.internal" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-raspi-101/Yggdrasil-LowLevelLib/CMakeFiles/ygglib_base.dir/depend.make" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-raspi-101/Yggdrasil-LowLevelLib/CMakeFiles/ygglib_base.dir/depend.make" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-raspi-101/Yggdrasil-LowLevelLib/CMakeFiles/ygglib_wireless_new.dir/depend.make" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-raspi-101/Yggdrasil-LowLevelLib/CMakeFiles/ygglib_wireless_new.dir/depend.make" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-raspi-101/Yggdrasil/YggDFS/applications/CMakeFiles/YggDFS.dir/depend.make" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-raspi-101/Yggdrasil/YggDFS/applications/CMakeFiles/YggDFS.dir/depend.make" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-raspi-101/Yggdrasil/YggDFS/applications/CMakeFiles/YggDFS.dir/yggdfs_control.c.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-raspi-101/Yggdrasil/YggDFS/applications/CMakeFiles/YggDFS.dir/yggdfs_control.c.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-raspi-101/Yggdrasil/YggDFS/applications/CMakeFiles/yggdfs_fuse.dir/yggdfs_fuse.c.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-raspi-101/Yggdrasil/YggDFS/applications/CMakeFiles/yggdfs_fuse.dir/yggdfs_fuse.c.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-raspi-101/Yggdrasil/YggDFS/applications/CMakeFiles/log.dir/depend.make" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-raspi-101/Yggdrasil/YggDFS/applications/CMakeFiles/log.dir/depend.make" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-raspi-101/Yggdrasil/YggDFS/applications/CMakeFiles/yggdfs_fuse.dir/depend.make" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-raspi-101/Yggdrasil/YggDFS/applications/CMakeFiles/yggdfs_fuse.dir/depend.make" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-raspi-101/Yggdrasil/YggDFS/protocols/CMakeFiles/discovery.dir/depend.make" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-raspi-101/Yggdrasil/YggDFS/protocols/CMakeFiles/discovery.dir/depend.make" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-raspi-101/Yggdrasil/YggDFS/protocols/CMakeFiles/reliable_dissemination.dir/depend.make" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-raspi-101/Yggdrasil/YggDFS/protocols/CMakeFiles/reliable_dissemination.dir/depend.make" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-raspi-101/Yggdrasil/YggDFS/protocols/CMakeFiles/routing.dir/depend.make" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-raspi-101/Yggdrasil/YggDFS/protocols/CMakeFiles/routing.dir/depend.make" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-raspi-101/Yggdrasil/YggDFS/utils/CMakeFiles/hashfunctions.dir/depend.make" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-raspi-101/Yggdrasil/YggDFS/utils/CMakeFiles/hashfunctions.dir/depend.make" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-raspi-101/Yggdrasil/YggDFS/utils/CMakeFiles/hashtable.dir/depend.make" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-raspi-101/Yggdrasil/YggDFS/utils/CMakeFiles/hashtable.dir/depend.make" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-raspi-101/bin/YggDFS" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-raspi-101/bin/YggDFS" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/liblog.a" beforeDir="false" afterPath="$PROJECT_DIR$/lib/liblog.a" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-raspi-101/Yggdrasil/YggDFS/utils/CMakeFiles/yggdfs_utils.dir/depend.make" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-raspi-101/Yggdrasil/YggDFS/utils/CMakeFiles/yggdfs_utils.dir/depend.make" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-raspi-101/Yggdrasil/core/CMakeFiles/gen_data_structs.dir/depend.make" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-raspi-101/Yggdrasil/core/CMakeFiles/gen_data_structs.dir/depend.make" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-raspi-101/Yggdrasil/core/CMakeFiles/neighbour_list.dir/depend.make" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-raspi-101/Yggdrasil/core/CMakeFiles/neighbour_list.dir/depend.make" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-raspi-101/Yggdrasil/core/CMakeFiles/yggcore_wireless_new.dir/depend.make" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-raspi-101/Yggdrasil/core/CMakeFiles/yggcore_wireless_new.dir/depend.make" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-raspi-101/Yggdrasil/interfaces/CMakeFiles/discovery_interface.dir/depend.make" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-raspi-101/Yggdrasil/interfaces/CMakeFiles/discovery_interface.dir/depend.make" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-raspi-101/Yggdrasil/interfaces/CMakeFiles/routing_interface.dir/depend.make" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-raspi-101/Yggdrasil/interfaces/CMakeFiles/routing_interface.dir/depend.make" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -594,58 +558,14 @@
       <method v="2" />
     </configuration>
     <list>
-      <item itemvalue="CMake Application.Json" />
-      <item itemvalue="CMake Application.MessageExchange" />
-      <item itemvalue="CMake Application.OneHopBcastWithTimer" />
-      <item itemvalue="CMake Application.OneHopBcast" />
       <item itemvalue="CMake Application.YGGDFS" />
-      <item itemvalue="CMake Application.YggControlBundle" />
-      <item itemvalue="CMake Application.YggdrasilControlClient" />
-      <item itemvalue="CMake Application.YggdrasilControlProcess" />
-      <item itemvalue="CMake Application.YggdrasilControlProcess_old" />
-      <item itemvalue="CMake Application.aggregation_interface" />
-      <item itemvalue="CMake Application.batman" />
-      <item itemvalue="CMake Application.bloomfilters" />
-      <item itemvalue="CMake Application.cmdchangelink" />
-      <item itemvalue="CMake Application.cmdchangevalue" />
-      <item itemvalue="CMake Application.cmdcheck" />
-      <item itemvalue="CMake Application.cmddebug" />
-      <item itemvalue="CMake Application.cmddisablediscovery" />
-      <item itemvalue="CMake Application.cmdenablediscovery" />
-      <item itemvalue="CMake Application.cmdexecuteexperience" />
-      <item itemvalue="CMake Application.cmdgetneighbors" />
-      <item itemvalue="CMake Application.cmdio" />
-      <item itemvalue="CMake Application.cmdio_new" />
-      <item itemvalue="CMake Application.cmdreboot" />
-      <item itemvalue="CMake Application.cmdsetup" />
-      <item itemvalue="CMake Application.cmdshutdown" />
-      <item itemvalue="CMake Application.cmdterminateexperience" />
-      <item itemvalue="CMake Application.commands" />
-      <item itemvalue="CMake Application.commands_new" />
-      <item itemvalue="CMake Application.control_app_cmp" />
-      <item itemvalue="CMake Application.control_discovery" />
-      <item itemvalue="CMake Application.control_server" />
-      <item itemvalue="CMake Application.control_tree" />
-      <item itemvalue="CMake Application.discovery_interface" />
-      <item itemvalue="CMake Application.dispatcher_logger" />
-      <item itemvalue="CMake Application.fault_detection_discovery" />
+      <item itemvalue="CMake Application.ygglib_ip" />
+      <item itemvalue="CMake Application.ygglib_wireless" />
+      <item itemvalue="CMake Application.ygglib_wireless_new" />
+      <item itemvalue="CMake Application.MessageExchange" />
+      <item itemvalue="CMake Application.OneHopBcast" />
+      <item itemvalue="CMake Application.OneHopBcastWithTimer" />
       <item itemvalue="CMake Application.file_server_client" />
-      <item itemvalue="CMake Application.flow_updating" />
-      <item itemvalue="CMake Application.gap" />
-      <item itemvalue="CMake Application.gen_data_structs" />
-      <item itemvalue="CMake Application.hashfunctions" />
-      <item itemvalue="CMake Application.hashtable" />
-      <item itemvalue="CMake Application.limosense" />
-      <item itemvalue="CMake Application.list" />
-      <item itemvalue="CMake Application.log" />
-      <item itemvalue="CMake Application.mirage" />
-      <item itemvalue="CMake Application.neighbour_list" />
-      <item itemvalue="CMake Application.push_gossip" />
-      <item itemvalue="CMake Application.reliable_dissemination" />
-      <item itemvalue="CMake Application.reliable_p2p" />
-      <item itemvalue="CMake Application.routing" />
-      <item itemvalue="CMake Application.routing_interface" />
-      <item itemvalue="CMake Application.simple_discovery" />
       <item itemvalue="CMake Application.test_batman" />
       <item itemvalue="CMake Application.test_dispatch_log" />
       <item itemvalue="CMake Application.test_dynamic_protos" />
@@ -658,15 +578,59 @@
       <item itemvalue="CMake Application.test_reliable_p2p" />
       <item itemvalue="CMake Application.test_simple_discovery" />
       <item itemvalue="CMake Application.test_topology" />
-      <item itemvalue="CMake Application.topology_manager" />
+      <item itemvalue="CMake Application.gen_data_structs" />
+      <item itemvalue="CMake Application.neighbour_list" />
       <item itemvalue="CMake Application.yggcore_ip" />
       <item itemvalue="CMake Application.yggcore_wireless" />
       <item itemvalue="CMake Application.yggcore_wireless_new" />
+      <item itemvalue="CMake Application.aggregation_interface" />
+      <item itemvalue="CMake Application.discovery_interface" />
+      <item itemvalue="CMake Application.routing_interface" />
+      <item itemvalue="CMake Application.batman" />
+      <item itemvalue="CMake Application.dispatcher_logger" />
+      <item itemvalue="CMake Application.fault_detection_discovery" />
+      <item itemvalue="CMake Application.flow_updating" />
+      <item itemvalue="CMake Application.gap" />
+      <item itemvalue="CMake Application.limosense" />
+      <item itemvalue="CMake Application.mirage" />
+      <item itemvalue="CMake Application.push_gossip" />
+      <item itemvalue="CMake Application.reliable_p2p" />
+      <item itemvalue="CMake Application.simple_discovery" />
+      <item itemvalue="CMake Application.topology_manager" />
+      <item itemvalue="CMake Application.YggdrasilControlProcess_old" />
+      <item itemvalue="CMake Application.control_discovery" />
+      <item itemvalue="CMake Application.control_server" />
+      <item itemvalue="CMake Application.control_tree" />
+      <item itemvalue="CMake Application.cmdio" />
+      <item itemvalue="CMake Application.commands" />
+      <item itemvalue="CMake Application.cmdchangelink" />
+      <item itemvalue="CMake Application.cmdchangevalue" />
+      <item itemvalue="CMake Application.cmdcheck" />
+      <item itemvalue="CMake Application.cmddebug" />
+      <item itemvalue="CMake Application.cmddisablediscovery" />
+      <item itemvalue="CMake Application.cmdenablediscovery" />
+      <item itemvalue="CMake Application.cmdexecuteexperience" />
+      <item itemvalue="CMake Application.cmdgetneighbors" />
+      <item itemvalue="CMake Application.cmdreboot" />
+      <item itemvalue="CMake Application.cmdsetup" />
+      <item itemvalue="CMake Application.cmdshutdown" />
+      <item itemvalue="CMake Application.cmdterminateexperience" />
+      <item itemvalue="CMake Application.control_app_cmp" />
+      <item itemvalue="CMake Application.YggControlBundle" />
+      <item itemvalue="CMake Application.YggdrasilControlClient" />
+      <item itemvalue="CMake Application.YggdrasilControlProcess" />
+      <item itemvalue="CMake Application.cmdio_new" />
+      <item itemvalue="CMake Application.commands_new" />
+      <item itemvalue="CMake Application.bloomfilters" />
+      <item itemvalue="CMake Application.Json" />
+      <item itemvalue="CMake Application.list" />
+      <item itemvalue="CMake Application.log" />
       <item itemvalue="CMake Application.yggdfs_fuse" />
+      <item itemvalue="CMake Application.reliable_dissemination" />
+      <item itemvalue="CMake Application.routing" />
+      <item itemvalue="CMake Application.hashfunctions" />
+      <item itemvalue="CMake Application.hashtable" />
       <item itemvalue="CMake Application.yggdfs_utils" />
-      <item itemvalue="CMake Application.ygglib_ip" />
-      <item itemvalue="CMake Application.ygglib_wireless" />
-      <item itemvalue="CMake Application.ygglib_wireless_new" />
       <item itemvalue="Shell Script.lauch.sh" />
     </list>
     <recent_temporary>
@@ -731,6 +695,7 @@
       <workItem from="1593040540934" duration="8162000" />
       <workItem from="1593081598502" duration="410000" />
       <workItem from="1593082020112" duration="41654000" />
+      <workItem from="1593166602310" duration="13311000" />
     </task>
     <servers />
   </component>
