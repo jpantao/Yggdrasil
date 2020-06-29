@@ -1,0 +1,17 @@
+[
+{
+  "directory": "/tmp/tmp.Wyjid08Bsi/cmake-build-raspi-102/Yggdrasil/AntDFS/applications",
+  "command": "/usr/bin/cc -DNEW -DWIRELESS_NETWORKS -I/tmp/tmp.Wyjid08Bsi/Yggdrasil/AntDFS/applications/../utils -I/tmp/tmp.Wyjid08Bsi/Yggdrasil/AntDFS/applications/../.. -I/tmp/tmp.Wyjid08Bsi/Yggdrasil/AntDFS/applications/../../../Yggdrasil-LowLevelLib -I/tmp/tmp.Wyjid08Bsi/Yggdrasil/core/. -I/tmp/tmp.Wyjid08Bsi/Yggdrasil/core/../../Yggdrasil-LowLevelLib -I/usr/include/libnl3   -g -Wall -O0 -D_FILE_OFFSET_BITS=64 -g -Wall --pedantic -g   -std=gnu99 -o CMakeFiles/AntDFS.dir/antdfs_control.c.o   -c /tmp/tmp.Wyjid08Bsi/Yggdrasil/AntDFS/applications/antdfs_control.c",
+  "file": "/tmp/tmp.Wyjid08Bsi/Yggdrasil/AntDFS/applications/antdfs_control.c"
+},
+{
+  "directory": "/tmp/tmp.Wyjid08Bsi/cmake-build-raspi-102/Yggdrasil/AntDFS/applications",
+  "command": "/usr/bin/cc  -I/tmp/tmp.Wyjid08Bsi/Yggdrasil/AntDFS/applications/../utils -I/tmp/tmp.Wyjid08Bsi/Yggdrasil/AntDFS/applications/../.. -I/tmp/tmp.Wyjid08Bsi/Yggdrasil/AntDFS/applications/../../../Yggdrasil-LowLevelLib   -g -Wall -O0 -D_FILE_OFFSET_BITS=64 -g -Wall --pedantic -g   -std=gnu99 -o CMakeFiles/log.dir/log.c.o   -c /tmp/tmp.Wyjid08Bsi/Yggdrasil/AntDFS/applications/log.c",
+  "file": "/tmp/tmp.Wyjid08Bsi/Yggdrasil/AntDFS/applications/log.c"
+},
+{
+  "directory": "/tmp/tmp.Wyjid08Bsi/cmake-build-raspi-102/Yggdrasil/AntDFS/applications",
+  "command": "/usr/bin/cc  -I/tmp/tmp.Wyjid08Bsi/Yggdrasil/AntDFS/applications/../utils -I/tmp/tmp.Wyjid08Bsi/Yggdrasil/AntDFS/applications/../.. -I/tmp/tmp.Wyjid08Bsi/Yggdrasil/AntDFS/applications/../../../Yggdrasil-LowLevelLib   -g -Wall -O0 -D_FILE_OFFSET_BITS=64 -g -Wall --pedantic -g   -std=gnu99 -o CMakeFiles/antdfs_fuse.dir/antdfs_fuse.c.o   -c /tmp/tmp.Wyjid08Bsi/Yggdrasil/AntDFS/applications/antdfs_fuse.c",
+  "file": "/tmp/tmp.Wyjid08Bsi/Yggdrasil/AntDFS/applications/antdfs_fuse.c"
+}
+]

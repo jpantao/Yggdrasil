@@ -969,17 +969,17 @@ cmddebug/fast:
 .PHONY : cmddebug/fast
 
 #=============================================================================
-# Target rules for targets named yggdfs_utils
+# Target rules for targets named antdfs_utils
 
 # Build rule for target.
-yggdfs_utils: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 yggdfs_utils
-.PHONY : yggdfs_utils
+antdfs_utils: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 antdfs_utils
+.PHONY : antdfs_utils
 
 # fast build rule for target.
-yggdfs_utils/fast:
-	$(MAKE) -f Yggdrasil/YggDFS/utils/CMakeFiles/yggdfs_utils.dir/build.make Yggdrasil/YggDFS/utils/CMakeFiles/yggdfs_utils.dir/build
-.PHONY : yggdfs_utils/fast
+antdfs_utils/fast:
+	$(MAKE) -f Yggdrasil/AntDFS/utils/CMakeFiles/antdfs_utils.dir/build.make Yggdrasil/AntDFS/utils/CMakeFiles/antdfs_utils.dir/build
+.PHONY : antdfs_utils/fast
 
 #=============================================================================
 # Target rules for targets named hashtable
@@ -991,7 +991,7 @@ hashtable: cmake_check_build_system
 
 # fast build rule for target.
 hashtable/fast:
-	$(MAKE) -f Yggdrasil/YggDFS/utils/CMakeFiles/hashtable.dir/build.make Yggdrasil/YggDFS/utils/CMakeFiles/hashtable.dir/build
+	$(MAKE) -f Yggdrasil/AntDFS/utils/CMakeFiles/hashtable.dir/build.make Yggdrasil/AntDFS/utils/CMakeFiles/hashtable.dir/build
 .PHONY : hashtable/fast
 
 #=============================================================================
@@ -1004,7 +1004,7 @@ hashfunctions: cmake_check_build_system
 
 # fast build rule for target.
 hashfunctions/fast:
-	$(MAKE) -f Yggdrasil/YggDFS/utils/CMakeFiles/hashfunctions.dir/build.make Yggdrasil/YggDFS/utils/CMakeFiles/hashfunctions.dir/build
+	$(MAKE) -f Yggdrasil/AntDFS/utils/CMakeFiles/hashfunctions.dir/build.make Yggdrasil/AntDFS/utils/CMakeFiles/hashfunctions.dir/build
 .PHONY : hashfunctions/fast
 
 #=============================================================================
@@ -1017,7 +1017,7 @@ reliable_dissemination: cmake_check_build_system
 
 # fast build rule for target.
 reliable_dissemination/fast:
-	$(MAKE) -f Yggdrasil/YggDFS/protocols/CMakeFiles/reliable_dissemination.dir/build.make Yggdrasil/YggDFS/protocols/CMakeFiles/reliable_dissemination.dir/build
+	$(MAKE) -f Yggdrasil/AntDFS/protocols/CMakeFiles/reliable_dissemination.dir/build.make Yggdrasil/AntDFS/protocols/CMakeFiles/reliable_dissemination.dir/build
 .PHONY : reliable_dissemination/fast
 
 #=============================================================================
@@ -1030,7 +1030,7 @@ routing: cmake_check_build_system
 
 # fast build rule for target.
 routing/fast:
-	$(MAKE) -f Yggdrasil/YggDFS/protocols/CMakeFiles/routing.dir/build.make Yggdrasil/YggDFS/protocols/CMakeFiles/routing.dir/build
+	$(MAKE) -f Yggdrasil/AntDFS/protocols/CMakeFiles/routing.dir/build.make Yggdrasil/AntDFS/protocols/CMakeFiles/routing.dir/build
 .PHONY : routing/fast
 
 #=============================================================================
@@ -1043,21 +1043,21 @@ discovery: cmake_check_build_system
 
 # fast build rule for target.
 discovery/fast:
-	$(MAKE) -f Yggdrasil/YggDFS/protocols/CMakeFiles/discovery.dir/build.make Yggdrasil/YggDFS/protocols/CMakeFiles/discovery.dir/build
+	$(MAKE) -f Yggdrasil/AntDFS/protocols/CMakeFiles/discovery.dir/build.make Yggdrasil/AntDFS/protocols/CMakeFiles/discovery.dir/build
 .PHONY : discovery/fast
 
 #=============================================================================
-# Target rules for targets named YggDFS
+# Target rules for targets named AntDFS
 
 # Build rule for target.
-YggDFS: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 YggDFS
-.PHONY : YggDFS
+AntDFS: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 AntDFS
+.PHONY : AntDFS
 
 # fast build rule for target.
-YggDFS/fast:
-	$(MAKE) -f Yggdrasil/YggDFS/applications/CMakeFiles/YggDFS.dir/build.make Yggdrasil/YggDFS/applications/CMakeFiles/YggDFS.dir/build
-.PHONY : YggDFS/fast
+AntDFS/fast:
+	$(MAKE) -f Yggdrasil/AntDFS/applications/CMakeFiles/AntDFS.dir/build.make Yggdrasil/AntDFS/applications/CMakeFiles/AntDFS.dir/build
+.PHONY : AntDFS/fast
 
 #=============================================================================
 # Target rules for targets named log
@@ -1069,21 +1069,21 @@ log: cmake_check_build_system
 
 # fast build rule for target.
 log/fast:
-	$(MAKE) -f Yggdrasil/YggDFS/applications/CMakeFiles/log.dir/build.make Yggdrasil/YggDFS/applications/CMakeFiles/log.dir/build
+	$(MAKE) -f Yggdrasil/AntDFS/applications/CMakeFiles/log.dir/build.make Yggdrasil/AntDFS/applications/CMakeFiles/log.dir/build
 .PHONY : log/fast
 
 #=============================================================================
-# Target rules for targets named yggdfs_fuse
+# Target rules for targets named antdfs_fuse
 
 # Build rule for target.
-yggdfs_fuse: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 yggdfs_fuse
-.PHONY : yggdfs_fuse
+antdfs_fuse: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 antdfs_fuse
+.PHONY : antdfs_fuse
 
 # fast build rule for target.
-yggdfs_fuse/fast:
-	$(MAKE) -f Yggdrasil/YggDFS/applications/CMakeFiles/yggdfs_fuse.dir/build.make Yggdrasil/YggDFS/applications/CMakeFiles/yggdfs_fuse.dir/build
-.PHONY : yggdfs_fuse/fast
+antdfs_fuse/fast:
+	$(MAKE) -f Yggdrasil/AntDFS/applications/CMakeFiles/antdfs_fuse.dir/build.make Yggdrasil/AntDFS/applications/CMakeFiles/antdfs_fuse.dir/build
+.PHONY : antdfs_fuse/fast
 
 # Help Target
 help:
@@ -1159,15 +1159,15 @@ help:
 	@echo "... cmddisablediscovery"
 	@echo "... cmdgetneighbors"
 	@echo "... cmddebug"
-	@echo "... yggdfs_utils"
+	@echo "... antdfs_utils"
 	@echo "... hashtable"
 	@echo "... hashfunctions"
 	@echo "... reliable_dissemination"
 	@echo "... routing"
 	@echo "... discovery"
-	@echo "... YggDFS"
+	@echo "... AntDFS"
 	@echo "... log"
-	@echo "... yggdfs_fuse"
+	@echo "... antdfs_fuse"
 .PHONY : help
 
 

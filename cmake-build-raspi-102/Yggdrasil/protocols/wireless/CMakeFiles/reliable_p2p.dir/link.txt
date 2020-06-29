@@ -1,0 +1,2 @@
+/usr/bin/ar qc ../../../../lib/libreliable_p2p.a  CMakeFiles/reliable_p2p.dir/communication/point-to-point/reliable.c.o
+/usr/bin/ranlib ../../../../lib/libreliable_p2p.a

@@ -258,28 +258,28 @@ Wireless_Protocols_BINARY_DIR:STATIC=/home/jpantao/Git/BScResearch/Yggdrasil/Ygg
 Wireless_Protocols_SOURCE_DIR:STATIC=/home/jpantao/Git/BScResearch/Yggdrasil/Yggdrasil/protocols/wireless
 
 //Value Computed by CMake
-YggDFS_Applications_BINARY_DIR:STATIC=/home/jpantao/Git/BScResearch/Yggdrasil/Yggdrasil/build/YggDFS/applications
+YggDFS_Applications_BINARY_DIR:STATIC=/home/jpantao/Git/BScResearch/Yggdrasil/Yggdrasil/build/AntDFS/applications
 
 //Value Computed by CMake
-YggDFS_Applications_SOURCE_DIR:STATIC=/home/jpantao/Git/BScResearch/Yggdrasil/Yggdrasil/YggDFS/applications
+YggDFS_Applications_SOURCE_DIR:STATIC=/home/jpantao/Git/BScResearch/Yggdrasil/Yggdrasil/AntDFS/applications
 
 //Value Computed by CMake
-YggDFS_BINARY_DIR:STATIC=/home/jpantao/Git/BScResearch/Yggdrasil/Yggdrasil/build/YggDFS
+YggDFS_BINARY_DIR:STATIC=/home/jpantao/Git/BScResearch/Yggdrasil/Yggdrasil/build/AntDFS
 
 //Value Computed by CMake
-YggDFS_Protocols_BINARY_DIR:STATIC=/home/jpantao/Git/BScResearch/Yggdrasil/Yggdrasil/build/YggDFS/protocols
+YggDFS_Protocols_BINARY_DIR:STATIC=/home/jpantao/Git/BScResearch/Yggdrasil/Yggdrasil/build/AntDFS/protocols
 
 //Value Computed by CMake
-YggDFS_Protocols_SOURCE_DIR:STATIC=/home/jpantao/Git/BScResearch/Yggdrasil/Yggdrasil/YggDFS/protocols
+YggDFS_Protocols_SOURCE_DIR:STATIC=/home/jpantao/Git/BScResearch/Yggdrasil/Yggdrasil/AntDFS/protocols
 
 //Value Computed by CMake
-YggDFS_SOURCE_DIR:STATIC=/home/jpantao/Git/BScResearch/Yggdrasil/Yggdrasil/YggDFS
+YggDFS_SOURCE_DIR:STATIC=/home/jpantao/Git/BScResearch/Yggdrasil/Yggdrasil/AntDFS
 
 //Value Computed by CMake
-YggDFS_Utils_BINARY_DIR:STATIC=/home/jpantao/Git/BScResearch/Yggdrasil/Yggdrasil/build/YggDFS/utils
+YggDFS_Utils_BINARY_DIR:STATIC=/home/jpantao/Git/BScResearch/Yggdrasil/Yggdrasil/build/AntDFS/utils
 
 //Value Computed by CMake
-YggDFS_Utils_SOURCE_DIR:STATIC=/home/jpantao/Git/BScResearch/Yggdrasil/Yggdrasil/YggDFS/utils
+YggDFS_Utils_SOURCE_DIR:STATIC=/home/jpantao/Git/BScResearch/Yggdrasil/Yggdrasil/AntDFS/utils
 
 //Value Computed by CMake
 Yggdrasil_BINARY_DIR:STATIC=/home/jpantao/Git/BScResearch/Yggdrasil/Yggdrasil/build

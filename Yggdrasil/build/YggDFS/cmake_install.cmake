@@ -1,4 +1,4 @@
-# Install script for directory: /home/jpantao/Git/BScResearch/Yggdrasil/Yggdrasil/YggDFS
+# Install script for directory: /home/jpantao/Git/BScResearch/Yggdrasil/Yggdrasil/AntDFS
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)

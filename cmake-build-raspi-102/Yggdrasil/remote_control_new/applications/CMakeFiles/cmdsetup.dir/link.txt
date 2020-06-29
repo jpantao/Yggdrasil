@@ -1,0 +1,1 @@
+/usr/bin/cc  -g -Wall -O0 -g  -rdynamic CMakeFiles/cmdsetup.dir/tools/buildtree.c.o  -o ../../../../bin/cmdsetup ../../../../lib/libcmdio_new.a -luuid 

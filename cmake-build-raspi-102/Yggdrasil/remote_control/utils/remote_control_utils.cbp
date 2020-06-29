@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6"/>
+	<Project>
+		<Option title="remote_control_utils"/>
+		<Option makefile_is_custom="1"/>
+		<Option compiler="gcc"/>
+		<Option virtualFolders="CMake Files\;CMake Files\Yggdrasil\;CMake Files\Yggdrasil\AntDFS\;CMake Files\Yggdrasil\AntDFS\utils\;CMake Files\Yggdrasil\AntDFS\protocols\;CMake Files\Yggdrasil\AntDFS\applications\;CMake Files\Yggdrasil\AntDFS\applications\CMake\;CMake Files\Yggdrasil\applications\;CMake Files\Yggdrasil\applications\demos\;CMake Files\Yggdrasil\applications\tests\;CMake Files\Yggdrasil\applications\tests\wireless\;CMake Files\Yggdrasil\applications\tests\other\;CMake Files\Yggdrasil\interfaces\;CMake Files\Yggdrasil\protocols\;CMake Files\Yggdrasil\protocols\wireless\;CMake Files\Yggdrasil\utils\;CMake Files\Yggdrasil\core\;CMake Files\Yggdrasil\remote_control\;CMake Files\Yggdrasil\remote_control\utils\;CMake Files\Yggdrasil\remote_control\protocols\;CMake Files\Yggdrasil\remote_control\applications\;CMake Files\Yggdrasil\remote_control_new\;CMake Files\Yggdrasil\remote_control_new\utils\;CMake Files\Yggdrasil\remote_control_new\protocols\;CMake Files\Yggdrasil\remote_control_new\applications\;CMake Files\Yggdrasil-LowLevelLib\;"/>
+		<Build>
+			<Target title="all">
+				<Option working_dir="/tmp/tmp.Wyjid08Bsi/cmake-build-raspi-102/Yggdrasil/remote_control/utils"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/tmp/tmp.Wyjid08Bsi/cmake-build-raspi-102/Yggdrasil/remote_control/utils/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/tmp/tmp.Wyjid08Bsi/cmake-build-raspi-102/Yggdrasil/remote_control/utils/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/tmp/tmp.Wyjid08Bsi/cmake-build-raspi-102/Yggdrasil/remote_control/utils/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/tmp/tmp.Wyjid08Bsi/cmake-build-raspi-102/Yggdrasil/remote_control/utils/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="commands">
+				<Option output="/tmp/tmp.Wyjid08Bsi/lib/libcommands.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/tmp/tmp.Wyjid08Bsi/cmake-build-raspi-102/Yggdrasil/remote_control/utils"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add option="-DWIRELESS_NETWORKS"/>
+					<Add option="-DNEW"/>
+					<Add directory="/tmp/tmp.Wyjid08Bsi/Yggdrasil/remote_control/utils/../.."/>
+					<Add directory="/tmp/tmp.Wyjid08Bsi/Yggdrasil/core/."/>
+					<Add directory="/tmp/tmp.Wyjid08Bsi/Yggdrasil/core/../../Yggdrasil-LowLevelLib"/>
+					<Add directory="/usr/include/libnl3"/>
+					<Add directory="/usr/include/c++/8"/>
+					<Add directory="/usr/include/arm-linux-gnueabihf/c++/8"/>
+					<Add directory="/usr/include/c++/8/backward"/>
+					<Add directory="/usr/lib/gcc/arm-linux-gnueabihf/8/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/arm-linux-gnueabihf/8/include-fixed"/>
+					<Add directory="/usr/include/arm-linux-gnueabihf"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/tmp/tmp.Wyjid08Bsi/cmake-build-raspi-102/Yggdrasil/remote_control/utils/Makefile&quot;  VERBOSE=1 commands"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/tmp/tmp.Wyjid08Bsi/cmake-build-raspi-102/Yggdrasil/remote_control/utils/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/tmp/tmp.Wyjid08Bsi/cmake-build-raspi-102/Yggdrasil/remote_control/utils/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/tmp/tmp.Wyjid08Bsi/cmake-build-raspi-102/Yggdrasil/remote_control/utils/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="commands/fast">
+				<Option output="/tmp/tmp.Wyjid08Bsi/lib/libcommands.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/tmp/tmp.Wyjid08Bsi/cmake-build-raspi-102/Yggdrasil/remote_control/utils"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add option="-DWIRELESS_NETWORKS"/>
+					<Add option="-DNEW"/>
+					<Add directory="/tmp/tmp.Wyjid08Bsi/Yggdrasil/remote_control/utils/../.."/>
+					<Add directory="/tmp/tmp.Wyjid08Bsi/Yggdrasil/core/."/>
+					<Add directory="/tmp/tmp.Wyjid08Bsi/Yggdrasil/core/../../Yggdrasil-LowLevelLib"/>
+					<Add directory="/usr/include/libnl3"/>
+					<Add directory="/usr/include/c++/8"/>
+					<Add directory="/usr/include/arm-linux-gnueabihf/c++/8"/>
+					<Add directory="/usr/include/c++/8/backward"/>
+					<Add directory="/usr/lib/gcc/arm-linux-gnueabihf/8/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/arm-linux-gnueabihf/8/include-fixed"/>
+					<Add directory="/usr/include/arm-linux-gnueabihf"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/tmp/tmp.Wyjid08Bsi/cmake-build-raspi-102/Yggdrasil/remote_control/utils/Makefile&quot;  VERBOSE=1 commands/fast"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/tmp/tmp.Wyjid08Bsi/cmake-build-raspi-102/Yggdrasil/remote_control/utils/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/tmp/tmp.Wyjid08Bsi/cmake-build-raspi-102/Yggdrasil/remote_control/utils/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/tmp/tmp.Wyjid08Bsi/cmake-build-raspi-102/Yggdrasil/remote_control/utils/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="cmdio">
+				<Option output="/tmp/tmp.Wyjid08Bsi/lib/libcmdio.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/tmp/tmp.Wyjid08Bsi/cmake-build-raspi-102/Yggdrasil/remote_control/utils"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/tmp/tmp.Wyjid08Bsi/Yggdrasil/remote_control/utils/../.."/>
+					<Add directory="/usr/include/c++/8"/>
+					<Add directory="/usr/include/arm-linux-gnueabihf/c++/8"/>
+					<Add directory="/usr/include/c++/8/backward"/>
+					<Add directory="/usr/lib/gcc/arm-linux-gnueabihf/8/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/arm-linux-gnueabihf/8/include-fixed"/>
+					<Add directory="/usr/include/arm-linux-gnueabihf"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/tmp/tmp.Wyjid08Bsi/cmake-build-raspi-102/Yggdrasil/remote_control/utils/Makefile&quot;  VERBOSE=1 cmdio"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/tmp/tmp.Wyjid08Bsi/cmake-build-raspi-102/Yggdrasil/remote_control/utils/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/tmp/tmp.Wyjid08Bsi/cmake-build-raspi-102/Yggdrasil/remote_control/utils/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/tmp/tmp.Wyjid08Bsi/cmake-build-raspi-102/Yggdrasil/remote_control/utils/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="cmdio/fast">
+				<Option output="/tmp/tmp.Wyjid08Bsi/lib/libcmdio.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/tmp/tmp.Wyjid08Bsi/cmake-build-raspi-102/Yggdrasil/remote_control/utils"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/tmp/tmp.Wyjid08Bsi/Yggdrasil/remote_control/utils/../.."/>
+					<Add directory="/usr/include/c++/8"/>
+					<Add directory="/usr/include/arm-linux-gnueabihf/c++/8"/>
+					<Add directory="/usr/include/c++/8/backward"/>
+					<Add directory="/usr/lib/gcc/arm-linux-gnueabihf/8/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/arm-linux-gnueabihf/8/include-fixed"/>
+					<Add directory="/usr/include/arm-linux-gnueabihf"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/tmp/tmp.Wyjid08Bsi/cmake-build-raspi-102/Yggdrasil/remote_control/utils/Makefile&quot;  VERBOSE=1 cmdio/fast"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/tmp/tmp.Wyjid08Bsi/cmake-build-raspi-102/Yggdrasil/remote_control/utils/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/tmp/tmp.Wyjid08Bsi/cmake-build-raspi-102/Yggdrasil/remote_control/utils/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/tmp/tmp.Wyjid08Bsi/cmake-build-raspi-102/Yggdrasil/remote_control/utils/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+		</Build>
+		<Unit filename="/tmp/tmp.Wyjid08Bsi/Yggdrasil/remote_control/utils/cmdio.c">
+			<Option target="cmdio"/>
+		</Unit>
+		<Unit filename="/tmp/tmp.Wyjid08Bsi/Yggdrasil/remote_control/utils/cmdio.h">
+			<Option target="cmdio"/>
+		</Unit>
+		<Unit filename="/tmp/tmp.Wyjid08Bsi/Yggdrasil/remote_control/utils/commands.c">
+			<Option target="commands"/>
+		</Unit>
+		<Unit filename="/tmp/tmp.Wyjid08Bsi/Yggdrasil/remote_control/utils/commands.h">
+			<Option target="commands"/>
+		</Unit>
+		<Unit filename="/tmp/tmp.Wyjid08Bsi/Yggdrasil/remote_control/utils/control_protocol_utils.c">
+			<Option target="cmdio"/>
+		</Unit>
+		<Unit filename="/tmp/tmp.Wyjid08Bsi/Yggdrasil/remote_control/utils/control_protocol_utils.h">
+			<Option target="cmdio"/>
+		</Unit>
+		<Unit filename="/tmp/tmp.Wyjid08Bsi/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+		<Unit filename="/tmp/tmp.Wyjid08Bsi/Yggdrasil/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\Yggdrasil\"/>
+		</Unit>
+		<Unit filename="/tmp/tmp.Wyjid08Bsi/Yggdrasil/AntDFS/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\Yggdrasil\AntDFS\"/>
+		</Unit>
+		<Unit filename="/tmp/tmp.Wyjid08Bsi/Yggdrasil/AntDFS/utils/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\Yggdrasil\AntDFS\utils\"/>
+		</Unit>
+		<Unit filename="/tmp/tmp.Wyjid08Bsi/Yggdrasil/AntDFS/protocols/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\Yggdrasil\AntDFS\protocols\"/>
+		</Unit>
+		<Unit filename="/tmp/tmp.Wyjid08Bsi/Yggdrasil/AntDFS/applications/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\Yggdrasil\AntDFS\applications\"/>
+		</Unit>
+		<Unit filename="/tmp/tmp.Wyjid08Bsi/Yggdrasil/AntDFS/applications/CMake/FindFUSE.cmake">
+			<Option virtualFolder="CMake Files\Yggdrasil\AntDFS\applications\CMake\"/>
+		</Unit>
+		<Unit filename="/tmp/tmp.Wyjid08Bsi/Yggdrasil/applications/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\Yggdrasil\applications\"/>
+		</Unit>
+		<Unit filename="/tmp/tmp.Wyjid08Bsi/Yggdrasil/applications/demos/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\Yggdrasil\applications\demos\"/>
+		</Unit>
+		<Unit filename="/tmp/tmp.Wyjid08Bsi/Yggdrasil/applications/tests/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\Yggdrasil\applications\tests\"/>
+		</Unit>
+		<Unit filename="/tmp/tmp.Wyjid08Bsi/Yggdrasil/applications/tests/wireless/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\Yggdrasil\applications\tests\wireless\"/>
+		</Unit>
+		<Unit filename="/tmp/tmp.Wyjid08Bsi/Yggdrasil/applications/tests/other/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\Yggdrasil\applications\tests\other\"/>
+		</Unit>
+		<Unit filename="/tmp/tmp.Wyjid08Bsi/Yggdrasil/interfaces/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\Yggdrasil\interfaces\"/>
+		</Unit>
+		<Unit filename="/tmp/tmp.Wyjid08Bsi/Yggdrasil/protocols/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\Yggdrasil\protocols\"/>
+		</Unit>
+		<Unit filename="/tmp/tmp.Wyjid08Bsi/Yggdrasil/protocols/wireless/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\Yggdrasil\protocols\wireless\"/>
+		</Unit>
+		<Unit filename="/tmp/tmp.Wyjid08Bsi/Yggdrasil/utils/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\Yggdrasil\utils\"/>
+		</Unit>
+		<Unit filename="/tmp/tmp.Wyjid08Bsi/Yggdrasil/core/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\Yggdrasil\core\"/>
+		</Unit>
+		<Unit filename="/tmp/tmp.Wyjid08Bsi/Yggdrasil/remote_control/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\Yggdrasil\remote_control\"/>
+		</Unit>
+		<Unit filename="/tmp/tmp.Wyjid08Bsi/Yggdrasil/remote_control/utils/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\Yggdrasil\remote_control\utils\"/>
+		</Unit>
+		<Unit filename="/tmp/tmp.Wyjid08Bsi/Yggdrasil/remote_control/protocols/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\Yggdrasil\remote_control\protocols\"/>
+		</Unit>
+		<Unit filename="/tmp/tmp.Wyjid08Bsi/Yggdrasil/remote_control/applications/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\Yggdrasil\remote_control\applications\"/>
+		</Unit>
+		<Unit filename="/tmp/tmp.Wyjid08Bsi/Yggdrasil/remote_control_new/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\Yggdrasil\remote_control_new\"/>
+		</Unit>
+		<Unit filename="/tmp/tmp.Wyjid08Bsi/Yggdrasil/remote_control_new/utils/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\Yggdrasil\remote_control_new\utils\"/>
+		</Unit>
+		<Unit filename="/tmp/tmp.Wyjid08Bsi/Yggdrasil/remote_control_new/protocols/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\Yggdrasil\remote_control_new\protocols\"/>
+		</Unit>
+		<Unit filename="/tmp/tmp.Wyjid08Bsi/Yggdrasil/remote_control_new/applications/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\Yggdrasil\remote_control_new\applications\"/>
+		</Unit>
+		<Unit filename="/tmp/tmp.Wyjid08Bsi/Yggdrasil-LowLevelLib/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\Yggdrasil-LowLevelLib\"/>
+		</Unit>
+	</Project>
+</CodeBlocks_project_file>

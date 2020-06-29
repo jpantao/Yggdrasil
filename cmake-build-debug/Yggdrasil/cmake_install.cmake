@@ -46,7 +46,7 @@ if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   include("/home/jpantao/Git/BScResearch/Yggdrasil/cmake-build-debug/Yggdrasil/applications/cmake_install.cmake")
   include("/home/jpantao/Git/BScResearch/Yggdrasil/cmake-build-debug/Yggdrasil/remote_control/cmake_install.cmake")
   include("/home/jpantao/Git/BScResearch/Yggdrasil/cmake-build-debug/Yggdrasil/remote_control_new/cmake_install.cmake")
-  include("/home/jpantao/Git/BScResearch/Yggdrasil/cmake-build-debug/Yggdrasil/YggDFS/cmake_install.cmake")
+  include("/home/jpantao/Git/BScResearch/Yggdrasil/cmake-build-debug/Yggdrasil/AntDFS/cmake_install.cmake")
 
 endif()
 

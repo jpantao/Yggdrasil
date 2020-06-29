@@ -1,0 +1,2 @@
+/usr/bin/ar qc ../../../../lib/liblimosense.a  CMakeFiles/limosense.dir/aggregation/LiMoSense.c.o
+/usr/bin/ranlib ../../../../lib/liblimosense.a

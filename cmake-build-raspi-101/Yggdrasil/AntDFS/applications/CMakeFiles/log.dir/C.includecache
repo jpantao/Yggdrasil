@@ -1,0 +1,42 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/tmp/tmp.4yRsQEGfYg/Yggdrasil/AntDFS/applications/log.c
+params.h
+/tmp/tmp.4yRsQEGfYg/Yggdrasil/AntDFS/applications/params.h
+errno.h
+-
+fuse.h
+-
+stdarg.h
+-
+stdio.h
+-
+stdlib.h
+-
+string.h
+-
+unistd.h
+-
+sys/types.h
+-
+sys/stat.h
+-
+log.h
+/tmp/tmp.4yRsQEGfYg/Yggdrasil/AntDFS/applications/log.h
+
+/tmp/tmp.4yRsQEGfYg/Yggdrasil/AntDFS/applications/log.h
+stdio.h
+-
+fuse.h
+-
+
+/tmp/tmp.4yRsQEGfYg/Yggdrasil/AntDFS/applications/params.h
+stdio.h
+-
+

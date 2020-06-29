@@ -1,0 +1,2 @@
+/usr/bin/ar qc ../../../lib/librouting_interface.a  CMakeFiles/routing_interface.dir/routing/routing_interface.c.o
+/usr/bin/ranlib ../../../lib/librouting_interface.a

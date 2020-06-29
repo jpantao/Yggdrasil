@@ -46,7 +46,7 @@ if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   include("/tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101/Yggdrasil/applications/cmake_install.cmake")
   include("/tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101/Yggdrasil/remote_control/cmake_install.cmake")
   include("/tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101/Yggdrasil/remote_control_new/cmake_install.cmake")
-  include("/tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101/Yggdrasil/YggDFS/cmake_install.cmake")
+  include("/tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101/Yggdrasil/AntDFS/cmake_install.cmake")
 
 endif()
 

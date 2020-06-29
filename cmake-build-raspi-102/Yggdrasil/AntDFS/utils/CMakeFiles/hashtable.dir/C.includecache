@@ -1,0 +1,26 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/tmp/tmp.Wyjid08Bsi/Yggdrasil/AntDFS/utils/hashfunctions.h
+stdio.h
+-
+
+/tmp/tmp.Wyjid08Bsi/Yggdrasil/AntDFS/utils/hashtable.c
+stdio.h
+-
+stdlib.h
+-
+string.h
+-
+hashtable.h
+/tmp/tmp.Wyjid08Bsi/Yggdrasil/AntDFS/utils/hashtable.h
+hashfunctions.h
+/tmp/tmp.Wyjid08Bsi/Yggdrasil/AntDFS/utils/hashfunctions.h
+
+/tmp/tmp.Wyjid08Bsi/Yggdrasil/AntDFS/utils/hashtable.h
+

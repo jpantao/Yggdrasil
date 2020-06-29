@@ -1,0 +1,1 @@
+/usr/bin/cc  -g -Wall -O0 -g  -rdynamic CMakeFiles/cmddebug.dir/tools/debugneighbors.c.o  -o ../../../../bin/cmddebug ../../../../lib/libcmdio_new.a -luuid 

@@ -1,0 +1,2 @@
+/usr/bin/ar qc ../../../../lib/libantdfs_fuse.a  CMakeFiles/antdfs_fuse.dir/antdfs_fuse.c.o
+/usr/bin/ranlib ../../../../lib/libantdfs_fuse.a

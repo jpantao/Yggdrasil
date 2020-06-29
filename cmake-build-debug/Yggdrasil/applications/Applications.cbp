@@ -5,7 +5,7 @@
 		<Option title="Applications"/>
 		<Option makefile_is_custom="1"/>
 		<Option compiler="gcc"/>
-		<Option virtualFolders="CMake Files\;CMake Files\Yggdrasil\;CMake Files\Yggdrasil\applications\;CMake Files\Yggdrasil\applications\demos\;CMake Files\Yggdrasil\applications\tests\;CMake Files\Yggdrasil\applications\tests\wireless\;CMake Files\Yggdrasil\applications\tests\other\;CMake Files\Yggdrasil\interfaces\;CMake Files\Yggdrasil\protocols\;CMake Files\Yggdrasil\protocols\wireless\;CMake Files\Yggdrasil\utils\;CMake Files\Yggdrasil\YggDFS\;CMake Files\Yggdrasil\YggDFS\utils\;CMake Files\Yggdrasil\YggDFS\protocols\;CMake Files\Yggdrasil\YggDFS\applications\;CMake Files\Yggdrasil\YggDFS\applications\CMake\;CMake Files\Yggdrasil\core\;CMake Files\Yggdrasil\remote_control\;CMake Files\Yggdrasil\remote_control\utils\;CMake Files\Yggdrasil\remote_control\protocols\;CMake Files\Yggdrasil\remote_control\applications\;CMake Files\Yggdrasil\remote_control_new\;CMake Files\Yggdrasil\remote_control_new\utils\;CMake Files\Yggdrasil\remote_control_new\protocols\;CMake Files\Yggdrasil\remote_control_new\applications\;CMake Files\Yggdrasil-LowLevelLib\;"/>
+		<Option virtualFolders="CMake Files\;CMake Files\Yggdrasil\;CMake Files\Yggdrasil\AntDFS\;CMake Files\Yggdrasil\AntDFS\utils\;CMake Files\Yggdrasil\AntDFS\protocols\;CMake Files\Yggdrasil\AntDFS\applications\;CMake Files\Yggdrasil\AntDFS\applications\CMake\;CMake Files\Yggdrasil\applications\;CMake Files\Yggdrasil\applications\demos\;CMake Files\Yggdrasil\applications\tests\;CMake Files\Yggdrasil\applications\tests\wireless\;CMake Files\Yggdrasil\applications\tests\other\;CMake Files\Yggdrasil\interfaces\;CMake Files\Yggdrasil\protocols\;CMake Files\Yggdrasil\protocols\wireless\;CMake Files\Yggdrasil\utils\;CMake Files\Yggdrasil\core\;CMake Files\Yggdrasil\remote_control\;CMake Files\Yggdrasil\remote_control\utils\;CMake Files\Yggdrasil\remote_control\protocols\;CMake Files\Yggdrasil\remote_control\applications\;CMake Files\Yggdrasil\remote_control_new\;CMake Files\Yggdrasil\remote_control_new\utils\;CMake Files\Yggdrasil\remote_control_new\protocols\;CMake Files\Yggdrasil\remote_control_new\applications\;CMake Files\Yggdrasil-LowLevelLib\;"/>
 		<Build>
 			<Target title="all">
 				<Option working_dir="/home/jpantao/Git/BScResearch/Yggdrasil/cmake-build-debug/Yggdrasil/applications"/>
@@ -1002,6 +1002,21 @@
 		<Unit filename="/home/jpantao/Git/BScResearch/Yggdrasil/Yggdrasil/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\Yggdrasil\"/>
 		</Unit>
+		<Unit filename="/home/jpantao/Git/BScResearch/Yggdrasil/Yggdrasil/AntDFS/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\Yggdrasil\AntDFS\"/>
+		</Unit>
+		<Unit filename="/home/jpantao/Git/BScResearch/Yggdrasil/Yggdrasil/AntDFS/utils/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\Yggdrasil\AntDFS\utils\"/>
+		</Unit>
+		<Unit filename="/home/jpantao/Git/BScResearch/Yggdrasil/Yggdrasil/AntDFS/protocols/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\Yggdrasil\AntDFS\protocols\"/>
+		</Unit>
+		<Unit filename="/home/jpantao/Git/BScResearch/Yggdrasil/Yggdrasil/AntDFS/applications/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\Yggdrasil\AntDFS\applications\"/>
+		</Unit>
+		<Unit filename="/home/jpantao/Git/BScResearch/Yggdrasil/Yggdrasil/AntDFS/applications/CMake/FindFUSE.cmake">
+			<Option virtualFolder="CMake Files\Yggdrasil\AntDFS\applications\CMake\"/>
+		</Unit>
 		<Unit filename="/home/jpantao/Git/BScResearch/Yggdrasil/Yggdrasil/applications/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\Yggdrasil\applications\"/>
 		</Unit>
@@ -1028,21 +1043,6 @@
 		</Unit>
 		<Unit filename="/home/jpantao/Git/BScResearch/Yggdrasil/Yggdrasil/utils/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\Yggdrasil\utils\"/>
-		</Unit>
-		<Unit filename="/home/jpantao/Git/BScResearch/Yggdrasil/Yggdrasil/YggDFS/CMakeLists.txt">
-			<Option virtualFolder="CMake Files\Yggdrasil\YggDFS\"/>
-		</Unit>
-		<Unit filename="/home/jpantao/Git/BScResearch/Yggdrasil/Yggdrasil/YggDFS/utils/CMakeLists.txt">
-			<Option virtualFolder="CMake Files\Yggdrasil\YggDFS\utils\"/>
-		</Unit>
-		<Unit filename="/home/jpantao/Git/BScResearch/Yggdrasil/Yggdrasil/YggDFS/protocols/CMakeLists.txt">
-			<Option virtualFolder="CMake Files\Yggdrasil\YggDFS\protocols\"/>
-		</Unit>
-		<Unit filename="/home/jpantao/Git/BScResearch/Yggdrasil/Yggdrasil/YggDFS/applications/CMakeLists.txt">
-			<Option virtualFolder="CMake Files\Yggdrasil\YggDFS\applications\"/>
-		</Unit>
-		<Unit filename="/home/jpantao/Git/BScResearch/Yggdrasil/Yggdrasil/YggDFS/applications/CMake/FindFUSE.cmake">
-			<Option virtualFolder="CMake Files\Yggdrasil\YggDFS\applications\CMake\"/>
 		</Unit>
 		<Unit filename="/home/jpantao/Git/BScResearch/Yggdrasil/Yggdrasil/core/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\Yggdrasil\core\"/>

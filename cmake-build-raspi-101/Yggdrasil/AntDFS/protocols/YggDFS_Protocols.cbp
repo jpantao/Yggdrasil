@@ -1,0 +1,292 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6"/>
+	<Project>
+		<Option title="YggDFS_Protocols"/>
+		<Option makefile_is_custom="1"/>
+		<Option compiler="gcc"/>
+		<Option virtualFolders="CMake Files\;CMake Files\Yggdrasil\;CMake Files\Yggdrasil\applications\;CMake Files\Yggdrasil\applications\demos\;CMake Files\Yggdrasil\applications\tests\;CMake Files\Yggdrasil\applications\tests\wireless\;CMake Files\Yggdrasil\applications\tests\other\;CMake Files\Yggdrasil\interfaces\;CMake Files\Yggdrasil\protocols\;CMake Files\Yggdrasil\protocols\wireless\;CMake Files\Yggdrasil\utils\;CMake Files\Yggdrasil\AntDFS\;CMake Files\Yggdrasil\AntDFS\utils\;CMake Files\Yggdrasil\AntDFS\protocols\;CMake Files\Yggdrasil\AntDFS\applications\;CMake Files\Yggdrasil\AntDFS\applications\CMake\;CMake Files\Yggdrasil\core\;CMake Files\Yggdrasil\remote_control\;CMake Files\Yggdrasil\remote_control\utils\;CMake Files\Yggdrasil\remote_control\protocols\;CMake Files\Yggdrasil\remote_control\applications\;CMake Files\Yggdrasil\remote_control_new\;CMake Files\Yggdrasil\remote_control_new\utils\;CMake Files\Yggdrasil\remote_control_new\protocols\;CMake Files\Yggdrasil\remote_control_new\applications\;CMake Files\Yggdrasil-LowLevelLib\;"/>
+		<Build>
+			<Target title="all">
+				<Option working_dir="/tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101/Yggdrasil/AntDFS/protocols"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101/Yggdrasil/AntDFS/protocols/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101/Yggdrasil/AntDFS/protocols/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101/Yggdrasil/AntDFS/protocols/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101/Yggdrasil/AntDFS/protocols/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="reliable_dissemination">
+				<Option output="/tmp/tmp.4yRsQEGfYg/lib/libreliable_dissemination.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101/Yggdrasil/AntDFS/protocols"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add option="-DWIRELESS_NETWORKS"/>
+					<Add option="-DNEW"/>
+					<Add directory="/tmp/tmp.4yRsQEGfYg/Yggdrasil/AntDFS/protocols/../.."/>
+					<Add directory="/tmp/tmp.4yRsQEGfYg/Yggdrasil/core/."/>
+					<Add directory="/tmp/tmp.4yRsQEGfYg/Yggdrasil/core/../../Yggdrasil-LowLevelLib"/>
+					<Add directory="/usr/include/libnl3"/>
+					<Add directory="/usr/include/c++/8"/>
+					<Add directory="/usr/include/arm-linux-gnueabihf/c++/8"/>
+					<Add directory="/usr/include/c++/8/backward"/>
+					<Add directory="/usr/lib/gcc/arm-linux-gnueabihf/8/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/arm-linux-gnueabihf/8/include-fixed"/>
+					<Add directory="/usr/include/arm-linux-gnueabihf"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101/Yggdrasil/AntDFS/protocols/Makefile&quot;  VERBOSE=1 reliable_dissemination"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101/Yggdrasil/AntDFS/protocols/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101/Yggdrasil/AntDFS/protocols/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101/Yggdrasil/AntDFS/protocols/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="reliable_dissemination/fast">
+				<Option output="/tmp/tmp.4yRsQEGfYg/lib/libreliable_dissemination.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101/Yggdrasil/AntDFS/protocols"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add option="-DWIRELESS_NETWORKS"/>
+					<Add option="-DNEW"/>
+					<Add directory="/tmp/tmp.4yRsQEGfYg/Yggdrasil/AntDFS/protocols/../.."/>
+					<Add directory="/tmp/tmp.4yRsQEGfYg/Yggdrasil/core/."/>
+					<Add directory="/tmp/tmp.4yRsQEGfYg/Yggdrasil/core/../../Yggdrasil-LowLevelLib"/>
+					<Add directory="/usr/include/libnl3"/>
+					<Add directory="/usr/include/c++/8"/>
+					<Add directory="/usr/include/arm-linux-gnueabihf/c++/8"/>
+					<Add directory="/usr/include/c++/8/backward"/>
+					<Add directory="/usr/lib/gcc/arm-linux-gnueabihf/8/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/arm-linux-gnueabihf/8/include-fixed"/>
+					<Add directory="/usr/include/arm-linux-gnueabihf"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101/Yggdrasil/AntDFS/protocols/Makefile&quot;  VERBOSE=1 reliable_dissemination/fast"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101/Yggdrasil/AntDFS/protocols/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101/Yggdrasil/AntDFS/protocols/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101/Yggdrasil/AntDFS/protocols/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="routing">
+				<Option output="/tmp/tmp.4yRsQEGfYg/lib/librouting.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101/Yggdrasil/AntDFS/protocols"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add option="-DWIRELESS_NETWORKS"/>
+					<Add option="-DNEW"/>
+					<Add directory="/tmp/tmp.4yRsQEGfYg/Yggdrasil/AntDFS/protocols/../.."/>
+					<Add directory="/tmp/tmp.4yRsQEGfYg/Yggdrasil/core/."/>
+					<Add directory="/tmp/tmp.4yRsQEGfYg/Yggdrasil/core/../../Yggdrasil-LowLevelLib"/>
+					<Add directory="/usr/include/libnl3"/>
+					<Add directory="/usr/include/c++/8"/>
+					<Add directory="/usr/include/arm-linux-gnueabihf/c++/8"/>
+					<Add directory="/usr/include/c++/8/backward"/>
+					<Add directory="/usr/lib/gcc/arm-linux-gnueabihf/8/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/arm-linux-gnueabihf/8/include-fixed"/>
+					<Add directory="/usr/include/arm-linux-gnueabihf"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101/Yggdrasil/AntDFS/protocols/Makefile&quot;  VERBOSE=1 routing"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101/Yggdrasil/AntDFS/protocols/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101/Yggdrasil/AntDFS/protocols/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101/Yggdrasil/AntDFS/protocols/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="routing/fast">
+				<Option output="/tmp/tmp.4yRsQEGfYg/lib/librouting.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101/Yggdrasil/AntDFS/protocols"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add option="-DWIRELESS_NETWORKS"/>
+					<Add option="-DNEW"/>
+					<Add directory="/tmp/tmp.4yRsQEGfYg/Yggdrasil/AntDFS/protocols/../.."/>
+					<Add directory="/tmp/tmp.4yRsQEGfYg/Yggdrasil/core/."/>
+					<Add directory="/tmp/tmp.4yRsQEGfYg/Yggdrasil/core/../../Yggdrasil-LowLevelLib"/>
+					<Add directory="/usr/include/libnl3"/>
+					<Add directory="/usr/include/c++/8"/>
+					<Add directory="/usr/include/arm-linux-gnueabihf/c++/8"/>
+					<Add directory="/usr/include/c++/8/backward"/>
+					<Add directory="/usr/lib/gcc/arm-linux-gnueabihf/8/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/arm-linux-gnueabihf/8/include-fixed"/>
+					<Add directory="/usr/include/arm-linux-gnueabihf"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101/Yggdrasil/AntDFS/protocols/Makefile&quot;  VERBOSE=1 routing/fast"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101/Yggdrasil/AntDFS/protocols/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101/Yggdrasil/AntDFS/protocols/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101/Yggdrasil/AntDFS/protocols/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="discovery">
+				<Option output="/tmp/tmp.4yRsQEGfYg/lib/libdiscovery.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101/Yggdrasil/AntDFS/protocols"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add option="-DWIRELESS_NETWORKS"/>
+					<Add option="-DNEW"/>
+					<Add directory="/tmp/tmp.4yRsQEGfYg/Yggdrasil/AntDFS/protocols/../.."/>
+					<Add directory="/tmp/tmp.4yRsQEGfYg/Yggdrasil/core/."/>
+					<Add directory="/tmp/tmp.4yRsQEGfYg/Yggdrasil/core/../../Yggdrasil-LowLevelLib"/>
+					<Add directory="/usr/include/libnl3"/>
+					<Add directory="/usr/include/c++/8"/>
+					<Add directory="/usr/include/arm-linux-gnueabihf/c++/8"/>
+					<Add directory="/usr/include/c++/8/backward"/>
+					<Add directory="/usr/lib/gcc/arm-linux-gnueabihf/8/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/arm-linux-gnueabihf/8/include-fixed"/>
+					<Add directory="/usr/include/arm-linux-gnueabihf"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101/Yggdrasil/AntDFS/protocols/Makefile&quot;  VERBOSE=1 discovery"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101/Yggdrasil/AntDFS/protocols/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101/Yggdrasil/AntDFS/protocols/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101/Yggdrasil/AntDFS/protocols/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="discovery/fast">
+				<Option output="/tmp/tmp.4yRsQEGfYg/lib/libdiscovery.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101/Yggdrasil/AntDFS/protocols"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add option="-DWIRELESS_NETWORKS"/>
+					<Add option="-DNEW"/>
+					<Add directory="/tmp/tmp.4yRsQEGfYg/Yggdrasil/AntDFS/protocols/../.."/>
+					<Add directory="/tmp/tmp.4yRsQEGfYg/Yggdrasil/core/."/>
+					<Add directory="/tmp/tmp.4yRsQEGfYg/Yggdrasil/core/../../Yggdrasil-LowLevelLib"/>
+					<Add directory="/usr/include/libnl3"/>
+					<Add directory="/usr/include/c++/8"/>
+					<Add directory="/usr/include/arm-linux-gnueabihf/c++/8"/>
+					<Add directory="/usr/include/c++/8/backward"/>
+					<Add directory="/usr/lib/gcc/arm-linux-gnueabihf/8/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/arm-linux-gnueabihf/8/include-fixed"/>
+					<Add directory="/usr/include/arm-linux-gnueabihf"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101/Yggdrasil/AntDFS/protocols/Makefile&quot;  VERBOSE=1 discovery/fast"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101/Yggdrasil/AntDFS/protocols/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101/Yggdrasil/AntDFS/protocols/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101/Yggdrasil/AntDFS/protocols/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+		</Build>
+		<Unit filename="/tmp/tmp.4yRsQEGfYg/Yggdrasil/AntDFS/protocols/batman.c">
+			<Option target="routing"/>
+		</Unit>
+		<Unit filename="/tmp/tmp.4yRsQEGfYg/Yggdrasil/AntDFS/protocols/batman.h">
+			<Option target="routing"/>
+		</Unit>
+		<Unit filename="/tmp/tmp.4yRsQEGfYg/Yggdrasil/AntDFS/protocols/discovery.c">
+			<Option target="discovery"/>
+		</Unit>
+		<Unit filename="/tmp/tmp.4yRsQEGfYg/Yggdrasil/AntDFS/protocols/discovery.h">
+			<Option target="discovery"/>
+		</Unit>
+		<Unit filename="/tmp/tmp.4yRsQEGfYg/Yggdrasil/AntDFS/protocols/reliable_dissemination.c">
+			<Option target="reliable_dissemination"/>
+		</Unit>
+		<Unit filename="/tmp/tmp.4yRsQEGfYg/Yggdrasil/AntDFS/protocols/reliable_dissemination.h">
+			<Option target="reliable_dissemination"/>
+		</Unit>
+		<Unit filename="/tmp/tmp.4yRsQEGfYg/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+		<Unit filename="/tmp/tmp.4yRsQEGfYg/Yggdrasil/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\Yggdrasil\"/>
+		</Unit>
+		<Unit filename="/tmp/tmp.4yRsQEGfYg/Yggdrasil/applications/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\Yggdrasil\applications\"/>
+		</Unit>
+		<Unit filename="/tmp/tmp.4yRsQEGfYg/Yggdrasil/applications/demos/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\Yggdrasil\applications\demos\"/>
+		</Unit>
+		<Unit filename="/tmp/tmp.4yRsQEGfYg/Yggdrasil/applications/tests/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\Yggdrasil\applications\tests\"/>
+		</Unit>
+		<Unit filename="/tmp/tmp.4yRsQEGfYg/Yggdrasil/applications/tests/wireless/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\Yggdrasil\applications\tests\wireless\"/>
+		</Unit>
+		<Unit filename="/tmp/tmp.4yRsQEGfYg/Yggdrasil/applications/tests/other/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\Yggdrasil\applications\tests\other\"/>
+		</Unit>
+		<Unit filename="/tmp/tmp.4yRsQEGfYg/Yggdrasil/interfaces/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\Yggdrasil\interfaces\"/>
+		</Unit>
+		<Unit filename="/tmp/tmp.4yRsQEGfYg/Yggdrasil/protocols/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\Yggdrasil\protocols\"/>
+		</Unit>
+		<Unit filename="/tmp/tmp.4yRsQEGfYg/Yggdrasil/protocols/wireless/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\Yggdrasil\protocols\wireless\"/>
+		</Unit>
+		<Unit filename="/tmp/tmp.4yRsQEGfYg/Yggdrasil/utils/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\Yggdrasil\utils\"/>
+		</Unit>
+		<Unit filename="/tmp/tmp.4yRsQEGfYg/Yggdrasil/AntDFS/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\Yggdrasil\AntDFS\"/>
+		</Unit>
+		<Unit filename="/tmp/tmp.4yRsQEGfYg/Yggdrasil/AntDFS/utils/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\Yggdrasil\AntDFS\utils\"/>
+		</Unit>
+		<Unit filename="/tmp/tmp.4yRsQEGfYg/Yggdrasil/AntDFS/protocols/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\Yggdrasil\AntDFS\protocols\"/>
+		</Unit>
+		<Unit filename="/tmp/tmp.4yRsQEGfYg/Yggdrasil/AntDFS/applications/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\Yggdrasil\AntDFS\applications\"/>
+		</Unit>
+		<Unit filename="/tmp/tmp.4yRsQEGfYg/Yggdrasil/AntDFS/applications/CMake/FindFUSE.cmake">
+			<Option virtualFolder="CMake Files\Yggdrasil\AntDFS\applications\CMake\"/>
+		</Unit>
+		<Unit filename="/tmp/tmp.4yRsQEGfYg/Yggdrasil/core/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\Yggdrasil\core\"/>
+		</Unit>
+		<Unit filename="/tmp/tmp.4yRsQEGfYg/Yggdrasil/remote_control/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\Yggdrasil\remote_control\"/>
+		</Unit>
+		<Unit filename="/tmp/tmp.4yRsQEGfYg/Yggdrasil/remote_control/utils/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\Yggdrasil\remote_control\utils\"/>
+		</Unit>
+		<Unit filename="/tmp/tmp.4yRsQEGfYg/Yggdrasil/remote_control/protocols/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\Yggdrasil\remote_control\protocols\"/>
+		</Unit>
+		<Unit filename="/tmp/tmp.4yRsQEGfYg/Yggdrasil/remote_control/applications/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\Yggdrasil\remote_control\applications\"/>
+		</Unit>
+		<Unit filename="/tmp/tmp.4yRsQEGfYg/Yggdrasil/remote_control_new/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\Yggdrasil\remote_control_new\"/>
+		</Unit>
+		<Unit filename="/tmp/tmp.4yRsQEGfYg/Yggdrasil/remote_control_new/utils/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\Yggdrasil\remote_control_new\utils\"/>
+		</Unit>
+		<Unit filename="/tmp/tmp.4yRsQEGfYg/Yggdrasil/remote_control_new/protocols/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\Yggdrasil\remote_control_new\protocols\"/>
+		</Unit>
+		<Unit filename="/tmp/tmp.4yRsQEGfYg/Yggdrasil/remote_control_new/applications/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\Yggdrasil\remote_control_new\applications\"/>
+		</Unit>
+		<Unit filename="/tmp/tmp.4yRsQEGfYg/Yggdrasil-LowLevelLib/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\Yggdrasil-LowLevelLib\"/>
+		</Unit>
+	</Project>
+</CodeBlocks_project_file>

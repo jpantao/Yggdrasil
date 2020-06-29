@@ -15,6 +15,30 @@
 ########################
 
 //Value Computed by CMake
+AntDFS_Applications_BINARY_DIR:STATIC=/tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101/Yggdrasil/AntDFS/applications
+
+//Value Computed by CMake
+AntDFS_Applications_SOURCE_DIR:STATIC=/tmp/tmp.4yRsQEGfYg/Yggdrasil/AntDFS/applications
+
+//Value Computed by CMake
+AntDFS_BINARY_DIR:STATIC=/tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101/Yggdrasil/AntDFS
+
+//Value Computed by CMake
+AntDFS_Protocols_BINARY_DIR:STATIC=/tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101/Yggdrasil/AntDFS/protocols
+
+//Value Computed by CMake
+AntDFS_Protocols_SOURCE_DIR:STATIC=/tmp/tmp.4yRsQEGfYg/Yggdrasil/AntDFS/protocols
+
+//Value Computed by CMake
+AntDFS_SOURCE_DIR:STATIC=/tmp/tmp.4yRsQEGfYg/Yggdrasil/AntDFS
+
+//Value Computed by CMake
+AntDFS_Utils_BINARY_DIR:STATIC=/tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101/Yggdrasil/AntDFS/utils
+
+//Value Computed by CMake
+AntDFS_Utils_SOURCE_DIR:STATIC=/tmp/tmp.4yRsQEGfYg/Yggdrasil/AntDFS/utils
+
+//Value Computed by CMake
 Applications_BINARY_DIR:STATIC=/tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101/Yggdrasil/applications
 
 //Value Computed by CMake
@@ -266,30 +290,6 @@ Wireless_Protocols_BINARY_DIR:STATIC=/tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101/Y
 Wireless_Protocols_SOURCE_DIR:STATIC=/tmp/tmp.4yRsQEGfYg/Yggdrasil/protocols/wireless
 
 //Value Computed by CMake
-YggDFS_Applications_BINARY_DIR:STATIC=/tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101/Yggdrasil/YggDFS/applications
-
-//Value Computed by CMake
-YggDFS_Applications_SOURCE_DIR:STATIC=/tmp/tmp.4yRsQEGfYg/Yggdrasil/YggDFS/applications
-
-//Value Computed by CMake
-YggDFS_BINARY_DIR:STATIC=/tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101/Yggdrasil/YggDFS
-
-//Value Computed by CMake
-YggDFS_Protocols_BINARY_DIR:STATIC=/tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101/Yggdrasil/YggDFS/protocols
-
-//Value Computed by CMake
-YggDFS_Protocols_SOURCE_DIR:STATIC=/tmp/tmp.4yRsQEGfYg/Yggdrasil/YggDFS/protocols
-
-//Value Computed by CMake
-YggDFS_SOURCE_DIR:STATIC=/tmp/tmp.4yRsQEGfYg/Yggdrasil/YggDFS
-
-//Value Computed by CMake
-YggDFS_Utils_BINARY_DIR:STATIC=/tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101/Yggdrasil/YggDFS/utils
-
-//Value Computed by CMake
-YggDFS_Utils_SOURCE_DIR:STATIC=/tmp/tmp.4yRsQEGfYg/Yggdrasil/YggDFS/utils
-
-//Value Computed by CMake
 Yggdrasil_BINARY_DIR:STATIC=/tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101/Yggdrasil
 
 //Value Computed by CMake
@@ -309,6 +309,9 @@ Yggdrasil_ll_SOURCE_DIR:STATIC=/tmp/tmp.4yRsQEGfYg/Yggdrasil-LowLevelLib
 
 //Dependencies for the target
 aggregation_interface_LIB_DEPENDS:STATIC=general;yggcore_wireless_new;
+
+//Dependencies for the target
+antdfs_fuse_LIB_DEPENDS:STATIC=general;antdfs_utils;general;log;
 
 //Dependencies for the target
 batman_LIB_DEPENDS:STATIC=general;yggcore_wireless_new;general;routing_interface;general;neighbour_list;
@@ -456,9 +459,6 @@ yggcore_wireless_LIB_DEPENDS:STATIC=general;ygglib_wireless;general;gen_data_str
 
 //Dependencies for the target
 yggcore_wireless_new_LIB_DEPENDS:STATIC=general;ygglib_wireless_new;general;gen_data_structs;general;m;general;pthread;general;uuid;general;rt;
-
-//Dependencies for the target
-yggdfs_fuse_LIB_DEPENDS:STATIC=general;yggdfs_utils;general;log;
 
 //Dependencies for the target
 ygglib_ip_LIB_DEPENDS:STATIC=general;ygglib_base;

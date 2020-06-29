@@ -1,0 +1,1 @@
+/usr/bin/cc  -g -Wall -O0 -g  -rdynamic CMakeFiles/cmdexecuteexperience.dir/tools/beginexperience.c.o  -o ../../../../bin/cmdexecuteexperience ../../../../lib/libcmdio_new.a -luuid 
