@@ -28,6 +28,7 @@ int exec_releasedir(int socket, const char *path, int len);
 #define GETATTR_REQ 101
 #define OPENDIR_REQ 102
 #define READDIR_REQ 103
+#define RELEASEDIR_REQ 104
 #define OPEN_REQ 200
 
 // Define block codes

@@ -386,6 +386,8 @@ static int exec_operation(int socket) {
             return exec_opendir(socket, path, len);
         case READDIR_REQ:
             return exec_readdir(socket, path, len);
+        case RELEASEDIR_REQ:
+            return exec_releasedir(socket, path, len);
         default:
             sprintf(msg, "Undefined operation: %d", op);
             ygg_log("AntDFS", "ERROR", msg);
