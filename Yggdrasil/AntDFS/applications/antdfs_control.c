@@ -116,9 +116,8 @@ static int full2relative(char *path, const char *fpath, bool local) {
 
 //pre: path is not NULL
 static int relative2full(char *fpath, const char *path, bool local) {
-    bzero(fpath, PATH_MAX);
-
-
+    if(fpath[0] != '\0')
+        bzero(fpath, PATH_MAX);
     strcat(fpath, local ? LOCAL_FILES_LOC : REMOTE_FILES_LOC);
     strcat(fpath, path);
 
@@ -266,6 +265,13 @@ int exec_getattr(int socket, const char *path, int len) {
     return retstat;
 }
 
+static void updateFileStats(struct stat* dest, struct stat* origin) {
+    dest->st_dev = origin->st_dev;
+    dest->st_ino = origin->st_ino;
+    dest->st_rdev = origin->st_rdev;
+    dest->st_uid = origin->st_uid;
+}
+
 static void process_message(YggMessage *msg) {
     ygg_log("AntDFS", "DEBUG", "Processing message");
     uuid_t myid;
@@ -286,6 +292,9 @@ static void process_message(YggMessage *msg) {
 
     bool myself = (uuid_compare(myid, uid) == 0);
 
+    char fullpath[500];
+    struct stat st;
+
     if(myself == false) {
         while (len > 0) {
             finfo *file;
@@ -299,11 +308,19 @@ static void process_message(YggMessage *msg) {
                 table_insert(global_files, file->path, file);
                 if (S_ISDIR(file->info.st_mode)) {
                     create_dir(file->path, false, file->info.st_mode);
+                    bzero(fullpath,500);
+                    relative2full(fullpath, file->path, false);
+                    lstat(fullpath, &st);
+                    updateFileStats(&file->info, &st);
                 } else {
                     char *dir = getDir(file->path);
                     if (dir != NULL)
                         create_dir(dir, false, file->info.st_mode);
                     create_empty_file(file->path, false, file->info.st_mode);
+                    bzero(fullpath,500);
+                    relative2full(fullpath, file->path, false);
+                    lstat(fullpath, &st);
+                    updateFileStats(&file->info, &st);
                 }
             } else {
                 previous->info = file->info;
