@@ -47,11 +47,16 @@ static finfo *finfo_init(uuid_t uid, bool local, char *path, struct stat info) {
 }
 
 static void create_empty_file(char *path, bool local, mode_t mode) {
-    int parent_fd = open(local ? LOCAL_FILES_LOC : REMOTE_FILES_LOC, O_DIRECTORY, O_RDWR);
-    openat(parent_fd, path, O_CREAT, mode);
+    printf(" ==> Creating file with name: %s\n", path);
+    char completepath[500];
+    bzero(completepath,500);
+    strcat(completepath, local ? LOCAL_FILES_LOC : REMOTE_FILES_LOC);
+    strcat(completepath, path);
+    if(open(completepath, O_CREAT, mode) == -1)
+        perror("openat");
 }
 
-static void create_dir_relative(int parent_fd, char *path, mode_t mode) {
+static void create_dir_relative(char* basedir, char *path, mode_t mode) {
     int max = (int) strlen(path);
     int index = 1;
     while (index < max) {
@@ -62,17 +67,21 @@ static void create_dir_relative(int parent_fd, char *path, mode_t mode) {
         char tmp[index + 2];
         memcpy(tmp, path, index + 1);
         tmp[index + 1] = '\0';
-        mkdirat(parent_fd, tmp, mode);
+        printf(" ==> Creating directory with name: %s\n", tmp);
+        char completepath[500];
+        bzero(completepath,500);
+        strcat(completepath, basedir);
+        strcat(completepath, tmp);
+        if(mkdir(completepath, mode) == -1)
+            perror("mkdir");
         index++;
     }
 }
 
 static void create_dir(char *path, bool local, mode_t mode) {
-    int parent_fd = open(local ? LOCAL_FILES_LOC : REMOTE_FILES_LOC, O_DIRECTORY, O_RDWR);
-    create_dir_relative(parent_fd, path, mode);
+    create_dir_relative(local ? LOCAL_FILES_LOC : REMOTE_FILES_LOC, path, mode);
     if (!local) {
-        parent_fd = open(FETCHED_BLOCKS_LOC, O_DIRECTORY, O_RDWR);
-        create_dir_relative(parent_fd, path, mode);
+        create_dir_relative(FETCHED_BLOCKS_LOC, path, mode);
     }
 }
 
@@ -98,7 +107,7 @@ static int full2relative(char *path, const char *fpath, bool local) {
 
     strcpy(path, fpath + len);
 
-    char msg[PATH_MAX];
+    char msg[500];
     sprintf(msg, "Converted from %s to %s", fpath, path);
     ygg_log("ANTDFS", "INFO", msg);
 
@@ -113,7 +122,7 @@ static int relative2full(char *fpath, const char *path, bool local) {
     strcat(fpath, local ? LOCAL_FILES_LOC : REMOTE_FILES_LOC);
     strcat(fpath, path);
 
-    char *msg;
+    char msg[500];
     sprintf(msg, "Converted from %s to %s", path, fpath);
     ygg_log("ANTDFS", "INFO", msg);
 
@@ -155,7 +164,10 @@ static void register_dir_rec(char *rootdir, bool local) {
             pthread_mutex_unlock(&global_mutex);
 
             if (S_ISDIR(inf.st_mode)) {
+                create_dir(antdfs_path, false, inf.st_mode);
                 register_dir_rec(fullname, local);
+            } else {
+                create_empty_file(antdfs_path, false, inf.st_mode);
             }
 
             free(fullname);

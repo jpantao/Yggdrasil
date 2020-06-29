@@ -108,7 +108,7 @@ static void process_msg(YggMessage* msg, struct state* state) {
         if(msg->Proto_id == state->proto_id) {
             n->sym = false;
             void* ptr = YggMessage_readPayload(msg, NULL, n->id, sizeof(uuid_t));
-            short neigh_count; ptr = YggMessage_readPayload(msg, ptr, &neigh_count, ogsizeof(short));
+            short neigh_count; ptr = YggMessage_readPayload(msg, ptr, &neigh_count, sizeof(short));
             for(short i = 0; i < neigh_count; i ++) {
                 WLANAddr addr; ptr = YggMessage_readPayload(msg, ptr, addr.data, WLAN_ADDR_LEN);
                 if(memcmp(addr.data, state->myaddr->data, WLAN_ADDR_LEN) == 0)
