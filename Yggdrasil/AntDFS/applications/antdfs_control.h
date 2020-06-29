@@ -18,6 +18,8 @@
 #define OP_REQ_SUCCESS 0
 #define OP_REQ_FAIL 1
 
+int exec_opendir(int socket, const char *path, int len);
+
 // Operations
 #define N_OPER 28
 
