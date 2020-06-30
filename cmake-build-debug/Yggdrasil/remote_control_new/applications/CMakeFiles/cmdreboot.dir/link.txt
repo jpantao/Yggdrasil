@@ -1,1 +1,0 @@
-/usr/bin/cc  -g -Wall -O0 -g  -rdynamic CMakeFiles/cmdreboot.dir/tools/reboot.c.o  -o ../../../../bin/cmdreboot  ../../../../lib/libcmdio_new.a -luuid 

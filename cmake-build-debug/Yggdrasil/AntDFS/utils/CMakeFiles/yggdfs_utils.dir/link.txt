@@ -1,2 +1,0 @@
-/usr/bin/ar qc ../../../../lib/libyggdfs_utils.a  CMakeFiles/yggdfs_utils.dir/yggdfs_utils.c.o
-/usr/bin/ranlib ../../../../lib/libyggdfs_utils.a

@@ -1,1 +1,0 @@
-/usr/bin/cc  -g -Wall -O0 -g  -rdynamic CMakeFiles/OneHopBcastWithTimer.dir/OneHopBcastWithTimer.c.o  -o ../../../../bin/OneHopBcastWithTimer  ../../../../lib/libyggcore_wireless.a ../../../../lib/libygglib_wireless.a ../../../../lib/libygglib_base.a -lnl-genl-3 -lnl-3 ../../../../lib/libgen_data_structs.a -lm -lpthread -luuid -lrt 

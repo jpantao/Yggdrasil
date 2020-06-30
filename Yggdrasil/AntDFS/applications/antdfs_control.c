@@ -47,7 +47,6 @@ static finfo *finfo_init(uuid_t uid, bool local, char *path, struct stat info) {
 }
 
 static void create_empty_file(char *path, bool local, mode_t mode) {
-    printf(" ==> Creating file with name: %s\n", path);
     char completepath[500];
     bzero(completepath,500);
     strcat(completepath, local ? LOCAL_FILES_LOC : REMOTE_FILES_LOC);
@@ -67,7 +66,6 @@ static void create_dir_relative(char* basedir, char *path, mode_t mode) {
         char tmp[index + 2];
         memcpy(tmp, path, index + 1);
         tmp[index + 1] = '\0';
-        printf(" ==> Creating directory with name: %s\n", tmp);
         char completepath[500];
         bzero(completepath,500);
         strcat(completepath, basedir);
@@ -145,14 +143,12 @@ static void register_dir_rec(char *rootdir, bool local) {
         char *fullname = malloc(PATH_MAX);
         strcat(strcat(strcpy(fullname, rootdir), "/"), dirent->d_name);
         fullname = realloc(fullname, strlen(fullname) + 1);
-        printf("DEBUG: %s\n", fullname);
         if (stat(fullname, &inf) != -1) {
             char *antdfs_path = malloc(PATH_MAX);
             bzero(antdfs_path, PATH_MAX);
             full2relative(antdfs_path, fullname, local);
             antdfs_path = realloc(antdfs_path, strlen(antdfs_path) + 1);
 
-            printf("Registering %s\n", antdfs_path);
             uuid_t uid;
             getmyId(uid);
             finfo *file = finfo_init(uid, local, antdfs_path, inf);
@@ -224,7 +220,7 @@ static unsigned short deserialize_finfo(uuid_t owner, YggMessage *msg, finfo **f
     return read;
 }
 
-int exec_getattr(int socket, const char *path, int len) {
+int exec_getattr(int socket, const char *path) {
     ygg_log("AntDFS", "INFO", "Executing getattr request");
     struct stat info;
     char fpath[PATH_MAX];
@@ -235,12 +231,7 @@ int exec_getattr(int socket, const char *path, int len) {
     if (strcmp(path, "/") == 0) {
         sprintf(fpath, "%s", REMOTE_FILES_LOC);
     } else {
-        printf("PATH LOOKUP: %s\n", path);
         file = (finfo *) table_lookup(global_files, path);
-        if (file != NULL)
-            printf("FINFO: %s\n", file->path);
-        else
-            printf("FINFO IS NULL\n");
         //TODO: If file == NULL should get information about it now... and resume later...
         if (file == NULL || relative2full(fpath, path, file->local) < 0) {
             retstat = OP_REQ_FAIL;
@@ -248,8 +239,6 @@ int exec_getattr(int socket, const char *path, int len) {
             return retstat;
         }
     }
-    printf("FPATH: %s\n", fpath);
-
     if(file == NULL || file->local) {
         if (lstat(fpath, &info) < 0) {
             ygg_log("AntDFS", "INFO", "Failed executing lstat");
@@ -271,120 +260,114 @@ int exec_getattr(int socket, const char *path, int len) {
     return retstat;
 }
 
+int exec_opendir(int socket, const char *path) {
+    ygg_log("AntDFS", "INFO", "Executing opendir request");
+    DIR *dp;
+    char fpath[PATH_MAX];
+    int retstat = OP_REQ_SUCCESS;
+
+    if (strcmp(path, "/") == 0) {
+        sprintf(fpath, "%s", REMOTE_FILES_LOC);
+    } else {
+
+        finfo *file = (finfo *) table_lookup(global_files, path);
+
+        //TODO: If file == NULL should get information about it now... and resume later...
+        if (file == NULL || relative2full(fpath, path, file->local) < 0) {
+            retstat = OP_REQ_FAIL;
+            writefully(socket, &retstat, sizeof(int));
+            return retstat;
+        }
+    }
+
+    if ((dp = opendir(fpath)) == NULL) {
+        ygg_log("AntDFS", "INFO", "Failed executing opendir");
+        retstat = OP_REQ_FAIL;
+    }
+    if (writefully(socket, &retstat, sizeof(int)) <= 0)
+        return -1;
+
+    if (retstat == OP_REQ_FAIL && writefully(socket, &errno, sizeof(int)) <= 0)
+        return -1;
+
+    if (retstat == OP_REQ_SUCCESS && writefully(socket, &dp, sizeof(DIR*)) <= 0)
+        return -1;
+
+    return retstat;
+}
+
+int exec_readdir(int socket, const char *path) {
+    ygg_log("AntDFS", "INFO", "Executing readdir request");
+    DIR *dp;
+    int retstat = OP_REQ_SUCCESS;
+
+    if (readfully(socket, &dp, sizeof(DIR *)) <= 0) {
+        retstat = -1;
+        errno = EFAULT;
+    }
+    struct dirent *de;
+    de = readdir(dp);
+    if (de == 0) {
+        retstat = log_error("antdfs_readdir readdir\n");
+    }
+
+    int terminator = 0;
+    do {
+        int length = (int) strlen(de->d_name) + 1;
+        if (writefully(socket, &length, sizeof(int)) <= 0)
+            return -1;
+        if (writefully(socket, de->d_name, length) <= 0)
+            return -1;
+    } while ((de = readdir(dp)) != NULL);
+
+    if (writefully(socket, &terminator, sizeof(int)) <= 0)
+        return -1;
+
+    return retstat;
+}
+
+int exec_releasedir(int socket, const char *path) {
+    ygg_log("AntDFS", "INFO", "Executing releasedir request");
+    DIR *dp;
+    int retstat = OP_REQ_SUCCESS;
+    if (readfully(socket, &dp, sizeof(DIR *)) <= 0) {
+        retstat = -1;
+        errno = EFAULT;
+    }
+    if (closedir(dp) < 0) {
+        ygg_log("AntDFS", "INFO", "Failed executing releasedir");
+        retstat = OP_REQ_FAIL;
+    }
+    return retstat;
+}
+
+int exec_open(int socket, const char *path){
+    ygg_log("AntDFS", "INFO", "Executing open request");
+
+    char fpath[PATH_MAX];
+    int retstat = OP_REQ_SUCCESS;
+
+    if (strcmp(path, "/") == 0) {
+        sprintf(fpath, "%s", REMOTE_FILES_LOC);
+    } else {
+        finfo *file = (finfo *) table_lookup(global_files, path);
+        //TODO: If file == NULL should get information about it now... and resume later...
+        if (file == NULL || relative2full(fpath, path, file->local) < 0) {
+            retstat = OP_REQ_FAIL;
+            writefully(socket, &retstat, sizeof(int));
+            return retstat;
+        }
+    }
+
+
+
+}
+
 static void updateFileStats(struct stat* dest, struct stat* origin) {
     dest->st_dev = origin->st_dev;
     dest->st_ino = origin->st_ino;
     dest->st_rdev = origin->st_rdev;
     dest->st_uid = origin->st_uid;
-}
-
-static void process_message(YggMessage *msg) {
-    ygg_log("AntDFS", "DEBUG", "Processing message");
-    uuid_t myid;
-    getmyId(myid);
-
-    unsigned int len = msg->dataLen;
-    uuid_t uid;
-    void *ptr = YggMessage_readPayload(msg, NULL, uid, sizeof(uuid_t));
-    len -= sizeof(uuid_t);
-
-    char s1[40];
-    char s2[40];
-    bzero(s1, 40);
-    bzero(s2, 40);
-    uuid_unparse(myid, s1);
-    uuid_unparse(uid, s2);
-    printf("Comparing %s with %s\n", s1, s2);
-
-    bool myself = (uuid_compare(myid, uid) == 0);
-
-    char fullpath[500];
-    struct stat st;
-
-    if(myself == false) {
-        while (len > 0) {
-            finfo *file;
-            int bread = deserialize_finfo(uid, msg, &file, ptr, myself);
-            ptr += bread;
-            len -= bread;
-            pthread_mutex_lock(&global_mutex);
-            finfo *previous = table_lookup(global_files, file->path);
-            if (previous == NULL) {
-                list_add_item_to_head(cached_files, file);
-                table_insert(global_files, file->path, file);
-                if (S_ISDIR(file->info.st_mode)) {
-                    create_dir(file->path, false, file->info.st_mode);
-                    bzero(fullpath,500);
-                    relative2full(fullpath, file->path, false);
-                    lstat(fullpath, &st);
-                    updateFileStats(&file->info, &st);
-                } else {
-                    char *dir = getDir(file->path);
-                    if (dir != NULL)
-                        create_dir(dir, false, file->info.st_mode);
-                    create_empty_file(file->path, false, file->info.st_mode);
-                    bzero(fullpath,500);
-                    relative2full(fullpath, file->path, false);
-                    lstat(fullpath, &st);
-                    updateFileStats(&file->info, &st);
-                }
-            } else {
-                previous->info = file->info;
-                free(file->path);
-                free(file);
-                file = previous;
-            }
-            pthread_mutex_unlock(&global_mutex);
-        }
-    }
-
-
-    YggMessage_freePayload(msg);
-}
-
-static void process_request(YggRequest *req) {
-
-}
-
-static void process_timer(YggTimer *timer) {
-    YggRequest req;
-
-    void *buf = NULL;
-    unsigned short s = 0;
-    uuid_t myid;
-    getmyId(myid);
-
-    pthread_mutex_lock(&global_mutex);
-    list_item *it = local_files->head;
-    while (it != NULL) {
-        YggRequest_init(&req, CONTROL_ID, DISSEMINATION_ID, REQUEST, DISSEMINATION_REQUEST);
-        unsigned short free_payload = 1400 - sizeof(uuid_t);
-        YggRequest_addPayload(&req, myid, sizeof(uuid_t));
-        if (buf != NULL) {
-            YggRequest_addPayload(&req, buf, s);
-            free_payload -= s;
-            free(buf);
-            buf = NULL;
-            it = it->next;
-        }
-        while (it != NULL) {
-            s = serialize_finfo(&buf, it->data);
-            if (s > free_payload)
-                break;
-            YggRequest_addPayload(&req, buf, s);
-            free_payload -= s;
-            free(buf);
-            buf = NULL;
-            it = it->next;
-        }
-        if (req.length > 0)
-            deliverRequest(&req);
-        YggRequest_freePayload(&req);
-
-    }
-    pthread_mutex_unlock(&global_mutex);
-
-    YggTimer_freePayload(timer);
 }
 
 static int exec_operation(int socket) {
@@ -399,20 +382,22 @@ static int exec_operation(int socket) {
 
     int len;
     if (readfully(socket, &len, sizeof(int)) <= 0) return -1;
-    printf("PAth len %d\n", len);
+
     char path[len];
     if (readfully(socket, path, len) <= 0) return -1;
-    printf("Path %s\n", path);
+
 
     switch (op) {
         case GETATTR_REQ:
-            return exec_getattr(socket, path, len);
+            return exec_getattr(socket, path);
         case OPENDIR_REQ:
-            return exec_opendir(socket, path, len);
+            return exec_opendir(socket, path);
         case READDIR_REQ:
-            return exec_readdir(socket, path, len);
+            return exec_readdir(socket, path);
         case RELEASEDIR_REQ:
-            return exec_releasedir(socket, path, len);
+            return exec_releasedir(socket, path);
+        case OPEN_REQ:
+            return exec_open(socket, path);
         default:
             sprintf(msg, "Undefined operation: %d", op);
             ygg_log("AntDFS", "ERROR", msg);
@@ -509,9 +494,9 @@ static void control_server_init() {
 
 static void register_protos() {
 
-    /*batman_args *bargs = batman_args_init(false, false, 2, 0, 5, DEFAULT_BATMAN_WINDOW_SIZE, 3);
-    registerProtocol(PROTO_ROUTING_BATMAN, batman_init, bargs);
-    batman_args_destroy(bargs);*/
+//    batman_args *bargs = batman_args_init(false, false, 2, 0, 5, DEFAULT_BATMAN_WINDOW_SIZE, 3);
+//    registerProtocol(PROTO_ROUTING_BATMAN, batman_init, bargs);
+//    batman_args_destroy(bargs);
 
     //Register discovery
     discovery_args discoveryArgs = {
@@ -553,7 +538,6 @@ static void create_internal_dirs() {
 
     status = mkdir(REMOTE_FILES_LOC, S_IRWXU);
     if (status != 0 && errno != EEXIST) {
-        printf("errno: %d\n", status);
         perror("Failed creating internal remote directory");
         exit(0);
     }
@@ -580,6 +564,132 @@ static void init_file_db() {
     cached_files = list_init();
     create_internal_dirs();
     register_dir_rec(LOCAL_FILES_LOC, true);
+}
+
+void process_dissemination_msg(YggMessage *msg, uuid_t myid, unsigned int len, void *ptr) {
+    uuid_t uid;
+    ptr = YggMessage_readPayload(msg, ptr, uid, sizeof(uuid_t));
+    len -= sizeof(uuid_t);
+
+    char s1[40];
+    char s2[40];
+    bzero(s1, 40);
+    bzero(s2, 40);
+    uuid_unparse(myid, s1);
+    uuid_unparse(uid, s2);
+
+    bool myself = (uuid_compare(myid, uid) == 0);
+
+    char fullpath[500];
+    struct stat st;
+
+    if (myself == false) {
+        while (len > 0) {
+            finfo *file;
+            int bread = deserialize_finfo(uid, msg, &file, ptr, myself);
+            ptr += bread;
+            len -= bread;
+            pthread_mutex_lock(&global_mutex);
+            finfo *previous = table_lookup(global_files, file->path);
+            if (previous == NULL) {
+                list_add_item_to_head(cached_files, file);
+                table_insert(global_files, file->path, file);
+                if (S_ISDIR(file->info.st_mode)) {
+                    create_dir(file->path, false, file->info.st_mode);
+                    bzero(fullpath, 500);
+                    relative2full(fullpath, file->path, false);
+                    lstat(fullpath, &st);
+                    updateFileStats(&file->info, &st);
+                } else {
+                    char *dir = getDir(file->path);
+                    if (dir != NULL)
+                        create_dir(dir, false, file->info.st_mode);
+                    create_empty_file(file->path, false, file->info.st_mode);
+                    bzero(fullpath, 500);
+                    relative2full(fullpath, file->path, false);
+                    lstat(fullpath, &st);
+                    updateFileStats(&file->info, &st);
+                }
+            } else {
+                previous->info = file->info;
+                free(file->path);
+                free(file);
+                file = previous;
+            }
+            pthread_mutex_unlock(&global_mutex);
+        }
+    }
+    YggMessage_freePayload(msg);
+}
+
+void process_fetch_blk_msg(YggMessage *msg, uuid_t myid, unsigned int len, void *ptr) {
+
+}
+
+static void process_message(YggMessage *msg) {
+    uuid_t myid;
+    getmyId(myid);
+    unsigned int len = msg->dataLen;
+
+    short msg_id;
+    void *ptr = YggMessage_readPayload(msg, NULL, &msg_id, sizeof(short));
+    len-= sizeof(short);
+    printf("\nDEBUG ===================> %d\n", msg_id);
+
+    switch (msg_id) {
+        case DISSEMINATION_MSG:
+            process_dissemination_msg(msg, myid, len, ptr);
+            break;
+        case FETCH_BLK_REQ_MSG:
+
+            break;
+        default:
+            ygg_log("AntDFS", "ERROR", "Undefined message type received");
+    }
+
+}
+
+static void process_timer(YggTimer *timer) {
+    YggRequest req;
+
+    void *buf = NULL;
+    unsigned short s = 0;
+    uuid_t myid;
+    getmyId(myid);
+
+    pthread_mutex_lock(&global_mutex);
+    list_item *it = local_files->head;
+    while (it != NULL) {
+        YggRequest_init(&req, CONTROL_ID, DISSEMINATION_ID, REQUEST, DISSEMINATION_REQUEST);
+        unsigned short free_payload = 1400 - sizeof(uuid_t);
+        short msg_id = DISSEMINATION_MSG;
+        YggRequest_addPayload(&req, &msg_id, sizeof(short));
+        YggRequest_addPayload(&req, myid, sizeof(uuid_t));
+        if (buf != NULL) {
+            YggRequest_addPayload(&req, buf, s);
+            free_payload -= s;
+            free(buf);
+            buf = NULL;
+            it = it->next;
+        }
+        while (it != NULL) {
+            s = serialize_finfo(&buf, it->data);
+            if (s > free_payload)
+                break;
+            YggRequest_addPayload(&req, buf, s);
+            free_payload -= s;
+            free(buf);
+            buf = NULL;
+            it = it->next;
+        }
+        if (req.length > 0)
+            deliverRequest(&req);
+        YggRequest_freePayload(&req);
+
+    }
+    pthread_mutex_unlock(&global_mutex);
+
+    YggTimer_freePayload(timer);
 }
 
 int main(int argc, char *argv[]) {
@@ -622,7 +732,6 @@ int main(int argc, char *argv[]) {
                 break;
             case YGG_REQUEST:
                 ygg_log("AntDFS", "EVENT", "Request");
-                process_request(&elem.data.request);
                 break;
             case YGG_TIMER:
                 ygg_log("AntDFS", "EVENT", "Timer");
@@ -633,95 +742,6 @@ int main(int argc, char *argv[]) {
                 break;
         }
     }
-}
-
-int exec_opendir(int socket, const char *path, int len) {
-    ygg_log("AntDFS", "INFO", "Executing opendir request");
-    DIR *dp;
-    char fpath[PATH_MAX];
-    int retstat = OP_REQ_SUCCESS;
-
-    if (strcmp(path, "/") == 0) {
-        sprintf(fpath, "%s", REMOTE_FILES_LOC);
-    } else {
-        printf("PATH LOOKUP: %s\n", path);
-        finfo *file = (finfo *) table_lookup(global_files, path);
-        if (file != NULL)
-            printf("FINFO: %s\n", file->path);
-        else
-            printf("FINFO IS NULL\n");
-        //TODO: If file == NULL should get information about it now... and resume later...
-        if (file == NULL || relative2full(fpath, path, file->local) < 0) {
-            retstat = OP_REQ_FAIL;
-            writefully(socket, &retstat, sizeof(int));
-            return retstat;
-        }
-    }
-    printf("FPATH: %s\n", fpath);
-
-    if ((dp = opendir(fpath)) == NULL) {
-        ygg_log("AntDFS", "INFO", "Failed executing opendir");
-        retstat = OP_REQ_FAIL;
-    }
-    printf("DEBUG: -----------------> %0x8\n", dp);
-    if (writefully(socket, &retstat, sizeof(int)) <= 0)
-        return -1;
-
-    if (retstat == OP_REQ_FAIL && writefully(socket, &errno, sizeof(int)) <= 0)
-        return -1;
-
-    if (retstat == OP_REQ_SUCCESS && writefully(socket, &dp, sizeof(DIR *)) <= 0)
-        return -1;
-
-    return retstat;
-}
-
-int exec_releasedir(int socket, const char *path, int len) {
-    ygg_log("AntDFS", "INFO", "Executing releasedir request");
-    DIR *dp;
-    int retstat = OP_REQ_SUCCESS;
-    if (readfully(socket, &dp, sizeof(DIR *)) <= 0) {
-        retstat = -1;
-        errno = EFAULT;
-    }
-    printf("DEBUG: -----------------> %0x8\n", dp);
-    if (closedir(dp) < 0) {
-        ygg_log("AntDFS", "INFO", "Failed executing releasedir");
-        retstat = OP_REQ_FAIL;
-    }
-    return retstat;
-}
-
-int exec_readdir(int socket, const char *path, int len) {
-    ygg_log("AntDFS", "INFO", "Executing readdir request");
-    DIR *dp;
-    int retstat = OP_REQ_SUCCESS;
-
-    if (readfully(socket, &dp, sizeof(DIR *)) <= 0) {
-        retstat = -1;
-        errno = EFAULT;
-    }
-    printf("DEBUG: -----------------> %0x8\n", dp);
-    struct dirent *de;
-    de = readdir(dp);
-    if (de == 0) {
-        retstat = log_error("antdfs_readdir readdir\n");
-    }
-
-    int terminator = 0;
-    do {
-        printf("reading with name %s\n", de->d_name);
-        int length = (int) strlen(de->d_name) + 1;
-        if (writefully(socket, &length, sizeof(int)) <= 0)
-            return -1;
-        if (writefully(socket, de->d_name, length) <= 0)
-            return -1;
-    } while ((de = readdir(dp)) != NULL);
-
-    if (writefully(socket, &terminator, sizeof(int)) <= 0)
-        return -1;
-
-    return retstat;
 }
 
 

@@ -18,9 +18,10 @@
 #define OP_REQ_SUCCESS 0
 #define OP_REQ_FAIL 1
 
-int exec_opendir(int socket, const char *path, int len);
-int exec_readdir(int socket, const char *path, int len);
-int exec_releasedir(int socket, const char *path, int len);
+// Messages
+#define DISSEMINATION_MSG 501
+#define FETCH_BLK_REQ_MSG 502
+#define FETCH_BLK_REP_MSG 503
 
 // Operations
 #define N_OPER 28
@@ -29,7 +30,7 @@ int exec_releasedir(int socket, const char *path, int len);
 #define OPENDIR_REQ 102
 #define READDIR_REQ 103
 #define RELEASEDIR_REQ 104
-#define OPEN_REQ 200
+#define OPEN_REQ 105
 
 // Define block codes
 #define B_MISSING 'M'

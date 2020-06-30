@@ -1,20 +1,20 @@
 Determining if the pthread_create exist failed with the following output:
 Change Dir: /tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/make" "cmTC_49595/fast"
-/usr/bin/make -f CMakeFiles/cmTC_49595.dir/build.make CMakeFiles/cmTC_49595.dir/build
+Run Build Command:"/usr/bin/make" "cmTC_ef055/fast"
+/usr/bin/make -f CMakeFiles/cmTC_ef055.dir/build.make CMakeFiles/cmTC_ef055.dir/build
 make[1]: Entering directory '/tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101/CMakeFiles/CMakeTmp'
-Building C object CMakeFiles/cmTC_49595.dir/CheckSymbolExists.c.o
-/usr/bin/cc   -g -Wall -O0    -o CMakeFiles/cmTC_49595.dir/CheckSymbolExists.c.o   -c /tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101/CMakeFiles/CMakeTmp/CheckSymbolExists.c
-Linking C executable cmTC_49595
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_49595.dir/link.txt --verbose=1
-/usr/bin/cc  -g -Wall -O0     -rdynamic CMakeFiles/cmTC_49595.dir/CheckSymbolExists.c.o  -o cmTC_49595 
-/usr/bin/ld: CMakeFiles/cmTC_49595.dir/CheckSymbolExists.c.o: in function `main':
+Building C object CMakeFiles/cmTC_ef055.dir/CheckSymbolExists.c.o
+/usr/bin/cc   -g -Wall -O0    -o CMakeFiles/cmTC_ef055.dir/CheckSymbolExists.c.o   -c /tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+Linking C executable cmTC_ef055
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_ef055.dir/link.txt --verbose=1
+/usr/bin/cc  -g -Wall -O0     -rdynamic CMakeFiles/cmTC_ef055.dir/CheckSymbolExists.c.o  -o cmTC_ef055 
+/usr/bin/ld: CMakeFiles/cmTC_ef055.dir/CheckSymbolExists.c.o: in function `main':
 /tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101/CMakeFiles/CMakeTmp/CheckSymbolExists.c:13: undefined reference to `pthread_create'
 collect2: error: ld returned 1 exit status
-make[1]: *** [CMakeFiles/cmTC_49595.dir/build.make:87: cmTC_49595] Error 1
+make[1]: *** [CMakeFiles/cmTC_ef055.dir/build.make:87: cmTC_ef055] Error 1
 make[1]: Leaving directory '/tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101/CMakeFiles/CMakeTmp'
-make: *** [Makefile:121: cmTC_49595/fast] Error 2
+make: *** [Makefile:121: cmTC_ef055/fast] Error 2
 
 File /tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
 /* */

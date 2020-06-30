@@ -22,7 +22,7 @@ destroy () {
   # shellcheck disable=SC2006
   # shellcheck disable=SC2009
   # shellcheck disable=SC2033
-  sudo kill -9 `ps aux | grep AntDFS | head -n 1 | awk '{print $2}'`
+  sudo kill -3 `ps aux | grep AntDFS | head -n 1 | awk '{print $2}'`
   exit
 }
 

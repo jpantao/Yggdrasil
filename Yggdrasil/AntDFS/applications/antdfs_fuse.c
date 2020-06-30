@@ -42,6 +42,8 @@ static void ifn_init_socket(int *sock, struct sockaddr_in *addr) {
         log_msg("FUSE failed to connect to Yggdrasil\n");
 }
 
+//------------------ IMPLEMENTED ------------------------
+
 int antdfs_getattr(const char *path, struct stat *statbuf) {
     log_msg("FUSE executing getattr %s\n", path);
 
@@ -96,6 +98,176 @@ int antdfs_access(const char *path, int mask) {
     return log_syscall("access", 0, 0);
 }
 
+int antdfs_opendir(const char *path, struct fuse_file_info *fi) {
+    log_msg("FUSE executing opendir %s\n", path);
+    DIR *dp;
+    static int sock = 0;
+    static struct sockaddr_in addr;
+    ifn_init_socket(&sock, &addr);
+
+    log_msg("FUSE Sending request for operation (%d)\n", OPENDIR_REQ);
+    // Sending operation code
+    short code = OPENDIR_REQ;
+    if (writefully(sock, &code, sizeof(short)) <= 0) return -1;
+
+    // Sending path length
+    int len = (int) (strlen(path) + 1);
+    log_msg("FUSE sending path length (%d)\n", len);
+    if (writefully(sock, &len, sizeof(int)) <= 0) return -1;
+
+    // Sending path
+    log_msg("FUSE sending path (%s)\n", path);
+    if (writefully(sock, (char *) path, len) <= 0) return -1;
+
+    log_msg("FUSE receiving  retstat\n");
+    // Receiving operation return status
+    int retstat;
+    if (readfully(sock, &retstat, sizeof(int)) <= 0) {
+        retstat = -1;
+        errno = EFAULT;
+    }
+
+    log_msg("FUSE retstat received (%d)\n", retstat);
+
+    if (retstat == OP_REQ_FAIL && readfully(sock, &errno, sizeof(int)) <= 0) {
+        errno = EFAULT;
+        retstat = -1;
+    } else
+        errno = 0;
+
+    if (retstat == OP_REQ_SUCCESS && readfully(sock, &dp, sizeof(DIR *)) <= 0) {
+        retstat = -1;
+        errno = EFAULT;
+    }
+    log_msg("FUSE dp received %0x8\n", dp);
+    fi->fh = (intptr_t) dp;
+    log_fi(fi);
+
+    if (retstat == OP_REQ_FAIL) {
+        retstat = -1;
+    }
+
+    return log_syscall("opendir", retstat, 0);
+}
+
+int antdfs_readdir(const char *path, void *buf, fuse_fill_dir_t filler, off_t offset, struct fuse_file_info *fi) {
+
+    log_msg("FUSE executing readdir %s\n", path);
+    DIR *dp;
+    dp = (DIR *) (uintptr_t) fi->fh;
+
+    static int sock = 0;
+    static struct sockaddr_in addr;
+    ifn_init_socket(&sock, &addr);
+
+    log_msg("FUSE Sending request for operation (%d)\n", READDIR_REQ);
+    // Sending operation code
+    short code = READDIR_REQ;
+    if (writefully(sock, &code, sizeof(short)) <= 0) return -1;
+
+    // Sending path length
+    int len = (int) (strlen(path) + 1);
+    log_msg("FUSE sending path length (%d)\n", len);
+    if (writefully(sock, &len, sizeof(int)) <= 0) return -1;
+
+    // Sending path
+    log_msg("FUSE sending path (%s)\n", path);
+    if (writefully(sock, (char *) path, len) <= 0) return -1;
+
+    // Sending dp
+    log_msg("FUSE sending dp %0x8\n", dp);
+    if (writefully(sock, &dp, sizeof(DIR *)) <= 0) return -1;
+    int retstat = OP_REQ_SUCCESS;
+
+    int name_length;
+    if(readfully(sock, &name_length, sizeof(int)) <= 0) return -1;
+
+    while (name_length > 0) {
+        char *name = malloc(name_length);
+        bzero(name, name_length);
+        if (readfully(sock, name, name_length ) <= 0) return -1;
+        log_msg("Received file name %s\n", name);
+        if (filler(buf, name, NULL, 0) != 0) {
+            log_msg("    ERROR antdfs_readdir filler:  buffer full\n");
+            return -ENOMEM;
+        }
+        free(name);
+        if(readfully(sock, &name_length, sizeof(int)) <= 0) return -1;
+    }
+    log_fi(fi);
+    return retstat;
+}
+
+int antdfs_releasedir(const char *path, struct fuse_file_info *fi) {
+    log_msg("FUSE executing releasedir %s\n", path);
+
+    int retstat = OP_REQ_SUCCESS;
+    DIR* dp = (DIR *) (uintptr_t) fi->fh;
+    log_msg("FUSE sending dp %0x8\n", dp);
+    static int sock = 0;
+    static struct sockaddr_in addr;
+    ifn_init_socket(&sock, &addr);
+
+    log_msg("FUSE Sending request for operation (%d)\n", RELEASEDIR_REQ);
+    // Sending operation code
+    short code = RELEASEDIR_REQ;
+    if (writefully(sock, &code, sizeof(short)) <= 0) return -1;
+
+    // Sending path length
+    int len = (int) (strlen(path) + 1);
+    log_msg("FUSE sending path length (%d)\n", len);
+    if (writefully(sock, &len, sizeof(int)) <= 0) return -1;
+
+    // Sending path
+    log_msg("FUSE sending path (%s)\n", path);
+    if (writefully(sock, (char *) path, len) <= 0) return -1;
+
+    // Sending dp
+    log_msg("FUSE sending dp %0x8\n", dp);
+    if (writefully(sock, &dp, sizeof(DIR *)) <= 0) return -1;
+    return retstat;
+}
+
+int antdfs_open(const char *path, struct fuse_file_info *fi) {
+    log_msg("FUSE executing open %s\n", path);
+    int retstat = 0;
+    int fd;
+
+    static int sock = 0;
+    static struct sockaddr_in addr;
+    ifn_init_socket(&sock, &addr);
+
+    log_msg("FUSE Sending request for operation (%d)\n", OPEN_REQ);
+    // Sending operation code
+    short code = OPENDIR_REQ;
+    if (writefully(sock, &code, sizeof(short)) <= 0) return -1;
+
+    // Sending path length
+    int len = (int) (strlen(path) + 1);
+    log_msg("FUSE sending path length (%d)\n", len);
+    if (writefully(sock, &len, sizeof(int)) <= 0) return -1;
+
+    // Sending path
+    log_msg("FUSE sending path (%s)\n", path);
+    if (writefully(sock, (char *) path, len) <= 0) return -1;
+
+
+
+    /* // if the open call succeeds, my retstat is the file descriptor,
+     // else it's -errno.  I'm making sure that in that case the saved
+     // file descriptor is exactly -1.
+     fd = log_syscall("open", open(fpath, fi->flags), 0);
+     if (fd < 0)
+         retstat = log_error("open\n");
+
+     fi->fh = fd;
+
+     log_fi(fi);
+
+     return retstat;*/
+}
+
+//------------------ NOT IMPLEMENTED ---------------------
 
 int antdfs_readlink(const char *path, char *link, size_t size) {
     int retstat;
@@ -244,42 +416,6 @@ int antdfs_utime(const char *path, struct utimbuf *ubuf) {
     return log_syscall("utime", utime(fpath, ubuf), 0);
 }
 
-int antdfs_open(const char *path, struct fuse_file_info *fi) {
-    int retstat = 0;
-    int fd;
-    char fpath[PATH_MAX];
-
-
-    log_msg("\nantdfs_open(path\"%s\", fi=0x%08x)\n",
-            path, fi);
-    fullpath(fpath, path);
-
-    static int sock = 0;
-    static struct sockaddr_in addr;
-    ifn_init_socket(&sock, &addr);
-
-    short data = OPEN_REQ;
-    writefully(sock, &data, sizeof(short));
-
-    data = (short) (strlen(fpath) + 1);
-    writefully(sock, &data, sizeof(short));
-    writefully(sock, fpath, data);
-
-
-    // if the open call succeeds, my retstat is the file descriptor,
-    // else it's -errno.  I'm making sure that in that case the saved
-    // file descriptor is exactly -1.
-    fd = log_syscall("open", open(fpath, fi->flags), 0);
-    if (fd < 0)
-        retstat = log_error("open\n");
-
-    fi->fh = fd;
-
-    log_fi(fi);
-
-    return retstat;
-}
-
 int antdfs_read(const char *path, char *buf, size_t size, off_t offset, struct fuse_file_info *fi) {
     log_msg("\nantdfs_read(path=\"%s\", buf=0x%08x, size=%d, offset=%lld, fi=0x%08x)\n",
             path, buf, size, offset, fi);
@@ -341,156 +477,6 @@ int antdfs_fsync(const char *path, int datasync, struct fuse_file_info *fi) {
     log_fi(fi);
 
     return log_syscall("fsync", fsync(fi->fh), 0);
-}
-
-int antdfs_opendir(const char *path, struct fuse_file_info *fi) {
-    log_msg("FUSE executing opendir %s\n", path);
-    DIR *dp;
-    static int sock = 0;
-    static struct sockaddr_in addr;
-    ifn_init_socket(&sock, &addr);
-
-    log_msg("FUSE Sending request for operation (%d)\n", OPENDIR_REQ);
-    // Sending operation code
-    short code = OPENDIR_REQ;
-    if (writefully(sock, &code, sizeof(short)) <= 0) return -1;
-
-    // Sending path length
-    int len = (int) (strlen(path) + 1);
-    log_msg("FUSE sending path length (%d)\n", len);
-    if (writefully(sock, &len, sizeof(int)) <= 0) return -1;
-
-    // Sending path
-    log_msg("FUSE sending path (%s)\n", path);
-    if (writefully(sock, (char *) path, len) <= 0) return -1;
-
-    log_msg("FUSE receiving  retstat\n");
-    // Receiving operation return status
-    int retstat;
-    if (readfully(sock, &retstat, sizeof(int)) <= 0) {
-        retstat = -1;
-        errno = EFAULT;
-    }
-
-    log_msg("FUSE retstat received (%d)\n", retstat);
-
-    if (retstat == OP_REQ_FAIL && readfully(sock, &errno, sizeof(int)) <= 0) {
-        errno = EFAULT;
-        retstat = -1;
-    } else
-        errno = 0;
-
-    if (retstat == OP_REQ_SUCCESS && readfully(sock, &dp, sizeof(DIR *)) <= 0) {
-        retstat = -1;
-        errno = EFAULT;
-    }
-    log_msg("FUSE dp received %0x8\n", dp);
-    fi->fh = (intptr_t) dp;
-    log_fi(fi);
-
-    if (retstat == OP_REQ_FAIL) {
-        retstat = -1;
-    }
-
-    return log_syscall("opendir", retstat, 0);
-    /*DIR *dp;
-    int retstat = 0;
-    char fpath[PATH_MAX];
-
-    log_msg("\nantdfs_opendir(path=\"%s\", fi=0x%08x)\n",
-            path, fi);
-    fullpath(fpath, path);
-
-    // since opendir returns a pointer, takes some custom handling of
-    // return status.
-    dp = opendir(fpath);
-    log_msg("    opendir returned 0x%p\n", dp);
-    if (dp == NULL)
-        retstat = log_error("antdfs_opendir opendir\n");
-
-    fi->fh = (intptr_t) dp;
-
-    log_fi(fi);
-
-    return retstat;*/
-}
-
-int antdfs_releasedir(const char *path, struct fuse_file_info *fi) {
-    log_msg("FUSE executing releasedir %s\n", path);
-
-    int retstat = OP_REQ_SUCCESS;
-    DIR* dp = (DIR *) (uintptr_t) fi->fh;
-    log_msg("FUSE sending dp %0x8\n", dp);
-    static int sock = 0;
-    static struct sockaddr_in addr;
-    ifn_init_socket(&sock, &addr);
-
-    log_msg("FUSE Sending request for operation (%d)\n", RELEASEDIR_REQ);
-    // Sending operation code
-    short code = RELEASEDIR_REQ;
-    if (writefully(sock, &code, sizeof(short)) <= 0) return -1;
-
-    // Sending path length
-    int len = (int) (strlen(path) + 1);
-    log_msg("FUSE sending path length (%d)\n", len);
-    if (writefully(sock, &len, sizeof(int)) <= 0) return -1;
-
-    // Sending path
-    log_msg("FUSE sending path (%s)\n", path);
-    if (writefully(sock, (char *) path, len) <= 0) return -1;
-
-    // Sending dp
-    log_msg("FUSE sending dp %0x8\n", dp);
-    if (writefully(sock, &dp, sizeof(DIR *)) <= 0) return -1;
-    return retstat;
-}
-
-int antdfs_readdir(const char *path, void *buf, fuse_fill_dir_t filler, off_t offset, struct fuse_file_info *fi) {
-
-    log_msg("FUSE executing readdir %s\n", path);
-    DIR *dp;
-    dp = (DIR *) (uintptr_t) fi->fh;
-
-    static int sock = 0;
-    static struct sockaddr_in addr;
-    ifn_init_socket(&sock, &addr);
-
-    log_msg("FUSE Sending request for operation (%d)\n", READDIR_REQ);
-    // Sending operation code
-    short code = READDIR_REQ;
-    if (writefully(sock, &code, sizeof(short)) <= 0) return -1;
-
-    // Sending path length
-    int len = (int) (strlen(path) + 1);
-    log_msg("FUSE sending path length (%d)\n", len);
-    if (writefully(sock, &len, sizeof(int)) <= 0) return -1;
-
-    // Sending path
-    log_msg("FUSE sending path (%s)\n", path);
-    if (writefully(sock, (char *) path, len) <= 0) return -1;
-
-    // Sending dp
-    log_msg("FUSE sending dp %0x8\n", dp);
-    if (writefully(sock, &dp, sizeof(DIR *)) <= 0) return -1;
-    int retstat = OP_REQ_SUCCESS;
-
-    int name_length;
-    if(readfully(sock, &name_length, sizeof(int)) <= 0) return -1;
-
-    while (name_length > 0) {
-        char *name = malloc(name_length);
-        bzero(name, name_length);
-        if (readfully(sock, name, name_length ) <= 0) return -1;
-        log_msg("Received file name %s\n", name);
-        if (filler(buf, name, NULL, 0) != 0) {
-            log_msg("    ERROR antdfs_readdir filler:  buffer full\n");
-            return -ENOMEM;
-        }
-        free(name);
-        if(readfully(sock, &name_length, sizeof(int)) <= 0) return -1;
-    }
-    log_fi(fi);
-    return retstat;
 }
 
 int antdfs_fsyncdir(const char *path, int datasync, struct fuse_file_info *fi) {
