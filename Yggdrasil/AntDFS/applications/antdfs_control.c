@@ -230,11 +230,13 @@ int exec_getattr(int socket, const char *path, int len) {
     char fpath[PATH_MAX];
     int retstat = OP_REQ_SUCCESS;
 
+    finfo *file = NULL;
+
     if (strcmp(path, "/") == 0) {
-        sprintf(fpath, "%s", LOCAL_FILES_LOC);
+        sprintf(fpath, "%s", REMOTE_FILES_LOC);
     } else {
         printf("PATH LOOKUP: %s\n", path);
-        finfo *file = (finfo *) table_lookup(global_files, path);
+        file = (finfo *) table_lookup(global_files, path);
         if (file != NULL)
             printf("FINFO: %s\n", file->path);
         else
@@ -248,9 +250,13 @@ int exec_getattr(int socket, const char *path, int len) {
     }
     printf("FPATH: %s\n", fpath);
 
-    if (lstat(fpath, &info) < 0) {
-        ygg_log("AntDFS", "INFO", "Failed executing lstat");
-        retstat = OP_REQ_FAIL;
+    if(file == NULL || file->local) {
+        if (lstat(fpath, &info) < 0) {
+            ygg_log("AntDFS", "INFO", "Failed executing lstat");
+            retstat = OP_REQ_FAIL;
+        }
+    } else {
+        memcpy(&info, &(file->info), sizeof(struct stat));
     }
 
     if (writefully(socket, &retstat, sizeof(int)) <= 0)
@@ -393,8 +399,10 @@ static int exec_operation(int socket) {
 
     int len;
     if (readfully(socket, &len, sizeof(int)) <= 0) return -1;
+    printf("PAth len %d\n", len);
     char path[len];
-    if (readfully(socket, &path, len) <= 0) return -1;
+    if (readfully(socket, path, len) <= 0) return -1;
+    printf("Path %s\n", path);
 
     switch (op) {
         case GETATTR_REQ:
@@ -634,7 +642,7 @@ int exec_opendir(int socket, const char *path, int len) {
     int retstat = OP_REQ_SUCCESS;
 
     if (strcmp(path, "/") == 0) {
-        sprintf(fpath, "%s", LOCAL_FILES_LOC);
+        sprintf(fpath, "%s", REMOTE_FILES_LOC);
     } else {
         printf("PATH LOOKUP: %s\n", path);
         finfo *file = (finfo *) table_lookup(global_files, path);
@@ -655,6 +663,7 @@ int exec_opendir(int socket, const char *path, int len) {
         ygg_log("AntDFS", "INFO", "Failed executing opendir");
         retstat = OP_REQ_FAIL;
     }
+    printf("DEBUG: -----------------> %0x8\n", dp);
     if (writefully(socket, &retstat, sizeof(int)) <= 0)
         return -1;
 
@@ -675,6 +684,7 @@ int exec_releasedir(int socket, const char *path, int len) {
         retstat = -1;
         errno = EFAULT;
     }
+    printf("DEBUG: -----------------> %0x8\n", dp);
     if (closedir(dp) < 0) {
         ygg_log("AntDFS", "INFO", "Failed executing releasedir");
         retstat = OP_REQ_FAIL;
@@ -691,40 +701,26 @@ int exec_readdir(int socket, const char *path, int len) {
         retstat = -1;
         errno = EFAULT;
     }
-
+    printf("DEBUG: -----------------> %0x8\n", dp);
     struct dirent *de;
     de = readdir(dp);
-    log_msg("    readdir returned 0x%p\n", de);
     if (de == 0) {
         retstat = log_error("antdfs_readdir readdir\n");
     }
 
-    list *names = list_init();
-    int listsize = 0;
+    int terminator = 0;
     do {
-        log_msg("reading with name %s\n", de->d_name);
-        unsigned long length = strlen(de->d_name) + 1;
-        char *name = malloc(length);
-        memcpy(name, de->d_name, length);
-        list_add_item_to_tail(names, name);
-        listsize++;
+        printf("reading with name %s\n", de->d_name);
+        int length = (int) strlen(de->d_name) + 1;
+        if (writefully(socket, &length, sizeof(int)) <= 0)
+            return -1;
+        if (writefully(socket, de->d_name, length) <= 0)
+            return -1;
     } while ((de = readdir(dp)) != NULL);
 
-    if (writefully(socket, &listsize, sizeof(int)) <= 0)
+    if (writefully(socket, &terminator, sizeof(int)) <= 0)
         return -1;
 
-    for (list_item *it = names->head; it != NULL; it = it->next) {
-        char *name = it->data;
-        int namesize = (int) strlen(name) + 1;
-        if (writefully(socket, &namesize, sizeof(int)) <= 0)
-            return -1;
-        if (writefully(socket, name, namesize) <= 0)
-            return -1;
-        free(name);
-    }
-    for (int i = 0; i < listsize; i++) {
-        free(list_remove(names, NULL));
-    }
     return retstat;
 }
 

@@ -384,6 +384,7 @@ int antdfs_opendir(const char *path, struct fuse_file_info *fi) {
         retstat = -1;
         errno = EFAULT;
     }
+    log_msg("FUSE dp received %0x8\n", dp);
     fi->fh = (intptr_t) dp;
     log_fi(fi);
 
@@ -417,15 +418,16 @@ int antdfs_opendir(const char *path, struct fuse_file_info *fi) {
 int antdfs_releasedir(const char *path, struct fuse_file_info *fi) {
     log_msg("FUSE executing releasedir %s\n", path);
 
-    int retstat = 0;
+    int retstat = OP_REQ_SUCCESS;
     DIR* dp = (DIR *) (uintptr_t) fi->fh;
+    log_msg("FUSE sending dp %0x8\n", dp);
     static int sock = 0;
     static struct sockaddr_in addr;
     ifn_init_socket(&sock, &addr);
 
-    log_msg("FUSE Sending request for operation (%d)\n", READDIR_REQ);
+    log_msg("FUSE Sending request for operation (%d)\n", RELEASEDIR_REQ);
     // Sending operation code
-    short code = READDIR_REQ;
+    short code = RELEASEDIR_REQ;
     if (writefully(sock, &code, sizeof(short)) <= 0) return -1;
 
     // Sending path length
@@ -438,14 +440,8 @@ int antdfs_releasedir(const char *path, struct fuse_file_info *fi) {
     if (writefully(sock, (char *) path, len) <= 0) return -1;
 
     // Sending dp
-    log_msg("FUSE sending dirptr (%s)\n", dp);
+    log_msg("FUSE sending dp %0x8\n", dp);
     if (writefully(sock, &dp, sizeof(DIR *)) <= 0) return -1;
-    int listsize;
-    if (readfully(sock, &listsize, sizeof(int)) <= 0) {
-        retstat = -1;
-        errno = EFAULT;
-    }
-
     return retstat;
 }
 
@@ -474,26 +470,24 @@ int antdfs_readdir(const char *path, void *buf, fuse_fill_dir_t filler, off_t of
     if (writefully(sock, (char *) path, len) <= 0) return -1;
 
     // Sending dp
-    log_msg("FUSE sending dirptr (%s)\n", dp);
+    log_msg("FUSE sending dp %0x8\n", dp);
     if (writefully(sock, &dp, sizeof(DIR *)) <= 0) return -1;
-    int retstat;
-    int listsize;
-    if (readfully(sock, &listsize, sizeof(int)) <= 0) {
-        retstat = -1;
-        errno = EFAULT;
-    }
-    log_msg("FUSE received listsize of %d\n", listsize);
+    int retstat = OP_REQ_SUCCESS;
 
-    for (int i = 0; i < listsize; i++) {
-        int namesize;
-        if (readfully(sock, &namesize, sizeof(int)) <= 0) return -1;
-        char *name = malloc(namesize);
-        if (readfully(sock, &name, namesize <= 0)) return -1;
+    int name_length;
+    if(readfully(sock, &name_length, sizeof(int)) <= 0) return -1;
+
+    while (name_length > 0) {
+        char *name = malloc(name_length);
+        bzero(name, name_length);
+        if (readfully(sock, name, name_length ) <= 0) return -1;
         log_msg("Received file name %s\n", name);
         if (filler(buf, name, NULL, 0) != 0) {
             log_msg("    ERROR antdfs_readdir filler:  buffer full\n");
             return -ENOMEM;
         }
+        free(name);
+        if(readfully(sock, &name_length, sizeof(int)) <= 0) return -1;
     }
     log_fi(fi);
     return retstat;
