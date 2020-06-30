@@ -19,12 +19,16 @@
 #define OP_REQ_FAIL 1
 
 int exec_opendir(int socket, const char *path, int len);
+int exec_readdir(int socket, const char *path, int len);
+int exec_releasedir(int socket, const char *path, int len);
 
 // Operations
 #define N_OPER 28
 
 #define GETATTR_REQ 101
 #define OPENDIR_REQ 102
+#define READDIR_REQ 103
+#define RELEASEDIR_REQ 104
 #define OPEN_REQ 200
 
 // Define block codes

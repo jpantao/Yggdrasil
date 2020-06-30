@@ -401,6 +401,10 @@ static int exec_operation(int socket) {
             return exec_getattr(socket, path, len);
         case OPENDIR_REQ:
             return exec_opendir(socket, path, len);
+        case READDIR_REQ:
+            return exec_readdir(socket, path, len);
+        case RELEASEDIR_REQ:
+            return exec_releasedir(socket, path, len);
         default:
             sprintf(msg, "Undefined operation: %d", op);
             ygg_log("AntDFS", "ERROR", msg);
@@ -647,7 +651,7 @@ int exec_opendir(int socket, const char *path, int len) {
     }
     printf("FPATH: %s\n", fpath);
 
-    if((dp = opendir(fpath)) == NULL){
+    if ((dp = opendir(fpath)) == NULL) {
         ygg_log("AntDFS", "INFO", "Failed executing opendir");
         retstat = OP_REQ_FAIL;
     }
@@ -657,9 +661,71 @@ int exec_opendir(int socket, const char *path, int len) {
     if (retstat == OP_REQ_FAIL && writefully(socket, &errno, sizeof(int)) <= 0)
         return -1;
 
-    if (retstat == OP_REQ_SUCCESS && writefully(socket, &dp, sizeof(DIR*)) <= 0)
+    if (retstat == OP_REQ_SUCCESS && writefully(socket, &dp, sizeof(DIR *)) <= 0)
         return -1;
 
     return retstat;
 }
+
+int exec_releasedir(int socket, const char *path, int len) {
+    ygg_log("AntDFS", "INFO", "Executing releasedir request");
+    DIR *dp;
+    int retstat = OP_REQ_SUCCESS;
+    if (readfully(socket, &dp, sizeof(DIR *)) <= 0) {
+        retstat = -1;
+        errno = EFAULT;
+    }
+    if (closedir(dp) < 0) {
+        ygg_log("AntDFS", "INFO", "Failed executing releasedir");
+        retstat = OP_REQ_FAIL;
+    }
+    return retstat;
+}
+
+int exec_readdir(int socket, const char *path, int len) {
+    ygg_log("AntDFS", "INFO", "Executing readdir request");
+    DIR *dp;
+    int retstat = OP_REQ_SUCCESS;
+
+    if (readfully(socket, &dp, sizeof(DIR *)) <= 0) {
+        retstat = -1;
+        errno = EFAULT;
+    }
+
+    struct dirent *de;
+    de = readdir(dp);
+    log_msg("    readdir returned 0x%p\n", de);
+    if (de == 0) {
+        retstat = log_error("antdfs_readdir readdir\n");
+    }
+
+    list *names = list_init();
+    int listsize = 0;
+    do {
+        log_msg("reading with name %s\n", de->d_name);
+        unsigned long length = strlen(de->d_name) + 1;
+        char *name = malloc(length);
+        memcpy(name, de->d_name, length);
+        list_add_item_to_tail(names, name);
+        listsize++;
+    } while ((de = readdir(dp)) != NULL);
+
+    if (writefully(socket, &listsize, sizeof(int)) <= 0)
+        return -1;
+
+    for (list_item *it = names->head; it != NULL; it = it->next) {
+        char *name = it->data;
+        int namesize = (int) strlen(name) + 1;
+        if (writefully(socket, &namesize, sizeof(int)) <= 0)
+            return -1;
+        if (writefully(socket, name, namesize) <= 0)
+            return -1;
+        free(name);
+    }
+    for (int i = 0; i < listsize; i++) {
+        free(list_remove(names, NULL));
+    }
+    return retstat;
+}
+
 

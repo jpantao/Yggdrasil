@@ -374,13 +374,13 @@ int antdfs_opendir(const char *path, struct fuse_file_info *fi) {
 
     log_msg("FUSE retstat received (%d)\n", retstat);
 
-    if (retstat == OP_REQ_FAIL && readfully(sock, &errno, sizeof(int)) <= 0){
+    if (retstat == OP_REQ_FAIL && readfully(sock, &errno, sizeof(int)) <= 0) {
         errno = EFAULT;
         retstat = -1;
     } else
         errno = 0;
 
-    if (retstat == OP_REQ_SUCCESS && readfully(sock, &dp, sizeof(struct stat)) <= 0) {
+    if (retstat == OP_REQ_SUCCESS && readfully(sock, &dp, sizeof(DIR *)) <= 0) {
         retstat = -1;
         errno = EFAULT;
     }
@@ -414,53 +414,88 @@ int antdfs_opendir(const char *path, struct fuse_file_info *fi) {
     return retstat;*/
 }
 
-int antdfs_readdir(const char *path, void *buf, fuse_fill_dir_t filler, off_t offset, struct fuse_file_info *fi) {
+int antdfs_releasedir(const char *path, struct fuse_file_info *fi) {
+    log_msg("FUSE executing releasedir %s\n", path);
+
     int retstat = 0;
-    DIR *dp;
-    struct dirent *de;
+    DIR* dp = (DIR *) (uintptr_t) fi->fh;
+    static int sock = 0;
+    static struct sockaddr_in addr;
+    ifn_init_socket(&sock, &addr);
 
-    log_msg("\nantdfs_readdir(path=\"%s\", buf=0x%08x, filler=0x%08x, offset=%lld, fi=0x%08x)\n",
-            path, buf, filler, offset, fi);
-    // once again, no need for fullpath -- but note that I need to cast fi->fh
-    dp = (DIR *) (uintptr_t) fi->fh;
+    log_msg("FUSE Sending request for operation (%d)\n", READDIR_REQ);
+    // Sending operation code
+    short code = READDIR_REQ;
+    if (writefully(sock, &code, sizeof(short)) <= 0) return -1;
 
-    // Every directory contains at least two entries: . and ..  If my
-    // first call to the system readdir() returns NULL I've got an
-    // error; near as I can tell, that's the only condition under
-    // which I can get an error from readdir()
-    de = readdir(dp);
-    log_msg("    readdir returned 0x%p\n", de);
-    if (de == 0) {
-        retstat = log_error("antdfs_readdir readdir\n");
-        return retstat;
+    // Sending path length
+    int len = (int) (strlen(path) + 1);
+    log_msg("FUSE sending path length (%d)\n", len);
+    if (writefully(sock, &len, sizeof(int)) <= 0) return -1;
+
+    // Sending path
+    log_msg("FUSE sending path (%s)\n", path);
+    if (writefully(sock, (char *) path, len) <= 0) return -1;
+
+    // Sending dp
+    log_msg("FUSE sending dirptr (%s)\n", dp);
+    if (writefully(sock, &dp, sizeof(DIR *)) <= 0) return -1;
+    int listsize;
+    if (readfully(sock, &listsize, sizeof(int)) <= 0) {
+        retstat = -1;
+        errno = EFAULT;
     }
-
-    // This will copy the entire directory into the buffer.  The loop exits
-    // when either the system readdir() returns NULL, or filler()
-    // returns something non-zero.  The first case just means I've
-    // read the whole directory; the second means the buffer is full.
-    do {
-        log_msg("calling filler with name %s\n", de->d_name);
-        if (filler(buf, de->d_name, NULL, 0) != 0) {
-            log_msg("    ERROR antdfs_readdir filler:  buffer full\n");
-            return -ENOMEM;
-        }
-    } while ((de = readdir(dp)) != NULL);
-
-    log_fi(fi);
 
     return retstat;
 }
 
-int antdfs_releasedir(const char *path, struct fuse_file_info *fi) {
-    int retstat = 0;
+int antdfs_readdir(const char *path, void *buf, fuse_fill_dir_t filler, off_t offset, struct fuse_file_info *fi) {
 
-    log_msg("\nantdfs_releasedir(path=\"%s\", fi=0x%08x)\n",
-            path, fi);
+    log_msg("FUSE executing readdir %s\n", path);
+    DIR *dp;
+    dp = (DIR *) (uintptr_t) fi->fh;
+
+    static int sock = 0;
+    static struct sockaddr_in addr;
+    ifn_init_socket(&sock, &addr);
+
+    log_msg("FUSE Sending request for operation (%d)\n", READDIR_REQ);
+    // Sending operation code
+    short code = READDIR_REQ;
+    if (writefully(sock, &code, sizeof(short)) <= 0) return -1;
+
+    // Sending path length
+    int len = (int) (strlen(path) + 1);
+    log_msg("FUSE sending path length (%d)\n", len);
+    if (writefully(sock, &len, sizeof(int)) <= 0) return -1;
+
+    // Sending path
+    log_msg("FUSE sending path (%s)\n", path);
+    if (writefully(sock, (char *) path, len) <= 0) return -1;
+
+    // Sending dp
+    log_msg("FUSE sending dirptr (%s)\n", dp);
+    if (writefully(sock, &dp, sizeof(DIR *)) <= 0) return -1;
+    int retstat;
+    int listsize;
+    if (readfully(sock, &listsize, sizeof(int)) <= 0) {
+        retstat = -1;
+        errno = EFAULT;
+    }
+    log_msg("FUSE received listsize of %d\n", listsize);
+
+    for (int i = 0; i < listsize; i++) {
+        int namesize;
+        if (readfully(sock, &namesize, sizeof(int)) <= 0) return -1;
+        char *name = malloc(namesize);
+        if (readfully(sock, &name, namesize <= 0)) return -1;
+        log_msg("Received file name %s\n", name);
+        if (filler(buf, name, NULL, 0) != 0) {
+            log_msg("    ERROR antdfs_readdir filler:  buffer full\n");
+            return -ENOMEM;
+        }
+    }
     log_fi(fi);
-
-    closedir((DIR *) (uintptr_t) fi->fh);
-
     return retstat;
 }
 
