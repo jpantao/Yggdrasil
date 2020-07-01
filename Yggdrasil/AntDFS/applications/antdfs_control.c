@@ -14,11 +14,21 @@
 
 #include "ygg_runtime.h"
 
+
 pthread_mutex_t global_mutex;
 unsigned int n_local;
 list *local_files;
 list *cached_files;
 struct table *global_files;
+
+struct table *pending_read_requests;
+
+typedef struct pending_reads_t {
+    off_t offset;
+    int length;
+    int socket;
+    int block_ids[];
+} pending_reads;
 
 typedef struct finfo_t {
     uuid_t id;
@@ -357,8 +367,24 @@ int exec_open(int socket, const char *path){
             writefully(socket, &retstat, sizeof(int));
             return retstat;
         }
-    }
 
+        YggRequest* req;
+        YggRequest_init(req, CONTROL_ID,BATMAN_ID,REQUEST, FETCH_BLK_REQ_MSG);
+        YggRequest_addPayload(req, &file->id, sizeof(uuid_t));
+        int len = (int) strlen(path) + 1;
+        YggRequest_addPayload(req, &len, sizeof(int));
+        YggRequest_addPayload(req, (char*) path, len);
+        short n_blk = 4;
+        YggRequest_addPayload(req, &n_blk, sizeof(short));
+        int offset = 0;
+        YggRequest_addPayload(req, &offset, sizeof(int));
+        deliverRequest(req);
+        
+        for(int i = 0; i < 4; i++){
+            file->blocks[i] = B_REQUESTED;
+        }
+
+    }
 
 
 }
@@ -692,8 +718,8 @@ static void process_timer(YggTimer *timer) {
     YggTimer_freePayload(timer);
 }
 
-int main(int argc, char *argv[]) {
 
+int main(int argc, char *argv[]) {
 
     //Init ygg_runtime and protocols
     NetworkConfig *ntconf = defineWirelessNetworkConfig(TYPE, 11, 5, 1, "pis", "DFS");
@@ -718,6 +744,8 @@ int main(int argc, char *argv[]) {
     // Init AntDFS file database
     init_file_db();
 
+    pending_read_requests = table_create(500);
+
     //Start ygg_runtime
     ygg_runtime_start();
 
@@ -727,20 +755,20 @@ int main(int argc, char *argv[]) {
         queue_pop(inBox, &elem);
         switch (elem.type) {
             case YGG_MESSAGE:
-                ygg_log("AntDFS", "EVENT", "Message");
+                ygg_log("AntDFS", "MESSAGE", "Message");
                 process_message(&elem.data.msg);
                 break;
             case YGG_REQUEST:
-                ygg_log("AntDFS", "EVENT", "Request");
+                ygg_log("AntDFS", "REQUEST", "Request: NOP");
                 break;
             case YGG_TIMER:
-                ygg_log("AntDFS", "EVENT", "Timer");
+                ygg_log("AntDFS", "TIMER", "Timer");
                 process_timer(&elem.data.timer);
                 break;
             default:
                 ygg_log("AntDFS", "ERROR", "Undisclosed event received");
-                break;
         }
+
     }
 }
 

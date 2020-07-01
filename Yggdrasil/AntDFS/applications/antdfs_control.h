@@ -14,6 +14,7 @@
 #define CONTROL_ID 401
 #define DISCOV_ID 201
 #define DISSEMINATION_ID 202
+#define BATMAN_ID 203
 
 #define OP_REQ_SUCCESS 0
 #define OP_REQ_FAIL 1
@@ -33,9 +34,10 @@
 #define OPEN_REQ 105
 
 // Define block codes
+#define B_REQUESTED 'R'
 #define B_MISSING 'M'
 #define B_CACHED 'C'
 #define B_DIRTY 'D'
-#define B_REMOVED 'R'
+#define B_DELETED 'D'
 
 #endif //YGGDRASIL_ANTDFS_CONTROL_H
