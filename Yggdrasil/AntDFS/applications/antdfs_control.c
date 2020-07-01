@@ -59,6 +59,30 @@ static finfo *finfo_init(uuid_t uid, bool local, char *path, struct stat info) {
     }
     return file;
 }
+static void finfo_destroy(finfo** file) {
+    if((*file) == NULL) {
+        printf("Trying to destroy a null file\n");
+        exit(1);
+    }
+
+    for(int i = 0; i < (*file)->n_blocks; i++) {
+        binfo b = (*file)->blocks[i];
+        if(b.waiting_fds != NULL) {
+            while(b.waiting_fds->head) {
+                list_remove_head(b.waiting_fds);
+            }
+            free(b.waiting_fds);
+        }
+    }
+
+    if((*file)->blocks) {
+        free((*file)->blocks); (*file)->blocks = NULL;
+    }
+
+    free((*file)->path);
+    free((*file));
+    *file = NULL;
+}
 
 // virtual file descriptors
 int vds_counter;
@@ -71,6 +95,7 @@ typedef struct vfdinfo_t {
 static bool equal_vfdinfo(vfdinfo* fdinfo, const int* fd){
     return fdinfo->vfd == *fd;
 }
+
 static vfdinfo* vfdinfo_init(const char* filename, int vfd, int socket){
     vfdinfo *vfdinfo = malloc(sizeof(vfdinfo));
     vfdinfo->vfd = vfd;
@@ -82,7 +107,6 @@ static vfdinfo* vfdinfo_init(const char* filename, int vfd, int socket){
 
     printf("DEBUG: vfdinfo ===========> is %s and should be %s\n", vfdinfo->filename, filename);
 }
-
 // block requests
 list* pending_requests;
 typedef struct  prinfo_t {
@@ -93,6 +117,7 @@ typedef struct  prinfo_t {
 static bool equal_prinfo(prinfo* pr1, prinfo* pr2){
     return strcmp(pr1->filename, pr2->filename) == 0 && pr1->n_block == pr2->n_block;
 }
+
 static prinfo* prinfo_init(const char* filename, int n_block){
     prinfo* request = malloc(sizeof(prinfo));
     request->time_stamp = time(NULL);
@@ -117,52 +142,6 @@ static void init_structs(){
     virtual_fds = list_init();
 
     pending_requests = list_init();
-}
-
-static void finfo_destroy(finfo** file) {
-    if((*file) == NULL) {
-        printf("Trying to destroy a null file\n");
-        exit(1);
-    }
-
-    for(int i = 0; i < (*file)->n_blocks; i++) {
-        binfo b = (*file)->blocks[i];
-        if(b.waiting_fds != NULL) {
-            while(b.waiting_fds->head) {
-                free(list_remove_head(b.waiting_fds));
-            }
-            free(b.waiting_fds);
-        }
-    }
-
-    if((*file)->blocks) {
-        free((*file)->blocks); (*file)->blocks = NULL;
-    }
-
-    free((*file)->path);
-    free((*file));
-    *file = NULL;
-}
-
-static finfo *finfo_init(uuid_t uid, bool local, char *path, struct stat info) {
-    finfo *file = malloc(sizeof(finfo));
-    memcpy(file->id, uid, sizeof(uuid_t));
-    file->local = local;
-    file->info = info;
-    file->path = path;
-    if (info.st_size > 0) {
-        file->n_blocks = (info.st_size / 1000) + (info.st_size % 1000 > 0 ? 1 : 0);
-        file->blocks = malloc(file->n_blocks* sizeof(binfo));
-        for(int i = 0; i < file->n_blocks; i++){
-            binfo b = file->blocks[i];
-            b.state = B_MISSING;
-            b.waiting_fds = NULL;
-        }
-    } else {
-        file->n_blocks = 0;
-        file->blocks = NULL;
-    }
-    return file;
 }
 
 static void create_empty_file(char *path, bool local, mode_t mode) {

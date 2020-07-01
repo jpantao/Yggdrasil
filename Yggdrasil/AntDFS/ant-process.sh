@@ -2,7 +2,7 @@
 
 mountpoint=/home/jpantao/AntDFS/test
 
-launch_command="/tmp/tmp.*/cmake-build-raspi-*/bin/AntDFS -o allow_other $mountpoint"
+launch_command="/home/jpantao/Clion/cmake-build-raspi-*/bin/AntDFS -o allow_other $mountpoint"
 
 make_dir () {
   mkdir -p $mountpoint
