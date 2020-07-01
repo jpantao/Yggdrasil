@@ -400,6 +400,29 @@ int exec_open(int socket, const char *path) {
     return writefully(socket, &fd, sizeof(int)) <= 0 ? -1:0;
 }
 
+int exec_read(int socket, const char *path) {
+    ygg_log("AntDFS", "INFO", "Executing read request");
+    int virtualfs;
+    int offset;
+    int size;
+    int retstat = 1;
+    if (readfully(socket, &virtualfs, sizeof(int)) <= 0) {
+        retstat = -1;
+        errno = EFAULT;
+    }
+    if (readfully(socket, &offset, sizeof(int)) <= 0) {
+        retstat = -1;
+        errno = EFAULT;
+    }
+    if (readfully(socket, &size, sizeof(int)) <= 0) {
+        retstat = -1;
+        errno = EFAULT;
+    }
+
+    //TODO faz coisas antao
+
+}
+
 static void updateFileStats(struct stat *dest, struct stat *origin) {
     dest->st_dev = origin->st_dev;
     dest->st_ino = origin->st_ino;
@@ -435,6 +458,8 @@ static int exec_operation(int socket) {
             return exec_releasedir(socket, path);
         case OPEN_REQ:
             return exec_open(socket, path);
+        case READ_REQ:
+            return exec_read(socket, path);
         default:
             sprintf(msg, "Undefined operation: %d", op);
             ygg_log("AntDFS", "ERROR", msg);
