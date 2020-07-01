@@ -132,8 +132,7 @@ int antdfs_opendir(const char *path, struct fuse_file_info *fi) {
     if (retstat == OP_REQ_FAIL && readfully(sock, &errno, sizeof(int)) <= 0) {
         errno = EFAULT;
         retstat = -1;
-    } else
-        errno = 0;
+    }
 
     if (retstat == OP_REQ_SUCCESS && readfully(sock, &dp, sizeof(DIR *)) <= 0) {
         retstat = -1;
@@ -231,7 +230,7 @@ int antdfs_releasedir(const char *path, struct fuse_file_info *fi) {
 int antdfs_open(const char *path, struct fuse_file_info *fi) {
     log_msg("FUSE executing open %s\n", path);
     int retstat = 0;
-    int fd;
+
 
     static int sock = 0;
     static struct sockaddr_in addr;
@@ -251,20 +250,29 @@ int antdfs_open(const char *path, struct fuse_file_info *fi) {
     log_msg("FUSE sending path (%s)\n", path);
     if (writefully(sock, (char *) path, len) <= 0) return -1;
 
+    log_msg("FUSE receiving retstat");
+    if(readfully(sock, &retstat, sizeof(int)) <= 0){
+        errno = EFAULT;
+        return -1;
+    }
 
+    log_msg("FUSE retstat received (%d)\n", retstat);
 
-    /* // if the open call succeeds, my retstat is the file descriptor,
-     // else it's -errno.  I'm making sure that in that case the saved
-     // file descriptor is exactly -1.
-     fd = log_syscall("open", open(fpath, fi->flags), 0);
-     if (fd < 0)
-         retstat = log_error("open\n");
+    if (retstat == OP_REQ_FAIL && readfully(sock, &errno, sizeof(int)) <= 0) {
+        retstat = -1;
+    }
 
-     fi->fh = fd;
+    int fd;
 
-     log_fi(fi);
+    if (retstat == OP_REQ_SUCCESS && readfully(sock, &fd, sizeof(int)) <= 0) {
+        retstat = -1;
+        errno = EFAULT;
+    }
 
-     return retstat;*/
+    fi->fh = fd;
+
+    log_fi(fi);
+    return log_syscall("open", retstat, 0);
 }
 
 //------------------ NOT IMPLEMENTED ---------------------

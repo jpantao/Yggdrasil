@@ -28,6 +28,8 @@ int request_route_message(YggMessage* msg, int node_number);
 
 int request_specific_route_message(int routing_proto_id, YggMessage* msg, int node_number);
 
+int request_specific_uuid_route_message(int routing_proto_id, YggMessage* msg, uuid_t node_number);
+
 void unload_request_route_message(YggRequest* req, YggMessage* msg, uuid_t destination);
 
 #endif /* INTERFACES_ROUTING_ROUTING_INTERFACE_H_ */

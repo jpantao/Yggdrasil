@@ -23,6 +23,8 @@ struct table *global_files;
 
 struct table *pending_read_requests;
 
+int fd_counter;
+
 typedef struct pending_reads_t {
     off_t offset;
     int length;
@@ -58,14 +60,14 @@ static finfo *finfo_init(uuid_t uid, bool local, char *path, struct stat info) {
 
 static void create_empty_file(char *path, bool local, mode_t mode) {
     char completepath[500];
-    bzero(completepath,500);
+    bzero(completepath, 500);
     strcat(completepath, local ? LOCAL_FILES_LOC : REMOTE_FILES_LOC);
     strcat(completepath, path);
-    if(open(completepath, O_CREAT, mode) == -1)
+    if (open(completepath, O_CREAT, mode) == -1)
         perror("openat");
 }
 
-static void create_dir_relative(char* basedir, char *path, mode_t mode) {
+static void create_dir_relative(char *basedir, char *path, mode_t mode) {
     int max = (int) strlen(path);
     int index = 1;
     while (index < max) {
@@ -77,10 +79,10 @@ static void create_dir_relative(char* basedir, char *path, mode_t mode) {
         memcpy(tmp, path, index + 1);
         tmp[index + 1] = '\0';
         char completepath[500];
-        bzero(completepath,500);
+        bzero(completepath, 500);
         strcat(completepath, basedir);
         strcat(completepath, tmp);
-        if(mkdir(completepath, mode) == -1)
+        if (mkdir(completepath, mode) == -1)
             perror("mkdir");
         index++;
     }
@@ -124,7 +126,7 @@ static int full2relative(char *path, const char *fpath, bool local) {
 
 //pre: path is not NULL
 static int relative2full(char *fpath, const char *path, bool local) {
-    if(fpath[0] != '\0')
+    if (fpath[0] != '\0')
         bzero(fpath, PATH_MAX);
     strcat(fpath, local ? LOCAL_FILES_LOC : REMOTE_FILES_LOC);
     strcat(fpath, path);
@@ -249,7 +251,7 @@ int exec_getattr(int socket, const char *path) {
             return retstat;
         }
     }
-    if(file == NULL || file->local) {
+    if (file == NULL || file->local) {
         if (lstat(fpath, &info) < 0) {
             ygg_log("AntDFS", "INFO", "Failed executing lstat");
             retstat = OP_REQ_FAIL;
@@ -300,7 +302,7 @@ int exec_opendir(int socket, const char *path) {
     if (retstat == OP_REQ_FAIL && writefully(socket, &errno, sizeof(int)) <= 0)
         return -1;
 
-    if (retstat == OP_REQ_SUCCESS && writefully(socket, &dp, sizeof(DIR*)) <= 0)
+    if (retstat == OP_REQ_SUCCESS && writefully(socket, &dp, sizeof(DIR *)) <= 0)
         return -1;
 
     return retstat;
@@ -351,45 +353,53 @@ int exec_releasedir(int socket, const char *path) {
     return retstat;
 }
 
-int exec_open(int socket, const char *path){
+int exec_open(int socket, const char *path) {
     ygg_log("AntDFS", "INFO", "Executing open request");
 
     char fpath[PATH_MAX];
     int retstat = OP_REQ_SUCCESS;
+    finfo *file = (finfo *) table_lookup(global_files, path);
 
-    if (strcmp(path, "/") == 0) {
-        sprintf(fpath, "%s", REMOTE_FILES_LOC);
-    } else {
-        finfo *file = (finfo *) table_lookup(global_files, path);
-        //TODO: If file == NULL should get information about it now... and resume later...
-        if (file == NULL || relative2full(fpath, path, file->local) < 0) {
-            retstat = OP_REQ_FAIL;
-            writefully(socket, &retstat, sizeof(int));
-            return retstat;
-        }
 
-        YggRequest* req;
-        YggRequest_init(req, CONTROL_ID,BATMAN_ID,REQUEST, FETCH_BLK_REQ_MSG);
-        YggRequest_addPayload(req, &file->id, sizeof(uuid_t));
-        int len = (int) strlen(path) + 1;
-        YggRequest_addPayload(req, &len, sizeof(int));
-        YggRequest_addPayload(req, (char*) path, len);
-        short n_blk = 4;
-        YggRequest_addPayload(req, &n_blk, sizeof(short));
-        int offset = 0;
-        YggRequest_addPayload(req, &offset, sizeof(int));
-        deliverRequest(req);
-        
-        for(int i = 0; i < 4; i++){
-            file->blocks[i] = B_REQUESTED;
-        }
-
+    //TODO: If file == NULL should get information about it now... and resume later...
+    if (file == NULL || relative2full(fpath, path, file->local) < 0) {
+        retstat = OP_REQ_FAIL;
+        errno = ENOENT;
+    }
+    if (retstat == OP_REQ_SUCCESS && S_ISDIR(file->info.st_mode)) {
+        retstat = OP_REQ_FAIL;
+        errno = EISDIR;
     }
 
+    writefully(socket, &retstat, sizeof(int));
+    if(retstat == OP_REQ_FAIL) {
+        writefully(socket, &errno, sizeof(int));
+        return retstat;
+    }
 
+    YggMessage msg;
+    YggMessage_initBcast(&msg, CONTROL_ID);
+    short msg_id = (short) FETCH_BLK_REQ_MSG;
+    YggMessage_addPayload(&msg, (char *) &msg_id, sizeof(short));
+    YggMessage_addPayload(&msg, (char *) file->id, sizeof(uuid_t));
+    int len = (int) strlen(path) + 1;
+    YggMessage_addPayload(&msg, (char *) &len, sizeof(int));
+    YggMessage_addPayload(&msg, (char *) path, len);
+    short n_blk = 4;
+    YggMessage_addPayload(&msg, (char *) &n_blk, sizeof(short));
+    int offset = 0;
+    YggMessage_addPayload(&msg, (char *) &offset, sizeof(int));
+    request_specific_uuid_route_message(BATMAN_ID, &msg, file->id);
+    YggMessage_freePayload(&msg);
+
+    for (int i = 0; i < 4; i++) {
+        file->blocks[i] = B_REQUESTED;
+    }
+    int fd = fd_counter++;
+    return writefully(socket, &fd, sizeof(int)) <= 0 ? -1:0;
 }
 
-static void updateFileStats(struct stat* dest, struct stat* origin) {
+static void updateFileStats(struct stat *dest, struct stat *origin) {
     dest->st_dev = origin->st_dev;
     dest->st_ino = origin->st_ino;
     dest->st_rdev = origin->st_rdev;
@@ -659,7 +669,7 @@ static void process_message(YggMessage *msg) {
 
     short msg_id;
     void *ptr = YggMessage_readPayload(msg, NULL, &msg_id, sizeof(short));
-    len-= sizeof(short);
+    len -= sizeof(short);
     printf("\nDEBUG ===================> %d\n", msg_id);
 
     switch (msg_id) {
@@ -688,7 +698,7 @@ static void process_timer(YggTimer *timer) {
     while (it != NULL) {
         YggRequest_init(&req, CONTROL_ID, DISSEMINATION_ID, REQUEST, DISSEMINATION_REQUEST);
         unsigned short free_payload = 1400 - sizeof(uuid_t);
-        short msg_id = DISSEMINATION_MSG;
+        short msg_id = (short) DISSEMINATION_MSG;
         YggRequest_addPayload(&req, &msg_id, sizeof(short));
         YggRequest_addPayload(&req, myid, sizeof(uuid_t));
         if (buf != NULL) {
@@ -745,6 +755,8 @@ int main(int argc, char *argv[]) {
     init_file_db();
 
     pending_read_requests = table_create(500);
+    fd_counter = 3;
+
 
     //Start ygg_runtime
     ygg_runtime_start();

@@ -41,6 +41,22 @@ int request_specific_route_message(int routing_proto_id, YggMessage* msg, int no
 	return r;
 }
 
+int request_specific_uuid_route_message(int routing_proto_id, YggMessage* msg, uuid_t node_id) {
+    YggRequest req;
+
+    YggRequest_init(&req, msg->Proto_id, routing_proto_id, REQUEST, SEND_MESSAGE);
+
+    YggRequest_addPayload(&req, node_id, sizeof(uuid_t));
+    YggRequest_addPayload(&req, &msg->dataLen, sizeof(unsigned short));
+    YggRequest_addPayload(&req, msg->data, msg->dataLen);
+
+    int r = deliverRequest(&req);
+
+    YggRequest_freePayload(&req);
+
+    return r;
+}
+
 void unload_request_route_message(YggRequest* req, YggMessage* msg, uuid_t destination) {
 
 	void* ptr = YggRequest_readPayload(req, NULL, destination, sizeof(uuid_t));
