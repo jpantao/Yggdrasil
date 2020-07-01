@@ -184,10 +184,10 @@ int antdfs_readdir(const char *path, void *buf, fuse_fill_dir_t filler, off_t of
     while (name_length > 0) {
         char *name = malloc(name_length);
         bzero(name, name_length);
-        if (readfully(sock, name, name_length ) <= 0) return -1;
+        if (readfully(sock, name, name_length) <= 0) return -1;
         log_msg("Received file name %s\n", name);
         if (filler(buf, name, NULL, 0) != 0) {
-            log_msg("    ERROR antdfs_readdir filler:  buffer full\n");
+            log_msg("ERROR antdfs_readdir filler:  buffer full\n");
             return -ENOMEM;
         }
         free(name);
@@ -273,6 +273,39 @@ int antdfs_open(const char *path, struct fuse_file_info *fi) {
 
     log_fi(fi);
     return log_syscall("open", retstat, 0);
+}
+
+int antdfs_read(const char *path, char *buf, size_t size, off_t offset, struct fuse_file_info *fi) {
+
+    log_msg("FUSE executing read %s\n", path);
+
+    static int sock = 0;
+    static struct sockaddr_in addr;
+    ifn_init_socket(&sock, &addr);
+
+    log_msg("FUSE Sending request for operation (%d)\n", READDIR_REQ);
+    // Sending operation code
+    short code = READDIR_REQ;
+    if (writefully(sock, &code, sizeof(short)) <= 0) return -1;
+
+    // Sending path length
+    int len = (int) (strlen(path) + 1);
+    log_msg("FUSE sending path length (%d)\n", len);
+    if (writefully(sock, &len, sizeof(int)) <= 0) return -1;
+
+    // Sending path
+    log_msg("FUSE sending path (%s)\n", path);
+    if (writefully(sock, (char *) path, len) <= 0) return -1;
+
+
+
+
+//    log_msg("\nantdfs_read(path=\"%s\", buf=0x%08x, size=%d, offset=%lld, fi=0x%08x)\n",
+//            path, buf, size, offset, fi);
+//    // no need to get fpath on this one, since I work from fi->fh not the path
+//    log_fi(fi);
+//
+//    return log_syscall("pread", pread(fi->fh, buf, size, offset), 0);
 }
 
 //------------------ NOT IMPLEMENTED ---------------------
@@ -422,15 +455,6 @@ int antdfs_utime(const char *path, struct utimbuf *ubuf) {
     fullpath(fpath, path);
 
     return log_syscall("utime", utime(fpath, ubuf), 0);
-}
-
-int antdfs_read(const char *path, char *buf, size_t size, off_t offset, struct fuse_file_info *fi) {
-    log_msg("\nantdfs_read(path=\"%s\", buf=0x%08x, size=%d, offset=%lld, fi=0x%08x)\n",
-            path, buf, size, offset, fi);
-    // no need to get fpath on this one, since I work from fi->fh not the path
-    log_fi(fi);
-
-    return log_syscall("pread", pread(fi->fh, buf, size, offset), 0);
 }
 
 int antdfs_write(const char *path, const char *buf, size_t size, off_t offset, struct fuse_file_info *fi) {

@@ -20,8 +20,6 @@ static short OGM = 0;
 //static short MSG = 1;
 
 
-static bool is_self(WLANAddr *dst_addr, batman_state *state);
-
 typedef struct stats_{
 
 	neighbour_item* neighbour_ref;
@@ -572,7 +570,7 @@ static short route(YggMessage* msg, batman_state* state) {
 
     if(is_self(&msg->header.dst_addr.mac_addr, state)) {
         memcpy(msg->header.src_addr.mac_addr.data, msg->header.dst_addr.mac_addr.data, WLAN_ADDR_LEN);
-        deliver(&msg);
+        deliver(msg);
     }
 
 //    char log_msg[200];

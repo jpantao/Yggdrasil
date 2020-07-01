@@ -32,6 +32,7 @@
 #define READDIR_REQ 103
 #define RELEASEDIR_REQ 104
 #define OPEN_REQ 105
+#define READ_REQ 106
 
 // Define block codes
 #define B_REQUESTED 'R'

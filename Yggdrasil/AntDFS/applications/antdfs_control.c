@@ -23,6 +23,7 @@ struct table *global_files;
 
 struct table *pending_read_requests;
 
+struct table *open_fds;
 int fd_counter;
 
 typedef struct pending_reads_t {
@@ -43,7 +44,7 @@ typedef struct finfo_t {
 
 static finfo *finfo_init(uuid_t uid, bool local, char *path, struct stat info) {
     finfo *file = malloc(sizeof(finfo));
-    memcpy(&(file->id), &uid, sizeof(uuid_t));
+    memcpy(file->id, uid, sizeof(uuid_t));
     file->local = local;
     file->info = info;
     file->path = path;
@@ -659,6 +660,7 @@ void process_dissemination_msg(YggMessage *msg, uuid_t myid, unsigned int len, v
 }
 
 void process_fetch_blk_msg(YggMessage *msg, uuid_t myid, unsigned int len, void *ptr) {
+    
 
 }
 
@@ -670,15 +672,16 @@ static void process_message(YggMessage *msg) {
     short msg_id;
     void *ptr = YggMessage_readPayload(msg, NULL, &msg_id, sizeof(short));
     len -= sizeof(short);
-    printf("\nDEBUG ===================> %d\n", msg_id);
 
     switch (msg_id) {
         case DISSEMINATION_MSG:
             process_dissemination_msg(msg, myid, len, ptr);
             break;
         case FETCH_BLK_REQ_MSG:
-
+            process_fetch_blk_msg(msg, myid, len, ptr);
             break;
+
+
         default:
             ygg_log("AntDFS", "ERROR", "Undefined message type received");
     }
