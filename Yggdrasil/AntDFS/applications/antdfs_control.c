@@ -238,7 +238,6 @@ static unsigned short serialize_finfo(void **buf, finfo *f) {
 
 static unsigned short deserialize_finfo(uuid_t owner, YggMessage *msg, finfo **file, void *ptr, bool local) {
     unsigned short read = 0;
-    *file = malloc(sizeof(finfo));
 
     unsigned short len;
     ptr = YggMessage_readPayload(msg, ptr, &len, sizeof(unsigned short));
@@ -246,25 +245,17 @@ static unsigned short deserialize_finfo(uuid_t owner, YggMessage *msg, finfo **f
     unsigned short path_len;
     ptr = YggMessage_readPayload(msg, ptr, &path_len, sizeof(unsigned short));
     read += sizeof(unsigned short);
-    (*file)->path = malloc(path_len);
-    ptr = YggMessage_readPayload(msg, ptr, (*file)->path, path_len);
+    char* path = malloc(path_len);
+    ptr = YggMessage_readPayload(msg, ptr, path, path_len);
     read += path_len;
-    YggMessage_readPayload(msg, ptr, &(*file)->info, sizeof(struct stat));
+    struct stat info;
+    YggMessage_readPayload(msg, ptr, &info, sizeof(struct stat));
     read += sizeof(struct stat);
 
     if (read != len)
         printf("ERROR: len should be %d and is %d\n", len, read);
 
-    memcpy((*file)->id, owner, sizeof(uuid_t));
-    (*file)->local = local;
-    if (local == false && (*file)->info.st_size > 0) {
-        (*file)->n_blocks = ((*file)->info.st_size / 1000) + ((*file)->info.st_size % 1000 > 0 ? 1 : 0);
-        (*file)->blocks = malloc((*file)->n_blocks);
-        memset((*file)->blocks, B_MISSING, (*file)->n_blocks);
-    } else {
-        (*file)->n_blocks = 0;
-        (*file)->blocks = NULL;
-    }
+    *file = finfo_init(owner, local, path, info);
     return read;
 }
 
