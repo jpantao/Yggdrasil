@@ -1,3 +1,4 @@
+
 /*********************************************************
  * This code was written in the context of the Lightkone
  * European project.
@@ -18,6 +19,8 @@
 static short OGM = 0;
 //static short MSG = 1;
 
+
+static bool is_self(WLANAddr *dst_addr, batman_state *state);
 
 typedef struct stats_{
 
@@ -68,6 +71,10 @@ typedef struct _batman_state {
 
 static bool is_bcast(WLANAddr* from, batman_state* state) {
     return memcmp(from->data, state->bcast_addr.data, WLAN_ADDR_LEN) == 0;
+}
+
+static bool is_self(WLANAddr *dst_addr, batman_state *state) {
+    return memcmp(dst_addr->data, state->my_addr.data, WLAN_ADDR_LEN) == 0;
 }
 
 static bool equal_entry_id(originator_entry* entry, uuid_t origin) {
@@ -561,6 +568,11 @@ static short route(YggMessage* msg, batman_state* state) {
         };
         queue_push(state->dispatcher_queue, &elem);
         YggMessage_freePayload(msg);
+    }
+
+    if(is_self(&msg->header.dst_addr.mac_addr, state)) {
+        memcpy(msg->header.src_addr.mac_addr.data, msg->header.dst_addr.mac_addr.data, WLAN_ADDR_LEN);
+        deliver(&msg);
     }
 
 //    char log_msg[200];
