@@ -19,28 +19,57 @@ pthread_mutex_t global_mutex;
 unsigned int n_local;
 list *local_files;
 list *cached_files;
+
+// Table mapping filename -> finfo
 struct table *global_files;
-
-// table
-struct table *pending_read_requests;
-
-struct table *open_fds;
-int fd_counter;
-
-typedef struct pending_reads_t {
-    int length;
-    int socket;
-    int block_ids[];
-} pending_reads;
-
+typedef struct binfo_t {
+    char state;
+    list* waiting_fds;
+}binfo;
 typedef struct finfo_t {
     uuid_t id;
     bool local;
     struct stat info;
     char *path;
     long n_blocks;
-    char *blocks;
+    binfo *blocks;
 } finfo;
+
+// virtual file descriptors
+int vds_counter;
+list* virtual_fds;
+typedef struct fdinfo_t {
+    char* filename;
+    int vfd;
+    int socket;
+} fdinfo;
+static bool equal_fdinfo(fdinfo* fdinfo, const int* fd){
+    return fdinfo->vfd == *fd;
+}
+
+// block requests
+list* pending_requests;
+typedef struct  prinfo_t {
+    char* filename;
+    short n_block;
+    time_t time_stamp;
+} prinfo;
+static bool equal_prinfo(prinfo* pr1, prinfo* pr2){
+    return strcmp(pr1->filename, pr2->filename) == 0 && pr1->n_block == pr2->n_block;
+}
+
+
+static void init_structs(){
+    global_files = table_create(500);
+    local_files = list_init();
+    n_local = 0;
+    cached_files = list_init();
+
+    vds_counter = 3;
+    virtual_fds = list_init();
+
+    pending_requests = list_init();
+}
 
 static finfo *finfo_init(uuid_t uid, bool local, char *path, struct stat info) {
     finfo *file = malloc(sizeof(finfo));
@@ -595,10 +624,6 @@ static void create_internal_dirs() {
 
 static void init_file_db() {
     pthread_mutex_init(&global_mutex, NULL);
-    global_files = table_create(500);
-    local_files = list_init();
-    n_local = 0;
-    cached_files = list_init();
     create_internal_dirs();
     register_dir_rec(LOCAL_FILES_LOC, true);
 }
@@ -769,9 +794,6 @@ int main(int argc, char *argv[]) {
 
     // Init AntDFS file database
     init_file_db();
-
-    pending_read_requests = table_create(500);
-    fd_counter = 3;
 
 
     //Start ygg_runtime
