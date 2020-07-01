@@ -57,7 +57,11 @@ typedef struct  prinfo_t {
 static bool equal_prinfo(prinfo* pr1, prinfo* pr2){
     return strcmp(pr1->filename, pr2->filename) == 0 && pr1->n_block == pr2->n_block;
 }
-
+static prinfo* prinfo_init(char* filename, int n_block){
+    prinfo* request = malloc(sizeof(prinfo));
+    request->n_block = n_block;
+    request->filename = filename;
+}
 
 static void init_structs(){
     pthread_mutex_init(&global_mutex, NULL);
@@ -446,7 +450,10 @@ int exec_open(int socket, const char *path) {
 
     int fd = vds_counter++;
 
-    
+    prinfo* req_info = malloc(sizeof(prinfo));
+    req_info->n_block = 0;
+
+
 
     return writefully(socket, &fd, sizeof(int)) <= 0 ? -1:0;
 }
