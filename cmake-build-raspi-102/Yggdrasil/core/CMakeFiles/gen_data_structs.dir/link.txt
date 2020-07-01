@@ -1,2 +1,0 @@
-/usr/bin/ar qc ../../../lib/libgen_data_structs.a  CMakeFiles/gen_data_structs.dir/data_structures/generic/list.c.o CMakeFiles/gen_data_structs.dir/data_structures/generic/ordered_list.c.o
-/usr/bin/ranlib ../../../lib/libgen_data_structs.a

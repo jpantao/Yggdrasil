@@ -1,1 +1,0 @@
-/usr/bin/cc  -g -Wall -O0 -g  -rdynamic CMakeFiles/file_server_client.dir/plumtree_file_transfer_client.c.o  -o ../../../../../bin/file_server_client 

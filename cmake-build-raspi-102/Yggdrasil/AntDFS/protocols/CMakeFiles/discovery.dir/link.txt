@@ -1,2 +1,0 @@
-/usr/bin/ar qc ../../../../lib/libdiscovery.a  CMakeFiles/discovery.dir/discovery.c.o
-/usr/bin/ranlib ../../../../lib/libdiscovery.a

@@ -1,2 +1,0 @@
-/usr/bin/ar qc ../../../../lib/libsimple_discovery.a  CMakeFiles/simple_discovery.dir/discovery/simple_discovery.c.o
-/usr/bin/ranlib ../../../../lib/libsimple_discovery.a

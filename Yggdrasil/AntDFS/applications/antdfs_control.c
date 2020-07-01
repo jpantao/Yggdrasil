@@ -21,13 +21,13 @@ list *local_files;
 list *cached_files;
 struct table *global_files;
 
+// table
 struct table *pending_read_requests;
 
 struct table *open_fds;
 int fd_counter;
 
 typedef struct pending_reads_t {
-    off_t offset;
     int length;
     int socket;
     int block_ids[];
@@ -660,7 +660,20 @@ void process_dissemination_msg(YggMessage *msg, uuid_t myid, unsigned int len, v
 }
 
 void process_fetch_blk_msg(YggMessage *msg, uuid_t myid, unsigned int len, void *ptr) {
-    
+
+    uuid_t uuid;
+    ptr = YggMessage_readPayload(msg, ptr, uuid, sizeof(uuid_t));
+    int path_len;
+    ptr = YggMessage_readPayload(msg, ptr, &path_len, sizeof(int));
+    char path[path_len];
+    ptr = YggMessage_readPayload(msg, ptr, path, path_len);
+    short n_blocks;
+    ptr = YggMessage_readPayload(msg, ptr, &n_blocks, sizeof(short));
+    int offset;
+    YggMessage_readPayload(msg, ptr, &offset, sizeof(int));
+
+
+
 
 }
 

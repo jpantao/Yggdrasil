@@ -1,2 +1,0 @@
-/usr/bin/ar qc ../../../../lib/libcontrol_server.a  CMakeFiles/control_server.dir/control_protocol_server.c.o
-/usr/bin/ranlib ../../../../lib/libcontrol_server.a

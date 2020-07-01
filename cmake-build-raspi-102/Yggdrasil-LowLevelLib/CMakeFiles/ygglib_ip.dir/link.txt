@@ -1,2 +1,0 @@
-/usr/bin/ar qc ../../lib/libygglib_ip.a  CMakeFiles/ygglib_ip.dir/src_ip/api.c.o
-/usr/bin/ranlib ../../lib/libygglib_ip.a

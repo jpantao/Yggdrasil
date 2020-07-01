@@ -1,2 +1,0 @@
-/usr/bin/ar qc ../../../../lib/libcmdio_new.a  CMakeFiles/cmdio_new.dir/cmdio.c.o CMakeFiles/cmdio_new.dir/control_protocol_utils.c.o
-/usr/bin/ranlib ../../../../lib/libcmdio_new.a

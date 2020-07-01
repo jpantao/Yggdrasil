@@ -1,2 +1,0 @@
-/usr/bin/ar qc ../../../../lib/libantdfs_utils.a  CMakeFiles/antdfs_utils.dir/antdfs_utils.c.o
-/usr/bin/ranlib ../../../../lib/libantdfs_utils.a

@@ -1,2 +1,0 @@
-/usr/bin/ar qc ../../../../lib/libhashmap.a  CMakeFiles/hashmap.dir/hashmap.c.o
-/usr/bin/ranlib ../../../../lib/libhashmap.a

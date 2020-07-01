@@ -1,1 +1,0 @@
-/usr/bin/cc  -g -Wall -O0 -g  -rdynamic CMakeFiles/cmdshutdown.dir/tools/shutdown.c.o  -o ../../../../bin/cmdshutdown ../../../../lib/libcmdio_new.a -luuid 

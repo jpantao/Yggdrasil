@@ -1,2 +1,0 @@
-/usr/bin/ar qc ../../../../lib/librouting.a  CMakeFiles/routing.dir/batman.c.o
-/usr/bin/ranlib ../../../../lib/librouting.a

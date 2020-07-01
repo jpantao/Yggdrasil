@@ -1,2 +1,0 @@
-/usr/bin/ar qc ../../../../lib/libyggdfs_control_server.a  CMakeFiles/yggdfs_control_server.dir/yggdfs_control_server.c.o
-/usr/bin/ranlib ../../../../lib/libyggdfs_control_server.a
