@@ -26,6 +26,11 @@ typedef struct binfo_t {
     char state;
     list* waiting_fds;
 }binfo;
+static binfo* binfo_init(char state){
+    binfo* block = malloc(sizeof(binfo));
+    block->state = state;
+    block->waiting_fds = NULL;
+}
 typedef struct finfo_t {
     uuid_t id;
     bool local;
@@ -34,49 +39,6 @@ typedef struct finfo_t {
     long n_blocks;
     binfo *blocks;
 } finfo;
-
-// virtual file descriptors
-int vds_counter;
-list* virtual_fds;
-typedef struct fdinfo_t {
-    char* filename;
-    int vfd;
-    int socket;
-} fdinfo;
-static bool equal_fdinfo(fdinfo* fdinfo, const int* fd){
-    return fdinfo->vfd == *fd;
-}
-
-// block requests
-list* pending_requests;
-typedef struct  prinfo_t {
-    char* filename;
-    short n_block;
-    time_t time_stamp;
-} prinfo;
-static bool equal_prinfo(prinfo* pr1, prinfo* pr2){
-    return strcmp(pr1->filename, pr2->filename) == 0 && pr1->n_block == pr2->n_block;
-}
-static prinfo* prinfo_init(char* filename, int n_block){
-    prinfo* request = malloc(sizeof(prinfo));
-    request->n_block = n_block;
-    request->filename = filename;
-}
-
-static void init_structs(){
-    pthread_mutex_init(&global_mutex, NULL);
-
-    global_files = table_create(500);
-    local_files = list_init();
-    n_local = 0;
-    cached_files = list_init();
-
-    vds_counter = 3;
-    virtual_fds = list_init();
-
-    pending_requests = list_init();
-}
-
 static finfo *finfo_init(uuid_t uid, bool local, char *path, struct stat info) {
     finfo *file = malloc(sizeof(finfo));
     memcpy(file->id, uid, sizeof(uuid_t));
@@ -96,6 +58,65 @@ static finfo *finfo_init(uuid_t uid, bool local, char *path, struct stat info) {
         file->blocks = NULL;
     }
     return file;
+}
+
+// virtual file descriptors
+int vds_counter;
+list* virtual_fds;
+typedef struct vfdinfo_t {
+    char* filename;
+    int vfd;
+    int socket;
+} vfdinfo;
+static bool equal_vfdinfo(vfdinfo* fdinfo, const int* fd){
+    return fdinfo->vfd == *fd;
+}
+static vfdinfo* vfdinfo_init(const char* filename, int vfd, int socket){
+    vfdinfo *vfdinfo = malloc(sizeof(vfdinfo));
+    vfdinfo->vfd = vfd;
+    vfdinfo->socket = socket;
+    int len = strlen(filename) + 1;
+    vfdinfo->filename = malloc(len);
+    memcpy(vfdinfo->filename, filename, len - 1);
+    memset(vfdinfo->filename + len, 0, 1);
+
+    printf("DEBUG: vfdinfo ===========> is %s and should be %s\n", vfdinfo->filename, filename);
+}
+
+// block requests
+list* pending_requests;
+typedef struct  prinfo_t {
+    char* filename;
+    int n_block;
+    time_t time_stamp;
+} prinfo;
+static bool equal_prinfo(prinfo* pr1, prinfo* pr2){
+    return strcmp(pr1->filename, pr2->filename) == 0 && pr1->n_block == pr2->n_block;
+}
+static prinfo* prinfo_init(const char* filename, int n_block){
+    prinfo* request = malloc(sizeof(prinfo));
+    request->time_stamp = time(NULL);
+    request->n_block = n_block;
+    int len = strlen(filename) + 1;
+    request->filename = malloc(len);
+    memcpy(request->filename, filename, len - 1);
+    memset(request->filename + len, 0, 1);
+
+    printf("DEBUG: prinfo ===========> is %s and should be %s\n", request->filename, filename);
+}
+
+static void init_structs(){
+    pthread_mutex_init(&global_mutex, NULL);
+
+    global_files = table_create(500);
+    local_files = list_init();
+    n_local = 0;
+    cached_files = list_init();
+
+    vds_counter = 3;
+    virtual_fds = list_init();
+
+    pending_requests = list_init();
 }
 
 static void create_empty_file(char *path, bool local, mode_t mode) {
@@ -425,10 +446,13 @@ int exec_open(int socket, const char *path) {
 
     int fd = vds_counter++;
 
-    prinfo* req_info = malloc(sizeof(prinfo));
-    req_info->n_block = 0;
+    prinfo* req_info = prinfo_init(path, 0);
+    list_add_item_to_tail(pending_requests, req_info);
 
+    vfdinfo* vfdinfo = vfdinfo_init(path, fd, socket);
+    list_add_item_to_tail(virtual_fds, vfdinfo);
 
+    file->blocks[0].state = B_REQUESTED;
 
     return writefully(socket, &fd, sizeof(int)) <= 0 ? -1:0;
 }
@@ -438,7 +462,8 @@ int exec_read(int socket, const char *path) {
     int virtualfs;
     int offset;
     int size;
-    int retstat = 1;
+    int retstat = OP_REQ_SUCCESS;
+    
     if (readfully(socket, &virtualfs, sizeof(int)) <= 0) {
         retstat = -1;
         errno = EFAULT;
@@ -746,7 +771,6 @@ static void process_message(YggMessage *msg) {
         case FETCH_BLK_REQ_MSG:
             process_fetch_blk_msg(msg, myid, len, ptr);
             break;
-
 
         default:
             ygg_log("AntDFS", "ERROR", "Undefined message type received");
