@@ -60,6 +60,8 @@ static bool equal_prinfo(prinfo* pr1, prinfo* pr2){
 
 
 static void init_structs(){
+    pthread_mutex_init(&global_mutex, NULL);
+
     global_files = table_create(500);
     local_files = list_init();
     n_local = 0;
@@ -79,8 +81,12 @@ static finfo *finfo_init(uuid_t uid, bool local, char *path, struct stat info) {
     file->path = path;
     if (info.st_size > 0) {
         file->n_blocks = (info.st_size / 1000) + (info.st_size % 1000 > 0 ? 1 : 0);
-        file->blocks = malloc(file->n_blocks);
-        memset(file->blocks, B_MISSING, file->n_blocks);
+        file->blocks = malloc(file->n_blocks* sizeof(binfo));
+        for(int i = 0; i < file->n_blocks; i++){
+            binfo b = file->blocks[i];
+            b.state = B_MISSING;
+            b.waiting_fds = NULL;
+        }
     } else {
         file->n_blocks = 0;
         file->blocks = NULL;
@@ -422,10 +428,10 @@ int exec_open(int socket, const char *path) {
     request_specific_uuid_route_message(BATMAN_ID, &msg, file->id);
     YggMessage_freePayload(&msg);
 
-    for (int i = 0; i < 4; i++) {
-        file->blocks[i] = B_REQUESTED;
-    }
-    int fd = fd_counter++;
+    int fd = vds_counter++;
+
+    
+
     return writefully(socket, &fd, sizeof(int)) <= 0 ? -1:0;
 }
 
@@ -648,7 +654,6 @@ static void create_internal_dirs() {
 }
 
 static void init_file_db() {
-    pthread_mutex_init(&global_mutex, NULL);
     create_internal_dirs();
     register_dir_rec(LOCAL_FILES_LOC, true);
 }
@@ -797,6 +802,8 @@ static void process_timer(YggTimer *timer) {
 
 int main(int argc, char *argv[]) {
 
+    init_structs();
+
     //Init ygg_runtime and protocols
     NetworkConfig *ntconf = defineWirelessNetworkConfig(TYPE, 11, 5, 1, "pis", "DFS");
     ygg_runtime_init(ntconf);
@@ -819,7 +826,6 @@ int main(int argc, char *argv[]) {
 
     // Init AntDFS file database
     init_file_db();
-
 
     //Start ygg_runtime
     ygg_runtime_start();
