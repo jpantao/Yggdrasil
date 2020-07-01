@@ -30,6 +30,7 @@ static binfo* binfo_init(char state){
     binfo* block = malloc(sizeof(binfo));
     block->state = state;
     block->waiting_fds = NULL;
+    return block;
 }
 typedef struct finfo_t {
     uuid_t id;
@@ -49,9 +50,8 @@ static finfo *finfo_init(uuid_t uid, bool local, char *path, struct stat info) {
         file->n_blocks = (info.st_size / 1000) + (info.st_size % 1000 > 0 ? 1 : 0);
         file->blocks = malloc(file->n_blocks* sizeof(binfo));
         for(int i = 0; i < file->n_blocks; i++){
-            binfo b = file->blocks[i];
-            b.state = B_MISSING;
-            b.waiting_fds = NULL;
+            file->blocks[i].state = B_MISSING;
+            file->blocks[i].waiting_fds = NULL;
         }
     } else {
         file->n_blocks = 0;
@@ -81,6 +81,7 @@ static vfdinfo* vfdinfo_init(const char* filename, int vfd, int socket){
     memset(vfdinfo->filename + len, 0, 1);
 
     printf("DEBUG: vfdinfo ===========> is %s and should be %s\n", vfdinfo->filename, filename);
+    return vfdinfo;
 }
 
 // block requests
@@ -103,6 +104,7 @@ static prinfo* prinfo_init(const char* filename, int n_block){
     memset(request->filename + len, 0, 1);
 
     printf("DEBUG: prinfo ===========> is %s and should be %s\n", request->filename, filename);
+    return request;
 }
 
 static void init_structs(){
@@ -296,7 +298,7 @@ static unsigned short serialize_finfo(void **buf, finfo *f) {
     len += sizeof(struct stat);
     len += sizeof(short);
     *buf = malloc(len);
-    void *ptr = *buf;
+    char *ptr = *buf;
     memcpy(ptr, &len, sizeof(unsigned short));
     ptr += sizeof(unsigned short);
     memcpy(ptr, &path_len, sizeof(unsigned short));
@@ -568,6 +570,7 @@ static int exec_operation(int socket) {
             sprintf(msg, "Undefined operation: %d", op);
             ygg_log("AntDFS", "ERROR", msg);
     }
+    return -1;
 }
 
 static void control_server_init() {
