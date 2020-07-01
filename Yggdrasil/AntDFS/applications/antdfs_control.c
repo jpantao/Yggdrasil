@@ -73,6 +73,31 @@ static void init_structs(){
     pending_requests = list_init();
 }
 
+static void finfo_destroy(finfo** file) {
+    if((*file) == NULL) {
+        printf("Trying to destroy a null file\n");
+        exit(1);
+    }
+
+    for(int i = 0; i < (*file)->n_blocks; i++) {
+        binfo b = (*file)->blocks[i];
+        if(b.waiting_fds != NULL) {
+            while(b.waiting_fds->head) {
+                free(list_remove_head(b.waiting_fds));
+            }
+            free(b.waiting_fds);
+        }
+    }
+
+    if((*file)->blocks) {
+        free((*file)->blocks); (*file)->blocks = NULL;
+    }
+
+    free((*file)->path);
+    free((*file));
+    *file = NULL;
+}
+
 static finfo *finfo_init(uuid_t uid, bool local, char *path, struct stat info) {
     finfo *file = malloc(sizeof(finfo));
     memcpy(file->id, uid, sizeof(uuid_t));
@@ -236,20 +261,20 @@ static unsigned short serialize_finfo(void **buf, finfo *f) {
     return len;
 }
 
-static unsigned short deserialize_finfo(uuid_t owner, YggMessage *msg, finfo **file, void *ptr, bool local) {
+static unsigned short deserialize_finfo(uuid_t owner, YggMessage *msg, finfo **file, void **ptr, bool local) {
     unsigned short read = 0;
 
     unsigned short len;
-    ptr = YggMessage_readPayload(msg, ptr, &len, sizeof(unsigned short));
+    *ptr = YggMessage_readPayload(msg, *ptr, &len, sizeof(unsigned short));
     read += sizeof(unsigned short);
     unsigned short path_len;
-    ptr = YggMessage_readPayload(msg, ptr, &path_len, sizeof(unsigned short));
+    *ptr = YggMessage_readPayload(msg, *ptr, &path_len, sizeof(unsigned short));
     read += sizeof(unsigned short);
     char* path = malloc(path_len);
-    ptr = YggMessage_readPayload(msg, ptr, path, path_len);
+    *ptr = YggMessage_readPayload(msg, *ptr, path, path_len);
     read += path_len;
     struct stat info;
-    YggMessage_readPayload(msg, ptr, &info, sizeof(struct stat));
+    *ptr = YggMessage_readPayload(msg, *ptr, &info, sizeof(struct stat));
     read += sizeof(struct stat);
 
     if (read != len)
@@ -669,8 +694,7 @@ void process_dissemination_msg(YggMessage *msg, uuid_t myid, unsigned int len, v
     if (myself == false) {
         while (len > 0) {
             finfo *file;
-            int bread = deserialize_finfo(uid, msg, &file, ptr, myself);
-            ptr += bread;
+            int bread = deserialize_finfo(uid, msg, &file, &ptr, myself);
             len -= bread;
             pthread_mutex_lock(&global_mutex);
             finfo *previous = table_lookup(global_files, file->path);
@@ -695,8 +719,7 @@ void process_dissemination_msg(YggMessage *msg, uuid_t myid, unsigned int len, v
                 }
             } else {
                 previous->info = file->info;
-                free(file->path);
-                free(file);
+                finfo_destroy(&file);
                 file = previous;
             }
             pthread_mutex_unlock(&global_mutex);
