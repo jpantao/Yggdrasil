@@ -449,6 +449,7 @@ static short process_msg(YggMessage* msg, batman_state* state) {
 	 * | (payload_len)       payload                     |
 	 * */
 
+        printf("          ================= BATMAN =================================> received message being routed\n");
         ttl_pos = (unsigned short*) ptr;
         unsigned short msg_ttl;
         ptr = YggMessage_readPayload(msg, ptr, &msg_ttl, sizeof(unsigned short));
@@ -611,6 +612,7 @@ static short route(YggMessage* msg, batman_state* state) {
             .data.msg = *msg,
     };
 
+    printf("BATMAN DEBUG =========================================> sent routed request\n");
     queue_push(state->dispatcher_queue, &elem);
     free(buff);
     YggMessage_freePayload(msg);
@@ -622,14 +624,16 @@ static bool set_destination_mac(YggMessage* msg, uuid_t destination, batman_stat
     originator_entry* e = list_find_item(state->routing_table, (equal_function) equal_entry_id, destination);
     if(e) {
         msg->header.dst_addr.mac_addr = e->addr;
+        msg->header.type = MAC;
         return true;
     }
     return false;
 }
 
 static short process_request(YggRequest* request, batman_state* state) {
-	if(request->request == REQUEST && request->request_type == SEND_MESSAGE) {
 
+	if(request->request == REQUEST && request->request_type == SEND_MESSAGE) {
+        printf("BATMAN =================================> request\n");
 		YggMessage msg;
 		uuid_t destination;
 		unload_request_route_message(request, &msg, destination);
@@ -667,8 +671,8 @@ static void * batman_main_loop(main_loop_args* args) {
 
 		switch(elem.type) {
 		case YGG_MESSAGE:
-		    if(elem.data.msg.Proto_id != state->protoId) { //not from me
-		        //printf("routing msg\n");
+            if(elem.data.msg.Proto_id != state->protoId) { //not from me
+                //printf("routing msg\n");
 		        route(&elem.data.msg, state);
 		    } else {
                 //printf("received announce\n");

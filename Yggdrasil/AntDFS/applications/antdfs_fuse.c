@@ -238,7 +238,7 @@ int antdfs_open(const char *path, struct fuse_file_info *fi) {
 
     log_msg("FUSE Sending request for operation (%d)\n", OPEN_REQ);
     // Sending operation code
-    short code = OPENDIR_REQ;
+    short code = OPEN_REQ;
     if (writefully(sock, &code, sizeof(short)) <= 0) return -1;
 
     // Sending path length
@@ -308,19 +308,28 @@ int antdfs_read(const char *path, char *buf, size_t size, off_t offset, struct f
     log_msg("FUSE sending size %d\n", size);
     if (writefully(sock, &size, sizeof(size_t)) <= 0) return -1;
 
+    log_msg("FUSE receiving retstat\n");
+    if (readfully(sock, &retstat, sizeof(int)) <= 0) return -1;
+    if(retstat == OP_REQ_FAIL) {
+        readfully(sock, &errno, sizeof(int));
+        errno = -errno;
+        return -1;
+    }
+
     int receivedsize;
     log_msg("FUSE receiving size\n");
     if (readfully(sock, &receivedsize, sizeof(int)) <= 0) return -1;
 
-    if(receivedsize != size)
-        log_msg("WARNINNNNNNGGGGGGGG -->>>>>-->>>> Asked for %d bytes but only receiving %d", size, receivedsize);
+    if(receivedsize < size)
+        log_msg("WARNING -->>>>>-->>>> Asked for %d bytes but only receiving %d", size, receivedsize);
 
     log_msg("FUSE receiving file buffer");
     if(readfully(sock, buf, receivedsize) <= 0){
-        errno = EFAULT;
+        errno = -EFAULT;
         return -1;
     }
-    return retstat;
+
+    return receivedsize;
 
 //    log_msg("\nantdfs_read(path=\"%s\", buf=0x%08x, size=%d, offset=%lld, fi=0x%08x)\n",
 //            path, buf, size, offset, fi);
@@ -328,6 +337,16 @@ int antdfs_read(const char *path, char *buf, size_t size, off_t offset, struct f
 //    log_fi(fi);
 //
     //return log_syscall("pread", pread(fi->fh, buf, size, offset), 0);
+}
+
+int antdfs_flush(const char *path, struct fuse_file_info *fi) {
+    log_msg("\nantdfs_flush(path=\"%s\", fi=0x%08x)\n", path, fi);
+    // no need to get fpath on this one, since I work from fi->fh not the path
+
+    //fflush(path);
+    log_fi(fi);
+
+    return 0;
 }
 
 //------------------ NOT IMPLEMENTED ---------------------
@@ -508,21 +527,44 @@ int antdfs_statfs(const char *path, struct statvfs *statv) {
     return retstat;
 }
 
-int antdfs_flush(const char *path, struct fuse_file_info *fi) {
-    log_msg("\nantdfs_flush(path=\"%s\", fi=0x%08x)\n", path, fi);
-    // no need to get fpath on this one, since I work from fi->fh not the path
-    log_fi(fi);
-
-    return 0;
-}
-
 int antdfs_release(const char *path, struct fuse_file_info *fi) {
-    log_msg("\nantdfs_release(path=\"%s\", fi=0x%08x)\n", path, fi);
-    log_fi(fi);
+    log_msg("FUSE executing close %s\n", path);
+    int retstat = 0;
 
-    // We need to close the file.  Had we allocated any resources
-    // (buffers etc) we'd need to free them here as well.
-    return log_syscall("close", close(fi->fh), 0);
+    static int sock = 0;
+    static struct sockaddr_in addr;
+    ifn_init_socket(&sock, &addr);
+
+    log_msg("FUSE Sending request for operation (%d)\n", CLOSE_REQ);
+    // Sending operation code
+    short code = CLOSE_REQ;
+    if (writefully(sock, &code, sizeof(short)) <= 0) return -1;
+
+    // Sending path length
+    int len = (int) (strlen(path) + 1);
+    log_msg("FUSE sending path length (%d)\n", len);
+    if (writefully(sock, &len, sizeof(int)) <= 0) return -1;
+
+    // Sending path
+    log_msg("FUSE sending path (%s)\n", path);
+    if (writefully(sock, (char *) path, len) <= 0) return -1;
+
+    // File descriptor
+    if (writefully(sock, &fi->fh, sizeof(int)) <= 0) return -1;
+
+    log_msg("FUSE receiving retstat\n");
+    if(readfully(sock, &retstat, sizeof(int)) <= 0){
+        errno = -EFAULT;
+    }
+
+    log_msg("FUSE retstat received (%d)\n", retstat);
+    if (retstat == OP_REQ_FAIL) {
+        if(readfully(sock, &errno, sizeof(int)) == sizeof(int))
+            errno = -errno;
+    }
+
+    log_fi(fi);
+    return log_syscall("close", retstat, 0);
 }
 
 int antdfs_fsync(const char *path, int datasync, struct fuse_file_info *fi) {
