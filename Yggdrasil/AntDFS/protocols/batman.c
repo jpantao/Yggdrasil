@@ -612,7 +612,6 @@ static short route(YggMessage* msg, batman_state* state) {
             .data.msg = *msg,
     };
 
-    printf("BATMAN DEBUG =========================================> sent routed request\n");
     queue_push(state->dispatcher_queue, &elem);
     free(buff);
     YggMessage_freePayload(msg);
@@ -633,7 +632,6 @@ static bool set_destination_mac(YggMessage* msg, uuid_t destination, batman_stat
 static short process_request(YggRequest* request, batman_state* state) {
 
 	if(request->request == REQUEST && request->request_type == SEND_MESSAGE) {
-        printf("BATMAN =================================> request\n");
 		YggMessage msg;
 		uuid_t destination;
 		unload_request_route_message(request, &msg, destination);
