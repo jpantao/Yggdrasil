@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 
-mountpoint=/home/jpantao/AntDFS/mount
+mountpoint=~/AntDFS/mount
 
-launch_command="/home/jpantao/Clion/cmake-build-raspi-*/bin/AntDFS -o allow_other $mountpoint"
+launch_command="~/Clion/cmake-build-raspi-*/bin/AntDFS -o allow_other $mountpoint"
 
 make_dir () {
   mkdir -p $mountpoint
@@ -28,14 +28,14 @@ destroy () {
 }
 
 launch () {
-  bash -c "sudo rm -rf /home/jpantao/AntDFS/antdfs.remote/*"
-  bash -c "sudo rm -rf /home/jpantao/AntDFS/antdfs.blocks/*"
+  bash -c "sudo rm -rf ~/AntDFS/antdfs.remote/*"
+  bash -c "sudo rm -rf ~/AntDFS/antdfs.blocks/*"
   bash -c "sudo $launch_command"
 }
 
 launch_debug () {
-  bash -c "sudo rm -rf /home/jpantao/AntDFS/antdfs.remote/*"
-  bash -c "sudo rm -rf /home/jpantao/AntDFS/antdfs.blocks/*"
+  bash -c "sudo rm -rf ~/AntDFS/antdfs.remote/*"
+  bash -c "sudo rm -rf ~/AntDFS/antdfs.blocks/*"
   bash -c "sudo gdb --args $launch_command"
 }
 

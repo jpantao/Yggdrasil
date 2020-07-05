@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="PublishConfigData">
+    <serverData>
+      <paths name="Raspberry Pi 01 (329c59ee-f2b3-434e-8baa-a8f0cc5758cb)">
+        <serverdata>
+          <mappings>
+            <mapping deploy="/home/jleitao/Clion" local="$PROJECT_DIR$" web="/" />
+          </mappings>
+        </serverdata>
+      </paths>
+      <paths name="Raspberry Pi 02 (4430059c-d776-44b2-93bc-4b026fc2cd0b)">
+        <serverdata>
+          <mappings>
+            <mapping deploy="/home/jleitao/Clion" local="$PROJECT_DIR$" web="/" />
+          </mappings>
+        </serverdata>
+      </paths>
+    </serverData>
+  </component>
+</project>
