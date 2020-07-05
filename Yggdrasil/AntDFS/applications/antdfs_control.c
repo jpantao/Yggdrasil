@@ -366,7 +366,7 @@ int exec_getattr(int socket, const char *path) {
             memcpy(&info, &(file->info), sizeof(struct stat));
         }
     }
-    
+
     if (writefully(socket, &retstat, sizeof(int)) <= 0)
         return -1;
 
@@ -529,6 +529,7 @@ int exec_read(int socket, const char *path) {
     int offset;
     unsigned int size;
     int retstat = OP_REQ_SUCCESS;
+    int readsize = 0;
 
     if (readfully(socket, &virtualfd, sizeof(int)) <= 0) {
         errno = EFAULT;
@@ -587,21 +588,49 @@ int exec_read(int socket, const char *path) {
         vfd->socket = socket;
     }
 
-    if (writefully(socket, &retstat, sizeof(int)) <= 0) return -1;
+
     //Definir a estrutura com os blocos que precisas.
 
     //Se tiveres todos os blocos, invocas a função que responde com os dados pedidos
 
     //Se não começas a ir buscar blocos (invocas a função que vai pedir os próximos x blocos)
-
-    if (true) { //only need 1 block
-        int block = offset / B_SIZE;
-        // send request
-        request_block(path, block, file, &(vfd->vfd));
+    if (file->local) {
+        char fpath[PATH_MAX];
+        if(relative2full(fpath, path, true) != 0) {
+            retstat = OP_REQ_FAIL;
+            errno = ENOENT;
+        } else {
+            int fd = open(fpath, O_RDONLY);
+            if(fd > 0) {
+                char buf[size];
+                bzero(buf,size);
+                readsize = read(fd, buf, size);
+                if(readsize > 0) {
+                    if (writefully(socket, &retstat, sizeof(int)) <= 0) return -1;
+                    if (writefully(socket, &readsize, sizeof(int)) <= 0) return -1;
+                    if (writefully(socket, buf, readsize) <= 0) return -1;
+                    return retstat;
+                } 
+            }
+            retstat = OP_REQ_FAIL;
+            if (writefully(socket, &retstat, sizeof(int)) <= 0) return -1;
+            if (writefully(socket, &errno, sizeof(int)) <= 0) return -1;
+            return retstat;
+        }
     } else {
-        //TODO: need more blocks
-        ygg_log("AntDFS", "ERROR", "More than one block required (not implemented)");
+        //TODO: the next line should not be here
+        if (writefully(socket, &retstat, sizeof(int)) <= 0) return -1;
+
+        if (true) { //only need 1 block
+            int block = offset / B_SIZE;
+            // send request
+            request_block(path, block, file, &(vfd->vfd));
+        } else {
+            //TODO: need more blocks
+            ygg_log("AntDFS", "ERROR", "More than one block required (not implemented)");
+        }
     }
+
 }
 
 int exec_close(int socket, const char *path) {
