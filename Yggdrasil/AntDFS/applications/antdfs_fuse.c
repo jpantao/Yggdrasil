@@ -45,7 +45,7 @@ static void ifn_init_socket(int *sock, struct sockaddr_in *addr) {
 //------------------ IMPLEMENTED ------------------------
 
 int antdfs_getattr(const char *path, struct stat *statbuf) {
-    log_msg("FUSE executing getattr %s\n", path);
+    log_msg("FUSE executing GETATTR %s\n", path);
 
     static int sock = 0;
     static struct sockaddr_in addr;
@@ -604,26 +604,51 @@ int antdfs_ftruncate(const char *path, off_t offset, struct fuse_file_info *fi) 
 
 int antdfs_fgetattr(const char *path, struct stat *statbuf, struct fuse_file_info *fi) {
     int retstat = 0;
-    log_msg("FUSE executing GETADDR %s\n", path);
+    log_msg("FUSE executing FGETATTR %s\n", path);
 
-    /*log_msg("\nantdfs_fgetattr(path=\"%s\", statbuf=0x%08x, fi=0x%08x)\n",
-            path, statbuf, fi);*/
-    //log_fi(fi);
+    static int sock = 0;
+    static struct sockaddr_in addr;
+    ifn_init_socket(&sock, &addr);
 
-    // On FreeBSD, trying to do anything with the mountpoint ends up
-    // opening it, and then using the FD for an fgetattr.  So in the
-    // special case of a path of "/", I need to do a getattr on the
-    // underlying root directory instead of doing the fgetattr().
-    if (!strcmp(path, "/"))
-        return antdfs_getattr(path, statbuf);
+    log_msg("FUSE Sending request for operation (%d)\n", GETATTR_REQ);
+    // Sending operation code
+    short code = GETATTR_REQ;
+    if (writefully(sock, &code, sizeof(short)) <= 0) return -1;
 
-    retstat = fstat(fi->fh, statbuf);
-    if (retstat < 0)
-        retstat = log_error("antdfs_fgetattr fstat\n");
+    // Sending path length
+    int len = (int) (strlen(path) + 1);
+    log_msg("FUSE sending path length (%d)\n", len);
+    if (writefully(sock, &len, sizeof(int)) <= 0) return -1;
+
+    // Sending path
+    log_msg("FUSE sending path (%s)\n", path);
+    if (writefully(sock, (char *) path, len) <= 0) return -1;
+
+    log_msg("FUSE receiving  retstat\n");
+    // Receiving operation return status
+    if (readfully(sock, &retstat, sizeof(int)) <= 0) {
+        retstat = -1;
+        errno = EFAULT;
+    }
+
+    log_msg("FUSE retstat received (%d)\n", retstat);
+
+    if (retstat == OP_REQ_FAIL && readfully(sock, &errno, sizeof(int)) <= 0)
+        errno = EFAULT;
+    else
+        errno = 0;
+
+    if (retstat == OP_REQ_SUCCESS && readfully(sock, statbuf, sizeof(struct stat)) <= 0) {
+        retstat = OP_REQ_FAIL;
+        errno = EFAULT;
+    }
+
+    if (retstat == OP_REQ_FAIL) {
+        retstat = -1;
+    }
 
     log_stat(statbuf);
-
-    return retstat;
+    return log_syscall("lstat", retstat, 0);
 }
 
 void *antdfs_init(struct fuse_conn_info *conn) {
