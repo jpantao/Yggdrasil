@@ -605,12 +605,13 @@ int exec_read(int socket, const char *path) {
                 char buf[size];
                 bzero(buf,size);
                 readsize = read(fd, buf, size);
-                if(readsize > 0) {
+                if(readsize >= 0) {
                     if (writefully(socket, &retstat, sizeof(int)) <= 0) return -1;
                     if (writefully(socket, &readsize, sizeof(int)) <= 0) return -1;
-                    if (writefully(socket, buf, readsize) <= 0) return -1;
-                    return retstat;
-                } 
+                    if (readsize > 0 && writefully(socket, buf, readsize) <= 0) return -1;
+                }
+                close(fd);
+                return retstat;       
             }
             retstat = OP_REQ_FAIL;
             if (writefully(socket, &retstat, sizeof(int)) <= 0) return -1;
