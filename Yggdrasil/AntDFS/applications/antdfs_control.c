@@ -346,24 +346,27 @@ int exec_getattr(int socket, const char *path) {
 
     if (strcmp(path, "/") == 0) {
         sprintf(fpath, "%s", REMOTE_FILES_LOC);
-    } else {
-        file = (finfo *) table_lookup(global_files, path);
-        //TODO: If file == NULL should get information about it now... and resume later...
-        if (file == NULL || relative2full(fpath, path, file->local) < 0) {
-            retstat = OP_REQ_FAIL;
-            writefully(socket, &retstat, sizeof(int));
-            return retstat;
-        }
-    }
-    if (file == NULL || file->local) {
         if (lstat(fpath, &info) < 0) {
             ygg_log("AntDFS", "INFO", "Failed executing lstat");
             retstat = OP_REQ_FAIL;
         }
     } else {
-        memcpy(&info, &(file->info), sizeof(struct stat));
+        file = (finfo *) table_lookup(global_files, path);
+        if (file == NULL || file->local) {
+            if( relative2full(fpath, path, file->local) < 0) {
+                retstat = OP_REQ_FAIL;
+                writefully(socket, &retstat, sizeof(int));
+                return retstat;
+            }
+            if (lstat(fpath, &info) < 0) {
+                ygg_log("AntDFS", "INFO", "Failed executing lstat");
+                retstat = OP_REQ_FAIL;
+            }
+        } else {
+            memcpy(&info, &(file->info), sizeof(struct stat));
+        }
     }
-
+    
     if (writefully(socket, &retstat, sizeof(int)) <= 0)
         return -1;
 
