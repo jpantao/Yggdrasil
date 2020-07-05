@@ -164,6 +164,13 @@ static void init_structs() {
     pending_requests = list_init();
 }
 
+static int abeforeb(struct timespec a, struct timespec b) {
+    if(a.tv_sec == b.tv_sec)
+        return a.tv_nsec < b.tv_nsec;
+    else
+        return a.tv_sec < b.tv_sec;
+}
+
 static void create_empty_file(char *path, bool local, mode_t mode) {
     char completepath[500];
     bzero(completepath, 500);
@@ -864,7 +871,10 @@ void process_dissemination_msg(YggMessage *msg, uuid_t myid, unsigned int len, v
                     updateFileStats(&file->info, &st);
                 }
             } else {
-                previous->info = file->info;
+                if( abeforeb(previous->info.st_ctimespec, file->info.st_ctimespec) ) {
+                    updateFileStats(&(file->info), &(previous->info));
+                    previous->info = file->info;
+                }
                 finfo_destroy(&file);
                 file = previous;
             }
@@ -1056,6 +1066,7 @@ int main(int argc, char *argv[]) {
 
     //Start ygg_runtime
     ygg_runtime_start();
+
 
     while (1) {
         ygg_log("AntDFS", "INFO", "polling event queue");
