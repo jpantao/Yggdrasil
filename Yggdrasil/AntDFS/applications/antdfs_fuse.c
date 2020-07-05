@@ -99,7 +99,7 @@ int antdfs_access(const char *path, int mask) {
 }
 
 int antdfs_opendir(const char *path, struct fuse_file_info *fi) {
-    log_msg("FUSE executing opendir %s\n", path);
+    log_msg("FUSE executing OPENDIR %s\n", path);
     DIR *dp;
     static int sock = 0;
     static struct sockaddr_in addr;
@@ -151,7 +151,7 @@ int antdfs_opendir(const char *path, struct fuse_file_info *fi) {
 
 int antdfs_readdir(const char *path, void *buf, fuse_fill_dir_t filler, off_t offset, struct fuse_file_info *fi) {
 
-    log_msg("FUSE executing readdir %s\n", path);
+    log_msg("FUSE executing READDIR %s\n", path);
     DIR *dp;
     dp = (DIR *) (uintptr_t) fi->fh;
 
@@ -228,7 +228,7 @@ int antdfs_releasedir(const char *path, struct fuse_file_info *fi) {
 }
 
 int antdfs_open(const char *path, struct fuse_file_info *fi) {
-    log_msg("FUSE executing open %s\n", path);
+    log_msg("FUSE executing OPEN %s\n", path);
     int retstat = 0;
 
 
@@ -271,14 +271,14 @@ int antdfs_open(const char *path, struct fuse_file_info *fi) {
 
     fi->fh = fd;
 
-    log_fi(fi);
+    //log_fi(fi);
     return log_syscall("open", retstat, 0);
 }
 
 int antdfs_read(const char *path, char *buf, size_t size, off_t offset, struct fuse_file_info *fi) {
 
     int retstat = 1;
-    log_msg("FUSE executing read %s\n", path);
+    log_msg("FUSE executing READ %s\n", path);
 
     static int sock = 0;
     static struct sockaddr_in addr;
@@ -324,13 +324,15 @@ int antdfs_read(const char *path, char *buf, size_t size, off_t offset, struct f
     if (readfully(sock, &receivedsize, sizeof(int)) <= 0) return -1;
 
     if(receivedsize < size)
-        log_msg("WARNING -->>>>>-->>>> Asked for %d bytes but only receiving %d\n", size, receivedsize);
+        log_msg("Warn: Asked for %d bytes but only receiving %d\n", size, receivedsize);
 
-    log_msg("FUSE receiving file buffer");
+    log_msg("FUSE receiving file buffer\n");
+    bzero(buf,size);
     if(readfully(sock, buf, receivedsize) <= 0){
         errno = -EFAULT;
         return -1;
     }
+    log_msg("%s\n", buf);
     return receivedsize;
 }
 
@@ -339,7 +341,7 @@ int antdfs_flush(const char *path, struct fuse_file_info *fi) {
     // no need to get fpath on this one, since I work from fi->fh not the path
 
     //fflush(path);
-    log_fi(fi);
+    //log_fi(fi);
 
     return 0;
 }
@@ -523,7 +525,7 @@ int antdfs_statfs(const char *path, struct statvfs *statv) {
 }
 
 int antdfs_release(const char *path, struct fuse_file_info *fi) {
-    log_msg("FUSE executing close %s\n", path);
+    log_msg("FUSE executing CLOSE %s\n", path);
     int retstat = 0;
 
     static int sock = 0;
@@ -559,7 +561,7 @@ int antdfs_release(const char *path, struct fuse_file_info *fi) {
             errno = -errno;
     }
 
-    log_fi(fi);
+    //log_fi(fi);
     return log_syscall("close", retstat, 0);
 }
 
@@ -602,10 +604,11 @@ int antdfs_ftruncate(const char *path, off_t offset, struct fuse_file_info *fi) 
 
 int antdfs_fgetattr(const char *path, struct stat *statbuf, struct fuse_file_info *fi) {
     int retstat = 0;
+    log_msg("FUSE executing GETADDR %s\n", path);
 
-    log_msg("\nantdfs_fgetattr(path=\"%s\", statbuf=0x%08x, fi=0x%08x)\n",
-            path, statbuf, fi);
-    log_fi(fi);
+    /*log_msg("\nantdfs_fgetattr(path=\"%s\", statbuf=0x%08x, fi=0x%08x)\n",
+            path, statbuf, fi);*/
+    //log_fi(fi);
 
     // On FreeBSD, trying to do anything with the mountpoint ends up
     // opening it, and then using the FD for an fgetattr.  So in the

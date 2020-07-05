@@ -871,7 +871,7 @@ void process_dissemination_msg(YggMessage *msg, uuid_t myid, unsigned int len, v
                     updateFileStats(&file->info, &st);
                 }
             } else {
-                if( abeforeb(previous->info.st_ctimespec, file->info.st_ctimespec) ) {
+                if( abeforeb(previous->info.st_ctim, file->info.st_ctim) ) {
                     updateFileStats(&(file->info), &(previous->info));
                     previous->info = file->info;
                 }
