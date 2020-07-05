@@ -302,11 +302,14 @@ int antdfs_read(const char *path, char *buf, size_t size, off_t offset, struct f
     log_msg("FUSE sending fd %d\n", fi->fh);
     if (writefully(sock, &fi->fh, sizeof(int)) <= 0) return -1;
 
-    log_msg("FUSE sending offset %d\n", offset);
-    if (writefully(sock, &offset, sizeof(off_t)) <= 0) return -1;
+    int ioffset = (int) offset;
+    log_msg("FUSE sending offset %ld\n", ioffset);
 
-    log_msg("FUSE sending size %d\n", size);
-    if (writefully(sock, &size, sizeof(size_t)) <= 0) return -1;
+    if (writefully(sock, &ioffset, sizeof(int)) <= 0) return -1;
+
+    unsigned int isize = (unsigned int) size;
+    log_msg("FUSE sending size %ld\n", isize);
+    if (writefully(sock, &isize, sizeof(unsigned int)) <= 0) return -1;
 
     log_msg("FUSE receiving retstat\n");
     if (readfully(sock, &retstat, sizeof(int)) <= 0) return -1;
@@ -316,27 +319,19 @@ int antdfs_read(const char *path, char *buf, size_t size, off_t offset, struct f
         return -1;
     }
 
-    int receivedsize;
+    int receivedsize = 0;
     log_msg("FUSE receiving size\n");
     if (readfully(sock, &receivedsize, sizeof(int)) <= 0) return -1;
 
     if(receivedsize < size)
-        log_msg("WARNING -->>>>>-->>>> Asked for %d bytes but only receiving %d", size, receivedsize);
+        log_msg("WARNING -->>>>>-->>>> Asked for %d bytes but only receiving %d\n", size, receivedsize);
 
     log_msg("FUSE receiving file buffer");
     if(readfully(sock, buf, receivedsize) <= 0){
         errno = -EFAULT;
         return -1;
     }
-
     return receivedsize;
-
-//    log_msg("\nantdfs_read(path=\"%s\", buf=0x%08x, size=%d, offset=%lld, fi=0x%08x)\n",
-//            path, buf, size, offset, fi);
-//    // no need to get fpath on this one, since I work from fi->fh not the path
-//    log_fi(fi);
-//
-    //return log_syscall("pread", pread(fi->fh, buf, size, offset), 0);
 }
 
 int antdfs_flush(const char *path, struct fuse_file_info *fi) {
@@ -540,6 +535,7 @@ int antdfs_release(const char *path, struct fuse_file_info *fi) {
     short code = CLOSE_REQ;
     if (writefully(sock, &code, sizeof(short)) <= 0) return -1;
 
+    log_msg("Sent");
     // Sending path length
     int len = (int) (strlen(path) + 1);
     log_msg("FUSE sending path length (%d)\n", len);

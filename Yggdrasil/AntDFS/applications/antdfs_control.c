@@ -26,14 +26,16 @@ struct table *global_files;
 
 typedef struct binfo_t {
     char state;
-    list* waiting_fds;
-}binfo;
-static binfo* binfo_init(char state){
-    binfo* block = malloc(sizeof(binfo));
+    list *waiting_fds;
+} binfo;
+
+static binfo *binfo_init(char state) {
+    binfo *block = malloc(sizeof(binfo));
     block->state = state;
     block->waiting_fds = NULL;
     return block;
 }
+
 typedef struct finfo_t {
     uuid_t id;
     bool local;
@@ -42,6 +44,7 @@ typedef struct finfo_t {
     long n_blocks;
     binfo *blocks;
 } finfo;
+
 static finfo *finfo_init(uuid_t uid, bool local, char *path, struct stat info) {
     finfo *file = malloc(sizeof(finfo));
     memcpy(file->id, uid, sizeof(uuid_t));
@@ -50,8 +53,8 @@ static finfo *finfo_init(uuid_t uid, bool local, char *path, struct stat info) {
     file->path = path;
     if (info.st_size > 0) {
         file->n_blocks = (info.st_size / 1000) + (info.st_size % 1000 > 0 ? 1 : 0);
-        file->blocks = malloc(file->n_blocks* sizeof(binfo));
-        for(int i = 0; i < file->n_blocks; i++){
+        file->blocks = malloc(file->n_blocks * sizeof(binfo));
+        for (int i = 0; i < file->n_blocks; i++) {
             file->blocks[i].state = B_MISSING;
             file->blocks[i].waiting_fds = list_init();
         }
@@ -61,24 +64,26 @@ static finfo *finfo_init(uuid_t uid, bool local, char *path, struct stat info) {
     }
     return file;
 }
-static void finfo_destroy(finfo** file) {
-    if((*file) == NULL) {
+
+static void finfo_destroy(finfo **file) {
+    if ((*file) == NULL) {
         printf("Trying to destroy a null file\n");
         exit(1);
     }
 
-    for(int i = 0; i < (*file)->n_blocks; i++) {
+    for (int i = 0; i < (*file)->n_blocks; i++) {
         binfo b = (*file)->blocks[i];
-        if(b.waiting_fds != NULL) {
-            while(b.waiting_fds->head) {
+        if (b.waiting_fds != NULL) {
+            while (b.waiting_fds->head) {
                 list_remove_head(b.waiting_fds);
             }
             free(b.waiting_fds);
         }
     }
 
-    if((*file)->blocks) {
-        free((*file)->blocks); (*file)->blocks = NULL;
+    if ((*file)->blocks) {
+        free((*file)->blocks);
+        (*file)->blocks = NULL;
     }
 
     free((*file)->path);
@@ -88,16 +93,18 @@ static void finfo_destroy(finfo** file) {
 
 // virtual file descriptors
 int vds_counter;
-list* virtual_fds;
+list *virtual_fds;
 typedef struct vfdinfo_t {
-    char* filename;
+    char *filename;
     int vfd;
     int socket;
 } vfdinfo;
-static bool equal_vfdinfo(vfdinfo* fdinfo, const int* fd){
+
+static bool equal_vfdinfo(vfdinfo *fdinfo, const int *fd) {
     return fdinfo->vfd == *fd;
 }
-static vfdinfo* vfdinfo_init(const char* filename, int vfd, int socket){
+
+static vfdinfo *vfdinfo_init(const char *filename, int vfd, int socket) {
     vfdinfo *vfdinfo = malloc(sizeof(vfdinfo));
     vfdinfo->vfd = vfd;
     vfdinfo->socket = socket;
@@ -106,27 +113,30 @@ static vfdinfo* vfdinfo_init(const char* filename, int vfd, int socket){
     memcpy(vfdinfo->filename, filename, len - 1);
     memset(vfdinfo->filename + len, 0, 1);
 
-    printf("DEBUG: vfdinfo ===========> is %s and should be %s\n", vfdinfo->filename, filename);
+    if (strcmp(vfdinfo->filename, filename) != 0)
+        printf("DEBUG: vfdinfo ===========> is %s and should be %s\n", vfdinfo->filename, filename);
     return vfdinfo;
 }
 
-static void vfdinfo_destroy(vfdinfo* vfd) {
+static void vfdinfo_destroy(vfdinfo *vfd) {
     free(vfd->filename);
     free(vfd);
 }
 
 // block requests
-list* pending_requests;
-typedef struct  prinfo_t {
-    char* filename;
+list *pending_requests;
+typedef struct prinfo_t {
+    char *filename;
     int n_block;
     time_t time_stamp;
 } prinfo;
-static bool equal_prinfo(prinfo* pr1, prinfo* pr2){
+
+static bool equal_prinfo(prinfo *pr1, prinfo *pr2) {
     return strcmp(pr1->filename, pr2->filename) == 0 && pr1->n_block == pr2->n_block;
 }
-static prinfo* prinfo_init(const char* filename, int n_block){
-    prinfo* request = malloc(sizeof(prinfo));
+
+static prinfo *prinfo_init(const char *filename, int n_block) {
+    prinfo *request = malloc(sizeof(prinfo));
     request->time_stamp = time(NULL);
     request->n_block = n_block;
     int len = strlen(filename) + 1;
@@ -134,12 +144,13 @@ static prinfo* prinfo_init(const char* filename, int n_block){
     memcpy(request->filename, filename, len - 1);
     memset(request->filename + len, 0, 1);
 
-    printf("DEBUG: prinfo ===========> is %s and should be %s\n", request->filename, filename);
+    if (strcmp(request->filename, filename) != 0)
+        printf("DEBUG: prinfo ===========> is %s and should be %s\n", request->filename, filename);
     return request;
 }
 
 
-static void init_structs(){
+static void init_structs() {
     pthread_mutex_init(&global_mutex, NULL);
 
     global_files = table_create(500);
@@ -304,7 +315,7 @@ static unsigned short deserialize_finfo(uuid_t owner, YggMessage *msg, finfo **f
     unsigned short path_len;
     *ptr = YggMessage_readPayload(msg, *ptr, &path_len, sizeof(unsigned short));
     read += sizeof(unsigned short);
-    char* path = malloc(path_len);
+    char *path = malloc(path_len);
     *ptr = YggMessage_readPayload(msg, *ptr, path, path_len);
     read += path_len;
     struct stat info;
@@ -363,7 +374,6 @@ int exec_opendir(int socket, const char *path) {
     DIR *dp;
     char fpath[PATH_MAX];
     int retstat = OP_REQ_SUCCESS;
-
 
 
     if (strcmp(path, "/") == 0) {
@@ -442,24 +452,29 @@ int exec_releasedir(int socket, const char *path) {
     return retstat;
 }
 
-void request_block(const char *path, int blknum, const finfo *file, int* vfd) {
+void request_block(const char *path, int blknum, const finfo *file, int *vfd) {
+    printf("Requesting block %s:%d, for vfd %d\n", path, blknum, vfd == NULL ? 0 : *vfd);
     YggMessage msg;
 
     YggMessage_initBcast(&msg, CONTROL_ID);
     short msg_id = (short) FETCH_BLK_REQ_MSG;
-    YggMessage_addPayload(&msg, (char*) &msg_id, sizeof(short));
-    uuid_t myid; getmyId(myid);
+    YggMessage_addPayload(&msg, (char *) &msg_id, sizeof(short));
+    uuid_t myid;
+    getmyId(myid);
     YggMessage_addPayload(&msg, (char *) myid, sizeof(uuid_t));
     int plen = (int) strlen(path) + 1;
-    YggMessage_addPayload(&msg, (char*) &plen, sizeof(int));
-    YggMessage_addPayload(&msg, (char*) path, plen);
+    YggMessage_addPayload(&msg, (char *) &plen, sizeof(int));
+    YggMessage_addPayload(&msg, (char *) path, plen);
     YggMessage_addPayload(&msg, (char *) &blknum, sizeof(int));
     request_specific_uuid_route_message(PROTO_ROUTING_BATMAN, &msg, file->id);
 
     prinfo *req_info = prinfo_init(path, blknum);
     list_add_item_to_tail(pending_requests, req_info);
     file->blocks[blknum].state = B_REQUESTED;
-    list_add_item_to_tail(file->blocks[blknum].waiting_fds, vfd);
+    if (vfd != NULL) {
+        printf("Adding %d to waiting_fds of file %s block %d\n", *vfd, path, blknum);
+        list_add_item_to_tail(file->blocks[blknum].waiting_fds, vfd);
+    }
 
 }
 
@@ -482,17 +497,17 @@ int exec_open(int socket, const char *path) {
     }
 
     writefully(socket, &retstat, sizeof(int));
-    if(retstat == OP_REQ_FAIL) {
+    if (retstat == OP_REQ_FAIL) {
         writefully(socket, &errno, sizeof(int));
         return retstat;
     }
 
     int fd = vds_counter++;
-    vfdinfo* vfdinfo = vfdinfo_init(path, fd, 0);
+    vfdinfo *vfdinfo = vfdinfo_init(path, fd, 0);
     list_add_item_to_tail(virtual_fds, vfdinfo);
 
-    if(file->n_blocks > 0) {
-        request_block(path, 0, file, &(vfdinfo->vfd));
+    if (file->n_blocks > 0) {
+        request_block(path, 0, file, NULL);
     }
 
     return writefully(socket, &fd, sizeof(int)) <= 0 ? -1 : 0;
@@ -502,9 +517,9 @@ int exec_read(int socket, const char *path) {
     ygg_log("AntDFS", "INFO", "Executing read request");
     int virtualfd;
     int offset;
-    int size;
+    unsigned int size;
     int retstat = OP_REQ_SUCCESS;
-    
+
     if (readfully(socket, &virtualfd, sizeof(int)) <= 0) {
         errno = EFAULT;
         return -1;
@@ -513,70 +528,66 @@ int exec_read(int socket, const char *path) {
         errno = EFAULT;
         return -1;
     }
-    if (readfully(socket, &size, sizeof(int)) <= 0) {
-            errno = EFAULT;
+    if (readfully(socket, &size, sizeof(unsigned int)) <= 0) {
+        errno = EFAULT;
         return -1;
     }
 
-    finfo* file = table_lookup(global_files, path);
-    vfdinfo* vfd = list_find_item(virtual_fds, (equal_function) equal_vfdinfo, (void*) &virtualfd);
+    printf("Params %d %ld %ld\n", virtualfd, offset, size);
+
+    finfo *file = table_lookup(global_files, path);
+    vfdinfo *vfd = list_find_item(virtual_fds, (equal_function) equal_vfdinfo, (void *) &virtualfd);
 
 
     // file does not exist
-    if(file == NULL){
+    if (file == NULL) {
         retstat = OP_REQ_FAIL;
         int errstat = ENOENT;
-        if(writefully(socket, &retstat, sizeof(int)) <= 0) return -1;
-        if(writefully(socket, &errstat, sizeof(int)) <= 0) return -1;
+        if (writefully(socket, &retstat, sizeof(int)) <= 0) return -1;
+        if (writefully(socket, &errstat, sizeof(int)) <= 0) return -1;
         return retstat;
     }
 
     // invalid offset
-    if(file->info.st_size < offset || offset < 0){
+    if (file->info.st_size < offset || offset < 0) {
         retstat = OP_REQ_FAIL;
         int errstat = EFAULT;
-        if(writefully(socket, &retstat, sizeof(int)) <= 0) return -1;
-        if(writefully(socket, &errstat, sizeof(int)) <= 0) return -1;
+        if (writefully(socket, &retstat, sizeof(int)) <= 0) return -1;
+        if (writefully(socket, &errstat, sizeof(int)) <= 0) return -1;
         return retstat;
     }
 
     // vfd refers to a directory
-    if(S_ISDIR(file->info.st_mode)){
+    if (S_ISDIR(file->info.st_mode)) {
         retstat = OP_REQ_FAIL;
         int errstat = EISDIR;
-        if(writefully(socket, &retstat, sizeof(int)) <= 0) return -1;
-        if(writefully(socket, &errstat, sizeof(int)) <= 0) return -1;
+        if (writefully(socket, &retstat, sizeof(int)) <= 0) return -1;
+        if (writefully(socket, &errstat, sizeof(int)) <= 0) return -1;
         return retstat;
     }
 
     // invalid file descriptor
-    if(vfd == NULL){
+    if (vfd == NULL) {
         retstat = OP_REQ_FAIL;
         int errstat = EBADF;
-        if(writefully(socket, &retstat, sizeof(int)) <= 0) return -1;
-        if(writefully(socket, &errstat, sizeof(int)) <= 0) return -1;
+        if (writefully(socket, &retstat, sizeof(int)) <= 0) return -1;
+        if (writefully(socket, &errstat, sizeof(int)) <= 0) return -1;
         return retstat;
     } else {
         vfd->socket = socket;
     }
 
-    if(writefully(socket, &retstat, sizeof(int)) <= 0) return -1;
+    if (writefully(socket, &retstat, sizeof(int)) <= 0) return -1;
     //Definir a estrutura com os blocos que precisas.
 
     //Se tiveres todos os blocos, invocas a função que responde com os dados pedidos
 
     //Se não começas a ir buscar blocos (invocas a função que vai pedir os próximos x blocos)
 
-    if(true){ //only need 1 block
+    if (true) { //only need 1 block
         int block = offset / B_SIZE;
-
-        prinfo* req = prinfo_init(path, block);
-        list_add_item_to_tail(pending_requests, req);
-        list_add_item_to_tail(file->blocks[block].waiting_fds, vfd);
-
         // send request
         request_block(path, block, file, &(vfd->vfd));
-
     } else {
         //TODO: need more blocks
         ygg_log("AntDFS", "ERROR", "More than one block required (not implemented)");
@@ -593,14 +604,14 @@ int exec_close(int socket, const char *path) {
         return -1;
     }
 
-    vfdinfo* vfd = list_remove_item(virtual_fds, (equal_function) equal_vfdinfo, &virtualfd);
+    vfdinfo *vfd = list_remove_item(virtual_fds, (equal_function) equal_vfdinfo, &virtualfd);
 
-    if(vfd != NULL) {
+    if (vfd != NULL) {
         vfdinfo_destroy(vfd);
     }
 
     printf(" ====> Sending anwser: %d\n", retstat);
-    if(writefully(socket, &retstat, sizeof(int)) <= 0) {
+    if (writefully(socket, &retstat, sizeof(int)) <= 0) {
         retstat = -1;
     }
     return retstat;
@@ -615,7 +626,6 @@ static void updateFileStats(struct stat *dest, struct stat *origin) {
 
 static int exec_operation(int socket) {
     short op;
-    ygg_log("AntDFS", "INFO", "Executing operation");
     if (readfully(socket, &op, sizeof(short)) <= 0)
         return -1;
 
@@ -627,6 +637,7 @@ static int exec_operation(int socket) {
     if (readfully(socket, &len, sizeof(int)) <= 0) return -1;
 
     char path[len];
+    bzero(path, len);
     if (readfully(socket, path, len) <= 0) return -1;
 
 
@@ -879,13 +890,13 @@ void process_fetch_blk_req_msg(YggMessage *msg, void *ptr) {
     relative2full(fpath, path, true);
     printf(" ====== > Opening file %s for block %d < ======\n", fpath, blknum);
     int fd = open(fpath, O_RDONLY);
-    if(fd < 0)
+    if (fd < 0)
         perror("open");
     int seek = lseek(fd, blknum * B_SIZE, SEEK_SET);
-    if(seek < 0)
+    if (seek < 0)
         perror("lseek");
     int readbytes = read(fd, buf, B_SIZE);
-    if(readbytes < 0)
+    if (readbytes < 0)
         perror("read");
     close(fd);
 
@@ -895,17 +906,19 @@ void process_fetch_blk_req_msg(YggMessage *msg, void *ptr) {
     YggMessage reply;
     YggMessage_initBcast(&reply, CONTROL_ID);
     short msg_id = (short) FETCH_BLK_REP_MSG;
-    YggMessage_addPayload(&reply,(char*) &msg_id, sizeof(short));
-    YggMessage_addPayload(&reply,(char*) &path_len, sizeof(int));
-    YggMessage_addPayload(&reply,(char*) &path, path_len);
-    YggMessage_addPayload(&reply,(char*) &blknum, sizeof(int));
-    YggMessage_addPayload(&reply,(char*) &readbytes, sizeof(int));
-    if(readbytes > 0)
-        YggMessage_addPayload(&reply,(char*) buf, readbytes);
+    YggMessage_addPayload(&reply, (char *) &msg_id, sizeof(short));
+    YggMessage_addPayload(&reply, (char *) &path_len, sizeof(int));
+    YggMessage_addPayload(&reply, (char *) &path, path_len);
+    YggMessage_addPayload(&reply, (char *) &blknum, sizeof(int));
+    YggMessage_addPayload(&reply, (char *) &readbytes, sizeof(int));
+    if (readbytes > 0)
+        YggMessage_addPayload(&reply, (char *) buf, readbytes);
     request_specific_uuid_route_message(PROTO_ROUTING_BATMAN, &reply, uuid);
 }
 
-void process_fetch_blk_rep_msg(YggMessage *msg, void *ptr){
+void process_fetch_blk_rep_msg(YggMessage *msg, void *ptr) {
+    ygg_log("AntDFS", "DEBUG", "Received block reply");
+
     int path_len;
     ptr = YggMessage_readPayload(msg, ptr, &path_len, sizeof(int));
     char path[path_len];
@@ -914,22 +927,22 @@ void process_fetch_blk_rep_msg(YggMessage *msg, void *ptr){
     ptr = YggMessage_readPayload(msg, ptr, &blknum, sizeof(int));
     int readbytes;
     ptr = YggMessage_readPayload(msg, ptr, &readbytes, sizeof(int));
-    char buf[readbytes+1];
-    bzero(buf, readbytes+1);
-    if(readbytes > 0)
+    char buf[readbytes + 1];
+    bzero(buf, readbytes + 1);
+    if (readbytes > 0)
         YggMessage_readPayload(msg, ptr, buf, readbytes);
 
-    printf("Buf contents (size: %d): %s\n", readbytes, buf);
+    printf("Block %s:%d. Contents (size: %d): %s\n", path, blknum, readbytes, buf);
 
-    finfo* file = table_lookup(global_files, path);
-    list_item* it = NULL;
+    finfo *file = table_lookup(global_files, path);
+    list_item *it = NULL;
 
-    while ((it = file->blocks[blknum].waiting_fds->head) != NULL){
-        vfdinfo* vfdinfo = list_find_item(virtual_fds, (equal_function) equal_vfdinfo, it->data);
+    while ((it = file->blocks[blknum].waiting_fds->head) != NULL) {
+        vfdinfo *vfdinfo = list_find_item(virtual_fds, (equal_function) equal_vfdinfo, it->data);
 
-        printf("IT->DATA: %d\n", *((int*)(it->data)));
 
-        if(vfdinfo != NULL && vfdinfo->socket != 0) {
+        if (vfdinfo != NULL && vfdinfo->socket != 0) {
+            printf("Sending block to vfd %d, socket %d\n", *((int *) (it->data)), vfdinfo->socket);
             writefully(vfdinfo->socket, &readbytes, sizeof(int));
             writefully(vfdinfo->socket, buf, readbytes);
         } else {
@@ -938,10 +951,9 @@ void process_fetch_blk_rep_msg(YggMessage *msg, void *ptr){
 
         file->blocks[blknum].waiting_fds->head = it->next;
         free(it);
-
-
     }
-
+    file->blocks[blknum].waiting_fds->size = 0;
+    file->blocks[blknum].waiting_fds->tail = NULL;
 }
 
 static void process_message(YggMessage *msg) {
@@ -963,7 +975,6 @@ static void process_message(YggMessage *msg) {
             process_fetch_blk_req_msg(msg, ptr);
             break;
         case FETCH_BLK_REP_MSG:
-            printf("DEBUG =========================================> fetch rep\n");
             process_fetch_blk_rep_msg(msg, ptr);
             break;
         default:
