@@ -328,7 +328,7 @@ int antdfs_read(const char *path, char *buf, size_t size, off_t offset, struct f
 
     log_msg("FUSE receiving file buffer\n");
     bzero(buf,size);
-    if(readfully(sock, buf, receivedsize) <= 0){
+    if(readfully(sock, buf, receivedsize) < receivedsize){
         errno = -EFAULT;
         return -1;
     }
@@ -686,7 +686,7 @@ static struct fuse_operations antdfs_oper = {
         .destroy = antdfs_destroy,
         .access = antdfs_access,
         .ftruncate = antdfs_ftruncate,
-        .fgetattr = antdfs_fgetattr,
+        //.fgetattr = antdfs_fgetattr,
         .init = antdfs_init
 };
 
