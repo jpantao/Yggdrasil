@@ -33,6 +33,7 @@
 #define OPEN_REQ 105
 #define READ_REQ 106
 #define CLOSE_REQ 107
+#define WRITE_REQ 108
 
 // Define block codes
 #define B_REQUESTED 'R'

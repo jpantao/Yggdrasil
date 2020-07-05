@@ -496,16 +496,56 @@ int antdfs_utime(const char *path, struct utimbuf *ubuf) {
 }
 
 int antdfs_write(const char *path, const char *buf, size_t size, off_t offset, struct fuse_file_info *fi) {
-    log_msg("\nantdfs_write(path=\"%s\", buf=0x%08x, size=%d, offset=%lld, fi=0x%08x)\n",
-            path, buf, size, offset, fi
-    );
-    // no need to get fpath on this one, since I work from fi->fh not the path
-    log_fi(fi);
+    int retstat = 1;
+    log_msg("FUSE executing WRITE %s\n", path);
 
-//    YggRequest req;
-//    YggRequest_init(&req, )
+    static int sock = 0;
+    static struct sockaddr_in addr;
+    ifn_init_socket(&sock, &addr);
 
-    return log_syscall("pwrite", pwrite(fi->fh, buf, size, offset), 0);
+    log_msg("FUSE Sending request for operation (%d)\n", WRITE_REQ);
+    // Sending operation code
+    short code = WRITE_REQ;
+    if (writefully(sock, &code, sizeof(short)) <= 0) return -1;
+
+    // Sending path length
+    int len = (int) (strlen(path) + 1);
+    log_msg("FUSE sending path length (%d)\n", len);
+    if (writefully(sock, &len, sizeof(int)) <= 0) return -1;
+
+    // Sending path
+    log_msg("FUSE sending path (%s)\n", path);
+    if (writefully(sock, (char *) path, len) <= 0) return -1;
+
+    // Sending virtual file descriptor
+    log_msg("FUSE sending fd %d\n", fi->fh);
+    if (writefully(sock, &fi->fh, sizeof(int)) <= 0) return -1;
+
+    int ioffset = (int) offset;
+    log_msg("FUSE sending offset %ld\n", ioffset);
+
+    if (writefully(sock, &ioffset, sizeof(int)) <= 0) return -1;
+
+    unsigned int isize = (unsigned int) size;
+    log_msg("FUSE sending size %ld\n", isize);
+    if (writefully(sock, &isize, sizeof(unsigned int)) <= 0) return -1;
+
+    log_msg("FUSE sending write buffer\n");
+    if(isize > 0 && writefully(sock, buf, isize) <= 0) return -1;
+
+    log_msg("FUSE receiving retstat\n");
+    if (readfully(sock, &retstat, sizeof(int)) <= 0) return -1;
+    if(retstat == OP_REQ_FAIL) {
+        readfully(sock, &errno, sizeof(int));
+        errno = -errno;
+        return -1;
+    }
+
+    int writtensize = 0;
+    log_msg("FUSE receiving size\n");
+    if (readfully(sock, &writtensize, sizeof(int)) <= 0) return -1;
+
+    return writtensize;
 }
 
 int antdfs_statfs(const char *path, struct statvfs *statv) {

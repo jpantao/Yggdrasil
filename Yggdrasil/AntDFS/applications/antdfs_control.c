@@ -52,7 +52,7 @@ static finfo *finfo_init(uuid_t uid, bool local, char *path, struct stat info) {
     file->info = info;
     file->path = path;
     if (info.st_size > 0) {
-        file->n_blocks = (info.st_size / 1000) + (info.st_size % 1000 > 0 ? 1 : 0);
+        file->n_blocks = (info.st_size / B_SIZE) + (info.st_size % B_SIZE > 0 ? 1 : 0);
         file->blocks = malloc(file->n_blocks * sizeof(binfo));
         for (int i = 0; i < file->n_blocks; i++) {
             file->blocks[i].state = B_MISSING;
@@ -63,6 +63,22 @@ static finfo *finfo_init(uuid_t uid, bool local, char *path, struct stat info) {
         file->blocks = NULL;
     }
     return file;
+}
+
+static void check_stat_consistency(finfo *file) {
+    int target = (file->info.st_size / B_SIZE) + (file->info.st_size % B_SIZE > 0 ? 1 : 0);
+    if (target > file->n_blocks) {
+        if (file->blocks == NULL) {
+            file->blocks = malloc(target);
+        } else {
+            file->blocks = realloc(file->blocks, target);
+        }
+        for (int i = file->n_blocks; i < target; i++) {
+            file->blocks[i].state = B_MISSING;
+            file->blocks[i].waiting_fds = list_init();
+        }
+        file->n_blocks = target;
+    }
 }
 
 static void finfo_destroy(finfo **file) {
@@ -165,7 +181,7 @@ static void init_structs() {
 }
 
 static int abeforeb(struct timespec a, struct timespec b) {
-    if(a.tv_sec == b.tv_sec)
+    if (a.tv_sec == b.tv_sec)
         return a.tv_nsec < b.tv_nsec;
     else
         return a.tv_sec < b.tv_sec;
@@ -353,7 +369,7 @@ int exec_getattr(int socket, const char *path) {
     } else {
         file = (finfo *) table_lookup(global_files, path);
         if (file == NULL || file->local) {
-            if( relative2full(fpath, path, file->local) < 0) {
+            if (relative2full(fpath, path, file->local) < 0) {
                 retstat = OP_REQ_FAIL;
                 writefully(socket, &retstat, sizeof(int));
                 return retstat;
@@ -523,6 +539,101 @@ int exec_open(int socket, const char *path) {
     return writefully(socket, &fd, sizeof(int)) <= 0 ? -1 : 0;
 }
 
+int exec_write(int socket, const char *path) {
+    ygg_log("AntDFS", "INFO", "Executing write request");
+    int virtualfd;
+    int offset;
+    unsigned int size;
+    int retstat = OP_REQ_SUCCESS;
+    int writesize = 0;
+    int errstat = 0;
+
+    if (readfully(socket, &virtualfd, sizeof(int)) <= 0) {
+        errno = EFAULT;
+        return -1;
+    }
+    if (readfully(socket, &offset, sizeof(int)) <= 0) {
+        errno = EFAULT;
+        return -1;
+    }
+    if (readfully(socket, &size, sizeof(unsigned int)) <= 0) {
+        errno = EFAULT;
+        return -1;
+    }
+
+    char buf[size];
+
+    if (size > 0 && readfully(socket, buf, size) <= 0) {
+        errno = EFAULT;
+        return -1;
+    }
+
+    printf("Params %d %ld %ld\n", virtualfd, offset, size);
+
+    finfo *file = table_lookup(global_files, path);
+    vfdinfo *vfd = list_find_item(virtual_fds, (equal_function) equal_vfdinfo, (void *) &virtualfd);
+
+    // invalid file descriptor
+    if (vfd == NULL) {
+        retstat = OP_REQ_FAIL;
+        errstat = EBADF;
+        if (writefully(socket, &retstat, sizeof(int)) <= 0) return -1;
+        if (writefully(socket, &errstat, sizeof(int)) <= 0) return -1;
+        return retstat;
+    }
+
+    int new_file = 0;
+
+    if (file == NULL) {
+        //This is a new file.
+        uuid_t myself;
+        getmyId(myself);
+        struct stat st;
+        bzero(&st, sizeof(struct stat));
+        int pathsize = strlen(path);
+        char* npath = malloc(pathsize + 1);
+        memcpy(npath, path, pathsize+1);
+        file = finfo_init(myself, true, npath, st);
+        new_file = 1;
+    }
+
+    if (file->local) {
+        char fpath[PATH_MAX];
+        int fd = 0;
+        if (full2relative(fpath, path, true) == 0 && (fd = open(fpath, O_WRONLY)) > 0) {
+            writesize = (int) pwrite(fd, buf, size, offset);
+            close(fd);
+        } else {
+            errstat = errno;
+        }
+        lstat(fpath, &(file->info));
+        check_stat_consistency(file);
+        if(new_file == 1) {
+            pthread_mutex_lock(&global_mutex);
+            list_add_item_to_tail(local_files, file);
+            n_local++;
+            table_insert(global_files, file->path, file);
+            pthread_mutex_unlock(&global_mutex);
+        }
+    } else {
+        retstat = OP_REQ_FAIL;
+        errstat = ENXIO;
+        if (writefully(socket, &retstat, sizeof(int)) <= 0) return -1;
+        if (writefully(socket, &errstat, sizeof(int)) <= 0) return -1;
+    }
+
+    if (writesize < 0) {
+        retstat = OP_REQ_FAIL;
+        if ( writefully(socket, &retstat, sizeof(int)) <= 0) return -1;
+        if ( writefully(socket, &errstat, sizeof(int)) <= 0) return -1;
+    } else {
+        if ( writefully(socket, &retstat, sizeof(int)) <= 0) return -1;
+        if ( writefully(socket, &writesize, sizeof(int)) <= 0) return -1;
+    }
+
+    return retstat;
+}
+
 int exec_read(int socket, const char *path) {
     ygg_log("AntDFS", "INFO", "Executing read request");
     int virtualfd;
@@ -548,7 +659,6 @@ int exec_read(int socket, const char *path) {
 
     finfo *file = table_lookup(global_files, path);
     vfdinfo *vfd = list_find_item(virtual_fds, (equal_function) equal_vfdinfo, (void *) &virtualfd);
-
 
     // file does not exist
     if (file == NULL) {
@@ -596,22 +706,22 @@ int exec_read(int socket, const char *path) {
     //Se não começas a ir buscar blocos (invocas a função que vai pedir os próximos x blocos)
     if (file->local) {
         char fpath[PATH_MAX];
-        if(relative2full(fpath, path, true) != 0) {
+        if (relative2full(fpath, path, true) != 0) {
             retstat = OP_REQ_FAIL;
             errno = ENOENT;
         } else {
             int fd = open(fpath, O_RDONLY);
-            if(fd > 0) {
+            if (fd > 0) {
                 char buf[size];
-                bzero(buf,size);
+                bzero(buf, size);
                 readsize = read(fd, buf, size);
-                if(readsize >= 0) {
+                if (readsize >= 0) {
                     if (writefully(socket, &retstat, sizeof(int)) <= 0) return -1;
                     if (writefully(socket, &readsize, sizeof(int)) <= 0) return -1;
                     if (readsize > 0 && writefully(socket, buf, readsize) <= 0) return -1;
                 }
                 close(fd);
-                return retstat;       
+                return retstat;
             }
             retstat = OP_REQ_FAIL;
             if (writefully(socket, &retstat, sizeof(int)) <= 0) return -1;
@@ -694,6 +804,8 @@ static int exec_operation(int socket) {
             return exec_open(socket, path);
         case READ_REQ:
             return exec_read(socket, path);
+        case WRITE_REQ:
+            return exec_write(socket, path);
         case CLOSE_REQ:
             return exec_close(socket, path);
         default:
@@ -904,7 +1016,7 @@ void process_dissemination_msg(YggMessage *msg, uuid_t myid, unsigned int len, v
                     updateFileStats(&file->info, &st);
                 }
             } else {
-                if( abeforeb(previous->info.st_ctim, file->info.st_ctim) ) {
+                if (abeforeb(previous->info.st_ctim, file->info.st_ctim)) {
                     updateFileStats(&(file->info), &(previous->info));
                     previous->info = file->info;
                 }
