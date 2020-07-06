@@ -1287,7 +1287,6 @@ static void process_timer(YggTimer *timer) {
     pthread_mutex_lock(&global_mutex);
     list_item *it = local_files->head;
     while (it != NULL) {
-        ygg_log("AntDFS", "ADVERTISING", ((finfo*)it->data)->path);
         YggRequest_init(&req, CONTROL_ID, DISSEMINATION_ID, REQUEST, DISSEMINATION_REQUEST);
         unsigned short free_payload = 1400 - sizeof(uuid_t);
         short msg_id = (short) DISSEMINATION_MSG;
@@ -1301,6 +1300,7 @@ static void process_timer(YggTimer *timer) {
             it = it->next;
         }
         while (it != NULL) {
+            ygg_log("AntDFS", "ADVERTISING", ((finfo*)it->data)->path);
             s = serialize_finfo(&buf, it->data);
             if (s > free_payload)
                 break;
