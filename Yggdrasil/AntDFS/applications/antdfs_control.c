@@ -504,8 +504,9 @@ int exec_releasedir(int socket, const char *path) {
 }
 
 char *blockrequestname(char *path, int id) {
-    char* blockrequestid = malloc(strlen(path) + 12);
-    bzero(blockrequestid, PATH_MAX + 12);
+    int baselength = strlen(path) + 12;
+    char* blockrequestid = malloc(baselength);
+    bzero(blockrequestid, baselength);
     sprintf(blockrequestid, "%s.%d", path, id);
     blockrequestid = realloc(blockrequestid, strlen(blockrequestid) + 1);
     return blockrequestid;
