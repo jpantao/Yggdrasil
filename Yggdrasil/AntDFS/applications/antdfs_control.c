@@ -23,6 +23,13 @@ list *cached_files;
 // Table mapping filename -> finfo
 struct table *global_files;
 
+struct table* pending_requests_map;
+
+typedef struct request_t {
+    char* req_id;
+    struct timeval sent_t;
+    int attempts;
+} request;
 
 typedef struct binfo_t {
     char state;
@@ -43,6 +50,19 @@ typedef struct finfo_t {
     long n_blocks;
     binfo *blocks;
 } finfo;
+
+static request* request_init(char* reqid) {
+    request* r = malloc(sizeof(request));
+    r->req_id = reqid;
+    gettimeofday(&(r->sent_t),NULL);
+    r->attempts = 1;
+    return r;
+}
+
+static void request_destroy(request* r) {
+    free(r->req_id);
+    free(r);
+}
 
 static breq *breq_init(int vfd, int size, int offset) {
     breq *request = malloc(sizeof(breq));
@@ -182,6 +202,7 @@ static void init_structs() {
     virtual_fds = list_init();
 
     pending_requests = list_init();
+    pending_requests_map = table_create(500);
 }
 
 static int abeforeb(struct timespec a, struct timespec b) {
@@ -482,11 +503,20 @@ int exec_releasedir(int socket, const char *path) {
     return retstat;
 }
 
+char *blockrequestname(char *path, int id) {
+    char* blockrequestid = malloc(strlen(path) + 12);
+    bzero(blockrequestid, PATH_MAX + 12);
+    sprintf(blockrequestid, "%s.%d", path, id);
+    blockrequestid = realloc(blockrequestid, strlen(blockrequestid) + 1);
+    return blockrequestid;
+}
+
 void request_block(const char *path, int blknum, const finfo *file, breq *req) {
     printf("Requesting block %s:%d, for vfd %d\n", path, blknum, req == NULL ? 0 : req->vfd);
     YggMessage msg;
 
     if (file->blocks[blknum].state == B_MISSING) {
+        request* rinfo = request_init(blockrequestname(path, blknum));
         YggMessage_initBcast(&msg, CONTROL_ID);
         short msg_id = (short) FETCH_BLK_REQ_MSG;
         YggMessage_addPayload(&msg, (char *) &msg_id, sizeof(short));
@@ -1290,6 +1320,16 @@ void process_fetch_blk_rep_msg(YggMessage *msg, void *ptr) {
     bzero(buf, readbytes + 1);
     if (readbytes > 0)
         YggMessage_readPayload(msg, ptr, buf, readbytes);
+
+    //Free pending request information...
+    char* reqid = blockrequestname(path, blknum)
+    request* r = table_remove(pending_requests_map, reqid);
+    free(reqid);
+    if(r != NULL) {
+        request_destroy(r);
+    } else {
+        return;
+    }
 
     printf("Block %s:%d. Size: %d\n", path, blknum, readbytes);
     finfo *file = table_lookup(global_files, path);
