@@ -1322,7 +1322,7 @@ void process_fetch_blk_rep_msg(YggMessage *msg, void *ptr) {
         YggMessage_readPayload(msg, ptr, buf, readbytes);
 
     //Free pending request information...
-    char* reqid = blockrequestname(path, blknum)
+    char* reqid = blockrequestname(path, blknum);
     request* r = table_remove(pending_requests_map, reqid);
     free(reqid);
     if(r != NULL) {
