@@ -516,7 +516,8 @@ void request_block(const char *path, int blknum, const finfo *file, breq *req) {
     YggMessage msg;
 
     if (file->blocks[blknum].state == B_MISSING) {
-        request* rinfo = request_init(blockrequestname(path, blknum));
+        request* rinfo = request_init(blockrequestname((char*) path, blknum));
+        table_insert(pending_requests_map, rinfo->req_id, rinfo);
         YggMessage_initBcast(&msg, CONTROL_ID);
         short msg_id = (short) FETCH_BLK_REQ_MSG;
         YggMessage_addPayload(&msg, (char *) &msg_id, sizeof(short));
