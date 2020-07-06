@@ -47,7 +47,7 @@ static void ifn_init_socket(int *sock, struct sockaddr_in *addr) {
 int antdfs_getattr(const char *path, struct stat *statbuf) {
     log_msg("FUSE executing GETATTR %s\n", path);
 
-    static int sock = 0;
+    int sock = 0;
     static struct sockaddr_in addr;
     ifn_init_socket(&sock, &addr);
 
@@ -83,6 +83,8 @@ int antdfs_getattr(const char *path, struct stat *statbuf) {
         errno = EFAULT;
     }
 
+    close(sock);
+
     if (retstat == OP_REQ_FAIL) {
         retstat = -1;
         //errno = -errno;
@@ -103,7 +105,7 @@ int antdfs_access(const char *path, int mask) {
 int antdfs_opendir(const char *path, struct fuse_file_info *fi) {
     log_msg("FUSE executing OPENDIR %s\n", path);
     DIR *dp;
-    static int sock = 0;
+    int sock = 0;
     static struct sockaddr_in addr;
     ifn_init_socket(&sock, &addr);
 
@@ -140,6 +142,9 @@ int antdfs_opendir(const char *path, struct fuse_file_info *fi) {
         retstat = -1;
         errno = EFAULT;
     }
+
+    close(sock);
+
     log_msg("FUSE dp received %0x8\n", dp);
     fi->fh = (intptr_t) dp;
     log_fi(fi);
@@ -157,7 +162,7 @@ int antdfs_readdir(const char *path, void *buf, fuse_fill_dir_t filler, off_t of
     DIR *dp;
     dp = (DIR *) (uintptr_t) fi->fh;
 
-    static int sock = 0;
+    int sock = 0;
     static struct sockaddr_in addr;
     ifn_init_socket(&sock, &addr);
 
@@ -195,6 +200,9 @@ int antdfs_readdir(const char *path, void *buf, fuse_fill_dir_t filler, off_t of
         free(name);
         if(readfully(sock, &name_length, sizeof(int)) <= 0) return -1;
     }
+
+    close(sock);
+
     log_fi(fi);
     return retstat;
 }
@@ -205,7 +213,7 @@ int antdfs_releasedir(const char *path, struct fuse_file_info *fi) {
     int retstat = OP_REQ_SUCCESS;
     DIR* dp = (DIR *) (uintptr_t) fi->fh;
     log_msg("FUSE sending dp %0x8\n", dp);
-    static int sock = 0;
+    int sock = 0;
     static struct sockaddr_in addr;
     ifn_init_socket(&sock, &addr);
 
@@ -234,7 +242,7 @@ int antdfs_open(const char *path, struct fuse_file_info *fi) {
     int retstat = 0;
 
 
-    static int sock = 0;
+    int sock = 0;
     static struct sockaddr_in addr;
     ifn_init_socket(&sock, &addr);
 
@@ -271,6 +279,8 @@ int antdfs_open(const char *path, struct fuse_file_info *fi) {
         errno = EFAULT;
     }
 
+    close(sock);
+
     fi->fh = fd;
 
     //log_fi(fi);
@@ -282,7 +292,7 @@ int antdfs_read(const char *path, char *buf, size_t size, off_t offset, struct f
     int retstat = 1;
     log_msg("FUSE executing READ %s\n", path);
 
-    static int sock = 0;
+    int sock = 0;
     static struct sockaddr_in addr;
     ifn_init_socket(&sock, &addr);
 
@@ -371,7 +381,7 @@ int antdfs_readlink(const char *path, char *link, size_t size) {
 int antdfs_mknod(const char *path, mode_t mode, dev_t dev) {
     log_msg("FUSE executing MKNOD %s\n", path);
 
-    static int sock = 0;
+    int sock = 0;
     static struct sockaddr_in addr;
     ifn_init_socket(&sock, &addr);
 
@@ -406,6 +416,8 @@ int antdfs_mknod(const char *path, mode_t mode, dev_t dev) {
     if (retstat == OP_REQ_FAIL && readfully(sock, &errno, sizeof(int)) <= 0)
         errno = EFAULT;
 
+    close(sock);
+
     if (retstat == OP_REQ_SUCCESS) {
         retstat = 0;
     } else {
@@ -420,7 +432,7 @@ int antdfs_mknod(const char *path, mode_t mode, dev_t dev) {
 int antdfs_mkdir(const char *path, mode_t mode) {
     log_msg("FUSE executing MKDIR %s\n", path);
 
-    static int sock = 0;
+    int sock = 0;
     static struct sockaddr_in addr;
     ifn_init_socket(&sock, &addr);
 
@@ -454,6 +466,8 @@ int antdfs_mkdir(const char *path, mode_t mode) {
 
     if (retstat == OP_REQ_FAIL && readfully(sock, &errno, sizeof(int)) <= 0)
         errno = EFAULT;
+
+    close(sock);
 
     if (retstat == OP_REQ_SUCCESS) {
         retstat = 0;
@@ -564,7 +578,7 @@ int antdfs_write(const char *path, const char *buf, size_t size, off_t offset, s
     int retstat = 1;
     log_msg("FUSE executing WRITE %s\n", path);
 
-    static int sock = 0;
+    int sock = 0;
     static struct sockaddr_in addr;
     ifn_init_socket(&sock, &addr);
 
@@ -608,6 +622,8 @@ int antdfs_write(const char *path, const char *buf, size_t size, off_t offset, s
     log_msg("FUSE receiving size\n");
     if (readfully(sock, &writtensize, sizeof(int)) <= 0) return -1;
 
+    close(sock);
+
     log_msg("FUSE Write terminated. retstat: %d writetensize: %d, errono: %d\n", retstat, writtensize, errno);
 
     if(retstat == OP_REQ_SUCCESS)
@@ -636,7 +652,7 @@ int antdfs_release(const char *path, struct fuse_file_info *fi) {
     log_msg("FUSE executing CLOSE %s\n", path);
     int retstat = 0;
 
-    static int sock = 0;
+    int sock = 0;
     static struct sockaddr_in addr;
     ifn_init_socket(&sock, &addr);
 
@@ -668,6 +684,8 @@ int antdfs_release(const char *path, struct fuse_file_info *fi) {
         if(readfully(sock, &errno, sizeof(int)) == sizeof(int))
             errno = -errno;
     }
+
+    close(sock);
 
     //log_fi(fi);
     return log_syscall("close", retstat, 0);
@@ -714,7 +732,7 @@ int antdfs_fgetattr(const char *path, struct stat *statbuf, struct fuse_file_inf
     int retstat = 0;
     log_msg("FUSE executing FGETATTR %s\n", path);
 
-    static int sock = 0;
+    int sock = 0;
     static struct sockaddr_in addr;
     ifn_init_socket(&sock, &addr);
 
@@ -750,6 +768,8 @@ int antdfs_fgetattr(const char *path, struct stat *statbuf, struct fuse_file_inf
         retstat = OP_REQ_FAIL;
         errno = EFAULT;
     }
+
+    close(sock);
 
     if (retstat == OP_REQ_FAIL) {
         retstat = -1;

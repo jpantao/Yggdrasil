@@ -1070,8 +1070,11 @@ static void control_server_init() {
     int listen_socket = socket(AF_INET, SOCK_STREAM, 0);
     setsockopt(listen_socket, SOL_SOCKET, SO_REUSEADDR, &(int) {1}, sizeof(int));
 
-    int sockets[N_OPER];
-    for (int i = 0; i < N_OPER; i++)
+    int socket_array_len = N_OPER;
+    int n_socket = 0;
+
+    int* sockets = malloc(sizeof(int) * socket_array_len);
+    for (int i = 0; i < socket_array_len; i++)
         sockets[i] = -1;
 
     struct sockaddr_in address;
@@ -1096,7 +1099,7 @@ static void control_server_init() {
         FD_SET(listen_socket, &mask);
 
         ygg_log("AntDFS", "INFO", "Setting up sockets");
-        for (int i = 0; i < N_OPER; i++) {
+        for (int i = 0; i < socket_array_len; i++) {
             if (sockets[i] > 0) {
                 FD_SET(sockets[i], &mask);
                 if (sockets[i] > aux)
@@ -1118,9 +1121,14 @@ static void control_server_init() {
                 bzero(&address, sizeof(struct sockaddr_in));
                 unsigned int length = sizeof(struct sockaddr_in);
                 int client_socket = accept(listen_socket, (struct sockaddr *) &address, &length);
+                if(n_socket == socket_array_len) {
+                    sockets = realloc(sockets, sizeof(int) * socket_array_len * 2);
+                    socket_array_len = socket_array_len * 2;
+                }
                 for (int i = 0; i < N_OPER; i++) {
                     if (sockets[i] == -1) {
                         sockets[i] = client_socket;
+                        n_socket++;
                         break;
                     }
                 }
@@ -1135,6 +1143,7 @@ static void control_server_init() {
                         FD_CLR(sockets[i], &mask);
                         close(sockets[i]);
                         sockets[i] = -1;
+                        n_socket--;
                     } else {
                         if (sockets[i] > aux)
                             aux = sockets[i];
