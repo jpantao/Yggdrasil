@@ -34,6 +34,8 @@
 #define READ_REQ 106
 #define CLOSE_REQ 107
 #define WRITE_REQ 108
+#define MKNODE_REQ 109
+#define MKDIR_REQ 110
 
 // Define block codes
 #define B_REQUESTED 'R'

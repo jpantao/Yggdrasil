@@ -369,38 +369,101 @@ int antdfs_readlink(const char *path, char *link, size_t size) {
 }
 
 int antdfs_mknod(const char *path, mode_t mode, dev_t dev) {
+    log_msg("FUSE executing MKNOD %s\n", path);
+
+    static int sock = 0;
+    static struct sockaddr_in addr;
+    ifn_init_socket(&sock, &addr);
+
+    log_msg("FUSE Sending request for operation (%d)\n", MKNODE_REQ);
+    // Sending operation code
+    short code = MKNODE_REQ;
+    if (writefully(sock, &code, sizeof(short)) <= 0) return -1;
+
+    // Sending path length
+    int len = (int) (strlen(path) + 1);
+    log_msg("FUSE sending path length (%d)\n", len);
+    if (writefully(sock, &len, sizeof(int)) <= 0) return -1;
+
+    // Sending path
+    log_msg("FUSE sending path (%s)\n", path);
+    if (writefully(sock, (char *) path, len) <= 0) return -1;
+
+    // Sending mode
+    log_msg("FUSE sending mode\n");
+    if (writefully(sock, &mode, sizeof(mode_t)) <= 0) return -1;
+
+    log_msg("FUSE receiving  retstat\n");
+    // Receiving operation return status
     int retstat;
-    char fpath[PATH_MAX];
+    if (readfully(sock, &retstat, sizeof(int)) <= 0) {
+        retstat = -1;
+        errno = EFAULT;
+    }
 
-    log_msg("\nantdfs_mknod(path=\"%s\", mode=0%3o, dev=%lld)\n",
-            path, mode, dev);
-    fullpath(fpath, path);
+    log_msg("FUSE retstat received (%d)\n", retstat);
 
-    // On Linux this could just be 'mknod(path, mode, dev)' but this
-    // tries to be be more portable by honoring the quote in the Linux
-    // mknod man page stating the only portable use of mknod() is to
-    // make a fifo, but saying it should never actually be used for
-    // that.
-    if (S_ISREG(mode)) {
-        retstat = log_syscall("open", open(fpath, O_CREAT | O_EXCL | O_WRONLY, mode), 0);
-        if (retstat >= 0)
-            retstat = log_syscall("close", close(retstat), 0);
-    } else if (S_ISFIFO(mode))
-        retstat = log_syscall("mkfifo", mkfifo(fpath, mode), 0);
-    else
-        retstat = log_syscall("mknod", mknod(fpath, mode, dev), 0);
+    if (retstat == OP_REQ_FAIL && readfully(sock, &errno, sizeof(int)) <= 0)
+        errno = EFAULT;
 
-    return retstat;
+    if (retstat == OP_REQ_SUCCESS) {
+        retstat = 0;
+    } else {
+        retstat = -1;
+    }
+
+    log_msg("FUSE MKNOD return %d errno %d\n", retstat, errno);
+
+    return log_syscall("mknod", retstat, 0);
 }
 
 int antdfs_mkdir(const char *path, mode_t mode) {
-    char fpath[PATH_MAX];
+    log_msg("FUSE executing MKDIR %s\n", path);
 
-    log_msg("\nantdfs_mkdir(path=\"%s\", mode=0%3o)\n",
-            path, mode);
-    fullpath(fpath, path);
+    static int sock = 0;
+    static struct sockaddr_in addr;
+    ifn_init_socket(&sock, &addr);
 
-    return log_syscall("mkdir", mkdir(fpath, mode), 0);
+    log_msg("FUSE Sending request for operation (%d)\n", MKDIR_REQ);
+    // Sending operation code
+    short code = MKDIR_REQ;
+    if (writefully(sock, &code, sizeof(short)) <= 0) return -1;
+
+    // Sending path length
+    int len = (int) (strlen(path) + 1);
+    log_msg("FUSE sending path length (%d)\n", len);
+    if (writefully(sock, &len, sizeof(int)) <= 0) return -1;
+
+    // Sending path
+    log_msg("FUSE sending path (%s)\n", path);
+    if (writefully(sock, (char *) path, len) <= 0) return -1;
+
+    // Sending mode
+    log_msg("FUSE sending mode\n");
+    if (writefully(sock, &mode, sizeof(mode_t)) <= 0) return -1;
+
+    log_msg("FUSE receiving retstat\n");
+    // Receiving operation return status
+    int retstat;
+    if (readfully(sock, &retstat, sizeof(int)) <= 0) {
+        retstat = -1;
+        errno = EFAULT;
+    }
+
+    log_msg("FUSE retstat received (%d)\n", retstat);
+
+    if (retstat == OP_REQ_FAIL && readfully(sock, &errno, sizeof(int)) <= 0)
+        errno = EFAULT;
+
+    if (retstat == OP_REQ_SUCCESS) {
+        retstat = 0;
+    } else {
+        retstat = -1;
+    }
+
+    log_msg("FUSE MKDIR return %d errno %d\n", retstat, errno);
+
+    return log_syscall("mkdir", retstat, 0);
 }
 
 int antdfs_unlink(const char *path) {

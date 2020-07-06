@@ -602,7 +602,7 @@ int exec_write(int socket, const char *path) {
         bzero(fpath, PATH_MAX);
         int fd = 0;
         if (relative2full(fpath, path, true) == 0) {
-            fd = open(fpath, O_WRONLY);
+            fd = open(fpath, O_CREAT | O_WRONLY);
             if (fd > 0) {
                 writesize = (int) pwrite(fd, buf, size, offset);
                 printf(" =====> DEBUG <===== write -> size: %d, offset: %d, written: %d\n", size, offset, writesize);
@@ -615,6 +615,7 @@ int exec_write(int socket, const char *path) {
             retstat = OP_REQ_FAIL;
             errstat = errno;
         }
+
         lstat(fpath, &(file->info));
         check_stat_consistency(file);
         if (new_file == 1) {
@@ -781,6 +782,134 @@ static void updateFileStats(struct stat *dest, struct stat *origin) {
     dest->st_uid = origin->st_uid;
 }
 
+static int exec_mknode(int socket, char *path) {
+    mode_t mode;
+    int retstat = OP_REQ_SUCCESS;
+    int errorcode = 0;
+
+    if (readfully(socket, &mode, sizeof(mode_t)) <= 0) return -1;
+
+    char fpath[PATH_MAX], extfpath[PATH_MAX];
+    if (relative2full(fpath, path, true) != 0 || relative2full(extfpath, path, false) != 0) {
+        retstat = OP_REQ_FAIL;
+        errorcode = EFAULT;
+    }
+
+
+    if (S_ISREG(mode)) {
+        retstat = open(fpath, O_CREAT | O_EXCL | O_WRONLY, mode);
+        if (retstat >= 0) {
+            retstat = OP_REQ_SUCCESS;
+            close(retstat);
+        } else {
+            retstat = OP_REQ_FAIL;
+            errorcode = errno;
+        }
+
+    } else if (S_ISFIFO(mode)) {
+        retstat = mkfifo(fpath, mode);
+        if (retstat == 0) {
+            retstat = OP_REQ_SUCCESS;
+
+        } else {
+            retstat = OP_REQ_FAIL;
+            errorcode = errno;
+        }
+    } else {
+        struct stat localdir;
+        if (lstat(LOCAL_FILES_LOC, &localdir) == 0) {
+            retstat = mknod(fpath, mode, localdir.st_dev);
+            if (retstat == 0) {
+                retstat = OP_REQ_SUCCESS;
+            } else {
+                retstat = OP_REQ_FAIL;
+                errorcode = errno;
+            }
+        }
+    }
+
+    if(retstat == OP_REQ_SUCCESS) {
+        struct stat newst;
+        if(lstat(fpath, &newst) != 0) {
+            memset(&newst, 0, sizeof(struct stat));
+        }
+        uuid_t myself;
+        getmyId(myself);
+        int relative_path_size = strlen(path) + 1;
+        char* relative_path = malloc(relative_path_size);
+        memcpy(relative_path, path, relative_path_size);
+        finfo* nfile = finfo_init(myself, true, fpath, newst);
+
+        //Generate the shadown file on the remote folder
+        int extf = 0;
+        extf = open(extfpath, O_CREAT | O_EXCL | O_WRONLY, mode);
+        if (extf > 0) {
+            close(extf);
+        }
+ 
+        pthread_mutex_lock(&global_mutex);
+        list_add_item_to_tail(local_files, nfile);
+        n_local++;
+        table_insert(global_files, relative_path, nfile);
+        pthread_mutex_unlock(&global_mutex);
+
+        if(writefully(socket, &retstat, sizeof(int)) <= 0) return -1;
+    } else {
+        if(writefully(socket, &retstat, sizeof(int)) <= 0) return -1;
+        if(writefully(socket, &errorcode, sizeof(int)) <= 0) return -1;
+    }
+    return retstat;
+}
+
+static int exec_mkdir(int socket, char* path) {
+    mode_t mode;
+    int retstat = OP_REQ_SUCCESS;
+    int errorcode = 0;
+
+    if (readfully(socket, &mode, sizeof(mode_t)) <= 0) return -1;
+
+    char fpath[PATH_MAX];
+    if (relative2full(fpath, path, true) != 0) {
+        retstat = OP_REQ_FAIL;
+        errorcode = EFAULT;
+    }
+
+    if(mkdir(fpath, mode) != 0) {
+        retstat = OP_REQ_FAIL;
+        errorcode = errno;
+    }
+
+    if(retstat == OP_REQ_SUCCESS) {
+        struct stat newst;
+        if(lstat(fpath, &newst) != 0) {
+            memset(&newst, 0, sizeof(struct stat));
+        }
+        uuid_t myself;
+        getmyId(myself);
+        int relative_path_size = strlen(path) + 1;
+        char* relative_path = malloc(relative_path_size);
+        memcpy(relative_path, path, relative_path_size);
+        finfo* nfile = finfo_init(myself, true, fpath, newst);
+
+        bzero(fpath, PATH_MAX);
+        if (relative2full(fpath, path, false) == 0) {
+            mkdir(fpath, mode);
+        }
+
+        pthread_mutex_lock(&global_mutex);
+        list_add_item_to_tail(local_files, nfile);
+        n_local++;
+        table_insert(global_files, relative_path, nfile);
+        pthread_mutex_unlock(&global_mutex);
+
+        if(writefully(socket, &retstat, sizeof(int)) <= 0) return -1;
+    } else {
+        if(writefully(socket, &retstat, sizeof(int)) <= 0) return -1;
+        if(writefully(socket, &errorcode, sizeof(int)) <= 0) return -1;
+    }
+    return retstat;
+}
+
 static int exec_operation(int socket) {
     short op;
     if (readfully(socket, &op, sizeof(short)) <= 0)
@@ -815,6 +944,10 @@ static int exec_operation(int socket) {
             return exec_write(socket, path);
         case CLOSE_REQ:
             return exec_close(socket, path);
+        case MKNODE_REQ:
+            return exec_mknode(socket, path);
+        case MKDIR_REQ:
+            return exec_mkdir(socket, path);
         default:
             sprintf(msg, "Undefined operation: %d", op);
             ygg_log("AntDFS", "ERROR", msg);
