@@ -51,22 +51,17 @@ static finfo *finfo_init(uuid_t uid, bool local, char *path, struct stat info) {
     file->local = local;
     file->info = info;
     file->path = path;
-    if (info.st_size > 0) {
-        file->n_blocks = (info.st_size / B_SIZE) + (info.st_size % B_SIZE > 0 ? 1 : 0);
-        file->blocks = malloc(file->n_blocks * sizeof(binfo));
-        for (int i = 0; i < file->n_blocks; i++) {
-            file->blocks[i].state = B_MISSING;
-            file->blocks[i].waiting_fds = list_init();
-        }
-    } else {
-        file->n_blocks = 0;
-        file->blocks = NULL;
+    file->n_blocks = (info.st_size / B_SIZE) + (info.st_size % B_SIZE > 0 ? 2 : 1);
+    file->blocks = malloc(file->n_blocks * sizeof(binfo));
+    for (int i = 0; i < file->n_blocks; i++) {
+        file->blocks[i].state = B_MISSING;
+        file->blocks[i].waiting_fds = list_init();
     }
     return file;
 }
 
 static void check_stat_consistency(finfo *file) {
-    int target = (file->info.st_size / B_SIZE) + (file->info.st_size % B_SIZE > 0 ? 1 : 0);
+    int target = (file->info.st_size / B_SIZE) + (file->info.st_size % B_SIZE > 0 ? 2 : 1);
     if (target > file->n_blocks) {
         if (file->blocks == NULL) {
             file->blocks = malloc(target);
@@ -196,7 +191,7 @@ static void create_empty_file(char *path, bool local, mode_t mode) {
         perror("openat");
 }
 
-static void     create_dir_relative(char *basedir, char *path, mode_t mode) {
+static void create_dir_relative(char *basedir, char *path, mode_t mode) {
     int max = (int) strlen(path);
     int index = 1;
     while (index < max) {
@@ -496,6 +491,7 @@ void request_block(const char *path, int blknum, const finfo *file, int *vfd) {
 
     prinfo *req_info = prinfo_init(path, blknum);
     list_add_item_to_tail(pending_requests, req_info);
+
     file->blocks[blknum].state = B_REQUESTED;
     if (vfd != NULL) {
         printf("Adding %d to waiting_fds of file %s block %d\n", *vfd, path, blknum);
@@ -828,17 +824,17 @@ static int exec_mknode(int socket, char *path) {
         }
     }
 
-    if(retstat == OP_REQ_SUCCESS) {
+    if (retstat == OP_REQ_SUCCESS) {
         struct stat newst;
-        if(lstat(fpath, &newst) != 0) {
+        if (lstat(fpath, &newst) != 0) {
             memset(&newst, 0, sizeof(struct stat));
         }
         uuid_t myself;
         getmyId(myself);
         int relative_path_size = strlen(path) + 1;
-        char* relative_path = malloc(relative_path_size);
+        char *relative_path = malloc(relative_path_size);
         memcpy(relative_path, path, relative_path_size);
-        finfo* nfile = finfo_init(myself, true, relative_path, newst);
+        finfo *nfile = finfo_init(myself, true, relative_path, newst);
 
         //Generate the shadown file on the remote folder
         int extf = 0;
@@ -853,15 +849,15 @@ static int exec_mknode(int socket, char *path) {
         table_insert(global_files, relative_path, nfile);
         pthread_mutex_unlock(&global_mutex);
 
-        if(writefully(socket, &retstat, sizeof(int)) <= 0) return -1;
+        if (writefully(socket, &retstat, sizeof(int)) <= 0) return -1;
     } else {
-        if(writefully(socket, &retstat, sizeof(int)) <= 0) return -1;
-        if(writefully(socket, &errorcode, sizeof(int)) <= 0) return -1;
+        if (writefully(socket, &retstat, sizeof(int)) <= 0) return -1;
+        if (writefully(socket, &errorcode, sizeof(int)) <= 0) return -1;
     }
     return retstat;
 }
 
-static int exec_mkdir(int socket, char* path) {
+static int exec_mkdir(int socket, char *path) {
     mode_t mode;
     int retstat = OP_REQ_SUCCESS;
     int errorcode = 0;
@@ -874,22 +870,22 @@ static int exec_mkdir(int socket, char* path) {
         errorcode = EFAULT;
     }
 
-    if(mkdir(fpath, mode) != 0) {
+    if (mkdir(fpath, mode) != 0) {
         retstat = OP_REQ_FAIL;
         errorcode = errno;
     }
 
-    if(retstat == OP_REQ_SUCCESS) {
+    if (retstat == OP_REQ_SUCCESS) {
         struct stat newst;
-        if(lstat(fpath, &newst) != 0) {
+        if (lstat(fpath, &newst) != 0) {
             memset(&newst, 0, sizeof(struct stat));
         }
         uuid_t myself;
         getmyId(myself);
         int relative_path_size = strlen(path) + 1;
-        char* relative_path = malloc(relative_path_size);
+        char *relative_path = malloc(relative_path_size);
         memcpy(relative_path, path, relative_path_size);
-        finfo* nfile = finfo_init(myself, true, relative_path, newst);
+        finfo *nfile = finfo_init(myself, true, relative_path, newst);
 
         if (relative2full(fpath, path, false) == 0) {
             mkdir(fpath, mode);
@@ -901,10 +897,10 @@ static int exec_mkdir(int socket, char* path) {
         table_insert(global_files, relative_path, nfile);
         pthread_mutex_unlock(&global_mutex);
 
-        if(writefully(socket, &retstat, sizeof(int)) <= 0) return -1;
+        if (writefully(socket, &retstat, sizeof(int)) <= 0) return -1;
     } else {
-        if(writefully(socket, &retstat, sizeof(int)) <= 0) return -1;
-        if(writefully(socket, &errorcode, sizeof(int)) <= 0) return -1;
+        if (writefully(socket, &retstat, sizeof(int)) <= 0) return -1;
+        if (writefully(socket, &errorcode, sizeof(int)) <= 0) return -1;
     }
     return retstat;
 }
@@ -1086,19 +1082,20 @@ static void fuse_fork_init(int argc, char *argv[]) {
 static void create_internal_dirs() {
     int status;
 
-    status = mkdir(REMOTE_FILES_LOC, S_IRWXU);
+    status = mkdir(REMOTE_FILES_LOC, S_IRWXU | S_IRGRP | S_IXGRP | S_IROTH | S_IXOTH);
     if (status != 0 && errno != EEXIST) {
         perror("Failed creating internal remote directory");
         exit(0);
     }
 
-    status = mkdir(LOCAL_FILES_LOC, S_IRWXU);
+
+    status = mkdir(LOCAL_FILES_LOC, S_IRWXU | S_IRGRP | S_IXGRP | S_IROTH | S_IXOTH);
     if (status != 0 && errno != EEXIST) {
         perror("Failed creating internal local directory");
         exit(0);
     }
 
-    status = mkdir(FETCHED_BLOCKS_LOC, S_IRWXU);
+    status = mkdir(FETCHED_BLOCKS_LOC, S_IRWXU | S_IRGRP | S_IXGRP | S_IROTH | S_IXOTH);
     if (status != 0 && errno != EEXIST) {
         perror("Failed creating internal block directory");
         exit(0);
@@ -1299,7 +1296,7 @@ static void process_timer(YggTimer *timer) {
             it = it->next;
         }
         while (it != NULL) {
-            ygg_log("AntDFS", "ADVERTISING", ((finfo*)it->data)->path);
+            ygg_log("AntDFS", "ADVERTISING", ((finfo *) it->data)->path);
             s = serialize_finfo(&buf, it->data);
             if (s > free_payload)
                 break;
