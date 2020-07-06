@@ -196,7 +196,7 @@ static void create_empty_file(char *path, bool local, mode_t mode) {
         perror("openat");
 }
 
-static void create_dir_relative(char *basedir, char *path, mode_t mode) {
+static void     create_dir_relative(char *basedir, char *path, mode_t mode) {
     int max = (int) strlen(path);
     int index = 1;
     while (index < max) {
@@ -846,7 +846,7 @@ static int exec_mknode(int socket, char *path) {
         if (extf > 0) {
             close(extf);
         }
- 
+
         pthread_mutex_lock(&global_mutex);
         list_add_item_to_tail(local_files, nfile);
         n_local++;
@@ -1126,7 +1126,7 @@ void process_dissemination_msg(YggMessage *msg, uuid_t myid, unsigned int len, v
 
     bool myself = (uuid_compare(myid, uid) == 0);
 
-    char fullpath[500];
+    char fullpath[PATH_MAX];
     struct stat st;
 
     if (myself == false) {
@@ -1141,7 +1141,6 @@ void process_dissemination_msg(YggMessage *msg, uuid_t myid, unsigned int len, v
                 table_insert(global_files, file->path, file);
                 if (S_ISDIR(file->info.st_mode)) {
                     create_dir(file->path, false, file->info.st_mode);
-                    bzero(fullpath, 500);
                     relative2full(fullpath, file->path, false);
                     lstat(fullpath, &st);
                     updateFileStats(&file->info, &st);
@@ -1150,7 +1149,6 @@ void process_dissemination_msg(YggMessage *msg, uuid_t myid, unsigned int len, v
                     if (dir != NULL)
                         create_dir(dir, false, file->info.st_mode);
                     create_empty_file(file->path, false, file->info.st_mode);
-                    bzero(fullpath, 500);
                     relative2full(fullpath, file->path, false);
                     lstat(fullpath, &st);
                     updateFileStats(&file->info, &st);
