@@ -19,6 +19,7 @@
 #define FUSE_USE_VERSION 26
 
 #define PATH_MAX 200
+#define TIMEOUT_REMOTE_SECOND 3
 
 // AntDFS state
 #include <stdio.h>

@@ -14,6 +14,7 @@
 
 #include "ygg_runtime.h"
 
+YggTimer retry;
 
 pthread_mutex_t global_mutex;
 unsigned int n_local;
@@ -23,13 +24,7 @@ list *cached_files;
 // Table mapping filename -> finfo
 struct table *global_files;
 
-struct table* pending_requests_map;
-
-typedef struct request_t {
-    char* req_id;
-    struct timeval sent_t;
-    int attempts;
-} request;
+list* pending_requests_map;
 
 typedef struct binfo_t {
     char state;
@@ -51,8 +46,18 @@ typedef struct finfo_t {
     binfo *blocks;
 } finfo;
 
-static request* request_init(char* reqid) {
+typedef struct request_t {
+    finfo* f;
+    int block_num;
+    char* req_id;
+    struct timeval sent_t;
+    int attempts;
+} request;
+
+static request* request_init(finfo* f, int block_num, char* reqid) {
     request* r = malloc(sizeof(request));
+    r->f = f;
+    r->block_num = block_num;
     r->req_id = reqid;
     gettimeofday(&(r->sent_t),NULL);
     r->attempts = 1;
@@ -143,6 +148,9 @@ static bool equal_req(breq *req, breq *alsoreq) {
     return req == alsoreq;
 }
 
+static bool equal_request(request* req, char* reqid) {
+    return strcmp(req->req_id, reqid) == 0;
+}
 
 static vfdinfo *vfdinfo_init(const char *filename, int vfd, int socket) {
     vfdinfo *vfdinfo = malloc(sizeof(vfdinfo));
@@ -202,12 +210,19 @@ static void init_structs() {
     virtual_fds = list_init();
 
     pending_requests = list_init();
-    pending_requests_map = table_create(500);
+    pending_requests_map = list_init();
 }
 
 static int abeforeb(struct timespec a, struct timespec b) {
     if (a.tv_sec == b.tv_sec)
         return a.tv_nsec < b.tv_nsec;
+    else
+        return a.tv_sec < b.tv_sec;
+}
+
+static bool atime_before_btime( struct timeval a, struct timeval b) {
+    if(a.tv_sec == b.tv_sec)
+        return a.tv_usec < b.tv_usec;
     else
         return a.tv_sec < b.tv_sec;
 }
@@ -517,8 +532,8 @@ void request_block(const char *path, int blknum, const finfo *file, breq *req) {
     YggMessage msg;
 
     if (file->blocks[blknum].state == B_MISSING) {
-        request* rinfo = request_init(blockrequestname((char*) path, blknum));
-        table_insert(pending_requests_map, rinfo->req_id, rinfo);
+        request* rinfo = request_init(file, blknum, blockrequestname((char*) path, blknum));
+        list_add_item_to_tail(pending_requests_map, rinfo);
         YggMessage_initBcast(&msg, CONTROL_ID);
         short msg_id = (short) FETCH_BLK_REQ_MSG;
         YggMessage_addPayload(&msg, (char *) &msg_id, sizeof(short));
@@ -1325,7 +1340,7 @@ void process_fetch_blk_rep_msg(YggMessage *msg, void *ptr) {
 
     //Free pending request information...
     char* reqid = blockrequestname(path, blknum);
-    request* r = table_remove(pending_requests_map, reqid);
+    request* r = list_remove_item(pending_requests_map, (equal_function) equal_request ,reqid);
     free(reqid);
     if(r != NULL) {
         request_destroy(r);
@@ -1392,7 +1407,42 @@ static void process_message(YggMessage *msg) {
 
 }
 
+static void checkRequestTimeoutsAndRetransmit() {
+    struct timeval maxdelay;
+    gettimeofday(&maxdelay, NULL);
+    maxdelay.tv_sec -= TIMEOUT_REMOTE_SECOND;
+    list_item* it = pending_requests_map->head;
+    while(it != NULL) {
+        request* req = (request*) it;
+        if(atime_before_btime(req->sent_t, maxdelay)) {
+            //resend request;
+            req->attempts++;
+
+            YggMessage msg;
+            YggMessage_initBcast(&msg, CONTROL_ID);
+            short msg_id = (short) FETCH_BLK_REQ_MSG;
+            YggMessage_addPayload(&msg, (char *) &msg_id, sizeof(short));
+            uuid_t myid;
+            getmyId(myid);
+            YggMessage_addPayload(&msg, (char *) myid, sizeof(uuid_t));
+            int plen = (int) strlen(req->f->path) + 1;
+            YggMessage_addPayload(&msg, (char *) &plen, sizeof(int));
+            YggMessage_addPayload(&msg, (char *) req->f->path, plen);
+            YggMessage_addPayload(&msg, (char *) &(req->block_num), sizeof(int));
+            request_specific_uuid_route_message(PROTO_ROUTING_BATMAN, &msg, req->f->id);
+
+            gettimeofday(&(req->sent_t), NULL);
+        }
+        it = it->next;
+    }
+}
+
 static void process_timer(YggTimer *timer) {
+    if(uuid_compare(timer->id, retry.id) == 0) {
+        checkRequestTimeoutsAndRetransmit();
+        return;
+    }
+
     YggRequest req;
 
     void *buf = NULL;
@@ -1453,6 +1503,10 @@ int main(int argc, char *argv[]) {
     YggTimer_init(&pull, CONTROL_ID, CONTROL_ID);
     YggTimer_set(&pull, 10, 0, 10, 0);
     setupTimer(&pull);
+
+    YggTimer_init(&retry, CONTROL_ID, CONTROL_ID);
+    YggTimer_set (&retry, 1, 0, 1, 0);
+    setupTimer(&retry);
 
     //Start operation server
     pthread_t server_thread;
