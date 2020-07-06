@@ -1,0 +1,17 @@
+
+Na raiz, tens uma pasta tools:
+    - yggdrasil_control.sh -> ficheiro que está no init
+    - runonboot.txt -> ficheiro que diz o que correr.
+
+--MUDA o runonboot.txt para correr o teu script. ATENÇÃO QUE AQUILO CORRE UM OUTRO SCRIPT QUE ACEITA 1 ARGUMENTO (que deve ser o teu script)
+Nota que o runonboot.txt assume que as coisas estão na /home/yggdrasil/ (ver yggdrasil_control.sh:27)
+
+para reconfigurares isto em todos podes usar o fab:
+    - fab sync -> para meteres a pasta tools no sitio onde é esperado
+    - fab configureboot  -> mete os ficheiros para configurar o boot no sitio certo.
+
+--MUDA isto para por o teu script na home do yggdrasil: /home/yggdrasil
+
+
+
+-- and should work.
