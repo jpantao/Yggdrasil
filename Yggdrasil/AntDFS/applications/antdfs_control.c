@@ -255,8 +255,7 @@ static int full2relative(char *path, const char *fpath, bool local) {
 
 //pre: path is not NULL
 static int relative2full(char *fpath, const char *path, bool local) {
-    if (fpath[0] != '\0')
-        bzero(fpath, PATH_MAX);
+    bzero(fpath, PATH_MAX);
     strcat(fpath, local ? LOCAL_FILES_LOC : REMOTE_FILES_LOC);
     strcat(fpath, path);
 
@@ -592,24 +591,33 @@ int exec_write(int socket, const char *path) {
         struct stat st;
         bzero(&st, sizeof(struct stat));
         int pathsize = strlen(path);
-        char* npath = malloc(pathsize + 1);
-        memcpy(npath, path, pathsize+1);
+        char *npath = malloc(pathsize + 1);
+        memcpy(npath, path, pathsize + 1);
         file = finfo_init(myself, true, npath, st);
         new_file = 1;
     }
 
     if (file->local) {
         char fpath[PATH_MAX];
+        bzero(fpath, PATH_MAX);
         int fd = 0;
-        if (full2relative(fpath, path, true) == 0 && (fd = open(fpath, O_WRONLY)) > 0) {
-            writesize = (int) pwrite(fd, buf, size, offset);
-            close(fd);
+        if (relative2full(fpath, path, true) == 0) {
+            fd = open(fpath, O_WRONLY);
+            if (fd > 0) {
+                writesize = (int) pwrite(fd, buf, size, offset);
+                printf(" =====> DEBUG <===== write -> size: %d, offset: %d, written: %d\n", size, offset, writesize);
+                close(fd);
+            } else {
+                retstat = OP_REQ_FAIL;
+                errstat = errno;
+            }
         } else {
+            retstat = OP_REQ_FAIL;
             errstat = errno;
         }
         lstat(fpath, &(file->info));
         check_stat_consistency(file);
-        if(new_file == 1) {
+        if (new_file == 1) {
             pthread_mutex_lock(&global_mutex);
             list_add_item_to_tail(local_files, file);
             n_local++;
@@ -619,17 +627,15 @@ int exec_write(int socket, const char *path) {
     } else {
         retstat = OP_REQ_FAIL;
         errstat = ENXIO;
-        if (writefully(socket, &retstat, sizeof(int)) <= 0) return -1;
-        if (writefully(socket, &errstat, sizeof(int)) <= 0) return -1;
     }
 
-    if (writesize < 0) {
+    if (retstat == OP_REQ_FAIL || writesize < 0) {
         retstat = OP_REQ_FAIL;
-        if ( writefully(socket, &retstat, sizeof(int)) <= 0) return -1;
-        if ( writefully(socket, &errstat, sizeof(int)) <= 0) return -1;
+        if (writefully(socket, &retstat, sizeof(int)) <= 0) return -1;
+        if (writefully(socket, &errstat, sizeof(int)) <= 0) return -1;
     } else {
-        if ( writefully(socket, &retstat, sizeof(int)) <= 0) return -1;
-        if ( writefully(socket, &writesize, sizeof(int)) <= 0) return -1;
+        if (writefully(socket, &retstat, sizeof(int)) <= 0) return -1;
+        if (writefully(socket, &writesize, sizeof(int)) <= 0) return -1;
     }
 
     return retstat;
