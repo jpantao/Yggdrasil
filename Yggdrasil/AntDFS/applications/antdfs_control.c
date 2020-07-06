@@ -838,7 +838,7 @@ static int exec_mknode(int socket, char *path) {
         int relative_path_size = strlen(path) + 1;
         char* relative_path = malloc(relative_path_size);
         memcpy(relative_path, path, relative_path_size);
-        finfo* nfile = finfo_init(myself, true, fpath, newst);
+        finfo* nfile = finfo_init(myself, true, relative_path, newst);
 
         //Generate the shadown file on the remote folder
         int extf = 0;
@@ -889,9 +889,8 @@ static int exec_mkdir(int socket, char* path) {
         int relative_path_size = strlen(path) + 1;
         char* relative_path = malloc(relative_path_size);
         memcpy(relative_path, path, relative_path_size);
-        finfo* nfile = finfo_init(myself, true, fpath, newst);
+        finfo* nfile = finfo_init(myself, true, relative_path, newst);
 
-        bzero(fpath, PATH_MAX);
         if (relative2full(fpath, path, false) == 0) {
             mkdir(fpath, mode);
         }
