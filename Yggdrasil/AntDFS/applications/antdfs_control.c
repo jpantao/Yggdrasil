@@ -568,7 +568,7 @@ int exec_write(int socket, const char *path) {
         return -1;
     }
 
-    printf("Params %d %ld %ld\n", virtualfd, offset, size);
+    printf("Params %d %d %u\n", virtualfd, offset, size);
 
     finfo *file = table_lookup(global_files, path);
     vfdinfo *vfd = list_find_item(virtual_fds, (equal_function) equal_vfdinfo, (void *) &virtualfd);
@@ -663,7 +663,7 @@ int exec_read(int socket, const char *path) {
         return -1;
     }
 
-    printf("Params %d %ld %ld\n", virtualfd, offset, size);
+    printf("Params %d %d %u\n", virtualfd, offset, size);
 
     finfo *file = table_lookup(global_files, path);
     vfdinfo *vfd = list_find_item(virtual_fds, (equal_function) equal_vfdinfo, (void *) &virtualfd);
