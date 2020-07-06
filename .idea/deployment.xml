@@ -7,6 +7,13 @@
           <mappings>
             <mapping deploy="/home/jleitao/Clion" local="$PROJECT_DIR$" web="/" />
           </mappings>
+          <excludedPaths>
+            <excludedPath local="true" path="$PROJECT_DIR$/cmake-build-default-raspberry-pi-01" />
+            <excludedPath local="true" path="$PROJECT_DIR$/cmake-build-default-raspberry-pi-02" />
+            <excludedPath local="true" path="$PROJECT_DIR$/cmake-build-debug" />
+            <excludedPath local="true" path="$PROJECT_DIR$/cmake-build-debug-raspberry-pi-02" />
+            <excludedPath local="true" path="$PROJECT_DIR$/cmake-build-debug-raspberry-pi-01" />
+          </excludedPaths>
         </serverdata>
       </paths>
       <paths name="Raspberry Pi 02 (4430059c-d776-44b2-93bc-4b026fc2cd0b)">
@@ -14,6 +21,13 @@
           <mappings>
             <mapping deploy="/home/jleitao/Clion" local="$PROJECT_DIR$" web="/" />
           </mappings>
+          <excludedPaths>
+            <excludedPath local="true" path="$PROJECT_DIR$/cmake-build-default-raspberry-pi-01" />
+            <excludedPath local="true" path="$PROJECT_DIR$/cmake-build-default-raspberry-pi-02" />
+            <excludedPath local="true" path="$PROJECT_DIR$/cmake-build-debug" />
+            <excludedPath local="true" path="$PROJECT_DIR$/cmake-build-debug-raspberry-pi-02" />
+            <excludedPath local="true" path="$PROJECT_DIR$/cmake-build-debug-raspberry-pi-01" />
+          </excludedPaths>
         </serverdata>
       </paths>
     </serverData>

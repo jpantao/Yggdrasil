@@ -77,8 +77,6 @@ int antdfs_getattr(const char *path, struct stat *statbuf) {
 
     if (retstat == OP_REQ_FAIL && readfully(sock, &errno, sizeof(int)) <= 0)
         errno = EFAULT;
-    else
-        errno = 0;
 
     if (retstat == OP_REQ_SUCCESS && readfully(sock, statbuf, sizeof(struct stat)) <= 0) {
         retstat = OP_REQ_FAIL;
@@ -87,9 +85,13 @@ int antdfs_getattr(const char *path, struct stat *statbuf) {
 
     if (retstat == OP_REQ_FAIL) {
         retstat = -1;
+        //errno = -errno;
+    } else {
+        log_stat(statbuf);
     }
 
-    log_stat(statbuf);
+    log_msg("FUSE GETATTR return %d errno %d (should be %d)\n", retstat, errno, ENOENT);
+
     return log_syscall("lstat", retstat, 0);
 }
 
@@ -537,15 +539,18 @@ int antdfs_write(const char *path, const char *buf, size_t size, off_t offset, s
     if (readfully(sock, &retstat, sizeof(int)) <= 0) return -1;
     if(retstat == OP_REQ_FAIL) {
         readfully(sock, &errno, sizeof(int));
-        errno = -errno;
-        return -1;
     }
 
     int writtensize = 0;
     log_msg("FUSE receiving size\n");
     if (readfully(sock, &writtensize, sizeof(int)) <= 0) return -1;
 
-    return writtensize;
+    log_msg("FUSE Write terminated. retstat: %d writetensize: %d, errono: %d\n", retstat, writtensize, errno);
+
+    if(retstat == OP_REQ_SUCCESS)
+        return writtensize;
+    else
+        return -errno;
 }
 
 int antdfs_statfs(const char *path, struct statvfs *statv) {

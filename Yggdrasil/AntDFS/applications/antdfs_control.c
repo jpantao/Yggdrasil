@@ -356,6 +356,7 @@ int exec_getattr(int socket, const char *path) {
     ygg_log("AntDFS", "INFO", "Executing getattr request");
     struct stat info;
     char fpath[PATH_MAX];
+
     int retstat = OP_REQ_SUCCESS;
 
     finfo *file = NULL;
@@ -369,7 +370,7 @@ int exec_getattr(int socket, const char *path) {
     } else {
         file = (finfo *) table_lookup(global_files, path);
         if (file == NULL || file->local) {
-            if (relative2full(fpath, path, file->local) < 0) {
+            if (relative2full(fpath, path, file == NULL ? true : file->local) < 0) {
                 retstat = OP_REQ_FAIL;
                 writefully(socket, &retstat, sizeof(int));
                 return retstat;

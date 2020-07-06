@@ -1,9 +1,0 @@
-#!/usr/bin/env bash
-
-mountdir=$HOME/YggDFS/mountdir
-rootdir=$HOME/YggDFS/rootdir
-
-mkdir -p $mountdir
-mkdir -p $rootdir
-
-/tmp/tmp.4yRsQEGfYg/cmake-build-raspi-101/bin/YggDFS @ $mountdir $rootdir
