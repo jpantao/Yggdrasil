@@ -1156,11 +1156,6 @@ static void control_server_init() {
 }
 
 static void register_protos() {
-
-    batman_args *bargs = batman_args_init(false, false, 2, 0, 5, DEFAULT_BATMAN_WINDOW_SIZE, 3);
-    registerProtocol(PROTO_ROUTING_BATMAN, batman_init, bargs);
-    batman_args_destroy(bargs);
-
     //Register discovery
     discovery_args discoveryArgs = {
             .proto_id = DISCOV_ID,
@@ -1179,6 +1174,10 @@ static void register_protos() {
     };
     registerProtocol(reliableDisseminationArgs.proto_id,
                      (Proto_init) reliable_dissemination_init, &reliableDisseminationArgs);
+
+    batman_args *bargs = batman_args_init(false, false, 2, 0, 5, DEFAULT_BATMAN_WINDOW_SIZE, 3);
+    registerProtocol(PROTO_ROUTING_BATMAN, batman_init, bargs);
+    batman_args_destroy(bargs);
 }
 
 static void fuse_fork_init(int argc, char *argv[]) {
