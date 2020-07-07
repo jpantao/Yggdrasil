@@ -14,6 +14,7 @@
 
 #include "ygg_runtime.h"
 
+YggTimer retry;
 
 pthread_mutex_t global_mutex;
 unsigned int n_local;
@@ -23,6 +24,7 @@ list *cached_files;
 // Table mapping filename -> finfo
 struct table *global_files;
 
+list* pending_requests_map;
 
 typedef struct binfo_t {
     char state;
@@ -43,6 +45,35 @@ typedef struct finfo_t {
     long n_blocks;
     binfo *blocks;
 } finfo;
+
+typedef struct request_t {
+    int path_len;
+    char* path;
+    uuid_t owner;
+    int block_num;
+    char* req_id;
+    struct timeval sent_t;
+    int attempts;
+} request;
+
+static request* request_init(char* path, uuid_t owner, int block_num, char* reqid) {
+    request* r = malloc(sizeof(request));
+    r->path_len = strlen(path) + 1;
+    r->path = malloc(r->path_len);
+    memcpy(r->path, path, r->path_len);
+    memcpy(r->owner, owner, sizeof(uuid_t));
+    r->block_num = block_num;
+    r->req_id = reqid;
+    gettimeofday(&(r->sent_t),NULL);
+    r->attempts = 1;
+    return r;
+}
+
+static void request_destroy(request* r) {
+    free(r->path);
+    free(r->req_id);
+    free(r);
+}
 
 static breq *breq_init(int vfd, int size, int offset) {
     breq *request = malloc(sizeof(breq));
@@ -123,6 +154,9 @@ static bool equal_req(breq *req, breq *alsoreq) {
     return req == alsoreq;
 }
 
+static bool equal_request(request* req, char* reqid) {
+    return strcmp(req->req_id, reqid) == 0;
+}
 
 static vfdinfo *vfdinfo_init(const char *filename, int vfd, int socket) {
     vfdinfo *vfdinfo = malloc(sizeof(vfdinfo));
@@ -182,11 +216,19 @@ static void init_structs() {
     virtual_fds = list_init();
 
     pending_requests = list_init();
+    pending_requests_map = list_init();
 }
 
 static int abeforeb(struct timespec a, struct timespec b) {
     if (a.tv_sec == b.tv_sec)
         return a.tv_nsec < b.tv_nsec;
+    else
+        return a.tv_sec < b.tv_sec;
+}
+
+static bool atime_before_btime( struct timeval a, struct timeval b) {
+    if(a.tv_sec == b.tv_sec)
+        return a.tv_usec < b.tv_usec;
     else
         return a.tv_sec < b.tv_sec;
 }
@@ -482,11 +524,22 @@ int exec_releasedir(int socket, const char *path) {
     return retstat;
 }
 
+char *blockrequestname(char *path, int id) {
+    int baselength = strlen(path) + 12;
+    char* blockrequestid = malloc(baselength);
+    bzero(blockrequestid, baselength);
+    sprintf(blockrequestid, "%s.%d", path, id);
+    blockrequestid = realloc(blockrequestid, strlen(blockrequestid) + 1);
+    return blockrequestid;
+}
+
 void request_block(const char *path, int blknum, const finfo *file, breq *req) {
     printf("Requesting block %s:%d, for vfd %d\n", path, blknum, req == NULL ? 0 : req->vfd);
     YggMessage msg;
 
     if (file->blocks[blknum].state == B_MISSING) {
+        request* rinfo = request_init(path, file->id, blknum, blockrequestname((char*) path, blknum));
+        list_add_item_to_tail(pending_requests_map, rinfo);
         YggMessage_initBcast(&msg, CONTROL_ID);
         short msg_id = (short) FETCH_BLK_REQ_MSG;
         YggMessage_addPayload(&msg, (char *) &msg_id, sizeof(short));
@@ -697,6 +750,7 @@ int check_req_completion(breq *req, finfo *file) {
 
         lseek(fd, seek, SEEK_SET);
         read(fd, buff, size_to_read);
+        close(fd);
         writefully(socket, buff, size_to_read);
         free(blockpath);
     }
@@ -1023,8 +1077,11 @@ static void control_server_init() {
     int listen_socket = socket(AF_INET, SOCK_STREAM, 0);
     setsockopt(listen_socket, SOL_SOCKET, SO_REUSEADDR, &(int) {1}, sizeof(int));
 
-    int sockets[N_OPER];
-    for (int i = 0; i < N_OPER; i++)
+    int socket_array_len = N_OPER;
+    int n_socket = 0;
+
+    int* sockets = malloc(sizeof(int) * socket_array_len);
+    for (int i = 0; i < socket_array_len; i++)
         sockets[i] = -1;
 
     struct sockaddr_in address;
@@ -1049,7 +1106,7 @@ static void control_server_init() {
         FD_SET(listen_socket, &mask);
 
         ygg_log("AntDFS", "INFO", "Setting up sockets");
-        for (int i = 0; i < N_OPER; i++) {
+        for (int i = 0; i < socket_array_len; i++) {
             if (sockets[i] > 0) {
                 FD_SET(sockets[i], &mask);
                 if (sockets[i] > aux)
@@ -1071,9 +1128,14 @@ static void control_server_init() {
                 bzero(&address, sizeof(struct sockaddr_in));
                 unsigned int length = sizeof(struct sockaddr_in);
                 int client_socket = accept(listen_socket, (struct sockaddr *) &address, &length);
+                if(n_socket == socket_array_len) {
+                    sockets = realloc(sockets, sizeof(int) * socket_array_len * 2);
+                    socket_array_len = socket_array_len * 2;
+                }
                 for (int i = 0; i < N_OPER; i++) {
                     if (sockets[i] == -1) {
                         sockets[i] = client_socket;
+                        n_socket++;
                         break;
                     }
                 }
@@ -1088,6 +1150,7 @@ static void control_server_init() {
                         FD_CLR(sockets[i], &mask);
                         close(sockets[i]);
                         sockets[i] = -1;
+                        n_socket--;
                     } else {
                         if (sockets[i] > aux)
                             aux = sockets[i];
@@ -1109,7 +1172,6 @@ static void control_server_init() {
 }
 
 static void register_protos() {
-
     batman_args *bargs = batman_args_init(false, false, 2, 0, 5, DEFAULT_BATMAN_WINDOW_SIZE, 3);
     registerProtocol(PROTO_ROUTING_BATMAN, batman_init, bargs);
     batman_args_destroy(bargs);
@@ -1273,6 +1335,7 @@ void process_fetch_blk_req_msg(YggMessage *msg, void *ptr) {
     if (readbytes > 0)
         YggMessage_addPayload(&reply, (char *) buf, readbytes);
     request_specific_uuid_route_message(PROTO_ROUTING_BATMAN, &reply, uuid);
+    printf("Sent reply for block %d of file %s with a %d\n", blknum, path, readbytes);
 }
 
 void process_fetch_blk_rep_msg(YggMessage *msg, void *ptr) {
@@ -1290,9 +1353,23 @@ void process_fetch_blk_rep_msg(YggMessage *msg, void *ptr) {
     bzero(buf, readbytes + 1);
     if (readbytes > 0)
         YggMessage_readPayload(msg, ptr, buf, readbytes);
+    else
+        printf("WARNING: received %d blocks for Block %s:%d\n", readbytes, path, blknum);
+
+    finfo *file = table_lookup(global_files, path);
+
+    //Free pending request information...
+    char* reqid = blockrequestname(path, blknum);
+    request* r = list_remove_item(pending_requests_map, (equal_function) equal_request ,reqid);
+    free(reqid);
+    if(r != NULL) {
+        request_destroy(r);
+    } else if(file->blocks[blknum].state == B_CACHED){
+        printf("Ignoring repeated Block %s:%d. Size: %d\n", path, blknum, readbytes);
+        return;
+    }
 
     printf("Block %s:%d. Size: %d\n", path, blknum, readbytes);
-    finfo *file = table_lookup(global_files, path);
 
     char *blockpath = blkname(path, blknum);
 
@@ -1350,7 +1427,41 @@ static void process_message(YggMessage *msg) {
 
 }
 
+static void checkRequestTimeoutsAndRetransmit() {
+    struct timeval maxdelay;
+    gettimeofday(&maxdelay, NULL);
+    maxdelay.tv_sec -= TIMEOUT_REMOTE_SECOND;
+    list_item* it = pending_requests_map->head;
+    while(it != NULL) {
+        request* req = (request*) it;
+        if(atime_before_btime(req->sent_t, maxdelay)) {
+            //resend request;
+            req->attempts++;
+
+            YggMessage msg;
+            YggMessage_initBcast(&msg, CONTROL_ID);
+            short msg_id = (short) FETCH_BLK_REQ_MSG;
+            YggMessage_addPayload(&msg, (char *) &msg_id, sizeof(short));
+            uuid_t myid;
+            getmyId(myid);
+            YggMessage_addPayload(&msg, (char *) myid, sizeof(uuid_t));
+            YggMessage_addPayload(&msg, (char *) &(req->path_len), sizeof(int));
+            YggMessage_addPayload(&msg, (char *) req->path, req->path_len);
+            YggMessage_addPayload(&msg, (char *) &(req->block_num), sizeof(int));
+            request_specific_uuid_route_message(PROTO_ROUTING_BATMAN, &msg, req->owner);
+
+            gettimeofday(&(req->sent_t), NULL);
+        }
+        it = it->next;
+    }
+}
+
 static void process_timer(YggTimer *timer) {
+    if(uuid_compare(timer->id, retry.id) == 0) {
+        checkRequestTimeoutsAndRetransmit();
+        return;
+    }
+
     YggRequest req;
 
     void *buf = NULL;
@@ -1411,6 +1522,10 @@ int main(int argc, char *argv[]) {
     YggTimer_init(&pull, CONTROL_ID, CONTROL_ID);
     YggTimer_set(&pull, 10, 0, 10, 0);
     setupTimer(&pull);
+
+    YggTimer_init(&retry, CONTROL_ID, CONTROL_ID);
+    YggTimer_set (&retry, 1, 0, 1, 0);
+    setupTimer(&retry);
 
     //Start operation server
     pthread_t server_thread;
