@@ -1171,6 +1171,10 @@ static void control_server_init() {
 }
 
 static void register_protos() {
+    batman_args *bargs = batman_args_init(false, false, 2, 0, 5, DEFAULT_BATMAN_WINDOW_SIZE, 3);
+    registerProtocol(PROTO_ROUTING_BATMAN, batman_init, bargs);
+    batman_args_destroy(bargs);
+
     //Register discovery
     discovery_args discoveryArgs = {
             .proto_id = DISCOV_ID,
@@ -1189,10 +1193,6 @@ static void register_protos() {
     };
     registerProtocol(reliableDisseminationArgs.proto_id,
                      (Proto_init) reliable_dissemination_init, &reliableDisseminationArgs);
-
-    batman_args *bargs = batman_args_init(false, false, 2, 0, 5, DEFAULT_BATMAN_WINDOW_SIZE, 3);
-    registerProtocol(PROTO_ROUTING_BATMAN, batman_init, bargs);
-    batman_args_destroy(bargs);
 }
 
 static void fuse_fork_init(int argc, char *argv[]) {
@@ -1334,6 +1334,7 @@ void process_fetch_blk_req_msg(YggMessage *msg, void *ptr) {
     if (readbytes > 0)
         YggMessage_addPayload(&reply, (char *) buf, readbytes);
     request_specific_uuid_route_message(PROTO_ROUTING_BATMAN, &reply, uuid);
+    printf("Sent reply for block %d of file %s with a %d\n", blknum, path, readbytes);
 }
 
 void process_fetch_blk_rep_msg(YggMessage *msg, void *ptr) {
@@ -1352,18 +1353,20 @@ void process_fetch_blk_rep_msg(YggMessage *msg, void *ptr) {
     if (readbytes > 0)
         YggMessage_readPayload(msg, ptr, buf, readbytes);
 
+    finfo *file = table_lookup(global_files, path);
+
     //Free pending request information...
     char* reqid = blockrequestname(path, blknum);
     request* r = list_remove_item(pending_requests_map, (equal_function) equal_request ,reqid);
     free(reqid);
     if(r != NULL) {
         request_destroy(r);
-    } else {
+    } else if(file->blocks[blknum].state == B_CACHED){
+        printf("Ignoring repeated Block %s:%d. Size: %d\n", path, blknum, readbytes);
         return;
     }
 
     printf("Block %s:%d. Size: %d\n", path, blknum, readbytes);
-    finfo *file = table_lookup(global_files, path);
 
     char *blockpath = blkname(path, blknum);
 
