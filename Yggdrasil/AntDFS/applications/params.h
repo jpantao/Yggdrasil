@@ -8,6 +8,7 @@
 #define LOCAL_FILES_LOC  "/home/jpantao/AntDFS/antdfs.local"
 #define REMOTE_FILES_LOC "/home/jpantao/AntDFS/antdfs.remote"
 #define FETCHED_BLOCKS_LOC "/home/jpantao/AntDFS/antdfs.blocks"
+#define FILTER "DFS"
 
 // Limitation for the amount of disk space used by AntDFS
 #define MAX_DISK_USAGE 0

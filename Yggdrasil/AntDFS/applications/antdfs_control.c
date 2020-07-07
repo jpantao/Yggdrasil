@@ -1400,7 +1400,7 @@ int main(int argc, char *argv[]) {
     init_structs();
 
     //Init ygg_runtime and protocols
-    NetworkConfig *ntconf = defineWirelessNetworkConfig(TYPE, 13, 5, 1, "antdfs", "DFS");
+    NetworkConfig *ntconf = defineWirelessNetworkConfig(TYPE, 13, 5, 1, "antdfs", FILTER);
     ygg_runtime_init(ntconf);
     register_protos();
 
