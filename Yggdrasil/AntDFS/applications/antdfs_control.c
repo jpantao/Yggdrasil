@@ -47,16 +47,21 @@ typedef struct finfo_t {
 } finfo;
 
 typedef struct request_t {
-    finfo* f;
+    int path_len;
+    char* path;
+    uuid_t owner;
     int block_num;
     char* req_id;
     struct timeval sent_t;
     int attempts;
 } request;
 
-static request* request_init(finfo* f, int block_num, char* reqid) {
+static request* request_init(char* path, uuid_t owner, int block_num, char* reqid) {
     request* r = malloc(sizeof(request));
-    r->f = f;
+    r->path_len = strlen(path) + 1;
+    r->path = malloc(r->path_len);
+    memcpy(r->path, path, r->path_len);
+    memcpy(r->owner, owner, sizeof(uuid_t));
     r->block_num = block_num;
     r->req_id = reqid;
     gettimeofday(&(r->sent_t),NULL);
@@ -65,6 +70,7 @@ static request* request_init(finfo* f, int block_num, char* reqid) {
 }
 
 static void request_destroy(request* r) {
+    free(r->path);
     free(r->req_id);
     free(r);
 }
@@ -532,7 +538,7 @@ void request_block(const char *path, int blknum, const finfo *file, breq *req) {
     YggMessage msg;
 
     if (file->blocks[blknum].state == B_MISSING) {
-        request* rinfo = request_init(file, blknum, blockrequestname((char*) path, blknum));
+        request* rinfo = request_init(path, file->id, blknum, blockrequestname((char*) path, blknum));
         list_add_item_to_tail(pending_requests_map, rinfo);
         YggMessage_initBcast(&msg, CONTROL_ID);
         short msg_id = (short) FETCH_BLK_REQ_MSG;
@@ -1433,11 +1439,10 @@ static void checkRequestTimeoutsAndRetransmit() {
             uuid_t myid;
             getmyId(myid);
             YggMessage_addPayload(&msg, (char *) myid, sizeof(uuid_t));
-            int plen = (int) strlen(req->f->path) + 1;
-            YggMessage_addPayload(&msg, (char *) &plen, sizeof(int));
-            YggMessage_addPayload(&msg, (char *) req->f->path, plen);
+            YggMessage_addPayload(&msg, (char *) &(req->path_len), sizeof(int));
+            YggMessage_addPayload(&msg, (char *) req->path, req->path_len);
             YggMessage_addPayload(&msg, (char *) &(req->block_num), sizeof(int));
-            request_specific_uuid_route_message(PROTO_ROUTING_BATMAN, &msg, req->f->id);
+            request_specific_uuid_route_message(PROTO_ROUTING_BATMAN, &msg, req->owner);
 
             gettimeofday(&(req->sent_t), NULL);
         }
