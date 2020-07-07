@@ -1434,7 +1434,7 @@ static void checkRequestTimeoutsAndRetransmit() {
     maxdelay.tv_sec -= TIMEOUT_REMOTE_SECOND;
     list_item *it = pending_requests_map->head;
     while (it != NULL) {
-        request *req = (request *) it;
+        request *req = (request *) it->data;
         if (atime_before_btime(req->sent_t, maxdelay)) {
             //resend request;
             req->attempts++;
