@@ -567,6 +567,7 @@ static short route(YggMessage* msg, batman_state* state) {
         };
         queue_push(state->dispatcher_queue, &elem);
         YggMessage_freePayload(msg);
+        return SUCCESS;
     }
 
     if(is_self(&msg->header.dst_addr.mac_addr, state)) {
