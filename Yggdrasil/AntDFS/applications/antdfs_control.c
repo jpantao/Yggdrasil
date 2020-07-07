@@ -750,6 +750,7 @@ int check_req_completion(breq *req, finfo *file) {
 
         lseek(fd, seek, SEEK_SET);
         read(fd, buff, size_to_read);
+        close(fd);
         writefully(socket, buff, size_to_read);
         free(blockpath);
     }
@@ -1352,6 +1353,8 @@ void process_fetch_blk_rep_msg(YggMessage *msg, void *ptr) {
     bzero(buf, readbytes + 1);
     if (readbytes > 0)
         YggMessage_readPayload(msg, ptr, buf, readbytes);
+    else
+        printf("WARNING: received %d blocks for Block %s:%d\n", readbytes, path, blknum);
 
     finfo *file = table_lookup(global_files, path);
 
