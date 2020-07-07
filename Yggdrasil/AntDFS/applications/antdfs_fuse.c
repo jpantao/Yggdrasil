@@ -234,6 +234,7 @@ int antdfs_releasedir(const char *path, struct fuse_file_info *fi) {
     // Sending dp
     log_msg("FUSE sending dp %0x8\n", dp);
     if (writefully(sock, &dp, sizeof(DIR *)) <= 0) return -1;
+    close(sock);
     return retstat;
 }
 
@@ -344,6 +345,7 @@ int antdfs_read(const char *path, char *buf, size_t size, off_t offset, struct f
         errno = -EFAULT;
         return -1;
     }
+    close(sock);
     //log_msg("%s\n", buf);
     return receivedsize;
 }

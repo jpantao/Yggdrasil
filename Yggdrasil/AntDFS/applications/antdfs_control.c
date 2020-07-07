@@ -25,6 +25,7 @@ list *cached_files;
 struct table *global_files;
 
 list *pending_requests_map;
+pthread_mutex_t pending_requests_map_mutex;
 
 // virtual file descriptors
 int vds_counter;
@@ -202,6 +203,7 @@ static prinfo *prinfo_init(const char *filename, int n_block) {
 
 static void init_structs() {
     pthread_mutex_init(&global_mutex, NULL);
+    pthread_mutex_init(&pending_requests_map_mutex, NULL);
 
     global_files = table_create(500);
     local_files = list_init();
@@ -535,7 +537,11 @@ void request_block(const char *path, int blknum, const finfo *file, breq *req) {
 
     if (file->blocks[blknum].state == B_MISSING) {
         request *rinfo = request_init(path, file->id, blknum, blockrequestname((char *) path, blknum));
+
+        pthread_mutex_lock(&pending_requests_map_mutex);
         list_add_item_to_tail(pending_requests_map, rinfo);
+        pthread_mutex_unlock(&pending_requests_map_mutex);
+
         YggMessage_initBcast(&msg, CONTROL_ID);
         short msg_id = (short) FETCH_BLK_REQ_MSG;
         YggMessage_addPayload(&msg, (char *) &msg_id, sizeof(short));
@@ -1129,9 +1135,11 @@ static void control_server_init() {
                 int client_socket = accept(listen_socket, (struct sockaddr *) &address, &length);
                 if (n_socket == socket_array_len) {
                     sockets = realloc(sockets, sizeof(int) * socket_array_len * 2);
+                    for(int i = socket_array_len; i<socket_array_len*2;i++)
+                        sockets[i] = -1;
                     socket_array_len = socket_array_len * 2;
                 }
-                for (int i = 0; i < N_OPER; i++) {
+                for (int i = 0; i < socket_array_len; i++) {
                     if (sockets[i] == -1) {
                         sockets[i] = client_socket;
                         n_socket++;
@@ -1141,7 +1149,7 @@ static void control_server_init() {
             } else
                 FD_SET(listen_socket, &mask);
 
-            for (int i = 0; i < N_OPER; i++) {
+            for (int i = 0; i < socket_array_len; i++) {
                 if (sockets[i] == -1)
                     continue;
                 if (FD_ISSET(sockets[i], &mask)) {
@@ -1359,7 +1367,11 @@ void process_fetch_blk_rep_msg(YggMessage *msg, void *ptr) {
 
     //Free pending request information...
     char *reqid = blockrequestname(path, blknum);
+
+    pthread_mutex_lock(&pending_requests_map_mutex);
     request *r = list_remove_item(pending_requests_map, (equal_function) equal_request, reqid);
+    pthread_mutex_unlock(&pending_requests_map_mutex);
+
     free(reqid);
     if (r != NULL) {
         request_destroy(r);
@@ -1432,6 +1444,8 @@ static void checkRequestTimeoutsAndRetransmit() {
     struct timeval maxdelay;
     gettimeofday(&maxdelay, NULL);
     maxdelay.tv_sec -= TIMEOUT_REMOTE_SECOND;
+
+    pthread_mutex_lock(&pending_requests_map_mutex);
     list_item *it = pending_requests_map->head;
     while (it != NULL) {
         request *req = (request *) it->data;
@@ -1455,6 +1469,7 @@ static void checkRequestTimeoutsAndRetransmit() {
         }
         it = it->next;
     }
+    pthread_mutex_unlock(&pending_requests_map_mutex);
 }
 
 static void process_timer(YggTimer *timer) {
