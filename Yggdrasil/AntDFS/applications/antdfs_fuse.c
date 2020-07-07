@@ -21,13 +21,13 @@ static void fullpath(char *fpath, const char *path) {
 }
 
 static void ifn_init_socket(int *sock, struct sockaddr_in *addr) {
-    log_msg("FUSE connecting to Yggdrasil\n");
+    //log_msg("FUSE connecting to Yggdrasil\n");
     if (*sock != 0) {
         log_msg("FUSE already connected\n");
         return;
     }
 
-    log_msg("FUSE initializing client sock\n");
+    //log_msg("FUSE initializing client sock\n");
     *sock = socket(AF_INET, SOCK_STREAM, 0);
 
     bzero(addr, sizeof(struct sockaddr_in));
@@ -344,7 +344,7 @@ int antdfs_read(const char *path, char *buf, size_t size, off_t offset, struct f
         errno = -EFAULT;
         return -1;
     }
-    log_msg("%s\n", buf);
+    //log_msg("%s\n", buf);
     return receivedsize;
 }
 
