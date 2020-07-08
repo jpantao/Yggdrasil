@@ -95,7 +95,7 @@ parse_times() {
 }
 
 create_remote_files() {
-    for ((i = 0; i<$create_remote_files_num; i++)); do
+    for ((i = 0; i < $create_remote_files_num; i++)); do
         remote_file_name=$(mktemp -u ${create_remote_file_pattern})
         echo -n "$content" >${antdfs_mount_dir}/${remote_file_name}
 
@@ -118,7 +118,7 @@ test_list() {
         echo "listing dir ${test_dir}"
     fi
 
-    time_took_list=$(time (ls $test_dir) 2>&1 1>/dev/null)
+    time_took_list=$(time (ls -la $test_dir) 2>&1 1>/dev/null)
     parse_times "$time_took_list"
 }
 
@@ -192,20 +192,46 @@ test_remote_readings() {
     printf "\t${log_string}" "${READ_REMOTE_OP}" "$total_time_took_remote"
 }
 
+read_tests() {
+    for ((i = 0; i < $num_tests; i++)); do
+        test_filename=${temp_filenames[$i]}
+        test_read $use_dir
+        total_read_time=$(echo "${total_read_time}+${total_time}" | bc)
+    done
+}
+
+write_tests() {
+    for ((i = 0; i < $num_tests; i++)); do
+        test_filename=${temp_filenames[$i]}
+        test_write $use_dir
+        total_write_time=$(echo "${total_write_time}+${total_time}" | bc)
+    done
+}
+
+list_tests() {
+    for ((i = 0; i < $num_tests; i++)); do
+        test_filename=${temp_filenames[$i]}
+        test_list $use_dir
+        total_list_time=$(echo "${total_list_time}+${total_time}" | bc)
+    done
+}
+
 standard_tests() {
     total_write_time="0.0"
     total_read_time="0.0"
     total_list_time="0.0"
 
+    temp_filenames=()
     for ((i = 0; i < $num_tests; i++)); do
         test_filename=$(mktemp -u tempfile_XXXXX)
-        test_write $antdfs_mount_dir
-        total_write_time=$(echo "${total_write_time}+${total_time}" | bc)
-        test_read $antdfs_mount_dir
-        total_read_time=$(echo "${total_read_time}+${total_time}" | bc)
-        test_list $antdfs_mount_dir
-        total_list_time=$(echo "${total_list_time}+${total_time}" | bc)
+        temp_filenames+=($test_filename)
     done
+
+    use_dir=$antdfs_mount_dir
+
+    write_tests
+    read_tests
+    list_tests
 
     echo "============= RESULTS ANTDFS ============="
     echo "AVERAGES:"
@@ -224,6 +250,7 @@ standard_tests() {
     printf "\t${log_string}" "${LIST_FILE_OP}" "$total_list_time"
 
     default_fs_dir=$(mktemp -d)
+    use_dir=$default_fs_dir
 
     if $debug_flag; then
         echo "NOTE: using ${default_fs_dir} as default fs test dir"
@@ -233,15 +260,9 @@ standard_tests() {
     total_read_time="0.0"
     total_list_time="0.0"
 
-    for ((i = 0; i < $num_tests; i++)); do
-        test_filename=$(mktemp -u tempfile_XXXXX)
-        test_write $default_fs_dir
-        total_write_time=$(echo "${total_write_time}+${total_time}" | bc)
-        test_read $default_fs_dir
-        total_read_time=$(echo "${total_read_time}+${total_time}" | bc)
-        test_list $default_fs_dir
-        total_list_time=$(echo "${total_list_time}+${total_time}" | bc)
-    done
+    write_tests
+    read_tests
+    list_tests
 
     echo "============= RESULTS DEFAULT FS ============="
     echo "AVERAGES:"
